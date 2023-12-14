@@ -11,7 +11,7 @@ TODO: g2engine_abstract.py
 
 import json
 from abc import ABC, abstractmethod
-from typing import Any, Dict, Tuple, Union, cast
+from typing import Any, Dict, Iterable, Tuple, Union, cast
 
 from .g2engineflags import G2EngineFlags
 
@@ -438,6 +438,23 @@ class G2EngineAbstract(ABC):
         """
 
     @abstractmethod
+    def export_csv_entity_report_iterator(
+        self,
+        flags: int = G2EngineFlags.G2_EXPORT_DEFAULT_FLAGS,
+        **kwargs: Any,
+    ) -> Iterable[str]:
+        """
+        A simplification of the `export_csv_entity_report`, `fetch_next`, `close_export`
+        lifecycle of a list of entities to export.
+
+        Args:
+            flags (int, optional): Flags used to control information returned. Defaults to G2EngineFlags.G2_EXPORT_DEFAULT_FLAGS.
+
+        Returns:
+            Iterable[str]: _description_
+        """
+
+    @abstractmethod
     def export_json_entity_report(
         self, flags: int = G2EngineFlags.G2_EXPORT_DEFAULT_FLAGS, **kwargs: Any
     ) -> int:
@@ -468,6 +485,23 @@ class G2EngineAbstract(ABC):
             .. literalinclude:: ../../examples/g2engine/export_json_fetch_close.txt
                 :linenos:
                 :language: json
+        """
+
+    @abstractmethod
+    def export_json_entity_report_iterator(
+        self,
+        flags: int = G2EngineFlags.G2_EXPORT_DEFAULT_FLAGS,
+        **kwargs: Any,
+    ) -> Iterable[str]:
+        """
+        A simplification of the `export_json_entity_report`, `fetch_next`, `close_export`
+        lifecycle of a list of entities to export.
+
+        Args:
+            flags (int, optional): Flags used to control information returned. Defaults to G2EngineFlags.G2_EXPORT_DEFAULT_FLAGS.
+
+        Returns:
+            Iterable[str]: TODO:
         """
 
     @abstractmethod
@@ -2432,6 +2466,44 @@ class G2EngineAbstract(ABC):
                 :language: json
         """
 
+    @abstractmethod
+    def why_record_in_entity(
+        self,
+        data_source_code: str,
+        record_id: str,
+        **kwargs: Any,
+    ) -> str:
+        """
+        Describe why a particular record resolved to an entity.
+
+        Args:
+            data_source_code (str): Identifies the provenance of the data.
+            record_id (str): The unique identifier within the records of the same data source.
+
+        Returns:
+            str: A JSON document describing the relationship of the record to the entity.
+        """
+
+    @abstractmethod
+    def why_record_in_entity_v2(
+        self,
+        data_source_code: str,
+        record_id: str,
+        flags: int,
+        **kwargs: Any,
+    ) -> str:
+        """
+        Describe why a particular record resolved to an entity.
+
+        Args:
+            data_source_code (str): Identifies the provenance of the data.
+            record_id (str): The unique identifier within the records of the same data source.
+            flags (int, optional): Flags used to control information returned.
+
+        Returns:
+            str: A JSON document describing the relationship of the record to the entity.
+        """
+
     # TODO: This should be going away in V4?
     @abstractmethod
     def why_records_v2(
@@ -2511,9 +2583,6 @@ class G2EngineAbstract(ABC):
                 :linenos:
                 :language: json
         """
-
-    # TODO: Is why_record_in_entity missing?
-    # TODO: MJD: Mistake on my part.  Need to add it.
 
     # -------------------------------------------------------------------------
     # Convenience methods
