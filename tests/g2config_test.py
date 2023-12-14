@@ -106,3 +106,33 @@ def test_close(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
 def test_create(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
     """Test G2Config().create()."""
     g2_config.create()
+
+
+def test_delete_data_source(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
+    """Test G2Config().delete_data_source()."""
+    g2_config.delete_data_source(0, "")
+
+
+def test_destroy(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
+    """Test G2Config().destroy()."""
+    g2_config.destroy(0, "")
+
+
+def test_init(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
+    """Test G2Config().init()."""
+    g2_config.init("", "")
+
+
+def test_list_data_sources(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
+    """Test G2Config().list_data_sources()."""
+    g2_config.list_data_sources(0)
+
+
+def test_load(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
+    """Test G2Config().load()."""
+    g2_config.load("")
+
+
+def test_save(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
+    """Test G2Config().save()."""
+    g2_config.save(0)
