@@ -18,7 +18,7 @@ from senzing_abstract import g2configmgr_abstract
 
 
 @pytest.fixture(name="g2_configmgr", scope="module")  # type: ignore[misc]
-def g2config_fixture() -> g2configmgr_abstract.G2ConfigMgrAbstract:
+def g2configmgr_fixture() -> g2configmgr_abstract.G2ConfigMgrAbstract:
     """
     Object under test.
     """
@@ -33,7 +33,7 @@ def g2config_fixture() -> g2configmgr_abstract.G2ConfigMgrAbstract:
 
 class G2ConfigMgrTest(g2configmgr_abstract.G2ConfigMgrAbstract):
     """
-    G2 config module access library over gRPC.
+    G2 configmgr module access library.
     """
 
     # -------------------------------------------------------------------------
@@ -50,7 +50,7 @@ class G2ConfigMgrTest(g2configmgr_abstract.G2ConfigMgrAbstract):
         return 0
 
     def destroy(self, *args: Any, **kwargs: Any) -> None:
-        """Null method"""
+        """None"""
 
     def get_config(self, config_id: int, *args: Any, **kwargs: Any) -> str:
         return ""
@@ -68,15 +68,15 @@ class G2ConfigMgrTest(g2configmgr_abstract.G2ConfigMgrAbstract):
         verbose_logging: int = 0,
         **kwargs: Any,
     ) -> None:
-        """Null method"""
+        """None"""
 
     def replace_default_config_id(
         self, old_config_id: int, new_config_id: int, *args: Any, **kwargs: Any
     ) -> None:
-        """Null method"""
+        """None"""
 
     def set_default_config_id(self, config_id: int, *args: Any, **kwargs: Any) -> None:
-        """Null method"""
+        """None"""
 
 
 # -----------------------------------------------------------------------------

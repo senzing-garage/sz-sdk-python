@@ -33,7 +33,7 @@ def g2config_fixture() -> g2config_abstract.G2ConfigAbstract:
 
 class G2ConfigTest(g2config_abstract.G2ConfigAbstract):
     """
-    G2 config module access library over gRPC.
+    G2 config module access library.
     """
 
     # -------------------------------------------------------------------------
@@ -50,7 +50,7 @@ class G2ConfigTest(g2config_abstract.G2ConfigAbstract):
         return ""
 
     def close(self, config_handle: int, *args: Any, **kwargs: Any) -> None:
-        """Null method"""
+        """None"""
 
     def create(self, *args: Any, **kwargs: Any) -> int:
         return 0
@@ -62,10 +62,10 @@ class G2ConfigTest(g2config_abstract.G2ConfigAbstract):
         *args: Any,
         **kwargs: Any,
     ) -> None:
-        """Null method"""
+        """None"""
 
     def destroy(self, *args: Any, **kwargs: Any) -> None:
-        """Null method"""
+        """None"""
 
     def init(
         self,
@@ -74,7 +74,7 @@ class G2ConfigTest(g2config_abstract.G2ConfigAbstract):
         verbose_logging: int = 0,
         **kwargs: Any,
     ) -> None:
-        """Null method"""
+        """None"""
 
     def list_data_sources(self, config_handle: int, *args: Any, **kwargs: Any) -> str:
         return ""
