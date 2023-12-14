@@ -17,7 +17,7 @@ from senzing_abstract import g2product_abstract
 # -----------------------------------------------------------------------------
 
 
-@pytest.fixture(name="g2_produt", scope="module")  # type: ignore[misc]
+@pytest.fixture(name="g2_product", scope="module")  # type: ignore[misc]
 def g2product_fixture() -> g2product_abstract.G2ProductAbstract:
     """
     Object under test.
