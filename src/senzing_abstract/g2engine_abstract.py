@@ -13,16 +13,14 @@ import json
 from abc import ABC, abstractmethod
 from typing import Any, Dict, Tuple, Union, cast
 
-from senzing_abstract.g2abstract.g2engineflags import (  # TODO: Fix this import mess
-    G2EngineFlags,
-)
+from .g2engineflags import G2EngineFlags
 
 # Metadata
 
 __all__ = ["G2EngineAbstract"]
 __version__ = "0.0.1"  # See https://www.python.org/dev/peps/pep-0396/
-__date__ = "2023-10-30"
-__updated__ = "2023-10-30"
+__date__ = "2023-12-14"
+__updated__ = "2023-12-14"
 
 
 class G2EngineAbstract(ABC):

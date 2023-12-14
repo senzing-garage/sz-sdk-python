@@ -18,8 +18,6 @@ clean-osarch-specific:
 
 .PHONY: dependencies-osarch-specific
 dependencies-osarch-specific:
-	python3 -m pip install --upgrade pip
-	pip install psutil pytest pytest-cov pytest-schema
 
 
 .PHONY: hello-world-osarch-specific
@@ -33,10 +31,6 @@ setup-osarch-specific:
 
 .PHONY: test-osarch-specific
 test-osarch-specific:
-	@echo "--- Unit tests -------------------------------------------------------"
-	@pytest tests/ --verbose --capture=no --cov=src/senzing_abstract
-	@echo "--- Test examples ----------------------------------------------------"
-	@pytest examples/ --verbose --capture=no --cov=src/senzing_abstract
 
 
 .PHONY: view-sphinx-osarch-specific

@@ -58,6 +58,8 @@ hello-world: hello-world-osarch-specific
 
 .PHONY: dependencies
 dependencies: dependencies-osarch-specific
+	python3 -m pip install --upgrade pip
+	pip install build psutil pytest pytest-cov pytest-schema virtualenv
 
 # -----------------------------------------------------------------------------
 # build
@@ -81,6 +83,17 @@ publish-test: package
 
 .PHONY: test
 test: test-osarch-specific
+	@echo "--- Unit tests -------------------------------------------------------"
+	@pytest tests/ --verbose --capture=no --cov=src/senzing_abstract --cov-report xml:coverage.xml
+#	@echo "--- Test examples ----------------------------------------------------"
+#	@pytest examples/ --verbose --capture=no --cov=src/senzing_abstract
+	@echo "--- Test examples using unittest -------------------------------------"
+	@python3 -m unittest \
+		examples/g2config/*.py \
+		examples/g2configmgr/*.py \
+		examples/g2diagnostic/*.py \
+		examples/g2engine/*.py \
+		examples/g2product/*.py
 
 
 .PHONY: pylint
@@ -101,16 +114,6 @@ pytest:
 # Documentation
 # -----------------------------------------------------------------------------
 
-.PHONY: pydoc
-pydoc:
-	python3 -m pydoc
-
-
-.PHONY: pydoc-web
-pydoc-web:
-	python3 -m pydoc -p 8885
-
-
 .PHONY: sphinx
 sphinx:
 	@cd docs; rm -rf build; make html
@@ -119,17 +122,12 @@ sphinx:
 .PHONY: view-sphinx
 view-sphinx: view-sphinx-osarch-specific
 
-
 # -----------------------------------------------------------------------------
 # Utility targets
 # -----------------------------------------------------------------------------
 
 .PHONY: clean
 clean: clean-osarch-specific
-	@rm -rf $(TARGET_DIRECTORY) || true
-	@rm -rf $(DIST_DIRECTORY) || true
-	@rm -rf $(MAKEFILE_DIRECTORY)/__pycache__ || true
-	@rm $(MAKEFILE_DIRECTORY)/coverage.xml || true
 
 
 .PHONY: help
