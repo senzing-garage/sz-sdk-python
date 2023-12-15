@@ -537,7 +537,8 @@ class G2EngineAbstract(ABC):
     def find_interesting_entities_by_entity_id(
         self, entity_id: int, flags: int = 0, **kwargs: Any
     ) -> str:
-        """The `find_interesting_entities_by_entity_id` method... TODO:
+        """
+        The `find_interesting_entities_by_entity_id` method... TODO:
 
         Args:
             entity_id (int): The unique identifier of an entity.
