@@ -4,6 +4,7 @@ from .g2diagnostic_abstract import G2DiagnosticAbstract
 from .g2engine_abstract import G2EngineAbstract
 from .g2engineflags import G2EngineFlags
 from .g2exception import (
+    EXCEPTION_MAP,
     G2BadInputError,
     G2ConfigurationError,
     G2DatabaseConnectionLostError,
@@ -21,6 +22,7 @@ from .g2exception import (
 from .g2product_abstract import G2ProductAbstract
 
 __all__ = [
+    "EXCEPTION_MAP",
     "G2BadInputError",
     "G2ConfigAbstract",
     "G2ConfigMgrAbstract",
