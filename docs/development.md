@@ -53,19 +53,19 @@ see [Environment Variables](https://github.com/Senzing/knowledge-base/blob/main/
     python3 -m pip install ${GIT_REPOSITORY_DIR}/dist/*.whl
     ```
 
-1. Verify that `senzing-grpc` is installed.
+1. Verify that `senzing-abstract` is installed.
    Example:
 
     ```console
-    python3 -m pip freeze | grep senzing-grpc
+    python3 -m pip freeze | grep senzing-abstract
     ```
 
     Example return:
-    > senzing-grpc @ file:///home/senzing/senzing.git/g2-sdk-python-grpc/dist/senzing_grpc-0.0.1-py3-none-any.whl#sha256=2a4e5218d66d5be60ee31bfad5943e6611fc921f28a4326d9594ceceae7e0ac1
+    > senzing-abstract @ file:///home/senzing/senzing.git/g2-sdk-python-abstract/dist/senzing_abstract-0.0.1-py3-none-any.whl#sha256=2a4e5218d66d5be60ee31bfad5943e6611fc921f28a4326d9594ceceae7e0ac1
 
-1. Uninstall the `senzing-grpc` python package.
+1. Uninstall the `senzing-abstract` python package.
    Example:
 
     ```console
-    python3 -m pip uninstall senzing-grpc
+    python3 -m pip uninstall senzing-abstract
     ```
