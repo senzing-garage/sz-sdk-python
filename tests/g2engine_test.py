@@ -4,7 +4,7 @@
 TODO: g2engine_test.py
 """
 
-# pylint: disable=E1101
+# pylint: disable=E1101,C0302
 
 from typing import Any, Dict, Iterable, Tuple, Union
 
@@ -695,3 +695,430 @@ def test_export_csv_entity_report_iterator(
 ) -> None:
     """Test G2Engine().export_csv_entity_report_iterator()."""
     g2_engine.export_csv_entity_report_iterator()
+
+
+def test_export_json_entity_report(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().export_json_entity_report()."""
+    g2_engine.export_json_entity_report()
+
+
+def test_export_json_entity_report_iterator(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().export_json_entity_report_iterator()."""
+    g2_engine.export_json_entity_report_iterator()
+
+
+def test_fetch_next(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().fetch_next()."""
+    g2_engine.fetch_next(0)
+
+
+def test_find_interesting_entities_by_entity_id(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().find_interesting_entities_by_entity_id()."""
+    g2_engine.find_interesting_entities_by_entity_id(0)
+
+
+def test_find_interesting_entities_by_record_id(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().find_interesting_entities_by_record_id()."""
+    g2_engine.find_interesting_entities_by_record_id("", "")
+
+
+def test_find_network_by_entity_id_v2(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().find_network_by_entity_id_v2()."""
+    g2_engine.find_network_by_entity_id_v2("", 0, 0, 0)
+
+
+def test_find_network_by_entity_id(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().find_network_by_entity_id()."""
+    g2_engine.find_network_by_entity_id("", 0, 0, 0)
+
+
+def test_find_network_by_record_id_v2(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().find_network_by_record_id_v2()."""
+    g2_engine.find_network_by_record_id_v2("", 0, 0, 0)
+
+
+def test_find_network_by_record_id(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().find_network_by_record_id()."""
+    g2_engine.find_network_by_record_id("", 0, 0, 0)
+
+
+def test_find_path_by_entity_id_v2(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().find_path_by_entity_id_v2()."""
+    g2_engine.find_path_by_entity_id_v2(0, 0, 0)
+
+
+def test_find_path_by_entity_id(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().find_path_by_entity_id()."""
+    g2_engine.find_path_by_entity_id(0, 0, 0)
+
+
+def test_find_path_by_record_id_v2(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().find_path_by_record_id_v2()."""
+    g2_engine.find_path_by_record_id_v2("", "", "", "", 0)
+
+
+def test_find_path_by_record_id(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().find_path_by_record_id()."""
+    g2_engine.find_path_by_record_id("", "", "", "", 0)
+
+
+def test_find_path_excluding_by_entity_id_v2(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().find_path_excluding_by_entity_id_v2()."""
+    g2_engine.find_path_excluding_by_entity_id_v2(0, 0, 0, "")
+
+
+def test_find_path_excluding_by_entity_id(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().find_path_excluding_by_entity_id()."""
+    g2_engine.find_path_excluding_by_entity_id(0, 0, 0, "")
+
+
+def test_find_path_excluding_by_record_id_v2(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().find_path_excluding_by_record_id_v2()."""
+    g2_engine.find_path_excluding_by_record_id_v2("", "", "", "", 0, "")
+
+
+def test_find_path_excluding_by_record_id(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().find_path_excluding_by_record_id()."""
+    g2_engine.find_path_excluding_by_record_id("", "", "", "", 0, "")
+
+
+def test_find_path_including_source_by_entity_id_v2(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().find_path_including_source_by_entity_id_v2()."""
+    g2_engine.find_path_including_source_by_entity_id_v2(0, 0, 0, "", "")
+
+
+def test_find_path_including_source_by_entity_id(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().find_path_including_source_by_entity_id()."""
+    g2_engine.find_path_including_source_by_entity_id(0, 0, 0, "", "")
+
+
+def test_find_path_including_source_by_record_id_v2(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().find_path_including_source_by_record_id_v2()."""
+    g2_engine.find_path_including_source_by_record_id_v2("", "", "", "", 0, "", "")
+
+
+def test_find_path_including_source_by_record_id(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().find_path_including_source_by_record_id()."""
+    g2_engine.find_path_including_source_by_record_id("", "", "", "", 0, "", "")
+
+
+def test_get_active_config_id(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().get_active_config_id()."""
+    g2_engine.get_active_config_id()
+
+
+def test_get_entity_by_entity_id_v2(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().get_entity_by_entity_id_v2()."""
+    g2_engine.get_entity_by_entity_id_v2(0)
+
+
+def test_get_entity_by_entity_id(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().get_entity_by_entity_id()."""
+    g2_engine.get_entity_by_entity_id(0)
+
+
+def test_get_entity_by_record_id_v2(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().get_entity_by_record_id_v2()."""
+    g2_engine.get_entity_by_record_id_v2("", "")
+
+
+def test_get_entity_by_record_id(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().get_entity_by_record_id()."""
+    g2_engine.get_entity_by_record_id("", "")
+
+
+def test_get_record_v2(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().get_record_v2()."""
+    g2_engine.get_record_v2("", "")
+
+
+def test_get_record(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().get_record()."""
+    g2_engine.get_record("", "")
+
+
+def test_get_redo_record(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().get_redo_record()."""
+    g2_engine.get_redo_record()
+
+
+def test_get_repository_last_modified_time(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().get_repository_last_modified_time()."""
+    g2_engine.get_repository_last_modified_time()
+
+
+def test_get_virtual_entity_by_record_id_v2(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().get_virtual_entity_by_record_id_v2()."""
+    g2_engine.get_virtual_entity_by_record_id_v2("")
+
+
+def test_get_virtual_entity_by_record_id(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().get_virtual_entity_by_record_id()."""
+    g2_engine.get_virtual_entity_by_record_id("")
+
+
+def test_how_entity_by_entity_id_v2(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().how_entity_by_entity_id_v2()."""
+    g2_engine.how_entity_by_entity_id_v2(0)
+
+
+def test_how_entity_by_entity_id(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().how_entity_by_entity_id()."""
+    g2_engine.how_entity_by_entity_id(0)
+
+
+def test_init(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().init()."""
+    g2_engine.init("", "")
+
+
+def test_init_with_config_id(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().init_with_config_id()."""
+    g2_engine.init_with_config_id("", "", 0)
+
+
+def test_prime_engine(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().prime_engine()."""
+    g2_engine.prime_engine()
+
+
+def test_process(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().process()."""
+    g2_engine.process("")
+
+
+def test_process_with_info(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().process_with_info()."""
+    g2_engine.process_with_info("", 0)
+
+
+def test_purge_repository(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().purge_repository()."""
+    g2_engine.purge_repository()
+
+
+def test_reevaluate_entity(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().reevaluate_entity()."""
+    g2_engine.reevaluate_entity(0)
+
+
+def test_reevaluate_entity_with_info(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().reevaluate_entity_with_info()."""
+    g2_engine.reevaluate_entity_with_info(0)
+
+
+def test_reevaluate_record(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().reevaluate_record()."""
+    g2_engine.reevaluate_record("", "")
+
+
+def test_reevaluate_record_with_info(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().reevaluate_record_with_info()."""
+    g2_engine.reevaluate_record_with_info("", "")
+
+
+def test_reinit(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().reinit()."""
+    g2_engine.reinit(0)
+
+
+def test_replace_record(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().replace_record()."""
+    g2_engine.replace_record("", "", "")
+
+
+def test_replace_record_with_info(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().replace_record_with_info()."""
+    g2_engine.replace_record_with_info("", "", "")
+
+
+def test_search_by_attributes_v2(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().search_by_attributes_v2()."""
+    g2_engine.search_by_attributes_v2("")
+
+
+def test_search_by_attributes_v3(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().search_by_attributes_v3()."""
+    g2_engine.search_by_attributes_v3("", "")
+
+
+def test_search_by_attributes(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().search_by_attributes()."""
+    g2_engine.search_by_attributes("")
+
+
+def test_stats(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().stats()."""
+    g2_engine.stats()
+
+
+def test_why_entities_v2(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().why_entities_v2()."""
+    g2_engine.why_entities_v2(0, 0)
+
+
+def test_why_entities(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().why_entities()."""
+    g2_engine.why_entities(0, 0)
+
+
+def test_why_entity_by_entity_id_v2(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().why_entity_by_entity_id_v2()."""
+    g2_engine.why_entity_by_entity_id_v2(0)
+
+
+def test_why_entity_by_entity_id(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().why_entity_by_entity_id()."""
+    g2_engine.why_entity_by_entity_id(0)
+
+
+def test_why_entity_by_record_id_v2(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().why_entity_by_record_id_v2()."""
+    g2_engine.why_entity_by_record_id_v2("", "")
+
+
+def test_why_entity_by_record_id(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().why_entity_by_record_id()."""
+    g2_engine.why_entity_by_record_id("", "")
+
+
+def test_why_record_in_entity(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().why_record_in_entity()."""
+    g2_engine.why_record_in_entity("", "")
+
+
+def test_why_record_in_entity_v2(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().why_record_in_entity_v2()."""
+    g2_engine.why_record_in_entity_v2("", "", 0)
+
+
+def test_why_records_v2(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().why_records_v2()."""
+    g2_engine.why_records_v2("", "", "", "")
+
+
+def test_why_records(
+    g2_engine: g2engine_abstract.G2EngineAbstract,
+) -> None:
+    """Test G2Engine().why_records()."""
+    g2_engine.why_records("", "", "", "")
