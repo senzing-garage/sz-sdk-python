@@ -10,7 +10,6 @@ These are "one-time tasks" which may already have been completed.
 1. The following software programs need to be installed:
     1. [git](https://github.com/Senzing/knowledge-base/blob/main/WHATIS/git.md)
     1. [make](https://github.com/Senzing/knowledge-base/blob/main/WHATIS/make.md)
-    1. [docker](https://github.com/Senzing/knowledge-base/blob/main/WHATIS/docker.md)
 
 ## Clone repository
 
@@ -21,35 +20,52 @@ see [Environment Variables](https://github.com/Senzing/knowledge-base/blob/main/
 
     ```console
     export GIT_ACCOUNT=senzing
-    export GIT_REPOSITORY=template-docker
+    export GIT_REPOSITORY=g2-sdk-python-abstract
     export GIT_ACCOUNT_DIR=~/${GIT_ACCOUNT}.git
     export GIT_REPOSITORY_DIR="${GIT_ACCOUNT_DIR}/${GIT_REPOSITORY}"
     ```
 
 1. Using the environment variables values just set, follow steps in [clone-repository](https://github.com/Senzing/knowledge-base/blob/main/HOWTO/clone-repository.md) to install the Git repository.
 
-## Build Docker image
+## Working with Python wheel file
 
-1. **Option #1:** Using `docker` command and GitHub.
-
-    ```console
-    sudo docker build \
-      --tag senzing/template \
-      https://github.com/senzing/template-docker.git#main
-    ```
-
-1. **Option #2:** Using `docker` command and local repository.
+1. Build the `wheel` file for distribution.
+   Example:
 
     ```console
     cd ${GIT_REPOSITORY_DIR}
-    sudo docker build --tag senzing/template .
+    make package
     ```
 
-1. **Option #3:** Using `make` command.
+1. Verify that `senzing-abstract` is not installed.
+   Example:
 
     ```console
-    cd ${GIT_REPOSITORY_DIR}
-    sudo make docker-build
+    python3 -m pip freeze | grep senzing-abstract
     ```
 
-    Note: `sudo make docker-build-development-cache` can be used to create cached Docker layers.
+   Nothing is returned.
+
+1. Install directly from `wheel` file.
+   Example:
+
+    ```console
+    python3 -m pip install ${GIT_REPOSITORY_DIR}/dist/*.whl
+    ```
+
+1. Verify that `senzing-abstract` is installed.
+   Example:
+
+    ```console
+    python3 -m pip freeze | grep senzing-abstract
+    ```
+
+    Example return:
+    > senzing-abstract @ file:///home/senzing/senzing.git/g2-sdk-python-abstract/dist/senzing_abstract-0.0.1-py3-none-any.whl#sha256=2a4e5218d66d5be60ee31bfad5943e6611fc921f28a4326d9594ceceae7e0ac1
+
+1. Uninstall the `senzing-abstract` python package.
+   Example:
+
+    ```console
+    python3 -m pip uninstall senzing-abstract
+    ```
