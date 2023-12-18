@@ -1,3 +1,5 @@
+""" TruthSet data for CUSTOMER """
+
 from typing import Any, Dict
 
 TRUTHSET_CUSTOMER_RECORDS: Dict[Any, Any] = {

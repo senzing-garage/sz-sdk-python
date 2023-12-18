@@ -1,3 +1,5 @@
+""" TruthSet datasources """
+
 from typing import Any, Dict
 
 TRUTHSET_DATASOURCES: Dict[Any, Any] = {

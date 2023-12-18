@@ -1,3 +1,5 @@
+""" TruthSet data for WATCHLIST """
+
 from typing import Any, Dict
 
 TRUTHSET_WATCHLIST_RECORDS: Dict[Any, Any] = {
