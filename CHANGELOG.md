@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.3] - 2023-12-18
+
+### Changed in 0.0.3
+
+- Add truthset
+
 ## [0.0.2] - 2023-12-15
 
 ### Changed in 0.0.2
