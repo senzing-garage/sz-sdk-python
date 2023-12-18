@@ -1,4 +1,6 @@
-TRUTHSET_WATCHLIST_RECORDS = {
+from typing import Any, Dict
+
+TRUTHSET_WATCHLIST_RECORDS: Dict[Any, Any] = {
     "1006": {
         "DataSource": "WATCHLIST",
         "Id": "1006",

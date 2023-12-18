@@ -1,4 +1,6 @@
-TRUTHSET_DATASOURCES = {
+from typing import Any, Dict
+
+TRUTHSET_DATASOURCES: Dict[Any, Any] = {
     "CUSTOMERS": {
         "Json": '{"DSRC_CODE": "CUSTOMERS"}',
     },

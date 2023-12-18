@@ -1,4 +1,6 @@
-TRUTHSET_REFERENCE_RECORDS = {
+from typing import Any, Dict
+
+TRUTHSET_REFERENCE_RECORDS: Dict[Any, Any] = {
     "2012": {
         "DataSource": "REFERENCE",
         "Id": "2012",

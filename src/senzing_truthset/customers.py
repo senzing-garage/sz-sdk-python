@@ -1,4 +1,6 @@
-TRUTHSET_CUSTOMER_RECORDS = {
+from typing import Any, Dict
+
+TRUTHSET_CUSTOMER_RECORDS: Dict[Any, Any] = {
     "1001": {
         "DataSource": "CUSTOMERS",
         "Id": "1001",
