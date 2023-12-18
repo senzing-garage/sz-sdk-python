@@ -219,7 +219,7 @@ TRUTHSET_CUSTOMER_RECORDS: Dict[Any, Any] = {
     "1058": {
         "DataSource": "CUSTOMERS",
         "Id": "1058",
-        "Json": '{"DATA_SOURCE": "CUSTOMERS", "RECORD_ID": "1058", "RECORD_TYPE": "PERSON", "PRIMARY_NAME_LAST": "Jay", "PRIMARY_NAME_FIRST": "Jones", "EMAIL_ADDRESS": ""Jay Jones" <jjones@fmail.com>", "DATE": "1/15/18", "STATUS": "Active", "AMOUNT": "800"}',
+        "Json": '{"DATA_SOURCE": "CUSTOMERS", "RECORD_ID": "1058", "RECORD_TYPE": "PERSON", "PRIMARY_NAME_LAST": "Jay", "PRIMARY_NAME_FIRST": "Jones", "EMAIL_ADDRESS": "Jay Jones <jjones@fmail.com>", "DATE": "1/15/18", "STATUS": "Active", "AMOUNT": "800"}',
     },
     "1059": {
         "DataSource": "CUSTOMERS",
