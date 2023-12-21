@@ -50,7 +50,7 @@ class G2ConfigTest(g2config_abstract.G2ConfigAbstract):
         return ""
 
     def close(self, config_handle: int, *args: Any, **kwargs: Any) -> None:
-        """None"""
+        pass
 
     def create(self, *args: Any, **kwargs: Any) -> int:
         return 0
@@ -62,10 +62,10 @@ class G2ConfigTest(g2config_abstract.G2ConfigAbstract):
         *args: Any,
         **kwargs: Any,
     ) -> None:
-        """None"""
+        pass
 
     def destroy(self, *args: Any, **kwargs: Any) -> None:
-        """None"""
+        pass
 
     def init(
         self,
@@ -74,7 +74,7 @@ class G2ConfigTest(g2config_abstract.G2ConfigAbstract):
         verbose_logging: int = 0,
         **kwargs: Any,
     ) -> None:
-        """None"""
+        pass
 
     def list_data_sources(self, config_handle: int, *args: Any, **kwargs: Any) -> str:
         return ""
@@ -136,3 +136,9 @@ def test_load(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
 def test_save(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
     """Test G2Config().save()."""
     g2_config.save(0)
+
+
+def test_help(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
+    """Test G2Config().help()."""
+    result = g2_config.help("init")
+    assert result == "bob"

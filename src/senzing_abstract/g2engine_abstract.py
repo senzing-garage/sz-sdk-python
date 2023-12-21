@@ -14,6 +14,7 @@ from abc import ABC, abstractmethod
 from typing import Any, Dict, Iterable, Tuple, Union, cast
 
 from .g2engineflags import G2EngineFlags
+from .g2helpers import construct_help
 
 # Metadata
 
@@ -2602,3 +2603,15 @@ class G2EngineAbstract(ABC):
             Dict[str, Any],
             json.loads(self.get_record(data_source_code, record_id, flags, **kwargs)),
         )
+
+    def help(self, method_name: str = "") -> str:
+        """
+        Return the help for a particular message.
+
+        Args:
+            method_name (str): The name of the method. (e.g. "init"). If empty, a list of methods and descriptions is returned.
+
+        Returns:
+            str: The Help information about the requested method
+        """
+        return construct_help(self, method_name=method_name)

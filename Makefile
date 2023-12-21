@@ -84,7 +84,7 @@ publish-test: package
 .PHONY: test
 test: test-osarch-specific
 	@echo "--- Unit tests -------------------------------------------------------"
-	@pytest tests/ --verbose --capture=no --cov=src/senzing_abstract --cov-report xml:coverage.xml
+	@pytest tests/ -vv --verbose --capture=no --cov=src/senzing_abstract --cov-report xml:coverage.xml
 #	@echo "--- Test examples ----------------------------------------------------"
 #	@pytest examples/ --verbose --capture=no --cov=src/senzing_abstract
 	@echo "--- Test examples using unittest -------------------------------------"
