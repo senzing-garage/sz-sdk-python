@@ -32,7 +32,7 @@ def construct_help(self: Any, method_name: str = "") -> str:
                     lines = method_comment.split("\n")
                     method_overview = lines[0].strip()
                     result = f"{result}\n{method_name} - {method_overview}"
-        result = f"{result}\n\nFor method details, use {class_name}.help('method_name')"
+        result = f"{result}\n\nFor method details, use <{class_name}-variable>.help('method_name')"
     else:
         method_comment = inspect.getdoc(getattr(self, method_name))
         if method_comment is not None:
