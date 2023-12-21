@@ -1999,8 +1999,8 @@ class G2EngineAbstract(ABC):
     @abstractmethod
     def reinit(self, init_config_id: int, **kwargs: Any) -> None:
         """
-        The `reinit` method re-initializes the Senzing G2Engine object using a specific configuration
-        identifier. A list of available configuration identifiers can be retrieved using
+        The `reinit` method re-initializes the Senzing G2Engine object using a specific configuration identifier.
+        A list of available configuration identifiers can be retrieved using
         `g2configmgr.get_config_list`.
 
         Args:
@@ -2058,8 +2058,7 @@ class G2EngineAbstract(ABC):
         **kwargs: Any,
     ) -> str:
         """
-        The `replace_record_with_info` method updates/replaces a record in the Senzing repository
-        and returns information on the affected entities.
+        The `replace_record_with_info` method updates/replaces a record in the Senzing repository and returns information on the affected entities.
         If record doesn't exist, a new record is added to the data repository.
 
         Args:
