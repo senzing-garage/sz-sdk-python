@@ -136,9 +136,3 @@ def test_load(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
 def test_save(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
     """Test G2Config().save()."""
     g2_config.save(0)
-
-
-def test_help(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
-    """Test G2Config().help()."""
-    result = g2_config.help("init")
-    assert result == "bob"

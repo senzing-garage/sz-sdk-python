@@ -3,13 +3,23 @@ TODO: g2helpers.py
 """
 
 import inspect
+from typing import Any
 
 # -----------------------------------------------------------------------------
 # Help
 # -----------------------------------------------------------------------------
 
 
-def construct_help(self, method_name: str = "") -> str:
+def construct_help(self: Any, method_name: str = "") -> str:
+    """
+    Construct help text.
+
+    Args:
+        method_name (str, optional): The name of the method. Defaults to "".
+
+    Returns:
+        str: if method_name is empty, a list of methods and their description is returned. If not empty, the description of the method is returned.
+    """
     result: str = ""
     if method_name == "":
         class_name = self.__class__.__name__
