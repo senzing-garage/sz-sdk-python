@@ -14,6 +14,7 @@ from abc import ABC, abstractmethod
 from typing import Any, Dict, Iterable, Tuple, Union, cast
 
 from .g2engineflags import G2EngineFlags
+from .g2helpers import construct_help
 
 # Metadata
 
@@ -192,8 +193,7 @@ class G2EngineAbstract(ABC):
         **kwargs: Any,
     ) -> str:
         """
-        The `add_record_with_info` method adds a record into the Senzing repository
-        and returns information on the affected entities.
+        The `add_record_with_info` method adds a record into the Senzing repository and returns information on the affected entities.
         Can be called as many times as desired and from multiple threads at the same time.
 
         Args:
@@ -301,8 +301,7 @@ class G2EngineAbstract(ABC):
         **kwargs: Any,
     ) -> str:
         """
-        The `delete_record_with_info` method deletes a record from the Senzing repository
-        and returns a JSON document containing the IDs of the affected entities.
+        The `delete_record_with_info` method deletes a record from the Senzing repository and returns a JSON document containing the IDs of the affected entities.
 
         Args:
             data_source_code (str): Identifies the provenance of the data.
@@ -444,8 +443,7 @@ class G2EngineAbstract(ABC):
         **kwargs: Any,
     ) -> Iterable[str]:
         """
-        A simplification of the `export_csv_entity_report`, `fetch_next`, `close_export`
-        lifecycle of a list of entities to export.
+        A simplification of the `export_csv_entity_report`, `fetch_next`, `close_export` lifecycle of a list of entities to export.
 
         Args:
             flags (int, optional): Flags used to control information returned. Defaults to G2EngineFlags.G2_EXPORT_DEFAULT_FLAGS.
@@ -494,8 +492,7 @@ class G2EngineAbstract(ABC):
         **kwargs: Any,
     ) -> Iterable[str]:
         """
-        A simplification of the `export_json_entity_report`, `fetch_next`, `close_export`
-        lifecycle of a list of entities to export.
+        A simplification of the `export_json_entity_report`, `fetch_next`, `close_export` lifecycle of a list of entities to export.
 
         Args:
             flags (int, optional): Flags used to control information returned. Defaults to G2EngineFlags.G2_EXPORT_DEFAULT_FLAGS.
@@ -812,8 +809,7 @@ class G2EngineAbstract(ABC):
         **kwargs: Any,
     ) -> str:
         """
-        The `find_path_by_entity_id` method finds the most efficient relationship between two entities path based on the parameters
-        and returns a JSON document with an ENTITY_PATHS section that details the path between the entities.
+        The `find_path_by_entity_id` method finds the most efficient relationship between two entities path based on the parameters and returns a JSON document with an ENTITY_PATHS section that details the path between the entities.
         The ENTITIES sections details information on the entities. Paths are found using known relationships with other entities.
         Paths are found using known relationships with other entities.
         To control output, use `find_path_by_entity_id_v2` instead.
@@ -897,9 +893,7 @@ class G2EngineAbstract(ABC):
         **kwargs: Any,
     ) -> str:
         """
-        The `find_path_by_record_id` method finds the most efficient relationship between
-        two entities path based on the parameters by RECORD_ID values
-        and returns a JSON document with an ENTITY_PATHS section that details the path between the entities.
+        The `find_path_by_record_id` method finds the most efficient relationship between two entities path based on the parameters by RECORD_ID values and returns a JSON document with an ENTITY_PATHS section that details the path between the entities.
         The ENTITIES sections details information on the entities.
         Paths are found using known relationships with other entities.
         The entities are identified by starting and ending records.
@@ -984,9 +978,7 @@ class G2EngineAbstract(ABC):
         **kwargs: Any,
     ) -> str:
         """
-        The `find_path_excluding_by_entity_id` method finds the most efficient relationship between
-        two entities path based on the parameters while preferentially excluding specific ENTITY_IDs,
-        and returns a JSON document with an ENTITY_PATHS section that details the path between the entities.
+        The `find_path_excluding_by_entity_id` method finds the most efficient relationship between two entities path based on the parameters while preferentially excluding specific ENTITY_IDs, and returns a JSON document with an ENTITY_PATHS section that details the path between the entities.
         The ENTITIES sections details information on the entities.
         Paths are found using known relationships with other entities.
         To control output, use `find_path_excluding_by_entity_id_v2` instead.
@@ -1085,9 +1077,7 @@ class G2EngineAbstract(ABC):
         **kwargs: Any,
     ) -> str:
         """
-        The `find_path_excluding_by_record_id` method finds the most efficient relationship between two entities
-        path based on the parameters by RECORD_IDs while preferentially excluding specific ENTITY_IDs
-        and returns a JSON document with an ENTITY_PATHS section that details the path between the entities.
+        The `find_path_excluding_by_record_id` method finds the most efficient relationship between two entities path based on the parameters by RECORD_IDs while preferentially excluding specific ENTITY_IDs and returns a JSON document with an ENTITY_PATHS section that details the path between the entities.
         The ENTITIES sections details information on the entities.
         Paths are found using known relationships with other entities.
         To control output, use `find_path_excluding_by_record_id_v2` instead.
@@ -1181,8 +1171,7 @@ class G2EngineAbstract(ABC):
         **kwargs: Any,
     ) -> str:
         """
-        The `find_path_including_source_by_entity_id` method finds the most efficient relationship between two entities
-        path based on the parameters, requiring a path entity to include a RECORD_ID from specified data source.
+        The `find_path_including_source_by_entity_id` method finds the most efficient relationship between two entities path based on the parameters, requiring a path entity to include a RECORD_ID from specified data source.
         Specific ENTITY_IDs to exclude can optionally be listed.
 
         Returns a JSON document with an ENTITY_PATHS section that details the path between the entities.
@@ -1284,8 +1273,7 @@ class G2EngineAbstract(ABC):
         **kwargs: Any,
     ) -> str:
         """
-        The `find_path_including_source_by_record_id` method finds the most efficient relationship between two entities
-        path based on the parameters by RECORD_IDs, requiring a path entity to include a RECORD_ID from specified data source.
+        The `find_path_including_source_by_record_id` method finds the most efficient relationship between two entities path based on the parameters by RECORD_IDs, requiring a path entity to include a RECORD_ID from specified data source.
         Specific ENTITY_IDs to exclude can optionally be listed.
 
         Returns a JSON document with an ENTITY_PATHS section that details the path between the entities.
@@ -1652,8 +1640,7 @@ class G2EngineAbstract(ABC):
         **kwargs: Any,
     ) -> str:
         """
-        The `get_virtual_entity_by_record_id` method creates a view of a virtual entity
-        using a list of existing loaded records.
+        The `get_virtual_entity_by_record_id` method creates a view of a virtual entity using a list of existing loaded records.
         The virtual entity is composed of only those records and their features.
         Entity resolution is not performed.
         To control output, use `get_virtual_entity_by_record_id_v2` instead.
@@ -1830,8 +1817,8 @@ class G2EngineAbstract(ABC):
     @abstractmethod
     def prime_engine(self, **kwargs: Any) -> None:
         """
-        The `prime_engine` method Initializes high resource consumption components of Senzing
-        used in some functions. If this call is not made, these resources are initialized the
+        The `prime_engine` method Initializes high resource consumption components of Senzing used in some functions.
+        If this call is not made, these resources are initialized the
         first time they are needed and can cause unusually long processing times the first time
         a function is called that requries these resources.
 
@@ -1867,8 +1854,7 @@ class G2EngineAbstract(ABC):
         self, record: Union[str, Dict[Any, Any]], flags: int, **kwargs: Any
     ) -> str:
         """_summary_
-        The `process_with_info` method processes the redo record
-        and returns a JSON document containing the ENTITY_ID values of the affected entities.
+        The `process_with_info` method processes the redo record and returns a JSON document containing the ENTITY_ID values of the affected entities.
 
         Args:
             record (Union[str, Dict[Any, Any]]): A JSON document containing the record to be added to the Senzing repository.
@@ -2013,8 +1999,8 @@ class G2EngineAbstract(ABC):
     @abstractmethod
     def reinit(self, init_config_id: int, **kwargs: Any) -> None:
         """
-        The `reinit` method re-initializes the Senzing G2Engine object using a specific configuration
-        identifier. A list of available configuration identifiers can be retrieved using
+        The `reinit` method re-initializes the Senzing G2Engine object using a specific configuration identifier.
+        A list of available configuration identifiers can be retrieved using
         `g2configmgr.get_config_list`.
 
         Args:
@@ -2072,8 +2058,7 @@ class G2EngineAbstract(ABC):
         **kwargs: Any,
     ) -> str:
         """
-        The `replace_record_with_info` method updates/replaces a record in the Senzing repository
-        and returns information on the affected entities.
+        The `replace_record_with_info` method updates/replaces a record in the Senzing repository and returns information on the affected entities.
         If record doesn't exist, a new record is added to the data repository.
 
         Args:
@@ -2602,3 +2587,15 @@ class G2EngineAbstract(ABC):
             Dict[str, Any],
             json.loads(self.get_record(data_source_code, record_id, flags, **kwargs)),
         )
+
+    def help(self, method_name: str = "") -> str:
+        """
+        Return the help for a particular message.
+
+        Args:
+            method_name (str): The name of the method. (e.g. "init"). If empty, a list of methods and descriptions is returned.
+
+        Returns:
+            str: The Help information about the requested method
+        """
+        return construct_help(self, method_name=method_name)

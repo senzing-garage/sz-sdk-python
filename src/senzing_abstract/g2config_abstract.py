@@ -9,6 +9,8 @@ g2config_abstract.py is the abstract class for all implementaions of g2config.
 from abc import ABC, abstractmethod
 from typing import Any, Dict, Union
 
+from .g2helpers import construct_help
+
 # Metadata
 
 __all__ = ["G2ConfigAbstract"]
@@ -56,7 +58,7 @@ class G2ConfigAbstract(ABC):
         config_handle: int,
         input_json: Union[str, Dict[Any, Any]],
         *args: Any,
-        **kwargs: Any
+        **kwargs: Any,
     ) -> str:
         """
         The `add_data_source` method adds a data source to an existing in-memory configuration.
@@ -105,9 +107,7 @@ class G2ConfigAbstract(ABC):
     @abstractmethod
     def create(self, *args: Any, **kwargs: Any) -> int:
         """
-        The `create` method creates an in-memory Senzing configuration
-        from the `g2config.json` template configuration file located
-        in the PIPELINE.RESOURCEPATH path.
+        The `create` method creates an in-memory Senzing configuration from the `g2config.json` template configuration file located in the PIPELINE.RESOURCEPATH path.
         A handle is returned to identify the in-memory configuration.
         The handle is used by the `add_data_source`, `list_data_sources`,
         `delete_data_source`, and `save` methods.
@@ -132,7 +132,7 @@ class G2ConfigAbstract(ABC):
         config_handle: int,
         input_json: Union[str, Dict[Any, Any]],
         *args: Any,
-        **kwargs: Any
+        **kwargs: Any,
     ) -> None:
         """
         The `delete_data_source` method removes a data source from an existing in-memory configuration.
@@ -183,7 +183,7 @@ class G2ConfigAbstract(ABC):
         module_name: str,
         ini_params: Union[str, Dict[Any, Any]],
         verbose_logging: int = 0,
-        **kwargs: Any
+        **kwargs: Any,
     ) -> None:
         """
         The `init` method initializes the Senzing G2Config object.
@@ -217,8 +217,7 @@ class G2ConfigAbstract(ABC):
     @abstractmethod
     def list_data_sources(self, config_handle: int, *args: Any, **kwargs: Any) -> str:
         """
-        The `list_data_sources` method returns a JSON document of data sources
-        contained in an in-memory configuration.
+        The `list_data_sources` method returns a JSON document of data sources contained in an in-memory configuration.
 
         Args:
             config_handle (int): An identifier of an in-memory configuration. Usually created by the `create` or `load` methods
@@ -311,3 +310,15 @@ class G2ConfigAbstract(ABC):
     # -------------------------------------------------------------------------
     # Convenience methods
     # -------------------------------------------------------------------------
+
+    def help(self, method_name: str = "") -> str:
+        """
+        Return the help for a particular message.
+
+        Args:
+            method_name (str): The name of the method. (e.g. "init"). If empty, a list of methods and descriptions is returned.
+
+        Returns:
+            str: The Help information about the requested method
+        """
+        return construct_help(self, method_name=method_name)
