@@ -1,14 +1,14 @@
 name: python code quality
 
-on: [push,pull_request]
+on: [push, pull_request]
 
 jobs:
   python-code-quality:
-    name: "code-quality Python ${{ matrix.python-version }}"
+    name: 'code-quality Python ${{ matrix.python-version }}'
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.8", "3.11"]
+        python-version: ['3.8', '3.11']
 
     steps:
       - uses: actions/checkout@v4
