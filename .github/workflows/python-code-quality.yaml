@@ -24,13 +24,21 @@ jobs:
           python -m pip install black flake8 mypy psutil pylint pytest pytest_schema types-psutil types-protobuf
 
       - name: black testing
-        run: black --diff --check $(git ls-files '*.py' ':!:docs/source/*')
+        run: |
+          # shellcheck disable=SC2046
+          black --diff --check $(git ls-files '*.py' ':!:docs/source/*')
 
       - name: pylint testing
-        run: pylint $(git ls-files '*.py' ':!:docs/source/*')
+        run: |
+          # shellcheck disable=SC2046
+          pylint $(git ls-files '*.py' ':!:docs/source/*')
 
       - name: flake8 testing
-        run: flake8 $(git ls-files '*.py' ':!:docs/source/*')
+        run: |
+          # shellcheck disable=SC2046
+          flake8 $(git ls-files '*.py' ':!:docs/source/*')
 
       - name: mypy testing
-        run: mypy --follow-imports skip --strict $(git ls-files '*.py' ':!:docs/source/*')
+        run: |
+          # shellcheck disable=SC2046
+          mypy --follow-imports skip --strict $(git ls-files '*.py' ':!:docs/source/*')
