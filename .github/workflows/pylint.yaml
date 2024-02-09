@@ -24,4 +24,6 @@ jobs:
           python -m pip install psutil pylint pytest pytest_schema
 
       - name: analysing the code with pylint
-        run: "pylint $(git ls-files '*.py' ':!:docs/source/*')"
+        run: |
+          # shellcheck disable=SC2046
+          pylint $(git ls-files '*.py' ':!:docs/source/*')
