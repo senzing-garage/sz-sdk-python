@@ -1,45 +1,47 @@
-from .g2config_abstract import G2ConfigAbstract
-from .g2configmgr_abstract import G2ConfigMgrAbstract
-from .g2diagnostic_abstract import G2DiagnosticAbstract
-from .g2engine_abstract import G2EngineAbstract
-from .g2engineflags import G2EngineFlags
-from .g2exception import (
+from .szconfig_abstract import SzConfigAbstract
+from .szconfigmanager_abstract import SzConfigManagerAbstract
+from .szdiagnostic_abstract import SzDiagnosticAbstract
+from .szengine_abstract import SzEngineAbstract
+from .szengineflags import SzEngineFlags
+from .szerror import (
     EXCEPTION_MAP,
-    G2BadInputError,
-    G2ConfigurationError,
-    G2DatabaseConnectionLostError,
-    G2DatabaseError,
-    G2Exception,
-    G2LicenseError,
-    G2NotFoundError,
-    G2NotInitializedError,
-    G2RetryableError,
-    G2RetryTimeoutExceededError,
-    G2UnhandledError,
-    G2UnknownDatasourceError,
-    G2UnrecoverableError,
+    SzBadInputError,
+    SzConfigurationError,
+    SzDatabaseConnectionLostError,
+    SzDatabaseError,
+    SzError,
+    SzLicenseError,
+    SzNotFoundError,
+    SzNotInitializedError,
+    SzRetryableError,
+    SzRetryTimeoutExceededError,
+    SzUnhandledError,
+    SzUnknownDataSourceError,
+    SzUnrecoverableError,
+    new_szexception,
 )
-from .g2product_abstract import G2ProductAbstract
+from .szproduct_abstract import SzProductAbstract
 
 __all__ = [
     "EXCEPTION_MAP",
-    "G2BadInputError",
-    "G2ConfigAbstract",
-    "G2ConfigMgrAbstract",
-    "G2ConfigurationError",
-    "G2DatabaseConnectionLostError",
-    "G2DatabaseError",
-    "G2DiagnosticAbstract",
-    "G2EngineAbstract",
-    "G2EngineFlags",
-    "G2Exception",
-    "G2LicenseError",
-    "G2NotFoundError",
-    "G2NotInitializedError",
-    "G2ProductAbstract",
-    "G2RetryableError",
-    "G2RetryTimeoutExceededError",
-    "G2UnhandledError",
-    "G2UnknownDatasourceError",
-    "G2UnrecoverableError",
+    "SzBadInputError",
+    "SzConfigAbstract",
+    "SzConfigManagerAbstract",
+    "SzConfigurationError",
+    "SzDatabaseConnectionLostError",
+    "SzDatabaseError",
+    "SzDiagnosticAbstract",
+    "SzEngineAbstract",
+    "SzEngineFlags",
+    "SzError",
+    "SzLicenseError",
+    "SzNotFoundError",
+    "SzNotInitializedError",
+    "SzProductAbstract",
+    "SzRetryableError",
+    "SzRetryTimeoutExceededError",
+    "SzUnhandledError",
+    "SzUnknownDataSourceError",
+    "SzUnrecoverableError",
+    "new_szexception",
 ]
