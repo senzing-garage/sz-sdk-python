@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 """
-TODO: g2config_test.py
+TODO: szconfig_test.py
 """
 
 # pylint: disable=E1101
@@ -10,82 +10,80 @@ from typing import Any, Dict, Union
 
 import pytest
 
-from senzing_abstract import g2config_abstract
+from senzing_abstract import szconfig_abstract
 
 # -----------------------------------------------------------------------------
-# G2Config fixtures
+# szConfig fixtures
 # -----------------------------------------------------------------------------
 
 
-@pytest.fixture(name="g2_config", scope="module")  # type: ignore[misc]
-def g2config_fixture() -> g2config_abstract.G2ConfigAbstract:
+@pytest.fixture(name="sz_config", scope="module")  # type: ignore[misc]
+def szconfig_fixture() -> szconfig_abstract.SzConfigAbstract:
     """
     Object under test.
     """
 
-    return G2ConfigTest()
+    return SzConfigTest()
 
 
 # -----------------------------------------------------------------------------
-# G2ConfigTest class
+# SzConfigTest class
 # -----------------------------------------------------------------------------
 
 
-class G2ConfigTest(g2config_abstract.G2ConfigAbstract):
+class SzConfigTest(szconfig_abstract.SzConfigAbstract):
     """
     G2 config module access library.
     """
 
     # -------------------------------------------------------------------------
-    # G2Config methods
+    # SzConfig methods
     # -------------------------------------------------------------------------
 
     def add_data_source(
         self,
         config_handle: int,
-        input_json: Union[str, Dict[Any, Any]],
-        *args: Any,
+        data_source_code: str,
         **kwargs: Any,
     ) -> str:
         return ""
 
-    def close(self, config_handle: int, *args: Any, **kwargs: Any) -> None:
-        pass
+    def close_config(self, config_handle: int, **kwargs: Any) -> None:
+        """None"""
 
-    def create(self, *args: Any, **kwargs: Any) -> int:
+    def create_config(self, **kwargs: Any) -> int:
         return 0
 
     def delete_data_source(
         self,
         config_handle: int,
-        input_json: Union[str, Dict[Any, Any]],
-        *args: Any,
+        data_source_code: str,
         **kwargs: Any,
     ) -> None:
-        pass
+        """None"""
 
-    def destroy(self, *args: Any, **kwargs: Any) -> None:
-        pass
+    def destroy(self, **kwargs: Any) -> None:
+        """None"""
 
-    def init(
-        self,
-        module_name: str,
-        ini_params: Union[str, Dict[Any, Any]],
-        verbose_logging: int = 0,
-        **kwargs: Any,
-    ) -> None:
-        pass
-
-    def list_data_sources(self, config_handle: int, *args: Any, **kwargs: Any) -> str:
+    def export_config(self, config_handle: int, **kwargs: Any) -> str:
         return ""
 
-    def load(
-        self, json_config: Union[str, Dict[Any, Any]], *args: Any, **kwargs: Any
+    def get_data_sources(self, config_handle: int, **kwargs: Any) -> str:
+        return ""
+
+    def import_config(
+        self, config_definition: Union[str, Dict[Any, Any]], **kwargs: Any
     ) -> int:
         return 0
 
-    def save(self, config_handle: int, *args: Any, **kwargs: Any) -> str:
-        return ""
+    def initialize(
+        self,
+        instance_name: str,
+        settings: Union[str, Dict[Any, Any]],
+        verbose_logging: int = 0,
+        **kwargs: Any,
+    ) -> None:
+        """None"""
 
 
 # -----------------------------------------------------------------------------
@@ -93,46 +91,46 @@ class G2ConfigTest(g2config_abstract.G2ConfigAbstract):
 # -----------------------------------------------------------------------------
 
 
-def test_add_data_source(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
-    """Test G2Config().add_data_source()."""
-    g2_config.add_data_source(0, "")
+def test_add_data_source(sz_config: szconfig_abstract.SzConfigAbstract) -> None:
+    """Test SzConfig().add_data_source()."""
+    sz_config.add_data_source(0, "")
 
 
-def test_close(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
-    """Test G2Config().close()."""
-    g2_config.close(0, "")
+def test_close_config(sz_config: szconfig_abstract.SzConfigAbstract) -> None:
+    """Test SzConfig().close_config()."""
+    sz_config.close_config(0)
 
 
-def test_create(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
-    """Test G2Config().create()."""
-    g2_config.create()
+def test_create_config(sz_config: szconfig_abstract.SzConfigAbstract) -> None:
+    """Test SzConfig().create_config()."""
+    sz_config.create_config()
 
 
-def test_delete_data_source(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
-    """Test G2Config().delete_data_source()."""
-    g2_config.delete_data_source(0, "")
+def test_delete_data_source(sz_config: szconfig_abstract.SzConfigAbstract) -> None:
+    """Test SzConfig().delete_data_source()."""
+    sz_config.delete_data_source(0, "")
 
 
-def test_destroy(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
-    """Test G2Config().destroy()."""
-    g2_config.destroy(0, "")
+def test_destroy(sz_config: szconfig_abstract.SzConfigAbstract) -> None:
+    """Test SzConfig().destroy()."""
+    sz_config.destroy()
 
 
-def test_init(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
-    """Test G2Config().init()."""
-    g2_config.init("", "")
+def test_export_config(sz_config: szconfig_abstract.SzConfigAbstract) -> None:
+    """Test SzConfig().export_config()."""
+    sz_config.export_config(0)
 
 
-def test_list_data_sources(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
-    """Test G2Config().list_data_sources()."""
-    g2_config.list_data_sources(0)
+def test_get_data_sources(sz_config: szconfig_abstract.SzConfigAbstract) -> None:
+    """Test SzConfig().get_data_sources()."""
+    sz_config.get_data_sources(0)
 
 
-def test_load(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
-    """Test G2Config().load()."""
-    g2_config.load("")
+def test_import_config(sz_config: szconfig_abstract.SzConfigAbstract) -> None:
+    """Test SzConfig().import_config()."""
+    sz_config.import_config("")
 
 
-def test_save(g2_config: g2config_abstract.G2ConfigAbstract) -> None:
-    """Test G2Config().save()."""
-    g2_config.save(0)
+def test_initialize(sz_config: szconfig_abstract.SzConfigAbstract) -> None:
+    """Test SzConfig().initialize()."""
+    sz_config.initialize("", "")

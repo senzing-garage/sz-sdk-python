@@ -1,4 +1,4 @@
-# g2-sdk-python-abstract development
+# sz-sdk-python-abstract development
 
 The following instructions are used when modifying and building the Docker image.
 
@@ -20,7 +20,7 @@ see [Environment Variables](https://github.com/senzing-garage/knowledge-base/blo
 
     ```console
     export GIT_ACCOUNT=senzing
-    export GIT_REPOSITORY=g2-sdk-python-abstract
+    export GIT_REPOSITORY=sz-sdk-python-abstract
     export GIT_ACCOUNT_DIR=~/${GIT_ACCOUNT}.git
     export GIT_REPOSITORY_DIR="${GIT_ACCOUNT_DIR}/${GIT_REPOSITORY}"
     ```
@@ -61,7 +61,7 @@ see [Environment Variables](https://github.com/senzing-garage/knowledge-base/blo
     ```
 
     Example return:
-    > senzing-abstract @ file:///home/senzing/senzing.git/g2-sdk-python-abstract/dist/senzing_abstract-0.0.1-py3-none-any.whl#sha256=2a4e5218d66d5be60ee31bfad5943e6611fc921f28a4326d9594ceceae7e0ac1
+    > senzing-abstract @ file:///home/senzing/senzing.git/sz-sdk-python-abstract/dist/senzing_abstract-0.0.1-py3-none-any.whl#sha256=2a4e5218d66d5be60ee31bfad5943e6611fc921f28a4326d9594ceceae7e0ac1
 
 1. Uninstall the `senzing-abstract` python package.
    Example:

@@ -89,11 +89,11 @@ test: test-osarch-specific
 #	@pytest examples/ --verbose --capture=no --cov=src/senzing_abstract
 	@echo "--- Test examples using unittest -------------------------------------"
 	@python3 -m unittest \
-		examples/g2config/*.py \
-		examples/g2configmgr/*.py \
-		examples/g2diagnostic/*.py \
-		examples/g2engine/*.py \
-		examples/g2product/*.py
+		examples/szconfig/*.py \
+		examples/szconfigmanager/*.py \
+		examples/szdiagnostic/*.py \
+		examples/szengine/*.py \
+		examples/szproduct/*.py
 
 
 .PHONY: pylint

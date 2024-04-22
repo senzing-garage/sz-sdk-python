@@ -9,7 +9,7 @@
 import os
 import sys
 
-project = "g2-sdk-python-abstract"
+project = "sz-sdk-python-abstract"
 copyright = "2023, senzing"
 author = "senzing"
 

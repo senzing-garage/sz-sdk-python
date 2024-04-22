@@ -4,58 +4,58 @@ senzing\_abstract package
 Submodules
 ----------
 
-senzing\_abstract.g2config\_abstract module
+senzing\_abstract.szconfig\_abstract module
 -------------------------------------------
 
-.. automodule:: senzing_abstract.g2config_abstract
+.. automodule:: senzing_abstract.szconfig_abstract
    :members:
    :undoc-members:
    :show-inheritance:
 
-senzing\_abstract.g2configmgr\_abstract module
-----------------------------------------------
+senzing\_abstract.szconfigmanager\_abstract module
+--------------------------------------------------
 
-.. automodule:: senzing_abstract.g2configmgr_abstract
+.. automodule:: senzing_abstract.szconfigmanager_abstract
    :members:
    :undoc-members:
    :show-inheritance:
 
-senzing\_abstract.g2diagnostic\_abstract module
+senzing\_abstract.szdiagnostic\_abstract module
 -----------------------------------------------
 
-.. automodule:: senzing_abstract.g2diagnostic_abstract
+.. automodule:: senzing_abstract.szdiagnostic_abstract
    :members:
    :undoc-members:
    :show-inheritance:
 
-senzing\_abstract.g2engine\_abstract module
+senzing\_abstract.szengine\_abstract module
 -------------------------------------------
 
-.. automodule:: senzing_abstract.g2engine_abstract
+.. automodule:: senzing_abstract.szengine_abstract
    :members:
    :undoc-members:
    :show-inheritance:
 
-senzing\_abstract.g2engineflags module
+senzing\_abstract.szengineflags module
 --------------------------------------
 
-.. automodule:: senzing_abstract.g2engineflags
+.. automodule:: senzing_abstract.szengineflags
    :members:
    :undoc-members:
    :show-inheritance:
 
-senzing\_abstract.g2hasher\_abstract module
+senzing\_abstract.szhasher\_abstract module
 -------------------------------------------
 
-.. automodule:: senzing_abstract.g2hasher_abstract
+.. automodule:: senzing_abstract.szhasher_abstract
    :members:
    :undoc-members:
    :show-inheritance:
 
-senzing\_abstract.g2product\_abstract module
+senzing\_abstract.szproduct\_abstract module
 --------------------------------------------
 
-.. automodule:: senzing_abstract.g2product_abstract
+.. automodule:: senzing_abstract.szproduct_abstract
    :members:
    :undoc-members:
    :show-inheritance:

@@ -1,1 +1,1 @@
-# g2-sdk-python-abstract examples
+# sz-sdk-python-abstract examples

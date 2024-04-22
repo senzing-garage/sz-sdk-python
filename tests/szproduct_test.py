@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 """
-TODO: g2product_test.py
+TODO: szproduct_test.py
 """
 
 # pylint: disable=E1101
@@ -10,52 +10,52 @@ from typing import Any, Dict, Union
 
 import pytest
 
-from senzing_abstract import g2product_abstract
+from senzing_abstract import szproduct_abstract
 
 # -----------------------------------------------------------------------------
-# G2Config fixtures
+# SzConfig fixtures
 # -----------------------------------------------------------------------------
 
 
-@pytest.fixture(name="g2_product", scope="module")  # type: ignore[misc]
-def g2product_fixture() -> g2product_abstract.G2ProductAbstract:
+@pytest.fixture(name="sz_product", scope="module")  # type: ignore[misc]
+def szproduct_fixture() -> szproduct_abstract.SzProductAbstract:
     """
     Object under test.
     """
 
-    return G2ProductTest()
+    return SzProductTest()
 
 
 # -----------------------------------------------------------------------------
-# G2ProductTest class
+# SzProductTest class
 # -----------------------------------------------------------------------------
 
 
-class G2ProductTest(g2product_abstract.G2ProductAbstract):
+class SzProductTest(szproduct_abstract.SzProductAbstract):
     """
     G2 product module access library.
     """
 
     # -------------------------------------------------------------------------
-    # G2Product methods
+    # SzProduct methods
     # -------------------------------------------------------------------------
 
     def destroy(self, *args: Any, **kwargs: Any) -> None:
         """None"""
 
-    def init(
+    def initialize(
         self,
-        module_name: str,
-        ini_params: Union[str, Dict[Any, Any]],
+        instance_name: str,
+        settings: Union[str, Dict[Any, Any]],
         verbose_logging: int = 0,
-        **kwargs: Any,
+        **kwargs: Any
     ) -> None:
         """None"""
 
-    def license(self, *args: Any, **kwargs: Any) -> str:
+    def get_license(self, **kwargs: Any) -> str:
         return ""
 
-    def version(self, *args: Any, **kwargs: Any) -> str:
+    def get_version(self, **kwargs: Any) -> str:
         return ""
 
 
@@ -64,21 +64,21 @@ class G2ProductTest(g2product_abstract.G2ProductAbstract):
 # -----------------------------------------------------------------------------
 
 
-def test_destroy(g2_product: g2product_abstract.G2ProductAbstract) -> None:
-    """Test G2Product().destroy()."""
-    g2_product.destroy()
+def test_destroy(sz_product: szproduct_abstract.SzProductAbstract) -> None:
+    """Test SzProduct().destroy()."""
+    sz_product.destroy()
 
 
-def test_init(g2_product: g2product_abstract.G2ProductAbstract) -> None:
-    """Test G2Product().init()."""
-    g2_product.init("", "")
+def test_initialize(sz_product: szproduct_abstract.SzProductAbstract) -> None:
+    """Test SzProduct().initialize()."""
+    sz_product.initialize("", "")
 
 
-def test_license(g2_product: g2product_abstract.G2ProductAbstract) -> None:
-    """Test G2Product().license()."""
-    g2_product.license()
+def test_get_license(sz_product: szproduct_abstract.SzProductAbstract) -> None:
+    """Test SzProduct().get_license()."""
+    sz_product.get_license()
 
 
-def test_version(g2_product: g2product_abstract.G2ProductAbstract) -> None:
-    """Test G2Product().version()."""
-    g2_product.version()
+def test_get_version(sz_product: szproduct_abstract.SzProductAbstract) -> None:
+    """Test SzProduct().get_version()."""
+    sz_product.get_version()

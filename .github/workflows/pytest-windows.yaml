@@ -3,7 +3,7 @@ name: pytest windows
 on: [push]
 
 env:
-  PYTHONPATH: /Users/runner/work/g2-sdk-python-abstract/g2-sdk-python-abstract/src
+  PYTHONPATH: /Users/runner/work/sz-sdk-python-abstract/sz-sdk-python-abstract/src
 
 jobs:
   pytest-windows:

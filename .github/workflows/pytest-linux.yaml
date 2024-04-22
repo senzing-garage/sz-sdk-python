@@ -3,7 +3,7 @@ name: pytest linux
 on: [push]
 
 env:
-  PYTHONPATH: /home/runner/work/g2-sdk-python-abstract/g2-sdk-python-abstract/src
+  PYTHONPATH: /home/runner/work/sz-sdk-python-abstract/sz-sdk-python-abstract/src
 
 jobs:
   pytest-linux:

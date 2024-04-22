@@ -3,7 +3,7 @@ name: pytest darwin
 on: [push]
 
 env:
-  PYTHONPATH: /Users/runner/work/g2-sdk-python-abstract/g2-sdk-python-abstract/src
+  PYTHONPATH: /Users/runner/work/sz-sdk-python-abstract/sz-sdk-python-abstract/src
   SENZING_TOOLS_ENABLE_ALL: true
 
 jobs:

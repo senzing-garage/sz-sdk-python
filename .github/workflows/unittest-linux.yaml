@@ -3,7 +3,7 @@ name: unittest linux
 on: [push]
 
 env:
-  PYTHONPATH: /home/runner/work/g2-sdk-python-abstract/g2-sdk-python-abstract/src
+  PYTHONPATH: /home/runner/work/sz-sdk-python-abstract/sz-sdk-python-abstract/src
 
 jobs:
   pytest-linux:
@@ -31,4 +31,4 @@ jobs:
           # python -m pip install psutil pytest pytest-cov pytest-schema
 
       - name: run pytest on tests
-        run: python3 -m unittest examples/g2config/*.py examples/g2configmgr/*.py examples/g2diagnostic/*.py examples/g2engine/*.py examples/g2product/*.py
+        run: python3 -m unittest examples/szconfig/*.py examples/szconfigmanager/*.py examples/szdiagnostic/*.py examples/szengine/*.py examples/szproduct/*.py
