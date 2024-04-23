@@ -118,7 +118,6 @@ class SzProductAbstract(ABC):
     @abstractmethod
     def get_version(self, **kwargs: Any) -> str:
         """
-
         The `get_version` method returns the version of the Senzing API.
 
         Returns:
@@ -144,11 +143,10 @@ class SzProductAbstract(ABC):
     def license_as_dict(self, **kwargs: Any) -> Dict[str, Any]:
         """
         A convenience method for
-        :ref:`get_license<get_license>`.
+        :meth:`senzing_abstract.SzProductAbstract.get_license`
 
         Returns:
             Dict[str, Any]: A dictionary containing Senzing license metadata.
-
         """
         return cast(
             Dict[str, Any],
@@ -158,11 +156,10 @@ class SzProductAbstract(ABC):
     def version_as_dict(self, **kwargs: Any) -> Dict[str, Any]:
         """
         A convenience method for
-        :ref:`get_version<get_version>`.
+        :meth:`senzing_abstract.SzProductAbstract.get_version`
 
         Returns:
             Dict[str, Any]: A dictionary containing metadata about the Senzing Engine version being used.
-
         """
         return cast(
             Dict[str, Any],
