@@ -107,6 +107,12 @@ class SzDiagnosticAbstract(ABC):
             .. literalinclude:: ../../examples/szdiagnostic/get_datastore_info.py
                 :linenos:
                 :language: python
+
+            **Output:**
+
+            .. literalinclude:: ../../examples/szdiagnostic/get_datastore_info.txt
+                :linenos:
+                :language: json
         """
 
     # NOTE This is included but not to be documented

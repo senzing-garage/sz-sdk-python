@@ -41,7 +41,7 @@ see [Environment Variables](https://github.com/senzing-garage/knowledge-base/blo
    Example:
 
     ```console
-    python3 -m pip freeze | grep senzing-abstract
+    python3 -m pip freeze | grep -e senzing-abstract -e senzing_abstract
     ```
 
    Nothing is returned.
@@ -57,7 +57,7 @@ see [Environment Variables](https://github.com/senzing-garage/knowledge-base/blo
    Example:
 
     ```console
-    python3 -m pip freeze | grep senzing-abstract
+    python3 -m pip freeze | grep -e senzing-abstract -e senzing_abstract
     ```
 
     Example return:
