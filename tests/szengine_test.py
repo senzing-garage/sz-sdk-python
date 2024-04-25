@@ -34,7 +34,7 @@ def szengine_fixture() -> szengine_abstract.SzEngineAbstract:
 
 class SzEngineTest(szengine_abstract.SzEngineAbstract):
     """
-    G2 engine module access library.
+    SzEngine module access library.
     """
 
     # -------------------------------------------------------------------------

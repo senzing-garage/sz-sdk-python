@@ -33,7 +33,7 @@ def szproduct_fixture() -> szproduct_abstract.SzProductAbstract:
 
 class SzProductTest(szproduct_abstract.SzProductAbstract):
     """
-    G2 product module access library.
+    SzProduct module access library.
     """
 
     # -------------------------------------------------------------------------

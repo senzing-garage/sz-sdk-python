@@ -21,7 +21,7 @@ __updated__ = "2023-10-30"
 
 class SzHasherAbstract(ABC):
     """
-    G2 hasher module access library
+    SzHasher module access library
     """
 
     # -------------------------------------------------------------------------

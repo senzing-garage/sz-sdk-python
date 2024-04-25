@@ -33,7 +33,7 @@ def szconfigmanager_fixture() -> szconfigmanager_abstract.SzConfigManagerAbstrac
 
 class SzConfigManagerTest(szconfigmanager_abstract.SzConfigManagerAbstract):
     """
-    G2 configmgr module access library.
+    SzConfigManager module access library.
     """
 
     # -------------------------------------------------------------------------

@@ -33,7 +33,7 @@ def szdiagnostic_fixture() -> szdiagnostic_abstract.SzDiagnosticAbstract:
 
 class SzDiagnosticTest(szdiagnostic_abstract.SzDiagnosticAbstract):
     """
-    G2 diagnostic module access library.
+    SzDiagnostic module access library.
     """
 
     # -------------------------------------------------------------------------

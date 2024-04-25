@@ -110,7 +110,7 @@ class SzEngineFlags(IntFlag):
     SZ_SEARCH_INCLUDE_MATCH_KEY_DETAILS = SZ_ENTITY_OPTION_INCLUDE_MATCH_KEY_DETAILS
 
     # Flag for returning with info responses.
-    SZ_WITH_INFO = 1 << 63
+    SZ_WITH_INFO = 1 << 62
 
     # Flags for exporting entity data.
 
