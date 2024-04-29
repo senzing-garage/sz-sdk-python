@@ -67,6 +67,31 @@ class FreeCResources:
         self.handle.G2GoHelper_free(self.resource)
 
 
+# class SzJsonString(str):
+#     """Normally return a JSON string representation of a response from a method call.
+#     Return a dictionary of the string response if .as_dict() is specified."""
+
+#     def __init__(self, json_string: str):
+#         self.json_string = json_string
+#         print(f"{ORJSON_AVAILABLE = }")
+
+#     # NOTE json.loads() is always Any, need union if return string when not JSON
+#     # NOTE https://stackoverflow.com/questions/76759158/type-hinting-a-json-object-in-python
+#     # NOTE "Even the good people at typeshed use Any as the return type for json.load/json.loads to this day. And they basically maintain the official type stubs for the standard library."
+#     # NOTE https://github.com/python/typeshed/blob/f2ee9e9368a18b19bbf2ac05b6eb6bfea96d9a0c/stdlib/json/__init__.pyi#L39-L60
+#     # NOTE Using Any will impact automatic documentation generation if g2helpers gets documented?
+
+#     def as_dict(self) -> Any:
+#         # # TODO Add check to ensure json_string looks like JSON, is it needed? It's the engines methods using the class not customers.
+#         # if re.match("^{.*}$", self.json_string):
+#         #     return json.loads(self.json_string)
+#         # return self.json_string
+#         # TODO What if the loads fails?
+#         if ORJSON_AVAILABLE:
+#             return orjson.loads(self.json_string).decode()
+#         return json.loads(self.json_string)
+
+
 # -----------------------------------------------------------------------------
 # Decorators
 # -----------------------------------------------------------------------------
