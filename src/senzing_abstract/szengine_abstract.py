@@ -182,6 +182,12 @@ class SzEngineAbstract(ABC):
             .. literalinclude:: ../../examples/szengine/count_redo_records.py
                 :linenos:
                 :language: python
+
+            **Output:**
+
+            .. literalinclude:: ../../examples/szengine/count_redo_records.txt
+                :linenos:
+                :language: guess
         """
 
     @abstractmethod
@@ -274,7 +280,7 @@ class SzEngineAbstract(ABC):
 
             .. literalinclude:: ../../examples/szengine/export_csv_fetch_close.txt
                 :linenos:
-                :language: json
+                :language: guess
         """
 
     @abstractmethod
