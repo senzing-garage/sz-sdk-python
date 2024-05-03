@@ -93,10 +93,10 @@ class SzDiagnosticAbstract(ABC):
                 :language: python
         """
 
-    # TODO docstring
     @abstractmethod
     def get_datastore_info(self, **kwargs: Any) -> str:
         """
+        TODO: Document get_datastore_info()
         The `get_datastore_info` method will...
 
         Raises:
@@ -118,15 +118,15 @@ class SzDiagnosticAbstract(ABC):
     # NOTE This is included but not to be documented
     @abstractmethod
     def get_feature(self, feature_id: int, **kwargs: Any) -> str:
-        """"""
+        """TODO:  Document get_feature()"""
 
     @abstractmethod
     def initialize(
         self,
         instance_name: str,
         settings: Union[str, Dict[Any, Any]],
-        config_id: Optional[int] = None,
-        verbose_logging: int = 0,
+        config_id: Optional[int] = 0,
+        verbose_logging: Optional[int] = 0,
         **kwargs: Any
     ) -> None:
         """

@@ -96,19 +96,48 @@ test: test-osarch-specific
 		examples/szproduct/*.py
 
 
+.PHONY: bandit
+bandit:
+	@bandit $(shell git ls-files '*.py'  ':!:docs/source/*' ':!:tests/*' ':!:tools/*')
+
+
+.PHONY: coverage
+coverage: coverage-osarch-specific
+
+
+.PHONY: black
+black:
+	@black $(shell git ls-files '*.py'  ':!:docs/source/*' ':!:tests/*' ':!:tools/*')
+
+
+.PHONY: flake8
+flake8:
+	@flake8 $(shell git ls-files '*.py'  ':!:docs/source/*' ':!:tools/*')
+
+
+.PHONY: isort
+isort:
+	@isort $(shell git ls-files '*.py'  ':!:docs/source/*' ':!:tools/*')
+
+
+.PHONY: mypy
+mypy:
+	@mypy --strict $(shell git ls-files '*.py' ':!:docs/source/*' ':!:tools/*')
+
+
 .PHONY: pylint
 pylint:
 	@pylint $(shell git ls-files '*.py'  ':!:docs/source/*')
 
 
-.PHONY: mypy
-mypy:
-	mypy --follow-imports skip --strict $(shell git ls-files '*.py')
+# .PHONY: mypy
+# mypy:
+# 	mypy --follow-imports skip --strict $(shell git ls-files '*.py')
 
 
 .PHONY: pytest
 pytest:
-	@pytest --cov=src/senzing_abstract --cov-report=xml  tests
+	@pytest --cov=src/senzing_abstract --cov-report=xml  $(shell git ls-files '*.py'  ':!:docs/source/*' ':!:tools/*')
 
 # -----------------------------------------------------------------------------
 # Documentation

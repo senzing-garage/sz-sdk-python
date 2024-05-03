@@ -1,6 +1,6 @@
-// Just example numbers. Your mileage may vary.
+// Output has been formatted for easier reading.
 
 {
-    "numRecordsInserted": 200000,
-    "insertTime": 3000
+    "numRecordsInserted": 0,
+    "insertTime": 0
 }

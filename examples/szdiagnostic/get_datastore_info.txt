@@ -1,9 +1,11 @@
+// Output has been formatted for easier reading.
+
 {
-    "Hybrid Mode": false,
-    "Database Details": [
+    "dataStores": [
         {
-            "Name": "/tmp/sqlite/G2C.db",
-            "Type": "sqlite3"
+            "id": "CORE",
+            "type": "sqlite3",
+            "location": "/tmp/sqlite/G2C.db"
         }
     ]
 }

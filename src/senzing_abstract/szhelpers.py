@@ -12,7 +12,6 @@ import json
 import os
 import re
 import sys
-from contextlib import suppress
 from ctypes import (
     CDLL,
     POINTER,
@@ -34,14 +33,14 @@ else:
     from typing import ParamSpec
 
 # NOTE import orjson if available, on a basic loads it is at least 12% faster on a decently sized getentity and higher for other operations
-with suppress(ModuleNotFoundError):
-    import orjson
+# with suppress(ModuleNotFoundError):
+#     import orjson
 
 uintptr_type = POINTER(c_uint)
 T = TypeVar("T")
 P = ParamSpec("P")
 
-ORJSON_AVAILABLE = True if "orjson" in dir() else False
+# ORJSON_AVAILABLE = "orjson" in dir()
 
 # -----------------------------------------------------------------------------
 # Classes
@@ -79,14 +78,14 @@ class FreeCResources:
 #     # NOTE https://stackoverflow.com/questions/76759158/type-hinting-a-json-object-in-python
 #     # NOTE "Even the good people at typeshed use Any as the return type for json.load/json.loads to this day. And they basically maintain the official type stubs for the standard library."
 #     # NOTE https://github.com/python/typeshed/blob/f2ee9e9368a18b19bbf2ac05b6eb6bfea96d9a0c/stdlib/json/__init__.pyi#L39-L60
-#     # NOTE Using Any will impact automatic documentation generation if g2helpers gets documented?
+#     # NOTE Using Any will impact automatic documentation generation if szhelpers gets documented?
 
 #     def as_dict(self) -> Any:
-#         # # TODO Add check to ensure json_string looks like JSON, is it needed? It's the engines methods using the class not customers.
+#         # TODO: Add check to ensure json_string looks like JSON, is it needed? It's the engines methods using the class not customers.
 #         # if re.match("^{.*}$", self.json_string):
 #         #     return json.loads(self.json_string)
 #         # return self.json_string
-#         # TODO What if the loads fails?
+#         # TODO: What if the loads fails?
 #         if ORJSON_AVAILABLE:
 #             return orjson.loads(self.json_string).decode()
 #         return json.loads(self.json_string)
@@ -102,7 +101,6 @@ def catch_ctypes_exceptions(function_to_decorate: Callable[P, T]) -> Callable[P,
 
     @wraps(function_to_decorate)
     def inner_function(*args: P.args, **kwargs: P.kwargs) -> T:
-
         try:
             return function_to_decorate(*args, **kwargs)
         except ArgumentError as err:
@@ -128,16 +126,14 @@ def catch_ctypes_exceptions(function_to_decorate: Callable[P, T]) -> Callable[P,
                     ]
                 except (IndexError, ValueError):
                     raise TypeError(basic_raise_msg) from err
-                else:
-                    if len(bad_arg_tuple) != 2:
-                        raise TypeError(basic_raise_msg) from err
-
+                if len(bad_arg_tuple) != 2:
+                    raise TypeError(basic_raise_msg) from err
                 raise TypeError(
                     f"wrong type for argument {bad_arg_tuple[0]}, expected {bad_arg_tuple[1]} but received {bad_arg_type.__name__} when calling {module_name}.{method_name}"
                 ) from err
             raise TypeError() from err
         # # NOTE Do we need to catch anything else? Has a code smell about it
-        # TODO Is this generic catch needed?
+        # TODO: Is this generic catch needed?
         # except Exception as err:
         #     # print(f"In szhelpers last exception: {err}")
         #     raise err
@@ -162,8 +158,8 @@ def as_str(candidate_value: Union[str, Dict[Any, Any]]) -> str:
     """
     # NOTE Testing
     if isinstance(candidate_value, dict):
-        if ORJSON_AVAILABLE:
-            return orjson.dumps(candidate_value).decode()  # type: ignore[reportUnboundVariable]
+        # if ORJSON_AVAILABLE:
+        #     return orjson.dumps(candidate_value).decode()
         return json.dumps(candidate_value)
     return candidate_value
 
@@ -182,7 +178,7 @@ def as_uintptr_t(candidate_value: int) -> Any:
     :meta private:
     """
 
-    # TODO ctypes_exception catch this - before and after test should be the same
+    # TODO: ctypes_exception catch this - before and after test should be the same
     if not isinstance(candidate_value, int):
         raise TypeError(
             f"{candidate_value} is type{type(candidate_value)}. Needs to be type(int)"
@@ -202,7 +198,7 @@ def as_c_int(candidate_value: Any) -> int:
     """
 
     if candidate_value is None:  # handle null string
-        # TODO Doesn't need int
+        # TODO: Doesn't need int
         return int(0)
     if isinstance(candidate_value, str):  # if string is unicode, transcode to utf-8 str
         return int(candidate_value.encode("utf-8"))
@@ -212,7 +208,7 @@ def as_c_int(candidate_value: Any) -> int:
         return int(candidate_value)
     if isinstance(candidate_value, bytes):
         return int(candidate_value)
-    # TODO If already an int why use int()?
+    # TODO: If already an int why use int()?
     # input is already an int
     return int(candidate_value)
 
@@ -236,7 +232,7 @@ def as_c_char_p(candidate_value: Any) -> Any:
         return str(candidate_value).encode("utf-8")
     # input is already a str
     return candidate_value
-    # TODO Instead of TypeError can we utilise SzBadInputException and a new exception so a user only needs to catch
+    # TODO: Instead of TypeError can we utilise SzBadInputException and a new exception so a user only needs to catch
     # SzError or SzBadInputException instead of knowing they must also catch TypeError. Would be more convenient and simpler
     # raise TypeError(
     #     f"{candidate_value} has unsupported type of {type(candidate_value)}"
@@ -257,9 +253,9 @@ def as_python_int(candidate_value: Any) -> int:
     """
 
     result = cast(candidate_value, c_void_p).value
-    # TODO For methods using this could we get a non zero return code and return None?
-    # TODO Would never reach the return as_python_int(result.response) is non zero return code
-    # TODO Consequences of returning a 0 which wouldn't be a valid handle?
+    # TODO: For methods using this could we get a non zero return code and return None?
+    # TODO: Would never reach the return as_python_int(result.response) is non zero return code
+    # TODO: Consequences of returning a 0 which wouldn't be a valid handle?
     if result is None:
         result = 0
     return result
@@ -277,7 +273,7 @@ def as_python_str(candidate_value: Any) -> str:
 
     :meta private:
     """
-    # TODO Do these functions need try/except?
+    # TODO: Do these functions need try/except?
     result_raw = cast(candidate_value, c_char_p).value
     result = result_raw.decode() if result_raw else ""
     return result

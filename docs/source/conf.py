@@ -10,7 +10,7 @@ import os
 import sys
 
 project = "sz-sdk-python-abstract"
-copyright = "2023, senzing"
+copyright = "2024, Senzing"
 author = "senzing"
 
 # -- General configuration ---------------------------------------------------
