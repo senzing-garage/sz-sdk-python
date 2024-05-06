@@ -18,7 +18,7 @@ from senzing_abstract.szengineflags import SzEngineFlags
 # -----------------------------------------------------------------------------
 
 
-@pytest.fixture(name="sz_engine", scope="module")  # type: ignore[misc]
+@pytest.fixture(name="sz_engine", scope="module")
 def szengine_fixture() -> szengine_abstract.SzEngineAbstract:
     """
     Object under test.
@@ -176,9 +176,6 @@ class SzEngineTest(szengine_abstract.SzEngineAbstract):
     def get_redo_record(self, **kwargs: Any) -> str:
         return ""
 
-    def get_repository_last_modified_time(self, **kwargs: Any) -> int:
-        return 0
-
     def get_stats(self, **kwargs: Any) -> str:
         return ""
 
@@ -202,8 +199,8 @@ class SzEngineTest(szengine_abstract.SzEngineAbstract):
         self,
         instance_name: str,
         settings: Union[str, Dict[Any, Any]],
-        config_id: Optional[int] = None,
-        verbose_logging: int = 0,
+        config_id: Optional[int] = 0,
+        verbose_logging: Optional[int] = 0,
         **kwargs: Any,
     ) -> None:
         """None"""
@@ -394,13 +391,6 @@ def test_get_redo_record(
 ) -> None:
     """Test SzEngine().get_redo_record()."""
     sz_engine.get_redo_record()
-
-
-def test_get_repository_last_modified_time(
-    sz_engine: szengine_abstract.SzEngineAbstract,
-) -> None:
-    """Test SzEngine().get_repository_last_modified_time()."""
-    sz_engine.get_repository_last_modified_time()
 
 
 def test_get_stats(

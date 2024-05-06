@@ -6,7 +6,7 @@ TODO: szconfigmanager_test.py
 
 # pylint: disable=E1101
 
-from typing import Any, Dict, Union
+from typing import Any, Dict, Optional, Union
 
 import pytest
 
@@ -17,7 +17,7 @@ from senzing_abstract import szconfigmanager_abstract
 # -----------------------------------------------------------------------------
 
 
-@pytest.fixture(name="sz_configmanager", scope="module")  # type: ignore[misc]
+@pytest.fixture(name="sz_configmanager", scope="module")
 def szconfigmanager_fixture() -> szconfigmanager_abstract.SzConfigManagerAbstract:
     """
     Object under test.
@@ -64,7 +64,7 @@ class SzConfigManagerTest(szconfigmanager_abstract.SzConfigManagerAbstract):
         self,
         instance_name: str,
         settings: Union[str, Dict[Any, Any]],
-        verbose_logging: int = 0,
+        verbose_logging: Optional[int] = 0,
         **kwargs: Any,
     ) -> None:
         """None"""

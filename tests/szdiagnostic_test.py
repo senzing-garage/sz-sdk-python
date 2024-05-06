@@ -17,7 +17,7 @@ from senzing_abstract import szdiagnostic_abstract
 # -----------------------------------------------------------------------------
 
 
-@pytest.fixture(name="sz_diagnostic", scope="module")  # type: ignore[misc]
+@pytest.fixture(name="sz_diagnostic", scope="module")
 def szdiagnostic_fixture() -> szdiagnostic_abstract.SzDiagnosticAbstract:
     """
     Object under test.
@@ -57,7 +57,7 @@ class SzDiagnosticTest(szdiagnostic_abstract.SzDiagnosticAbstract):
         instance_name: str,
         settings: Union[str, Dict[Any, Any]],
         config_id: Optional[int] = None,
-        verbose_logging: int = 0,
+        verbose_logging: Optional[int] = 0,
         **kwargs: Any,
     ) -> None:
         """None"""

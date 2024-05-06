@@ -58,8 +58,6 @@ hello-world: hello-world-osarch-specific
 
 .PHONY: dependencies
 dependencies: dependencies-osarch-specific
-	python3 -m pip install --upgrade pip
-	pip install build psutil pytest pytest-cov pytest-schema virtualenv
 
 # -----------------------------------------------------------------------------
 # build
@@ -83,17 +81,6 @@ publish-test: package
 
 .PHONY: test
 test: test-osarch-specific
-	@echo "--- Unit tests -------------------------------------------------------"
-	@pytest tests/ -vv --verbose --capture=no --cov=src/senzing_abstract --cov-report xml:coverage.xml
-#	@echo "--- Test examples ----------------------------------------------------"
-#	@pytest examples/ --verbose --capture=no --cov=src/senzing_abstract
-	@echo "--- Test examples using unittest -------------------------------------"
-	@python3 -m unittest \
-		examples/szconfig/*.py \
-		examples/szconfigmanager/*.py \
-		examples/szdiagnostic/*.py \
-		examples/szengine/*.py \
-		examples/szproduct/*.py
 
 
 .PHONY: bandit
@@ -107,22 +94,22 @@ coverage: coverage-osarch-specific
 
 .PHONY: black
 black:
-	@black $(shell git ls-files '*.py'  ':!:docs/source/*' ':!:tests/*' ':!:tools/*')
+	@black $(shell git ls-files '*.py'  ':!:docs/source/*' ':!:tests/*')
 
 
 .PHONY: flake8
 flake8:
-	@flake8 $(shell git ls-files '*.py'  ':!:docs/source/*' ':!:tools/*')
+	@flake8 $(shell git ls-files '*.py'  ':!:docs/source/*')
 
 
 .PHONY: isort
 isort:
-	@isort $(shell git ls-files '*.py'  ':!:docs/source/*' ':!:tools/*')
+	@isort $(shell git ls-files '*.py'  ':!:docs/source/*')
 
 
 .PHONY: mypy
 mypy:
-	@mypy --strict $(shell git ls-files '*.py' ':!:docs/source/*' ':!:tools/*')
+	@mypy --strict $(shell git ls-files '*.py' ':!:docs/source/*')
 
 
 .PHONY: pylint
@@ -130,14 +117,9 @@ pylint:
 	@pylint $(shell git ls-files '*.py'  ':!:docs/source/*')
 
 
-# .PHONY: mypy
-# mypy:
-# 	mypy --follow-imports skip --strict $(shell git ls-files '*.py')
-
-
 .PHONY: pytest
 pytest:
-	@pytest --cov=src/senzing_abstract --cov-report=xml  $(shell git ls-files '*.py'  ':!:docs/source/*' ':!:tools/*')
+	@pytest --cov=src/senzing_abstract --cov-report=xml  $(shell git ls-files '*.py'  ':!:docs/source/*')
 
 # -----------------------------------------------------------------------------
 # Documentation

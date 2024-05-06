@@ -6,7 +6,7 @@ TODO: szproduct_test.py
 
 # pylint: disable=E1101
 
-from typing import Any, Dict, Union
+from typing import Any, Dict, Optional, Union
 
 import pytest
 
@@ -17,7 +17,7 @@ from senzing_abstract import szproduct_abstract
 # -----------------------------------------------------------------------------
 
 
-@pytest.fixture(name="sz_product", scope="module")  # type: ignore[misc]
+@pytest.fixture(name="sz_product", scope="module")
 def szproduct_fixture() -> szproduct_abstract.SzProductAbstract:
     """
     Object under test.
@@ -47,7 +47,7 @@ class SzProductTest(szproduct_abstract.SzProductAbstract):
         self,
         instance_name: str,
         settings: Union[str, Dict[Any, Any]],
-        verbose_logging: int = 0,
+        verbose_logging: Optional[int] = 0,
         **kwargs: Any
     ) -> None:
         """None"""
