@@ -3,7 +3,7 @@ name: pytest windows
 on: [pull_request, workflow_dispatch]
 
 env:
-  PYTHONPATH: /Users/runner/work/sz-sdk-python-abstract/sz-sdk-python-abstract/src
+  PYTHONPATH: 'D:\a\sz-sdk-python-abstract\sz-sdk-python-abstract\src'
 
 permissions:
   contents: read
