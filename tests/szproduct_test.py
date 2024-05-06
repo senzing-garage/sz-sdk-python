@@ -10,7 +10,7 @@ from typing import Any, Dict, Optional, Union
 
 import pytest
 
-from senzing_abstract import szproduct_abstract
+from senzing_abstract import SzProductAbstract
 
 # -----------------------------------------------------------------------------
 # SzConfig fixtures
@@ -18,7 +18,7 @@ from senzing_abstract import szproduct_abstract
 
 
 @pytest.fixture(name="sz_product", scope="module")
-def szproduct_fixture() -> szproduct_abstract.SzProductAbstract:
+def szproduct_fixture() -> SzProductAbstract:
     """
     Object under test.
     """
@@ -31,7 +31,7 @@ def szproduct_fixture() -> szproduct_abstract.SzProductAbstract:
 # -----------------------------------------------------------------------------
 
 
-class SzProductTest(szproduct_abstract.SzProductAbstract):
+class SzProductTest(SzProductAbstract):
     """
     SzProduct module access library.
     """
@@ -64,21 +64,21 @@ class SzProductTest(szproduct_abstract.SzProductAbstract):
 # -----------------------------------------------------------------------------
 
 
-def test_destroy(sz_product: szproduct_abstract.SzProductAbstract) -> None:
+def test_destroy(sz_product: SzProductAbstract) -> None:
     """Test SzProduct().destroy()."""
     sz_product.destroy()
 
 
-def test_initialize(sz_product: szproduct_abstract.SzProductAbstract) -> None:
+def test_initialize(sz_product: SzProductAbstract) -> None:
     """Test SzProduct().initialize()."""
     sz_product.initialize("", "")
 
 
-def test_get_license(sz_product: szproduct_abstract.SzProductAbstract) -> None:
+def test_get_license(sz_product: SzProductAbstract) -> None:
     """Test SzProduct().get_license()."""
     sz_product.get_license()
 
 
-def test_get_version(sz_product: szproduct_abstract.SzProductAbstract) -> None:
+def test_get_version(sz_product: SzProductAbstract) -> None:
     """Test SzProduct().get_version()."""
     sz_product.get_version()

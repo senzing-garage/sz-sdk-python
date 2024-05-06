@@ -10,7 +10,7 @@ from typing import Any, Dict, Optional, Union
 
 import pytest
 
-from senzing_abstract import szconfig_abstract
+from senzing_abstract import SzConfigAbstract
 
 # -----------------------------------------------------------------------------
 # szConfig fixtures
@@ -18,7 +18,7 @@ from senzing_abstract import szconfig_abstract
 
 
 @pytest.fixture(name="sz_config", scope="module")
-def szconfig_fixture() -> szconfig_abstract.SzConfigAbstract:
+def szconfig_fixture() -> SzConfigAbstract:
     """
     Object under test.
     """
@@ -31,7 +31,7 @@ def szconfig_fixture() -> szconfig_abstract.SzConfigAbstract:
 # -----------------------------------------------------------------------------
 
 
-class SzConfigTest(szconfig_abstract.SzConfigAbstract):
+class SzConfigTest(SzConfigAbstract):
     """
     SzConfig module access library.
     """
@@ -91,46 +91,46 @@ class SzConfigTest(szconfig_abstract.SzConfigAbstract):
 # -----------------------------------------------------------------------------
 
 
-def test_add_data_source(sz_config: szconfig_abstract.SzConfigAbstract) -> None:
+def test_add_data_source(sz_config: SzConfigAbstract) -> None:
     """Test SzConfig().add_data_source()."""
     sz_config.add_data_source(0, "")
 
 
-def test_close_config(sz_config: szconfig_abstract.SzConfigAbstract) -> None:
+def test_close_config(sz_config: SzConfigAbstract) -> None:
     """Test SzConfig().close_config()."""
     sz_config.close_config(0)
 
 
-def test_create_config(sz_config: szconfig_abstract.SzConfigAbstract) -> None:
+def test_create_config(sz_config: SzConfigAbstract) -> None:
     """Test SzConfig().create_config()."""
     sz_config.create_config()
 
 
-def test_delete_data_source(sz_config: szconfig_abstract.SzConfigAbstract) -> None:
+def test_delete_data_source(sz_config: SzConfigAbstract) -> None:
     """Test SzConfig().delete_data_source()."""
     sz_config.delete_data_source(0, "")
 
 
-def test_destroy(sz_config: szconfig_abstract.SzConfigAbstract) -> None:
+def test_destroy(sz_config: SzConfigAbstract) -> None:
     """Test SzConfig().destroy()."""
     sz_config.destroy()
 
 
-def test_export_config(sz_config: szconfig_abstract.SzConfigAbstract) -> None:
+def test_export_config(sz_config: SzConfigAbstract) -> None:
     """Test SzConfig().export_config()."""
     sz_config.export_config(0)
 
 
-def test_get_data_sources(sz_config: szconfig_abstract.SzConfigAbstract) -> None:
+def test_get_data_sources(sz_config: SzConfigAbstract) -> None:
     """Test SzConfig().get_data_sources()."""
     sz_config.get_data_sources(0)
 
 
-def test_import_config(sz_config: szconfig_abstract.SzConfigAbstract) -> None:
+def test_import_config(sz_config: SzConfigAbstract) -> None:
     """Test SzConfig().import_config()."""
     sz_config.import_config("")
 
 
-def test_initialize(sz_config: szconfig_abstract.SzConfigAbstract) -> None:
+def test_initialize(sz_config: SzConfigAbstract) -> None:
     """Test SzConfig().initialize()."""
     sz_config.initialize("", "")

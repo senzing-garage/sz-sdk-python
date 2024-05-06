@@ -10,7 +10,7 @@ from typing import Any, Dict, Optional, Union
 
 import pytest
 
-from senzing_abstract import szdiagnostic_abstract
+from senzing_abstract import SzDiagnosticAbstract
 
 # -----------------------------------------------------------------------------
 # SzDiagnostic fixtures
@@ -18,7 +18,7 @@ from senzing_abstract import szdiagnostic_abstract
 
 
 @pytest.fixture(name="sz_diagnostic", scope="module")
-def szdiagnostic_fixture() -> szdiagnostic_abstract.SzDiagnosticAbstract:
+def szdiagnostic_fixture() -> SzDiagnosticAbstract:
     """
     Object under test.
     """
@@ -31,7 +31,7 @@ def szdiagnostic_fixture() -> szdiagnostic_abstract.SzDiagnosticAbstract:
 # -----------------------------------------------------------------------------
 
 
-class SzDiagnosticTest(szdiagnostic_abstract.SzDiagnosticAbstract):
+class SzDiagnosticTest(SzDiagnosticAbstract):
     """
     SzDiagnostic module access library.
     """
@@ -74,50 +74,36 @@ class SzDiagnosticTest(szdiagnostic_abstract.SzDiagnosticAbstract):
 # -----------------------------------------------------------------------------
 
 
-def test_check_datastore_performance(
-    sz_diagnostic: szdiagnostic_abstract.SzDiagnosticAbstract,
-) -> None:
+def test_check_datastore_performance(sz_diagnostic: SzDiagnosticAbstract) -> None:
     """Test SzDiagnosic().check_datastore_performance()."""
     sz_diagnostic.check_datastore_performance(0)
 
 
-def test_destroy(
-    sz_diagnostic: szdiagnostic_abstract.SzDiagnosticAbstract,
-) -> None:
+def test_destroy(sz_diagnostic: SzDiagnosticAbstract) -> None:
     """Test SzDiagnosic().destroy()."""
     sz_diagnostic.destroy()
 
 
-def test_get_datastore_info(
-    sz_diagnostic: szdiagnostic_abstract.SzDiagnosticAbstract,
-) -> None:
+def test_get_datastore_info(sz_diagnostic: SzDiagnosticAbstract) -> None:
     """Test SzDiagnosic().get_datastore_info()."""
     sz_diagnostic.get_datastore_info()
 
 
-def test_get_feature(
-    sz_diagnostic: szdiagnostic_abstract.SzDiagnosticAbstract,
-) -> None:
+def test_get_feature(sz_diagnostic: SzDiagnosticAbstract) -> None:
     """Test SzDiagnosic().get_datastore_info()."""
     sz_diagnostic.get_feature(0)
 
 
-def test_initialize(
-    sz_diagnostic: szdiagnostic_abstract.SzDiagnosticAbstract,
-) -> None:
+def test_initialize(sz_diagnostic: SzDiagnosticAbstract) -> None:
     """Test SzDiagnosic().initialize()."""
     sz_diagnostic.initialize("", "")
 
 
-def test_purge_repository(
-    sz_diagnostic: szdiagnostic_abstract.SzDiagnosticAbstract,
-) -> None:
+def test_purge_repository(sz_diagnostic: SzDiagnosticAbstract) -> None:
     """Test SzDiagnosic().purge_repository()."""
     sz_diagnostic.purge_repository()
 
 
-def test_reinitialize(
-    sz_diagnostic: szdiagnostic_abstract.SzDiagnosticAbstract,
-) -> None:
+def test_reinitialize(sz_diagnostic: SzDiagnosticAbstract) -> None:
     """Test SzDiagnosic().reinitialize()."""
     sz_diagnostic.reinitialize(0)
