@@ -1,14 +1,16 @@
-.. g2-sdk-python-abstract documentation master file, created by
+.. sz-sdk-python-abstract documentation master file, created by
    sphinx-quickstart on Thu Dec 14 15:35:47 2023.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to g2-sdk-python-abstract's documentation!
+Welcome to sz-sdk-python-abstract's documentation!
 ==================================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+
+   modules
 
 
 

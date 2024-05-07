@@ -12,12 +12,17 @@ SENZING_TOOLS_DATABASE_URL ?= sqlite3://na:na@nowhere/C:\Temp\sqlite\G2C.db
 
 .PHONY: clean-osarch-specific
 clean-osarch-specific:
-	del /F /S /Q $(TARGET_DIRECTORY)
+	del /F /S /Q $(DIST_DIRECTORY)
 	del /F /S /Q $(GOPATH)/bin/$(PROGRAM_NAME)
+	del /F /S /Q $(MAKEFILE_DIRECTORY)/__pycache__
+	del /F /S /Q $(MAKEFILE_DIRECTORY)/coverage.xml
+	del /F /S /Q $(TARGET_DIRECTORY)
 
 
 .PHONY: dependencies-osarch-specific
 dependencies-osarch-specific:
+	python3 -m pip install --upgrade pip
+	pip install psutil pytest pytest-cov pytest-schema
 
 
 .PHONY: hello-world-osarch-specific
@@ -31,6 +36,10 @@ setup-osarch-specific:
 
 .PHONY: test-osarch-specific
 test-osarch-specific:
+	@echo "--- Unit tests -------------------------------------------------------"
+	@pytest tests/ --verbose --capture=no --cov=src/senzing
+	@echo "--- Test examples ----------------------------------------------------"
+	@pytest examples/ --verbose --capture=no --cov=src/senzing
 
 
 .PHONY: view-sphinx-osarch-specific

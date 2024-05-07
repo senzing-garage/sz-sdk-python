@@ -9,8 +9,8 @@
 import os
 import sys
 
-project = "g2-sdk-python-abstract"
-copyright = "2023, senzing"
+project = "sz-sdk-python-abstract"
+copyright = "2024, Senzing"
 author = "senzing"
 
 # -- General configuration ---------------------------------------------------

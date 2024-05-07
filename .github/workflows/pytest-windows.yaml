@@ -1,19 +1,23 @@
 name: pytest windows
 
-on: [push]
+on: [pull_request, workflow_dispatch]
 
 env:
-  PYTHONPATH: /Users/runner/work/g2-sdk-python-abstract/g2-sdk-python-abstract/src
+  PYTHONPATH: 'D:\a\sz-sdk-python-abstract\sz-sdk-python-abstract\src'
+
+permissions:
+  contents: read
 
 jobs:
   pytest-windows:
     name: "pytest OS: ${{ matrix.os }}; Python ${{ matrix.python-version }}"
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
+        os: [windows-latest]
         # python-version: ["3.8", "3.9", "3.10", "3.11"]
         python-version: ["3.8", "3.11"]
-        os: [windows-latest]
 
     steps:
       - name: checkout repository
@@ -24,5 +28,31 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      # - name: run pytest on tests
-      #   run: pytest tests/ --verbose --capture=no --cov=src/senzing_abstract
+      - name: install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --requirement requirements.txt
+          pip install psutil pytest pytest-cov pytest-schema
+
+      - name: run pytest on tests
+        run: pytest tests/ --verbose --capture=no --cov=src/senzing_abstract
+
+      - name: rename coverage file
+        env:
+          COVERAGE_FILE: ".coverage.${{ matrix.python-version }}"
+        run: |
+          Rename-Item -Path.coverage -NewName "$env:COVERAGE_FILE"
+
+      - name: Store coverage file
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-${{ matrix.python-version }}
+          path: .coverage.${{ matrix.python-version }}
+
+  coverage:
+    name: coverage
+    needs: pytest-windows
+    permissions:
+      pull-requests: write
+      contents: write
+    uses: senzing-factory/build-resources/.github/workflows/python-coverage-comment.yaml@v1
