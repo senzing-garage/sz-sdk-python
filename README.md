@@ -5,17 +5,17 @@
 | Name                                               |    Stmts |     Miss |   Cover |   Missing |
 |--------------------------------------------------- | -------: | -------: | ------: | --------: |
 | src/senzing\_abstract/\_\_init\_\_.py              |        9 |        0 |    100% |           |
-| src/senzing\_abstract/observer\_abstract.py        |        6 |        6 |      0% |      3-33 |
-| src/senzing\_abstract/szconfig\_abstract.py        |       28 |        0 |    100% |           |
-| src/senzing\_abstract/szconfigmanager\_abstract.py |       26 |        0 |    100% |           |
-| src/senzing\_abstract/szdiagnostic\_abstract.py    |       24 |        0 |    100% |           |
-| src/senzing\_abstract/szengine\_abstract.py        |      118 |       20 |     83% |1077, 1095, 1106, 1117, 1136, 1160, 1185, 1213, 1237, 1250, 1267, 1274, 1286, 1300, 1312, 1325, 1340, 1355, 1370, 1393 |
-| src/senzing\_abstract/szengineflags.py             |       81 |        4 |     95% |     32-35 |
-| src/senzing\_abstract/szerror.py                   |       64 |       26 |     59% |600-601, 610-622, 631, 640-648, 660-666, 682-697 |
-| src/senzing\_abstract/szhasher\_abstract.py        |       22 |        0 |    100% |           |
+| src/senzing\_abstract/observer\_abstract.py        |        5 |        5 |      0% |     13-33 |
+| src/senzing\_abstract/szconfig\_abstract.py        |       27 |        0 |    100% |           |
+| src/senzing\_abstract/szconfigmanager\_abstract.py |       25 |        0 |    100% |           |
+| src/senzing\_abstract/szdiagnostic\_abstract.py    |       23 |        0 |    100% |           |
+| src/senzing\_abstract/szengine\_abstract.py        |      117 |       20 |     83% |1077, 1095, 1106, 1117, 1136, 1160, 1185, 1213, 1237, 1250, 1267, 1274, 1286, 1300, 1312, 1325, 1340, 1355, 1370, 1393 |
+| src/senzing\_abstract/szengineflags.py             |       80 |        4 |     95% |     32-35 |
+| src/senzing\_abstract/szerror.py                   |       63 |       26 |     59% |600-601, 610-622, 631, 640-648, 660-666, 682-697 |
+| src/senzing\_abstract/szhasher\_abstract.py        |       21 |        0 |    100% |           |
 | src/senzing\_abstract/szhelpers.py                 |       94 |       94 |      0% |     9-298 |
-| src/senzing\_abstract/szproduct\_abstract.py       |       23 |        2 |     91% |  151, 164 |
-|                                          **TOTAL** |  **495** |  **152** | **69%** |           |
+| src/senzing\_abstract/szproduct\_abstract.py       |       22 |        2 |     91% |  151, 164 |
+|                                          **TOTAL** |  **486** |  **151** | **69%** |           |
 
 
 ## Setup coverage badge
