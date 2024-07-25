@@ -89,11 +89,24 @@ lint: pylint mypy bandit black flake8 isort
 # -----------------------------------------------------------------------------
 
 .PHONY: test
-test:
+test: test-tests test-examples
+
+
+.PHONY: test-tests
+test-tests:
 	$(info --- Unit tests -----------------------------------------------------------------)
-	@pytest tests/ --verbose --capture=no --cov=src/senzing
+	@pytest tests --verbose --capture=no --cov=src/senzing_abstract --cov-report xml:coverage.xml
+
+
+.PHONY: test-examples
+test-examples:
 	$(info --- Test examples --------------------------------------------------------------)
-	@pytest examples/ --verbose --capture=no --cov=src/senzing
+	@python3 -m unittest \
+		examples/szconfig/*.py \
+		examples/szconfigmanager/*.py \
+		examples/szdiagnostic/*.py \
+		examples/szengine/*.py \
+		examples/szproduct/*.py
 
 
 .PHONY: docker-test
@@ -154,7 +167,7 @@ publish-test: package
 # -----------------------------------------------------------------------------
 
 .PHONY: clean
-clean: clean-osarch-specific docker-rmi-for-build
+clean: clean-osarch-specific
 
 # -----------------------------------------------------------------------------
 # Utility targets

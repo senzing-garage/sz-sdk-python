@@ -7,7 +7,7 @@ szconfigmanager_abstract.py is the abstract class for all implementations of szc
 # TODO: Determine specific SzErrors, Errors for "Raises:" documentation.
 
 from abc import ABC, abstractmethod
-from typing import Any, Dict, Optional, Union
+from typing import Any
 
 # Metadata
 
@@ -36,7 +36,7 @@ class SzConfigManagerAbstract(ABC):
         4001: PREFIX + "add_config({0}, {1}) failed. Return code: {2}",
         4002: PREFIX + "destroy() failed. Return code: {0}",
         4003: PREFIX + "get_config({0}) failed. Return code: {1}",
-        4004: PREFIX + "get_config_list() failed. Return code: {0}",
+        4004: PREFIX + "get_configs() failed. Return code: {0}",
         4005: PREFIX + "get_default_config_id() failed. Return code: {0}",
         4006: PREFIX + "initialize({0}, {1}, {2}) failed. Return code: {3}",
         4007: PREFIX + "replace_default_config_id({0}, {1}) failed. Return code: {2}",

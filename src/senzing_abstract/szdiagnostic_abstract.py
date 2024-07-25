@@ -5,7 +5,7 @@ TODO: szdiagnostic_abstract.py
 """
 
 from abc import ABC, abstractmethod
-from typing import Any, Dict, Optional, Union
+from typing import Any
 
 # Metadata
 

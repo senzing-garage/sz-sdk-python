@@ -5,7 +5,9 @@ TODO: szengineflags.py
 """
 
 from enum import IntFlag
-from typing import Any, List
+from typing import List, Union
+
+from senzing_abstract.szerror import SzError
 
 # Metadata
 

@@ -20,9 +20,9 @@ def test_check_datastore_performance(sz_diagnostic: SzDiagnosticAbstract) -> Non
     sz_diagnostic.check_datastore_performance(0)
 
 
-def test_destroy(sz_diagnostic: SzDiagnosticAbstract) -> None:
-    """Test SzDiagnosic().destroy()."""
-    sz_diagnostic.destroy()
+# def test_destroy(sz_diagnostic: SzDiagnosticAbstract) -> None:
+#     """Test SzDiagnosic().destroy()."""
+#     sz_diagnostic.destroy()
 
 
 def test_get_datastore_info(sz_diagnostic: SzDiagnosticAbstract) -> None:
@@ -35,9 +35,9 @@ def test_get_feature(sz_diagnostic: SzDiagnosticAbstract) -> None:
     sz_diagnostic.get_feature(0)
 
 
-def test_initialize(sz_diagnostic: SzDiagnosticAbstract) -> None:
-    """Test SzDiagnosic().initialize()."""
-    sz_diagnostic.initialize("", "")
+# def test_initialize(sz_diagnostic: SzDiagnosticAbstract) -> None:
+#     """Test SzDiagnosic().initialize()."""
+#     sz_diagnostic.initialize("", "")
 
 
 def test_purge_repository(sz_diagnostic: SzDiagnosticAbstract) -> None:

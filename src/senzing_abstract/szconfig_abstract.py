@@ -7,7 +7,7 @@ szconfig_abstract.py is the abstract class for all implementations of szconfig.
 # TODO: Determine specific SzErrors, Errors for "Raises:" documentation.
 
 from abc import ABC, abstractmethod
-from typing import Any, Dict, Optional, Union
+from typing import Any
 
 # Metadata
 

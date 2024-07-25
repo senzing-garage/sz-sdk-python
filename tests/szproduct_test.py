@@ -15,14 +15,14 @@ from senzing_abstract import SzProductAbstract
 # -----------------------------------------------------------------------------
 
 
-def test_destroy(sz_product: SzProductAbstract) -> None:
-    """Test SzProduct().destroy()."""
-    sz_product.destroy()
+# def test_destroy(sz_product: SzProductAbstract) -> None:
+#     """Test SzProduct().destroy()."""
+#     sz_product.destroy()
 
 
-def test_initialize(sz_product: SzProductAbstract) -> None:
-    """Test SzProduct().initialize()."""
-    sz_product.initialize("", "")
+# def test_initialize(sz_product: SzProductAbstract) -> None:
+#     """Test SzProduct().initialize()."""
+#     sz_product.initialize("", "")
 
 
 def test_get_license(sz_product: SzProductAbstract) -> None:

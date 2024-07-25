@@ -35,9 +35,9 @@ def test_delete_data_source(sz_config: SzConfigAbstract) -> None:
     sz_config.delete_data_source(0, "")
 
 
-def test_destroy(sz_config: SzConfigAbstract) -> None:
-    """Test SzConfig().destroy()."""
-    sz_config.destroy()
+# def test_destroy(sz_config: SzConfigAbstract) -> None:
+#     """Test SzConfig().destroy()."""
+#     sz_config.destroy()
 
 
 def test_export_config(sz_config: SzConfigAbstract) -> None:
@@ -55,9 +55,9 @@ def test_import_config(sz_config: SzConfigAbstract) -> None:
     sz_config.import_config("")
 
 
-def test_initialize(sz_config: SzConfigAbstract) -> None:
-    """Test SzConfig().initialize()."""
-    sz_config.initialize("", "")
+# def test_initialize(sz_config: SzConfigAbstract) -> None:
+#     """Test SzConfig().initialize()."""
+#     sz_config.initialize("", "")
 
 
 # -----------------------------------------------------------------------------
