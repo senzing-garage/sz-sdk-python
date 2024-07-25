@@ -4,7 +4,9 @@
 # Variables
 # -----------------------------------------------------------------------------
 
-SENZING_TOOLS_DATABASE_URL ?= sqlite3://na:na@/tmp/sqlite/G2C.db
+LD_LIBRARY_PATH ?= /opt/senzing/g2/lib
+SENZING_TOOLS_DATABASE_URL ?= sqlite3://na:na@nowhere/tmp/sqlite/G2C.db
+PATH := $(MAKEFILE_DIRECTORY)/bin:$(PATH)
 
 # -----------------------------------------------------------------------------
 # OS specific targets
@@ -13,30 +15,28 @@ SENZING_TOOLS_DATABASE_URL ?= sqlite3://na:na@/tmp/sqlite/G2C.db
 .PHONY: clean-osarch-specific
 clean-osarch-specific:
 	@rm -fr $(DIST_DIRECTORY) || true
-	@rm -fr $(MAKEFILE_DIRECTORY)/__pycache__ || true
 	@rm -f  $(MAKEFILE_DIRECTORY)/coverage.xml || true
+	@rm -fr $(MAKEFILE_DIRECTORY)/docs/build || true
+	@rm -fr $(MAKEFILE_DIRECTORY)/htmlcov || true
 	@rm -fr $(TARGET_DIRECTORY) || true
+	@find . | grep -E "(/__pycache__$$|\.pyc$$|\.pyo$$)" | xargs rm -rf
 
 
 .PHONY: coverage-osarch-specific
 coverage-osarch-specific:
+	@pytest --cov=src --cov-report=xml  $(shell git ls-files '*.py'   )
 	@coverage html
 	@xdg-open $(MAKEFILE_DIRECTORY)/htmlcov/index.html
 
 
-.PHONY: dependencies-osarch-specific
-dependencies-osarch-specific:
-	python3 -m pip install --upgrade pip
-	pip install build psutil pytest pytest-cov pytest-schema virtualenv
-
-
 .PHONY: hello-world-osarch-specific
 hello-world-osarch-specific:
-	@echo "Hello World, from linux."
+	$(info "Hello World, from linux.")
 
 
 .PHONY: setup-osarch-specific
 setup-osarch-specific:
+	$(info "No setup required.")
 
 
 .PHONY: test-osarch-specific
@@ -62,6 +62,11 @@ test-examples:
 		examples/misc/add_truthset_data.py
 
 
+.PHONY: sphinx-osarch-specific
+sphinx-osarch-specific:
+	@cd docs; rm -rf build; make html
+
+
 .PHONY: view-sphinx-osarch-specific
 view-sphinx-osarch-specific:
 	@xdg-open file://$(MAKEFILE_DIRECTORY)/docs/build/html/index.html
@@ -72,4 +77,4 @@ view-sphinx-osarch-specific:
 
 .PHONY: only-linux
 only-linux:
-	@echo "Only linux has this Makefile target."
+	$(info "Only linux has this Makefile target.")

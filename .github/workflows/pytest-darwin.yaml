@@ -1,24 +1,25 @@
-name: pytest linux
+name: pytest darwin
 
-on: [push, pull_request]
+on: [pull_request, workflow_dispatch]
 
 env:
-  PYTHONPATH: /home/runner/work/sz-sdk-python-abstract/sz-sdk-python-abstract/src
+  PYTHONPATH: /Users/runner/work/sz-sdk-python-abstract/sz-sdk-python-abstract/src
+  SENZING_TOOLS_ENABLE_ALL: true
 
 permissions:
   contents: read
 
 jobs:
-  pytest-linux:
-    name: "pytest Senzing: ${{ matrix.senzingapi-runtime-version }}; OS: ${{ matrix.os }}; Python ${{ matrix.python-version }}"
+  pytest-darwin:
+    name: "pytest Senzing: ${{ matrix.senzingapi-version }}; OS: ${{ matrix.os }}; Python ${{ matrix.python-version }}"
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest]
-        # python-version: ["3.8", "3.9", "3.10", "3.11"]
-        python-version: ["3.8", "3.11"]
-        senzingapi-runtime-version: [staging-v4]
+        os: [macos-latest]
+        # 3.8 and 3.9 are unsupported on the darwin runner
+        python-version: ["3.10", "3.11"]
+        senzingapi-version: [staging-v4]
 
     steps:
       - name: Checkout repository
@@ -42,28 +43,18 @@ jobs:
       - name: Install Senzing API
         uses: senzing-factory/github-action-install-senzing-api@v3
         with:
-          senzingapi-runtime-version: ${{ matrix.senzingapi-runtime-version }}
+          senzingapi-version: ${{ matrix.senzingapi-version }}
 
       - name: Copy /etc files
-        run: sudo cp testdata/senzing-license/g2.lic /etc/opt/senzing/g2.lic
+        run: sudo cp testdata/senzing-license/g2.lic /opt/senzing/g2/etc/g2.lic
 
       - name: Copy test database files
         run: mkdir /tmp/sqlite && cp testdata/sqlite/G2C.db /tmp/sqlite/G2C.db
 
       - name: Run pytest on tests
-        run: pytest tests/ --verbose --capture=no --cov=src/senzing_abstract --cov-append
-
-      - name: Run unittest on examples
         run: |
-          python3 -m unittest \
-            examples/szconfig/*.py \
-            examples/szconfigmanager/*.py \
-            examples/szdiagnostic/*.py \
-            examples/szengine/*.py \
-            examples/szproduct/*.py
-
-      # - name: Run pytest on examples
-      #   run: pytest examples/ --verbose --capture=no
+          export DYLD_LIBRARY_PATH=/opt/senzing/g2/lib:/opt/senzing/g2/lib/macos
+          pytest tests/ --verbose --capture=no --cov=src/senzing_abstract
 
       - name: Rename coverage file
         env:
@@ -79,7 +70,7 @@ jobs:
 
   coverage:
     name: Coverage
-    needs: pytest-linux
+    needs: pytest-darwin
     permissions:
       pull-requests: write
       contents: write

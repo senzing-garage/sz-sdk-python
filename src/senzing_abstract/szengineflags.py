@@ -14,25 +14,62 @@ __version__ = "0.0.1"  # See https://www.python.org/dev/peps/pep-0396/
 __date__ = "2023-10-30"
 __updated__ = "2023-10-30"
 
+
 # -----------------------------------------------------------------------------
 # SzEngineFlags class
 # -----------------------------------------------------------------------------
 
 
 class SzEngineFlags(IntFlag):
-    """Engine Flags ..."""
+    """Engine Flags"""
 
     @classmethod
-    def combine_flags(
-        cls, list_of_strings: List[str], *args: Any, **kwargs: Any
-    ) -> int:
-        """OR together all strings in list_of_strings"""
-        # pylint: disable=unused-argument
+    def combine_flags(cls, flags: Union[List[IntFlag], List[str]]) -> int:
+        """
+        The `combine_flags` method ORs together all flags in a list of strings.
 
+        Args:
+            flags (List[str]): A list of strings each representing an engine flag.
+
+        Returns:
+            int: Value of ORing flags together.
+
+        Raises:
+
+        .. collapse:: Example:
+
+            .. literalinclude:: ../../examples/misc/engine_flags_combine_flags.py
+                :linenos:
+                :language: python
+
+            **Output:**
+
+            .. literalinclude:: ../../examples/misc/engine_flags_combine_flags.txt
+                :linenos:
+                :language: json
+        """
         result = 0
-        for string in list_of_strings:
-            result = result | SzEngineFlags[string]
+        try:
+            for flag in flags:
+                if isinstance(flag, str):
+                    result = result | cls[flag.upper()]
+                else:
+                    result = result | flag
+        except (AttributeError, KeyError) as err:
+            raise SzError(f"{err} is not a valid engine flag") from err
         return result
+
+    @classmethod
+    # TODO - Ant - Correct type?
+    def get_flag_int(cls, flag: Union[IntFlag, str]) -> int:
+        """# TODO"""
+        try:
+            if isinstance(flag, str):
+                flag = cls[flag.upper()]
+            flag_int = flag.value
+        except (AttributeError, KeyError) as err:
+            raise SzError(f"{err} is not a valid engine flag") from err
+        return flag_int
 
     # Flags for exporting entity data.
 
@@ -84,6 +121,7 @@ class SzEngineFlags(IntFlag):
     SZ_ENTITY_INCLUDE_RELATED_ENTITY_NAME = 1 << 19
     SZ_ENTITY_INCLUDE_RELATED_MATCHING_INFO = 1 << 20
     SZ_ENTITY_INCLUDE_RELATED_RECORD_SUMMARY = 1 << 21
+    SZ_ENTITY_INCLUDE_RELATED_RECORD_TYPES = 1 << 29
     SZ_ENTITY_INCLUDE_RELATED_RECORD_DATA = 1 << 22
 
     # Flags for extra feature data.
@@ -98,7 +136,7 @@ class SzEngineFlags(IntFlag):
 
     # Flags for finding entity path & network data.
 
-    SZ_FIND_PATH_PREFER_EXCLUDE = 1 << 25
+    SZ_FIND_PATH_STRICT_AVOID = 1 << 25
     SZ_FIND_PATH_INCLUDE_MATCHING_INFO = 1 << 30
     SZ_FIND_NETWORK_INCLUDE_MATCHING_INFO = 1 << 33
 
@@ -145,13 +183,7 @@ class SzEngineFlags(IntFlag):
         | SZ_ENTITY_INCLUDE_RELATED_MATCHING_INFO
     )
 
-    SZ_EXPORT_DEFAULT_FLAGS = (
-        SZ_EXPORT_INCLUDE_ALL_ENTITIES
-        # NOTE Check, was removed in 4.0.0.24095 - 2024_04_04__00_00
-        # NOTE There are changes in V4 to output messages and Jae is likely still working on them
-        # | SZ_EXPORT_INCLUDE_ALL_HAVING_RELATIONSHIPS
-        | SZ_ENTITY_DEFAULT_FLAGS
-    )
+    SZ_EXPORT_DEFAULT_FLAGS = SZ_EXPORT_INCLUDE_ALL_ENTITIES | SZ_ENTITY_DEFAULT_FLAGS
 
     SZ_FIND_PATH_DEFAULT_FLAGS = (
         SZ_FIND_PATH_INCLUDE_MATCHING_INFO
@@ -214,24 +246,3 @@ class SzEngineFlags(IntFlag):
     )
 
     SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS = SZ_SEARCH_BY_ATTRIBUTES_ALL
-
-    # -----------------------------------------------------------------------------
-    # non-SzEngineFlags flags
-    # -----------------------------------------------------------------------------
-
-    SZ_INITIALIZE_WITH_DEFAULT_CONFIGURATION = 0
-    SZ_NO_FLAGS = 0
-    SZ_NO_LOGGING = 0
-    SZ_VERBOSE_LOGGING = 1
-    SZ_WITHOUT_INFO = 0
-
-
-# -----------------------------------------------------------------------------
-# Additional default values
-# TODO:  Not sure if these values belong in this file.
-# -----------------------------------------------------------------------------
-
-SZ_NO_ATTRIBUTES = ""
-SZ_NO_EXCLUSIONS = ""
-SZ_NO_REQUIRED_DATASOURCES = ""
-SZ_NO_SEARCH_PROFILE = ""

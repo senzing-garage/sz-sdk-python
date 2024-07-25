@@ -17,7 +17,15 @@ implmentations of the Senzing Python SDK are derived.
 
 ## References
 
-1. [Development](docs/development.md)
-1. [Errors](docs/errors.md)
-1. [Examples](docs/examples.md)
-1. [sz-sdk-python-abstract package reference](https://hub.senzing.com/sz-sdk-python-abstract/)
+1. [Development]
+1. [Errors]
+1. [Examples]
+1. Related artifacts:
+    1. [DockerHub]
+1. [sz-sdk-python-abstract package reference]
+
+[Development]: docs/development.md
+[DockerHub]: https://hub.docker.com/r/senzing/template-python
+[Errors]: docs/errors.md
+[Examples]: docs/examples.md
+[sz-sdk-python-abstract package reference]: https://hub.senzing.com/sz-sdk-python-abstract/

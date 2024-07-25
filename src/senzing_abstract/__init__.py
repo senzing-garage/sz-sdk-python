@@ -4,7 +4,6 @@ from .szdiagnostic_abstract import SzDiagnosticAbstract
 from .szengine_abstract import SzEngineAbstract
 from .szengineflags import SzEngineFlags
 from .szerror import (
-    EXCEPTION_MAP,
     SzBadInputError,
     SzConfigurationError,
     SzDatabaseConnectionLostError,
@@ -18,14 +17,10 @@ from .szerror import (
     SzUnhandledError,
     SzUnknownDataSourceError,
     SzUnrecoverableError,
-    new_szexception,
 )
-from .szhasher_abstract import SzHasherAbstract
 from .szproduct_abstract import SzProductAbstract
 
 __all__ = [
-    "EXCEPTION_MAP",
-    "new_szexception",
     "SzBadInputError",
     "SzConfigAbstract",
     "SzConfigManagerAbstract",
@@ -36,7 +31,6 @@ __all__ = [
     "SzEngineAbstract",
     "SzEngineFlags",
     "SzError",
-    "SzHasherAbstract",
     "SzLicenseError",
     "SzNotFoundError",
     "SzNotInitializedError",

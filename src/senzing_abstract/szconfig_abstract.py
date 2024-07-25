@@ -52,11 +52,7 @@ class SzConfigAbstract(ABC):
 
     @abstractmethod
     def add_data_source(
-        self,
-        config_handle: int,
-        # data_source_code: Union[str, Dict[Any, Any]],
-        data_source_code: str,
-        **kwargs: Any
+        self, config_handle: int, data_source_code: str, **kwargs: Any
     ) -> str:
         """
         The `add_data_source` method adds a data source to an existing in-memory configuration.
@@ -148,26 +144,6 @@ class SzConfigAbstract(ABC):
         """
 
     @abstractmethod
-    def destroy(self, **kwargs: Any) -> None:
-        """
-        The `destroy` method will destroy and perform cleanup for the Senzing SzConfig object.
-        It should be called after all other calls are complete.
-
-        **Note:** If the `SzConfig` constructor was called with parameters,
-        the destructor will automatically call the destroy() method.
-        In this case, a separate call to `destroy()` is not needed.
-
-        Raises:
-            szerror.SzError:
-
-        .. collapse:: Example:
-
-            .. literalinclude:: ../../examples/szconfig/szconfig_initialize_and_destroy.py
-                :linenos:
-                :language: python
-        """
-
-    @abstractmethod
     def export_config(self, config_handle: int, **kwargs: Any) -> str:
         """
         The `export_config` method creates a JSON string representation of the Senzing SzConfig object.
@@ -229,40 +205,7 @@ class SzConfigAbstract(ABC):
         """
 
     @abstractmethod
-    def initialize(
-        self,
-        instance_name: str,
-        settings: Union[str, Dict[Any, Any]],
-        verbose_logging: Optional[int] = 0,
-        **kwargs: Any
-    ) -> None:
-        """
-        The `initialize` method initializes the Senzing SzConfig object.
-        It must be called prior to any other calls.
-
-        **Note:** If the SzConfig constructor is called with parameters,
-        the constructor will automatically call the `initialize()` method.
-        In this case, a separate call to `initialize()` is not needed.
-
-        Args:
-            instance_name (str): A short name given to this instance of the SzConfig object, to help identify it within system logs.
-            settings (Union[str, Dict[Any, Any]]): A JSON string containing configuration parameters.
-            verbose_logging (int): `Optional:` A flag to enable deeper logging of the Senzing processing. 0 for no Senzing logging; 1 for logging. Default: 0
-
-        Raises:
-            TypeError: Incorrect datatype of input parameter.
-
-        .. collapse:: Example:
-
-            .. literalinclude:: ../../examples/szconfig/szconfig_initialize_and_destroy.py
-                :linenos:
-                :language: python
-        """
-
-    @abstractmethod
-    def import_config(
-        self, config_definition: Union[str, Dict[Any, Any]], **kwargs: Any
-    ) -> int:
+    def import_config(self, config_definition: str, **kwargs: Any) -> int:
         """
         The `import_config` method initializes an in-memory Senzing SzConfig object from a JSON string.
         A handle is returned to identify the in-memory configuration.
@@ -271,7 +214,7 @@ class SzConfigAbstract(ABC):
         The handle is terminated by the `close` method.
 
         Args:
-            config_definition (Union[str, Dict[Any, Any]]): A JSON document containing the Senzing configuration.
+            config_definition (str): A JSON document containing the Senzing configuration.
 
         Returns:
             int: An identifier (config_handle) of an in-memory configuration.
@@ -291,7 +234,3 @@ class SzConfigAbstract(ABC):
                 :linenos:
                 :language: python
         """
-
-    # -------------------------------------------------------------------------
-    # Convenience methods
-    # -------------------------------------------------------------------------
