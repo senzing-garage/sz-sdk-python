@@ -100,17 +100,6 @@ Create a code coverage map.
    A web-browser will show the results of the coverage.
    The goal is to have over 80% coverage.
 
-## Run
-
-1. Run program.
-   Example:
-
-    ```console
-    cd ${GIT_REPOSITORY_DIR}
-    make run
-
-    ```
-
 ## Documentation
 
 1. View documentation.

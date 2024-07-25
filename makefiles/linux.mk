@@ -15,6 +15,7 @@ PATH := $(MAKEFILE_DIRECTORY)/bin:$(PATH)
 .PHONY: clean-osarch-specific
 clean-osarch-specific:
 	@rm -fr $(DIST_DIRECTORY) || true
+	@rm -f  $(MAKEFILE_DIRECTORY)/.coverage || true
 	@rm -f  $(MAKEFILE_DIRECTORY)/coverage.xml || true
 	@rm -fr $(MAKEFILE_DIRECTORY)/docs/build || true
 	@rm -fr $(MAKEFILE_DIRECTORY)/htmlcov || true
@@ -39,8 +40,8 @@ setup-osarch-specific:
 	$(info "No setup required.")
 
 
-.PHONY: test-osarch-specific
-test-osarch-specific:
+.PHONY: test-osarch-specific-2
+test-osarch-specific-2:
 	@echo "--- Unit tests -------------------------------------------------------"
 	@pytest tests/ --verbose --capture=no --cov=src/senzing_abstract --cov-report xml:coverage.xml
 #	@echo "--- Test examples ----------------------------------------------------"
@@ -51,11 +52,11 @@ test-osarch-specific:
 		examples/szconfigmanager/*.py \
 		examples/szdiagnostic/*.py \
 		examples/szengine/*.py \
-		examples/szproduct/*.py		
+		examples/szproduct/*.py
 
 
-.PHONY: test-examples
-test-examples:
+.PHONY: test-examples-2
+test-examples-2:
 	@echo "--- Test examples using unittest -------------------------------------"
 	@python3 -m unittest \
 		examples/misc/add_truthset_datasources.py \

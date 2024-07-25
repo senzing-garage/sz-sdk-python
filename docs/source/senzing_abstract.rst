@@ -44,14 +44,6 @@ senzing\_abstract.szengineflags module
    :undoc-members:
    :show-inheritance:
 
-senzing\_abstract.szhasher\_abstract module
--------------------------------------------
-
-.. automodule:: senzing_abstract.szhasher_abstract
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 senzing\_abstract.szproduct\_abstract module
 --------------------------------------------
 

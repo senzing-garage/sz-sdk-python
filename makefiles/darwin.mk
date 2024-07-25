@@ -18,6 +18,7 @@ PATH := $(MAKEFILE_DIRECTORY)/bin:$(PATH)
 .PHONY: clean-osarch-specific
 clean-osarch-specific:
 	@rm -fr $(DIST_DIRECTORY) || true
+	@rm -f  $(MAKEFILE_DIRECTORY)/.coverage || true
 	@rm -f  $(MAKEFILE_DIRECTORY)/coverage.xml || true
 	@rm -fr $(MAKEFILE_DIRECTORY)/docs/build || true
 	@rm -fr $(MAKEFILE_DIRECTORY)/htmlcov || true
@@ -35,13 +36,6 @@ coverage-osarch-specific:
 .PHONY: hello-world-osarch-specific
 hello-world-osarch-specific:
 	$(info "Hello World, from darwin.")
-
-
-.PHONY: package-osarch-specific
-package-osarch-specific:
-	@cp  $(MAKEFILE_DIRECTORY)/template-python.py $(MAKEFILE_DIRECTORY)/src/template_python/main_entry.py
-	@python3 -m build
-	@rm $(MAKEFILE_DIRECTORY)/src/template_python/main_entry.py
 
 
 .PHONY: setup-osarch-specific
