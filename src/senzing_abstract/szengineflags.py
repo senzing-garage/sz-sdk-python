@@ -7,9 +7,13 @@ TODO: szengineflags.py
 from enum import IntFlag
 from typing import List, Union
 
-from typing_extensions import Self
-
 from senzing_abstract.szerror import SzError
+
+try:
+    from typing_extensions import Self
+except ImportError:
+    from typing import Self  # type: ignore[attr-defined,no-redef]
+
 
 # Metadata
 
