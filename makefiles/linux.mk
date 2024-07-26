@@ -5,7 +5,6 @@
 # -----------------------------------------------------------------------------
 
 LD_LIBRARY_PATH ?= /opt/senzing/g2/lib
-SENZING_TOOLS_DATABASE_URL ?= sqlite3://na:na@nowhere/tmp/sqlite/G2C.db
 PATH := $(MAKEFILE_DIRECTORY)/bin:$(PATH)
 
 # -----------------------------------------------------------------------------
@@ -14,9 +13,12 @@ PATH := $(MAKEFILE_DIRECTORY)/bin:$(PATH)
 
 .PHONY: clean-osarch-specific
 clean-osarch-specific:
-	@rm -fr $(DIST_DIRECTORY) || true
 	@rm -f  $(MAKEFILE_DIRECTORY)/.coverage || true
 	@rm -f  $(MAKEFILE_DIRECTORY)/coverage.xml || true
+	@rm -fr $(DIST_DIRECTORY) || true
+	@rm -fr $(MAKEFILE_DIRECTORY)/.mypy_cache || true
+	@rm -fr $(MAKEFILE_DIRECTORY)/.pytest_cache || true
+	@rm -fr $(MAKEFILE_DIRECTORY)/dist || true
 	@rm -fr $(MAKEFILE_DIRECTORY)/docs/build || true
 	@rm -fr $(MAKEFILE_DIRECTORY)/htmlcov || true
 	@rm -fr $(TARGET_DIRECTORY) || true

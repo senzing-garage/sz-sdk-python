@@ -51,7 +51,7 @@ jobs:
         run: mkdir /tmp/sqlite && cp testdata/sqlite/G2C.db /tmp/sqlite/G2C.db
 
       - name: Run pytest on tests
-        run: pytest tests/ --verbose --capture=no --cov=src/senzing_abstract --cov-append
+        run: pytest tests/ --verbose --capture=no --cov=src --cov-append
 
       - name: Run unittest on examples
         run: |

@@ -4,7 +4,6 @@
 # Variables
 # -----------------------------------------------------------------------------
 
-SENZING_TOOLS_DATABASE_URL ?= sqlite3://na:na@nowhere/C:\Temp\sqlite\G2C.db
 
 # -----------------------------------------------------------------------------
 # OS specific targets
@@ -13,11 +12,22 @@ SENZING_TOOLS_DATABASE_URL ?= sqlite3://na:na@nowhere/C:\Temp\sqlite\G2C.db
 .PHONY: clean-osarch-specific
 clean-osarch-specific:
 	del /F /S /Q $(DIST_DIRECTORY)
+	del /F /S /Q $(MAKEFILE_DIRECTORY)/.coverage
+	del /F /S /Q $(MAKEFILE_DIRECTORY)/.mypy_cache
+	del /F /S /Q $(MAKEFILE_DIRECTORY)/.pytest_cache
 	del /F /S /Q $(MAKEFILE_DIRECTORY)/__pycache__
 	del /F /S /Q $(MAKEFILE_DIRECTORY)/coverage.xml
+	del /F /S /Q $(MAKEFILE_DIRECTORY)/dist
 	del /F /S /Q $(MAKEFILE_DIRECTORY)/docs/build
 	del /F /S /Q $(MAKEFILE_DIRECTORY)/htmlcov
 	del /F /S /Q $(TARGET_DIRECTORY)
+
+
+.PHONY: coverage-osarch-specific
+coverage-osarch-specific:
+	@pytest --cov=src --cov-report=xml  $(shell git ls-files '*.py'   )
+	@coverage html
+	@explorer $(MAKEFILE_DIRECTORY)/htmlcov/index.html
 
 
 .PHONY: hello-world-osarch-specific

@@ -4,7 +4,6 @@ on: [pull_request, workflow_dispatch]
 
 env:
   PYTHONPATH: /Users/runner/work/sz-sdk-python-abstract/sz-sdk-python-abstract/src
-  SENZING_TOOLS_ENABLE_ALL: true
 
 permissions:
   contents: read
@@ -54,7 +53,7 @@ jobs:
       - name: Run pytest on tests
         run: |
           export DYLD_LIBRARY_PATH=/opt/senzing/g2/lib:/opt/senzing/g2/lib/macos
-          pytest tests/ --verbose --capture=no --cov=src/senzing_abstract
+          pytest tests/ --verbose --capture=no --cov=src
 
       - name: Rename coverage file
         env:

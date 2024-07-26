@@ -165,7 +165,7 @@ Create a code coverage map.
 
     ```
 
-## Publish
+## Test publish
 
 1. Test publishing `wheel` file to [Test PyPi].
    Example:
