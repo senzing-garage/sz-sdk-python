@@ -10,10 +10,9 @@ from typing import List, Union
 from senzing_abstract.szerror import SzError
 
 try:
-    from typing_extensions import Self
+    from typing_extensions import Self  # type: ignore[attr-defined,no-redef]
 except ImportError:
     from typing import Self  # type: ignore[attr-defined,no-redef]
-
 
 # Metadata
 
