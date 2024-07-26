@@ -117,25 +117,6 @@ Create a code coverage map.
     echo "file://${GIT_REPOSITORY_DIR}/docs/build/html/index.html"
     ```
 
-## Docker
-
-1. Use make target to run a docker images that builds RPM and DEB files.
-   Example:
-
-    ```console
-    cd ${GIT_REPOSITORY_DIR}
-    make docker-build
-
-    ```
-
-1. Run docker container.
-   Example:
-
-    ```console
-    docker run --rm senzing/template-python
-
-    ```
-
 ## Package
 
 1. Build the `wheel` file for distribution.
