@@ -1,4 +1,4 @@
-# Git variables
+# Makefile for Python project
 
 # Detect the operating system and architecture.
 
@@ -121,25 +121,6 @@ docker-test:
 coverage: test coverage-osarch-specific
 
 # -----------------------------------------------------------------------------
-# Build
-# -----------------------------------------------------------------------------
-
-.PHONY: docker-build
-docker-build:
-	$(DOCKER_BUILDKIT) docker build \
-		--tag $(DOCKER_IMAGE_NAME) \
-		--tag $(DOCKER_IMAGE_NAME):$(GIT_VERSION) \
-		.
-
-# -----------------------------------------------------------------------------
-# Run
-# -----------------------------------------------------------------------------
-
-.PHONY: run
-run:
-	@./template-python.py $(CLI_ARGS)
-
-# -----------------------------------------------------------------------------
 # Documentation
 # -----------------------------------------------------------------------------
 
@@ -155,7 +136,7 @@ package: clean
 	@python3 -m build
 
 # -----------------------------------------------------------------------------
-# publish
+# Publish
 # -----------------------------------------------------------------------------
 
 .PHONY: publish-test
@@ -193,7 +174,7 @@ print-make-variables:
 .PHONY: bandit
 bandit:
 	$(info --- bandit ---------------------------------------------------------------------)
-	@bandit $(shell git ls-files '*.py'  ':!:docs/source/*' ':!:tests/*')
+	@bandit $(shell git ls-files '*.py'  ':!:docs/source/*')
 
 
 .PHONY: black
@@ -251,4 +232,4 @@ sphinx: sphinx-osarch-specific
 
 .PHONY: view-sphinx
 view-sphinx: view-sphinx-osarch-specific
-	$(info --- view-sphinx ---------------------------------------------------------------------)
+	$(info --- view-sphinx ----------------------------------------------------------------)
