@@ -7,6 +7,8 @@ TODO: szengineflags.py
 from enum import IntFlag
 from typing import List, Union
 
+from typing_extensions import Self
+
 from senzing_abstract.szerror import SzError
 
 # Metadata
@@ -26,7 +28,7 @@ class SzEngineFlags(IntFlag):
     """Engine Flags"""
 
     @classmethod
-    def combine_flags(cls, flags: Union[List[IntFlag], List[str]]) -> int:
+    def combine_flags(cls, flags: Union[List[Self], List[str]]) -> int:
         """
         The `combine_flags` method ORs together all flags in a list of strings.
 
@@ -63,7 +65,7 @@ class SzEngineFlags(IntFlag):
 
     @classmethod
     # TODO - Ant - Correct type?
-    def get_flag_int(cls, flag: Union[IntFlag, str]) -> int:
+    def get_flag_int(cls, flag: Union[Self, str]) -> int:
         """# TODO"""
         try:
             if isinstance(flag, str):
