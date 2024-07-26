@@ -39,17 +39,6 @@ jobs:
         name: Install python libraries for python 3.8 and 3.9
         run: python -m pip install typing_extensions
 
-      - name: Install Senzing API
-        uses: senzing-factory/github-action-install-senzing-api@v3
-        with:
-          senzingapi-runtime-version: ${{ matrix.senzingapi-runtime-version }}
-
-      - name: Copy /etc files
-        run: sudo cp testdata/senzing-license/g2.lic /etc/opt/senzing/g2.lic
-
-      - name: Copy test database files
-        run: mkdir /tmp/sqlite && cp testdata/sqlite/G2C.db /tmp/sqlite/G2C.db
-
       - name: Run pytest on tests
         run: pytest tests/ --verbose --capture=no --cov=src --cov-append
 
@@ -61,9 +50,6 @@ jobs:
             examples/szdiagnostic/*.py \
             examples/szengine/*.py \
             examples/szproduct/*.py
-
-      # - name: Run pytest on examples
-      #   run: pytest examples/ --verbose --capture=no
 
       - name: Rename coverage file
         env:
