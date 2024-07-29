@@ -174,25 +174,25 @@ print-make-variables:
 .PHONY: bandit
 bandit:
 	$(info --- bandit ---------------------------------------------------------------------)
-	@bandit $(shell git ls-files '*.py'  ':!:docs/source/*')
+	@bandit $(shell git ls-files '*.py' ':!:docs/source/*')
 
 
 .PHONY: black
 black:
 	$(info --- black ----------------------------------------------------------------------)
-	@black $(shell git ls-files '*.py'  ':!:docs/source/*')
+	@black $(shell git ls-files '*.py' ':!:docs/source/*')
 
 
 .PHONY: flake8
 flake8:
 	$(info --- flake8 ---------------------------------------------------------------------)
-	@flake8 $(shell git ls-files '*.py'  ':!:docs/source/*')
+	@flake8 $(shell git ls-files '*.py' ':!:docs/source/*')
 
 
 .PHONY: isort
 isort:
 	$(info --- isort ----------------------------------------------------------------------)
-	@isort $(shell git ls-files '*.py'  ':!:docs/source/*')
+	@isort $(shell git ls-files '*.py' ':!:docs/source/*')
 
 
 .PHONY: mypy
@@ -222,7 +222,7 @@ pylint:
 .PHONY: pytest
 pytest:
 	$(info --- pytest ---------------------------------------------------------------------)
-	@pytest $(shell git ls-files '*.py'  ':!:docs/source/*')
+	@pytest $(shell git ls-files '*.py' ':!:docs/source/*')
 
 
 .PHONY: sphinx
