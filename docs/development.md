@@ -167,6 +167,8 @@ Create a code coverage map.
 
 ## Test publish
 
+:warning:  This test can only be performed once per versioned release.
+
 1. Test publishing `wheel` file to [Test PyPi].
    Example:
 
