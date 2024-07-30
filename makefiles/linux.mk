@@ -26,7 +26,7 @@ clean-osarch-specific:
 
 .PHONY: coverage-osarch-specific
 coverage-osarch-specific:
-	@pytest --cov=src --cov-report=xml  $(shell git ls-files '*.py'   )
+	@pytest --cov=src --cov-report=xml  $(shell git ls-files '*.py')
 	@coverage html
 	@xdg-open $(MAKEFILE_DIRECTORY)/htmlcov/index.html
 
