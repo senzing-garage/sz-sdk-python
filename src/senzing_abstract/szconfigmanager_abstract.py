@@ -7,7 +7,7 @@ szconfigmanager_abstract.py is the abstract class for all implementations of szc
 # TODO: Determine specific SzErrors, Errors for "Raises:" documentation.
 
 from abc import ABC, abstractmethod
-from typing import Any, Dict, Optional, Union
+from typing import Any
 
 # Metadata
 
@@ -36,7 +36,7 @@ class SzConfigManagerAbstract(ABC):
         4001: PREFIX + "add_config({0}, {1}) failed. Return code: {2}",
         4002: PREFIX + "destroy() failed. Return code: {0}",
         4003: PREFIX + "get_config({0}) failed. Return code: {1}",
-        4004: PREFIX + "get_config_list() failed. Return code: {0}",
+        4004: PREFIX + "get_configs() failed. Return code: {0}",
         4005: PREFIX + "get_default_config_id() failed. Return code: {0}",
         4006: PREFIX + "initialize({0}, {1}, {2}) failed. Return code: {3}",
         4007: PREFIX + "replace_default_config_id({0}, {1}) failed. Return code: {2}",
@@ -51,16 +51,13 @@ class SzConfigManagerAbstract(ABC):
 
     @abstractmethod
     def add_config(
-        self,
-        config_definition: Union[str, Dict[Any, Any]],
-        config_comment: str,
-        **kwargs: Any
+        self, config_definition: str, config_comment: str, **kwargs: Any
     ) -> int:
         """
         The `add_config` method adds a Senzing configuration JSON document to the Senzing database.
 
         Args:
-            config_definition (Union[str, Dict[Any, Any]]): The Senzing configuration JSON document.
+            config_definition (str): The Senzing configuration JSON document.
             config_comment (str):  free-form string of comments describing the configuration document.
 
         Returns:
@@ -72,26 +69,6 @@ class SzConfigManagerAbstract(ABC):
         .. collapse:: Example:
 
             .. literalinclude:: ../../examples/szconfigmanager/add_config.py
-                :linenos:
-                :language: python
-        """
-
-    @abstractmethod
-    def destroy(self, **kwargs: Any) -> None:
-        """
-        The `destroy` method will destroy and perform cleanup for the Senzing SzConfigManager object.
-        It should be called after all other calls are complete.
-
-        **Note:** If the `SzConfigManager` constructor was called with parameters,
-        the destructor will automatically call the destroy() method.
-        In this case, a separate call to `destroy()` is not needed.
-
-        Raises:
-            TypeError: Incorrect datatype of input parameter.
-
-        .. collapse:: Example:
-
-            .. literalinclude:: ../../examples/szconfigmanager/szconfigmanager_initialize_and_destroy.py
                 :linenos:
                 :language: python
         """
@@ -124,9 +101,9 @@ class SzConfigManagerAbstract(ABC):
         """
 
     @abstractmethod
-    def get_config_list(self, **kwargs: Any) -> str:
+    def get_configs(self, **kwargs: Any) -> str:
         """
-        The `get_config_list` method retrieves a list of Senzing configurations from the Senzing database.
+        The `get_configs` method retrieves a list of Senzing configurations from the Senzing database.
 
         Returns:
             str: A JSON document containing Senzing configurations.
@@ -136,13 +113,13 @@ class SzConfigManagerAbstract(ABC):
 
         .. collapse:: Example:
 
-            .. literalinclude:: ../../examples/szconfigmanager/get_config_list.py
+            .. literalinclude:: ../../examples/szconfigmanager/get_configs.py
                 :linenos:
                 :language: python
 
             **Output:**
 
-            .. literalinclude:: ../../examples/szconfigmanager/get_config_list.txt
+            .. literalinclude:: ../../examples/szconfigmanager/get_configs.txt
                 :linenos:
                 :language: json
         """
@@ -161,37 +138,6 @@ class SzConfigManagerAbstract(ABC):
         .. collapse:: Example:
 
             .. literalinclude:: ../../examples/szconfigmanager/get_default_config_id.py
-                :linenos:
-                :language: python
-        """
-
-    @abstractmethod
-    def initialize(
-        self,
-        instance_name: str,
-        settings: Union[str, Dict[Any, Any]],
-        verbose_logging: Optional[int] = 0,
-        **kwargs: Any
-    ) -> None:
-        """
-        The `initialize` method initializes the Senzing SzConfigManager object.
-        It must be called prior to any other calls.
-
-        **Note:** If the SzConfigManager constructor is called with parameters,
-        the constructor will automatically call the `initialize()` method.
-        In this case, a separate call to `initialize()` is not needed.
-
-        Args:
-            instance_name (str): A short name given to this instance of the SzProduct object, to help identify it within system logs.
-            settings (Union[str, Dict[Any, Any]]): A JSON string containing configuration parameters.
-            verbose_logging (int): `Optional:` A flag to enable deeper logging of the Senzing processing. 0 for no Senzing logging; 1 for logging. Default: 0
-
-        Raises:
-            TypeError: Incorrect datatype of input parameter.
-
-        .. collapse:: Example:
-
-            .. literalinclude:: ../../examples/szconfigmanager/szconfigmanager_initialize_and_destroy.py
                 :linenos:
                 :language: python
         """
@@ -238,7 +184,3 @@ class SzConfigManagerAbstract(ABC):
                 :linenos:
                 :language: python
         """
-
-    # -------------------------------------------------------------------------
-    # Convenience methods
-    # -------------------------------------------------------------------------

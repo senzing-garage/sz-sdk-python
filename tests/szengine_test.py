@@ -4,7 +4,7 @@
 TODO: szengine_test.py
 """
 
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 import pytest
 
@@ -35,9 +35,9 @@ def test_delete_record(sz_engine: SzEngineAbstract) -> None:
     sz_engine.delete_record("", "")
 
 
-def test_destroy(sz_engine: SzEngineAbstract) -> None:
-    """Test SzEngine().destroy()."""
-    sz_engine.destroy()
+# def test_destroy(sz_engine: SzEngineAbstract) -> None:
+#     """Test SzEngine().destroy()."""
+#     sz_engine.destroy()
 
 
 def test_export_csv_entity_report(sz_engine: SzEngineAbstract) -> None:
@@ -67,12 +67,12 @@ def test_find_interesting_entities_by_record_id(sz_engine: SzEngineAbstract) -> 
 
 def test_find_network_by_entity_id(sz_engine: SzEngineAbstract) -> None:
     """Test SzEngine().find_network_by_entity_id()."""
-    sz_engine.find_network_by_entity_id("", 0, 0, 0)
+    sz_engine.find_network_by_entity_id([], 0, 0, 0)
 
 
 def test_find_network_by_record_id(sz_engine: SzEngineAbstract) -> None:
     """Test SzEngine().find_network_by_record_id()."""
-    sz_engine.find_network_by_record_id("", 0, 0, 0)
+    sz_engine.find_network_by_record_id([], 0, 0, 0)
 
 
 def test_find_path_by_entity_id(sz_engine: SzEngineAbstract) -> None:
@@ -117,7 +117,7 @@ def test_get_stats(sz_engine: SzEngineAbstract) -> None:
 
 def test_get_virtual_entity_by_record_id(sz_engine: SzEngineAbstract) -> None:
     """Test SzEngine().get_virtual_entity_by_record_id()."""
-    sz_engine.get_virtual_entity_by_record_id("")
+    sz_engine.get_virtual_entity_by_record_id([])
 
 
 def test_how_entity_by_entity_id(sz_engine: SzEngineAbstract) -> None:
@@ -125,9 +125,9 @@ def test_how_entity_by_entity_id(sz_engine: SzEngineAbstract) -> None:
     sz_engine.how_entity_by_entity_id(0)
 
 
-def test_initialize(sz_engine: SzEngineAbstract) -> None:
-    """Test SzEngine().init()."""
-    sz_engine.initialize("", "")
+# def test_initialize(sz_engine: SzEngineAbstract) -> None:
+#     """Test SzEngine().init()."""
+#     sz_engine.initialize("", "")
 
 
 def test_prime_engine(sz_engine: SzEngineAbstract) -> None:
@@ -254,10 +254,10 @@ class SzEngineTest(SzEngineAbstract):
 
     def find_network_by_entity_id(
         self,
-        entity_list: Union[str, Dict[str, List[Dict[str, int]]]],
+        entity_ids: List[int],
         max_degrees: int,
         build_out_degree: int,
-        max_entities: int,
+        build_out_max_entities: int,
         flags: int = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS,
         **kwargs: Any,
     ) -> str:
@@ -265,10 +265,10 @@ class SzEngineTest(SzEngineAbstract):
 
     def find_network_by_record_id(
         self,
-        record_list: Union[str, Dict[str, List[Dict[str, str]]]],
+        record_keys: List[Tuple[str, str]],
         max_degrees: int,
         build_out_degree: int,
-        max_entities: int,
+        build_out_max_entities: int,
         flags: int = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS,
         **kwargs: Any,
     ) -> str:
@@ -279,9 +279,8 @@ class SzEngineTest(SzEngineAbstract):
         start_entity_id: int,
         end_entity_id: int,
         max_degrees: int,
-        # TODO Should accept both entity and record IDs in V4, test
-        exclusions: Union[str, Dict[Any, Any]] = "",
-        required_data_sources: Union[str, Dict[Any, Any]] = "",
+        avoid_entity_ids: Optional[List[int]] = None,
+        required_data_sources: Optional[List[str]] = None,
         flags: int = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS,
         **kwargs: Any,
     ) -> str:
@@ -294,8 +293,8 @@ class SzEngineTest(SzEngineAbstract):
         end_data_source_code: str,
         end_record_id: str,
         max_degrees: int,
-        exclusions: Union[str, Dict[Any, Any]] = "",
-        required_data_sources: Union[str, Dict[Any, Any]] = "",
+        avoid_record_keys: Optional[List[Tuple[str, str]]] = None,
+        required_data_sources: Optional[List[str]] = None,
         flags: int = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS,
         **kwargs: Any,
     ) -> str:
@@ -338,7 +337,7 @@ class SzEngineTest(SzEngineAbstract):
 
     def get_virtual_entity_by_record_id(
         self,
-        record_list: Union[str, Dict[Any, Any]],
+        record_keys: List[Tuple[str, str]],
         flags: int = SzEngineFlags.SZ_VIRTUAL_ENTITY_DEFAULT_FLAGS,
         **kwargs: Any,
     ) -> str:
@@ -385,9 +384,9 @@ class SzEngineTest(SzEngineAbstract):
 
     def search_by_attributes(
         self,
-        attributes: Union[str, Dict[Any, Any]],
-        search_profile: str = "",
+        attributes: str,
         flags: int = SzEngineFlags.SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS,
+        search_profile: str = "",
         **kwargs: Any,
     ) -> str:
         return ""
