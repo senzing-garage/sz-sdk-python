@@ -1,22 +1,5 @@
 # Linters
 
-## .jscpd.json
-
-- [.jscpd.json]
-- Used by [lint-workflows.yaml]
-- [jscpd]
-  - [jscpd configuration]
-  - Example:
-
-      ```json
-      {
-      "ignore": [
-          "**/*.go,**/go-test*.yaml"
-      ],
-      "threshold": 10
-      }
-      ```
-
 ## .yaml-lint.yml
 
 - [.yaml-lint.yml]
