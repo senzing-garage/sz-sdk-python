@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-latest]
+        os: [macos-13]
         # 3.8 and 3.9 are unsupported on the darwin runner
         python-version: ["3.10", "3.11"]
 
@@ -34,18 +34,18 @@ jobs:
           python -m pip install --requirement requirements.txt
           python -m pip install psutil pytest pytest-cov pytest-schema
 
-      - if: matrix.python-version == '3.8' || matrix.python-version == '3.9'  || matrix.python-version == '3.10'
-        name: Install python libraries for python 3.8 and 3.9
+      - if: matrix.python-version == '3.8' || matrix.python-version == '3.9' || matrix.python-version == '3.10'
+        name: Install python libraries for python 3.8, 3.9, and 3.10
         run: python -m pip install typing_extensions
 
       - name: Run pytest on tests
         run: |
-          export DYLD_LIBRARY_PATH=/opt/senzing/g2/lib:/opt/senzing/g2/lib/macos
+          export DYLD_LIBRARY_PATH=/opt/senzing/er/lib:/opt/senzing/er/lib/macos
           pytest tests/ --verbose --capture=no --cov=src
 
       - name: Rename coverage file
         env:
-          COVERAGE_FILE: ".coverage.${{ matrix.python-version }}"
+          COVERAGE_FILE: "coverage.${{ matrix.python-version }}"
         run: |
           mv .coverage "$COVERAGE_FILE"
 
@@ -53,7 +53,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: coverage-${{ matrix.python-version }}
-          path: .coverage.${{ matrix.python-version }}
+          path: coverage.${{ matrix.python-version }}
 
   coverage:
     name: Coverage
