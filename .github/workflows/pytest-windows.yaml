@@ -34,7 +34,7 @@ jobs:
           python -m pip install psutil pytest pytest-cov pytest-schema
 
       - if: matrix.python-version == '3.8' || matrix.python-version == '3.9' || matrix.python-version == '3.10'
-        name: Install python libraries for python 3.8 and 3.9
+        name: Install python libraries for python 3.8, 3.9, and 3.10
         run: python -m pip install typing_extensions
 
       - name: Run pytest on tests
@@ -42,7 +42,7 @@ jobs:
 
       - name: Rename coverage file
         env:
-          COVERAGE_FILE: ".coverage.${{ matrix.python-version }}"
+          COVERAGE_FILE: "coverage.${{ matrix.python-version }}"
         run: |
           Rename-Item -Path.coverage -NewName "$env:COVERAGE_FILE"
 
@@ -50,7 +50,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: coverage-${{ matrix.python-version }}
-          path: .coverage.${{ matrix.python-version }}
+          path: coverage.${{ matrix.python-version }}
 
   coverage:
     name: Coverage
