@@ -126,15 +126,14 @@ coverage: test coverage-osarch-specific
 # -----------------------------------------------------------------------------
 
 .PHONY: documentation
-documentation: sphinx view-sphinx
+documentation: documentation-osarch-specific
 
 # -----------------------------------------------------------------------------
 # Package
 # -----------------------------------------------------------------------------
 
 .PHONY: package
-package: clean
-	@python3 -m build
+package: clean package-osarch-specific
 
 # -----------------------------------------------------------------------------
 # Publish
