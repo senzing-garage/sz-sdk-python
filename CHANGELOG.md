@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2024-09-23
+
+### Changed in 0.1.2
+
+- Added `abstract_factory`
+
 ## [0.1.1] - 2024-07-30
 
 ### Changed in 0.1.1

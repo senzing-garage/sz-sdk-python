@@ -19,6 +19,9 @@ the recommendation is not to use it yet.
 The Senzing `sz-sdk-python-abstract` package contains the abstract base class from which
 implmentations of the Senzing Python SDK are derived.
 
+[![Python 3.11 Badge]][Python 3.11]
+[![PEP8 Badge]][PEP8]
+
 ## Overview
 
 ## Use
@@ -36,4 +39,11 @@ implmentations of the Senzing Python SDK are derived.
 [DockerHub]: https://hub.docker.com/r/senzing/template-python
 [Errors]: docs/errors.md
 [Examples]: docs/examples.md
+[PEP8 Badge]: https://img.shields.io/badge/code%20style-pep8-orange.svg
+[PEP8]: https://www.python.org/dev/peps/pep-0008/
+[Python 3.11 Badge]: https://img.shields.io/badge/python-3.6-blue.svg
+[Python 3.11]: https://www.python.org/downloads/release/python-3110/
+[Senzing Garage]: https://github.com/senzing-garage
+[Senzing Quick Start guides]: https://docs.senzing.com/quickstart/
+[Senzing]: https://senzing.com/
 [sz-sdk-python-abstract package reference]: https://hub.senzing.com/sz-sdk-python-abstract/

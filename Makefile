@@ -14,6 +14,8 @@ include makefiles/osdetect.mk
 PROGRAM_NAME := $(shell basename `git rev-parse --show-toplevel`)
 MAKEFILE_PATH := $(abspath $(firstword $(MAKEFILE_LIST)))
 MAKEFILE_DIRECTORY := $(shell dirname $(MAKEFILE_PATH))
+TARGET_DIRECTORY := $(MAKEFILE_DIRECTORY)/target
+DIST_DIRECTORY := $(MAKEFILE_DIRECTORY)/dist
 BUILD_TAG := $(shell git describe --always --tags --abbrev=0  | sed 's/v//')
 BUILD_ITERATION := $(shell git log $(BUILD_TAG)..HEAD --oneline | wc -l | sed 's/^ *//')
 BUILD_VERSION := $(shell git describe --always --tags --abbrev=0 --dirty  | sed 's/v//')
@@ -25,7 +27,6 @@ GIT_REMOTE_URL := $(shell git config --get remote.origin.url)
 GIT_REPOSITORY_NAME := $(shell basename `git rev-parse --show-toplevel`)
 GIT_VERSION := $(shell git describe --always --tags --long --dirty | sed -e 's/\-0//' -e 's/\-g.......//')
 PATH := $(MAKEFILE_DIRECTORY)/bin:$(PATH)
-TARGET_DIRECTORY := $(MAKEFILE_DIRECTORY)/target
 
 # Conditional assignment. ('?=')
 # Can be overridden with "export"
