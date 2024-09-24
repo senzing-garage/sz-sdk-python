@@ -80,7 +80,7 @@ class SzAbstractFactoryAbstract(ABC):
 
             **Output:**
 
-            .. literalinclude:: ../../examples/szabstractfactory/create_sz_configmanger.txt
+            .. literalinclude:: ../../examples/szabstractfactory/create_sz_configmanager.txt
                 :linenos:
                 :language: json
         """
