@@ -2,24 +2,25 @@
 
 [Full report](https://htmlpreview.github.io/?https://github.com/senzing-garage/sz-sdk-python-abstract/blob/python-coverage-comment-action-data/htmlcov/index.html)
 
-| Name                                               |    Stmts |     Miss |   Cover |   Missing |
-|--------------------------------------------------- | -------: | -------: | ------: | --------: |
-| src/senzing\_abstract/\_\_init\_\_.py              |        9 |        0 |    100% |           |
-| src/senzing\_abstract/constants.py                 |       12 |        0 |    100% |           |
-| src/senzing\_abstract/observer\_abstract.py        |        5 |        5 |      0% |     13-33 |
-| src/senzing\_abstract/szconfig\_abstract.py        |       23 |        0 |    100% |           |
-| src/senzing\_abstract/szconfigmanager\_abstract.py |       21 |        0 |    100% |           |
-| src/senzing\_abstract/szdiagnostic\_abstract.py    |       19 |        0 |    100% |           |
-| src/senzing\_abstract/szengine\_abstract.py        |       72 |        0 |    100% |           |
-| src/senzing\_abstract/szengineflags.py             |       91 |        0 |    100% |           |
-| src/senzing\_abstract/szerror.py                   |       19 |        0 |    100% |           |
-| src/senzing\_abstract/szproduct\_abstract.py       |       13 |        0 |    100% |           |
-| src/senzing\_truthset/\_\_init\_\_.py              |        5 |        5 |      0% |       1-6 |
-| src/senzing\_truthset/customers.py                 |        2 |        2 |      0% |       3-5 |
-| src/senzing\_truthset/datasources.py               |        2 |        2 |      0% |       3-5 |
-| src/senzing\_truthset/references.py                |        2 |        2 |      0% |       3-5 |
-| src/senzing\_truthset/watchlist.py                 |        2 |        2 |      0% |       3-5 |
-|                                          **TOTAL** |  **297** |   **18** | **94%** |           |
+| Name                                                 |    Stmts |     Miss |   Cover |   Missing |
+|----------------------------------------------------- | -------: | -------: | ------: | --------: |
+| src/senzing\_abstract/\_\_init\_\_.py                |       10 |        0 |    100% |           |
+| src/senzing\_abstract/constants.py                   |       12 |        0 |    100% |           |
+| src/senzing\_abstract/observer\_abstract.py          |        5 |        5 |      0% |     13-33 |
+| src/senzing\_abstract/szabstractfactory\_abstract.py |       21 |        0 |    100% |           |
+| src/senzing\_abstract/szconfig\_abstract.py          |       23 |        0 |    100% |           |
+| src/senzing\_abstract/szconfigmanager\_abstract.py   |       21 |        0 |    100% |           |
+| src/senzing\_abstract/szdiagnostic\_abstract.py      |       19 |        0 |    100% |           |
+| src/senzing\_abstract/szengine\_abstract.py          |       72 |        0 |    100% |           |
+| src/senzing\_abstract/szengineflags.py               |       91 |        0 |    100% |           |
+| src/senzing\_abstract/szerror.py                     |       19 |        0 |    100% |           |
+| src/senzing\_abstract/szproduct\_abstract.py         |       13 |        0 |    100% |           |
+| src/senzing\_truthset/\_\_init\_\_.py                |        5 |        5 |      0% |       1-6 |
+| src/senzing\_truthset/customers.py                   |        2 |        2 |      0% |       3-5 |
+| src/senzing\_truthset/datasources.py                 |        2 |        2 |      0% |       3-5 |
+| src/senzing\_truthset/references.py                  |        2 |        2 |      0% |       3-5 |
+| src/senzing\_truthset/watchlist.py                   |        2 |        2 |      0% |       3-5 |
+|                                            **TOTAL** |  **319** |   **18** | **94%** |           |
 
 
 ## Setup coverage badge
