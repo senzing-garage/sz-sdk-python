@@ -174,7 +174,7 @@ print-make-variables:
 .PHONY: bandit
 bandit:
 	$(info --- bandit ---------------------------------------------------------------------)
-	@bandit $(shell git ls-files '*.py' ':!:docs/source/*')
+	@bandit -c .github/linters/bandit.yaml $(shell git ls-files '*.py' ':!:docs/source/*')
 
 
 .PHONY: black
