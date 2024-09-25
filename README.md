@@ -40,7 +40,7 @@ implmentations of the Senzing Python SDK are derived.
 [Development]: docs/development.md
 [DockerHub]: https://hub.docker.com/r/senzing/template-python
 [Downloads Badge]: https://static.pepy.tech/badge/senzing-abstract
-[Downloads]: (https://pepy.tech/project/senzing-abstract)
+[Downloads]: https://pepy.tech/project/senzing-abstract
 [Errors]: docs/errors.md
 [Examples]: docs/examples.md
 [PEP8 Badge]: https://img.shields.io/badge/code%20style-pep8-orange.svg
