@@ -21,7 +21,7 @@ implmentations of the Senzing Python SDK are derived.
 
 [![Python 3.11 Badge]][Python 3.11]
 [![PEP8 Badge]][PEP8]
-[![PyPI version](https://badge.fury.io/py/senzing-abstract.svg)](https://badge.fury.io/py/senzing-abstract)
+[![PyPI version Badge]][PyPi version]
 
 ## Overview
 
@@ -42,6 +42,8 @@ implmentations of the Senzing Python SDK are derived.
 [Examples]: docs/examples.md
 [PEP8 Badge]: https://img.shields.io/badge/code%20style-pep8-orange.svg
 [PEP8]: https://www.python.org/dev/peps/pep-0008/
+[PyPI version Badge]: https://badge.fury.io/py/senzing-abstract.svg
+[PyPi version]: https://badge.fury.io/py/senzing-abstract
 [Python 3.11 Badge]: https://img.shields.io/badge/python-3.11-blue.svg
 [Python 3.11]: https://www.python.org/downloads/release/python-3110/
 [Senzing Garage]: https://github.com/senzing-garage
