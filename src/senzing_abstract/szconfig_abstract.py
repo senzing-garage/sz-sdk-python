@@ -9,6 +9,8 @@ szconfig_abstract.py is the abstract class for all implementations of szconfig.
 from abc import ABC, abstractmethod
 from typing import Any
 
+from .szhelpers import construct_help
+
 # Metadata
 
 __all__ = ["SzConfigAbstract"]
@@ -234,3 +236,19 @@ class SzConfigAbstract(ABC):
                 :linenos:
                 :language: python
         """
+
+    # -------------------------------------------------------------------------
+    # Convenience methods
+    # -------------------------------------------------------------------------
+
+    def help(self, method_name: str = "") -> str:
+        """
+        Return the help for a particular message.
+
+        Args:
+            method_name (str): The name of the method. (e.g. "init"). If empty, a list of methods and descriptions is returned.
+
+        Returns:
+            str: The Help information about the requested method
+        """
+        return construct_help(self, method_name=method_name)
