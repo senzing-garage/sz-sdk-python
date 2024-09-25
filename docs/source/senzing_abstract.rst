@@ -8,7 +8,6 @@ senzing\_abstract.szabstractfactory\_abstract module
 ----------------------------------------------------
 
 .. automodule:: senzing_abstract.szabstractfactory_abstract
-   :members:
    :undoc-members:
    :show-inheritance:
 
