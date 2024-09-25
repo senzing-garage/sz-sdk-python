@@ -22,6 +22,7 @@ implmentations of the Senzing Python SDK are derived.
 [![Python 3.11 Badge]][Python 3.11]
 [![PEP8 Badge]][PEP8]
 [![PyPI version](https://badge.fury.io/py/senzing-abstract.svg)](https://badge.fury.io/py/senzing-abstract)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/:packageName)]
 
 ## Overview
 
