@@ -16,21 +16,23 @@ def engine_vars_fixture() -> Dict[Any, Any]:
     linux_config = {
         "PIPELINE": {
             "CONFIGPATH": "/etc/opt/senzing",
-            "RESOURCEPATH": "/opt/senzing/g2/resources",
+            "RESOURCEPATH": "/opt/senzing/er/resources",
             "SUPPORTPATH": "/opt/senzing/data",
         },
         "SQL": {"CONNECTION": "sqlite3://na:na@/tmp/sqlite/G2C.db"},
     }
 
+    # TODO - Ant - Correct paths?
     darwin_config = {
         "PIPELINE": {
-            "CONFIGPATH": "/opt/senzing/g2/etc",
-            "RESOURCEPATH": "/opt/senzing/g2/resources",
-            "SUPPORTPATH": "/opt/senzing/g2/data",
+            "CONFIGPATH": "/opt/senzing/er/etc",
+            "RESOURCEPATH": "/opt/senzing/er/resources",
+            "SUPPORTPATH": "/opt/senzing/er/data",
         },
         "SQL": {"CONNECTION": "sqlite3://na:na@/tmp/sqlite/G2C.db"},
     }
 
+    # TODO - Ant - Correct paths?
     windows_config = {
         "PIPELINE": {
             "CONFIGPATH": "C:\\Program Files\\Senzing\\g2\\etc",
