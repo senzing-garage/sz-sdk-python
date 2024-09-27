@@ -4,6 +4,13 @@ senzing\_abstract package
 Submodules
 ----------
 
+senzing\_abstract.szabstractfactory\_abstract module
+----------------------------------------------------
+
+.. automodule:: senzing_abstract.szabstractfactory_abstract
+   :undoc-members:
+   :show-inheritance:
+
 senzing\_abstract.szconfig\_abstract module
 -------------------------------------------
 
