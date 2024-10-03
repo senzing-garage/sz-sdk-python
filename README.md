@@ -12,7 +12,7 @@
 | src/senzing\_abstract/szconfigmanager\_abstract.py   |       24 |        1 |     96% |       204 |
 | src/senzing\_abstract/szdiagnostic\_abstract.py      |       22 |        1 |     95% |       156 |
 | src/senzing\_abstract/szengine\_abstract.py          |       75 |        1 |     99% |      1023 |
-| src/senzing\_abstract/szengineflags.py               |       91 |        0 |    100% |           |
+| src/senzing\_abstract/szengineflags.py               |       92 |        0 |    100% |           |
 | src/senzing\_abstract/szerror.py                     |       19 |        0 |    100% |           |
 | src/senzing\_abstract/szhelpers.py                   |       24 |       21 |     12% |     23-44 |
 | src/senzing\_abstract/szproduct\_abstract.py         |       16 |        1 |     94% |       103 |
@@ -21,7 +21,7 @@
 | src/senzing\_truthset/datasources.py                 |        2 |        2 |      0% |       3-5 |
 | src/senzing\_truthset/references.py                  |        2 |        2 |      0% |       3-5 |
 | src/senzing\_truthset/watchlist.py                   |        2 |        2 |      0% |       3-5 |
-|                                            **TOTAL** |  **361** |   **45** | **88%** |           |
+|                                            **TOTAL** |  **362** |   **45** | **88%** |           |
 
 
 ## Setup coverage badge
