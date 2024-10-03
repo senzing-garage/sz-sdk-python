@@ -85,12 +85,13 @@ class SzEngineAbstract(ABC):
         4030: PREFIX + "search_by_attributes({0}) failed. Return code: {1}",
         4031: PREFIX + "why_entities({0}, {1}) failed. Return code: {2}",
         4032: PREFIX + "why_records({0}, {1}, {2}, {3}, {4}) failed. Return code: {5}",
-        4033: PREFIX + "why_record_in_entity{0}, {1}, {2}) failed. Return code: {3}",
+        4033: PREFIX + "why_record_in_entity({0}, {1}, {2}) failed. Return code: {3}",
         4034: (
             PREFIX
             + "SzEngine({0}, {1}) failed. instance_name and settings must both be set or"
             " both be empty"
         ),
+        4035: PREFIX + "preprocess_record({0}, {1}) failed. Return code: {2}",
     }
     """ :meta private: """
 
@@ -114,7 +115,7 @@ class SzEngineAbstract(ABC):
         Args:
             data_source_code (str): Identifies the provenance of the data.
             record_id (str): The unique identifier within the records of the same data source.
-            record_definition (str | Dict): A JSON document containing the record to be added to the Senzing repository.
+            record_definition (str): A JSON document containing the record to be added to the Senzing repository.
             flags (int, optional): Flags used to control information returned. Defaults to 0.
 
         Returns:
@@ -750,6 +751,38 @@ class SzEngineAbstract(ABC):
             **Output:**
 
             .. literalinclude:: ../../examples/szengine/how_entity_by_entity_id.txt
+                :linenos:
+                :language: json
+        """
+
+    @abstractmethod
+    def preprocess_record(
+        self,
+        record_definition: str,
+        flags: int = 0,
+        **kwargs: Any,
+    ) -> str:
+        """
+        The `preprocess_record` method tests adding a record into the Senzing datastore.
+
+        Args:
+            record_definition (str): A JSON document containing the record to be added to the Senzing repository.
+            flags (int, optional): Flags used to control information returned. Defaults to 0.
+
+        Returns:
+            str: A JSON document containing metadata as specified by the flags.
+
+        Raises:
+
+        .. collapse:: Example:
+
+            .. literalinclude:: ../../examples/szengine/preprocess_record.py
+                :linenos:
+                :language: python
+
+            **Output:**
+
+            .. literalinclude:: ../../examples/szengine/preprocess_record.txt
                 :linenos:
                 :language: json
         """

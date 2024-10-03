@@ -130,6 +130,11 @@ def test_how_entity_by_entity_id(sz_engine: SzEngineAbstract) -> None:
 #     sz_engine.initialize("", "")
 
 
+def test_preprocess_record(sz_engine: SzEngineAbstract) -> None:
+    """Test SzEngine().preprocess_record()."""
+    sz_engine.preprocess_record("", 0)
+
+
 def test_prime_engine(sz_engine: SzEngineAbstract) -> None:
     """Test SzEngine().prime_engine()."""
     sz_engine.prime_engine()
@@ -202,7 +207,7 @@ class SzEngineTest(SzEngineAbstract):
         self,
         data_source_code: str,
         record_id: str,
-        record_definition: Union[str, Dict[Any, Any]],
+        record_definition: str,
         flags: int = 0,
         **kwargs: Any,
     ) -> str:
@@ -360,6 +365,14 @@ class SzEngineTest(SzEngineAbstract):
         **kwargs: Any,
     ) -> None:
         """None"""
+
+    def preprocess_record(
+        self,
+        record_definition: str,
+        flags: int = 0,
+        **kwargs: Any,
+    ) -> str:
+        return ""
 
     def prime_engine(self, **kwargs: Any) -> None:
         """None"""
