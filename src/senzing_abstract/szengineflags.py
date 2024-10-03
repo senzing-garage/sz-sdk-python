@@ -136,7 +136,6 @@ class SzEngineFlags(IntFlag):
 
     SZ_ENTITY_INCLUDE_INTERNAL_FEATURES = 1 << 23
     SZ_ENTITY_INCLUDE_FEATURE_STATS = 1 << 24
-    SZ_ENTITY_INCLUDE_FEATURE_ELEMENTS = 1 << 32
 
     # Flags for extra matching data.
 
