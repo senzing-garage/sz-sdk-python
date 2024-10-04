@@ -12,6 +12,16 @@ and this project adheres to [Semantic Versioning].
 ### Added in 0.1.4
 
 - `sz_enzine.preprocess_record()`
+- Engine flags:
+  - `SZ_ENTITY_INCLUDE_RECORD_FEATURE_DETAILS`
+  - `SZ_ENTITY_INCLUDE_RECORD_FEATURE_STATS`
+  - `SZ_ENTITY_INCLUDE_RECORD_FEATURES`
+
+### Deleted in 0.1.4
+
+- Engine flags:
+  - `SZ_ENTITY_INCLUDE_FEATURE_ELEMENTS`
+  - `SZ_ENTITY_INCLUDE_RECORD_FEATURE_IDS`
 
 ## [0.1.3] - 2024-09-25
 
