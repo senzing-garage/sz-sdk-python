@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.1.4] - 2024-10-04
+
+### Added in 0.1.4
+
+- `sz_enzine.preprocess_record()`
+
 ## [0.1.3] - 2024-09-25
 
 ### Added in 0.1.3
