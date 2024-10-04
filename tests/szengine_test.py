@@ -132,7 +132,7 @@ def test_how_entity_by_entity_id(sz_engine: SzEngineAbstract) -> None:
 
 def test_preprocess_record(sz_engine: SzEngineAbstract) -> None:
     """Test SzEngine().preprocess_record()."""
-    sz_engine.preprocess_record("", 0)
+    sz_engine.preprocess_record("")
 
 
 def test_prime_engine(sz_engine: SzEngineAbstract) -> None:

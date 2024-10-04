@@ -766,7 +766,7 @@ class SzEngineAbstract(ABC):
         The `preprocess_record` method tests adding a record into the Senzing datastore.
 
         Args:
-            record_definition (str): A JSON document containing the record to be added to the Senzing repository.
+            record_definition (str): A JSON document containing the record to be tested.
             flags (int, optional): Flags used to control information returned. Defaults to 0.
 
         Returns:
