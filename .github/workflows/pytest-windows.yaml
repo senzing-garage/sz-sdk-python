@@ -29,6 +29,8 @@ jobs:
 
       - name: Install dependencies
         run: |
+          python -m venv .\\venv
+          .\\venv\\Scripts\\activate
           python -m pip install --upgrade pip
           python -m pip install --requirement requirements.txt
           python -m pip install psutil pytest pytest-cov pytest-schema
@@ -38,7 +40,9 @@ jobs:
         run: python -m pip install typing_extensions
 
       - name: Run pytest on tests
-        run: pytest tests/ --verbose --capture=no --cov=src
+        run: |
+          .\\venv\\Scripts\\activate
+          pytest tests/ --verbose --capture=no --cov=src
 
       - name: Rename coverage file
         env:
