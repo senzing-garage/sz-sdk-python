@@ -58,11 +58,11 @@ setup-osarch-specific:
 
 .PHONY: test-osarch-specific-2
 test-osarch-specific-2:
-	@echo "--- Unit tests -------------------------------------------------------"
+	$(info --- Unit tests -------------------------------------------------------)
 	@pytest tests/ --verbose --capture=no --cov=src/senzing_abstract --cov-report xml:coverage.xml
-#	@echo "--- Test examples ----------------------------------------------------"
+#	$(info --- Test examples ----------------------------------------------------)
 #	@pytest examples/ --verbose --capture=no --cov=src/senzing_abstract
-	@echo "--- Test examples using unittest -------------------------------------"
+	$(info --- Test examples using unittest -------------------------------------)
 	@python3 -m unittest \
 		examples/szconfig/*.py \
 		examples/szconfigmanager/*.py \
@@ -73,7 +73,7 @@ test-osarch-specific-2:
 
 .PHONY: test-examples-2
 test-examples-2:
-	@echo "--- Test examples using unittest -------------------------------------"
+	$(info --- Test examples using unittest -------------------------------------)
 	@python3 -m unittest \
 		examples/misc/add_truthset_datasources.py \
 		examples/misc/add_truthset_data.py
