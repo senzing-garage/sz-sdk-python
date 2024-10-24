@@ -26,14 +26,18 @@ clean-osarch-specific:
 
 .PHONY: coverage-osarch-specific
 coverage-osarch-specific:
-	@pytest --cov=src --cov-report=xml  $(shell git ls-files '*.py')
-	@coverage html
+	@$(activate-venv); pytest --cov=src --cov-report=xml  $(shell git ls-files '*.py')
+	@$(activate-venv); coverage html
 	@xdg-open $(MAKEFILE_DIRECTORY)/htmlcov/index.html
+
+
+.PHONY: dependencies-for-development-osarch-specific
+dependencies-for-development-osarch-specific:
 
 
 .PHONY: documentation-osarch-specific
 documentation-osarch-specific:
-	@cd docs; rm -rf build; make html
+	@$(activate-venv); cd docs; rm -rf build; make html
 	@xdg-open file://$(MAKEFILE_DIRECTORY)/docs/build/html/index.html
 
 
@@ -44,7 +48,7 @@ hello-world-osarch-specific:
 
 .PHONY: package-osarch-specific
 package-osarch-specific:
-	@python3 -m build
+	@$(activate-venv); python3 -m build
 
 
 .PHONY: setup-osarch-specific
@@ -74,6 +78,10 @@ test-examples-2:
 		examples/misc/add_truthset_datasources.py \
 		examples/misc/add_truthset_data.py
 
+
+.PHONY: venv-osarch-specific
+venv-osarch-specific:
+	@python3 -m venv .venv
 
 # -----------------------------------------------------------------------------
 # Makefile targets supported only by this platform.
