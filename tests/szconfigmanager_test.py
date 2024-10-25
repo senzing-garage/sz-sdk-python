@@ -4,7 +4,7 @@
 TODO: szconfigmanager_test.py
 """
 
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, Union
 
 import pytest
 
@@ -91,9 +91,6 @@ class SzConfigManagerTest(SzConfigManagerAbstract):
     ) -> int:
         return 0
 
-    def destroy(self, **kwargs: Any) -> None:
-        """None"""
-
     def get_config(self, config_id: int, **kwargs: Any) -> str:
         return ""
 
@@ -102,15 +99,6 @@ class SzConfigManagerTest(SzConfigManagerAbstract):
 
     def get_default_config_id(self, **kwargs: Any) -> int:
         return 0
-
-    def initialize(
-        self,
-        instance_name: str,
-        settings: Union[str, Dict[Any, Any]],
-        verbose_logging: Optional[int] = 0,
-        **kwargs: Any,
-    ) -> None:
-        """None"""
 
     def replace_default_config_id(
         self, current_default_config_id: int, new_default_config_id: int, **kwargs: Any

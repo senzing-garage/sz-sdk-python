@@ -19,7 +19,7 @@ except ImportError:
 __all__ = ["SzEngineFlags"]
 __version__ = "0.0.1"  # See https://www.python.org/dev/peps/pep-0396/
 __date__ = "2023-10-30"
-__updated__ = "2023-10-30"
+__updated__ = "2024-10-24"
 
 # -----------------------------------------------------------------------------
 # SzEngineFlags class
@@ -66,9 +66,9 @@ class SzEngineFlags(IntFlag):
         return result
 
     @classmethod
-    # TODO - Ant - Correct type?
     def get_flag_int(cls, flag: Union[Self, str]) -> int:
-        """# TODO"""
+        """TODO:"""
+        # TODO - Ant - Correct type?
         try:
             if isinstance(flag, str):
                 flag = cls[flag.upper()]

@@ -6,6 +6,7 @@ szabstractfactory_abstract.py is the abstract class for all implementations of s
 
 
 from abc import ABC, abstractmethod
+from typing import Any
 
 from .szconfig_abstract import SzConfigAbstract
 from .szconfigmanager_abstract import SzConfigManagerAbstract
@@ -37,7 +38,7 @@ class SzAbstractFactoryAbstract(ABC):
     # -------------------------------------------------------------------------
 
     @abstractmethod
-    def create_sz_config(self) -> SzConfigAbstract:
+    def create_sz_config(self, **kwargs: Any) -> SzConfigAbstract:
         """
         The `create_sz_config` method creates a new implementation of an `SzConfigAbstract` object.
 
@@ -62,7 +63,7 @@ class SzAbstractFactoryAbstract(ABC):
         """
 
     @abstractmethod
-    def create_sz_configmanager(self) -> SzConfigManagerAbstract:
+    def create_sz_configmanager(self, **kwargs: Any) -> SzConfigManagerAbstract:
         """
         The `create_sz_configmanager` method creates a new implementation of an `SzConfigManagerAbstract` object.
 
@@ -87,7 +88,7 @@ class SzAbstractFactoryAbstract(ABC):
         """
 
     @abstractmethod
-    def create_sz_diagnostic(self) -> SzDiagnosticAbstract:
+    def create_sz_diagnostic(self, **kwargs: Any) -> SzDiagnosticAbstract:
         """
         The `create_sz_diagnostic` method creates a new implementation of an `SzDiagnosticAbstract` object.
 
@@ -112,7 +113,7 @@ class SzAbstractFactoryAbstract(ABC):
         """
 
     @abstractmethod
-    def create_sz_engine(self) -> SzEngineAbstract:
+    def create_sz_engine(self, **kwargs: Any) -> SzEngineAbstract:
         """
         The `create_sz_engine` method creates a new implementation of an `SzEngineAbstract` object.
 
@@ -137,7 +138,7 @@ class SzAbstractFactoryAbstract(ABC):
         """
 
     @abstractmethod
-    def create_sz_product(self) -> SzProductAbstract:
+    def create_sz_product(self, **kwargs: Any) -> SzProductAbstract:
         """
         The `create_sz_product` method creates a new implementation of an `SzProductAbstract` object.
 
@@ -159,6 +160,41 @@ class SzAbstractFactoryAbstract(ABC):
             .. literalinclude:: ../../examples/szabstractfactory/create_sz_product.txt
                 :linenos:
                 :language: json
+        """
+
+    @abstractmethod
+    def destroy(self, **kwargs: Any) -> None:
+        """
+        The `destroy` method ...FIXME: .
+
+        Raises:
+
+        .. collapse:: Example:
+
+            .. literalinclude:: ../../examples/szabstractfactory/destroy.py
+                :linenos:
+                :language: python
+        """
+
+    @abstractmethod
+    def reinitialize(self, config_id: int, **kwargs: Any) -> None:
+        """
+        The `reinitialize` method reinitializes the Senzing objects using a specific configuration
+        identifier. A list of available configuration identifiers can be retrieved using
+        `szconfigmanager.get_configs`.
+
+        Args:
+            config_id (int): The configuration ID used for the initialization
+
+        Raises:
+            TypeError: Incorrect datatype of input parameter.
+            szexception.SzError: config_id does not exist.
+
+        .. collapse:: Example:
+
+            .. literalinclude:: ../../examples/szabstractfactory/reinitialize.py
+                :linenos:
+                :language: python
         """
 
     # -------------------------------------------------------------------------

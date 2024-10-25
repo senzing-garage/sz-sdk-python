@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.1.5] - 2024-10-25
+
+### Added in 0.1.5
+
+- `SzAbstractFactory.destroy()`
+- `SzAbstractFactory.reinitialize()`
+
+### Deleted in 0.1.5
+
+- `SzEngine.reinitialize()`
+- `SzDiagnostic.reinitialize()`
+
 ## [0.1.4] - 2024-10-04
 
 ### Added in 0.1.4

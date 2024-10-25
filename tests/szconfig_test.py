@@ -4,7 +4,7 @@
 TODO: szconfig_test.py
 """
 
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, Union
 
 import pytest
 
@@ -110,9 +110,6 @@ class SzConfigTest(SzConfigAbstract):
     ) -> None:
         """None"""
 
-    def destroy(self, **kwargs: Any) -> None:
-        """None"""
-
     def export_config(self, config_handle: int, **kwargs: Any) -> str:
         return ""
 
@@ -123,12 +120,3 @@ class SzConfigTest(SzConfigAbstract):
         self, config_definition: Union[str, Dict[Any, Any]], **kwargs: Any
     ) -> int:
         return 0
-
-    def initialize(
-        self,
-        instance_name: str,
-        settings: Union[str, Dict[Any, Any]],
-        verbose_logging: Optional[int] = 0,
-        **kwargs: Any,
-    ) -> None:
-        """None"""
