@@ -17,11 +17,11 @@ from senzing_abstract import SzProductAbstract
 
 def test_new_szexception(sz_product: SzProductAbstract) -> None:
     """Test SzProduct().get_license()."""
-    pass
+    _ = sz_product
 
 
 # -----------------------------------------------------------------------------
-# SzConfig fixtures
+# SzError fixtures
 # -----------------------------------------------------------------------------
 
 
