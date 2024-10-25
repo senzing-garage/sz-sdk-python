@@ -150,11 +150,6 @@ def test_reevaluate_record(sz_engine: SzEngineAbstract) -> None:
     sz_engine.reevaluate_record("", "")
 
 
-def test_reinitialize(sz_engine: SzEngineAbstract) -> None:
-    """Test SzEngine().reinit()."""
-    sz_engine.reinitialize(0)
-
-
 def test_search_by_attributes(sz_engine: SzEngineAbstract) -> None:
     """Test SzEngine().search_by_attributes()."""
     sz_engine.search_by_attributes("")

@@ -4,6 +4,8 @@
 TODO: szabstractfactory_test.py
 """
 
+from typing import Any
+
 import pytest
 
 from senzing_abstract import (
@@ -82,17 +84,28 @@ class SzAbstractFactoryTest(SzAbstractFactoryAbstract):
     # SzAbstractFactory methods
     # -------------------------------------------------------------------------
 
-    def create_sz_config(self) -> SzConfigAbstract:
+    def create_sz_config(self, **kwargs: Any) -> SzConfigAbstract:
+        _ = kwargs
         return SzConfigTest()
 
-    def create_sz_configmanager(self) -> SzConfigManagerAbstract:
+    def create_sz_configmanager(self, **kwargs: Any) -> SzConfigManagerAbstract:
+        _ = kwargs
         return SzConfigManagerTest()
 
-    def create_sz_diagnostic(self) -> SzDiagnosticAbstract:
+    def create_sz_diagnostic(self, **kwargs: Any) -> SzDiagnosticAbstract:
+        _ = kwargs
         return SzDiagnosticTest()
 
-    def create_sz_engine(self) -> SzEngineAbstract:
+    def create_sz_engine(self, **kwargs: Any) -> SzEngineAbstract:
+        _ = kwargs
         return SzEngineTest()
 
-    def create_sz_product(self) -> SzProductAbstract:
+    def create_sz_product(self, **kwargs: Any) -> SzProductAbstract:
+        _ = kwargs
         return SzProductTest()
+
+    def destroy(self, **kwargs: Any) -> None:
+        _ = kwargs
+
+    def reinitialize(self, config_id: int, **kwargs: Any) -> None:
+        _ = kwargs

@@ -71,7 +71,7 @@ class SzProductTest(SzProductAbstract):
         instance_name: str,
         settings: Union[str, Dict[Any, Any]],
         verbose_logging: Optional[int] = 0,
-        **kwargs: Any
+        **kwargs: Any,
     ) -> None:
         """None"""
 

@@ -45,11 +45,6 @@ def test_purge_repository(sz_diagnostic: SzDiagnosticAbstract) -> None:
     sz_diagnostic.purge_repository()
 
 
-def test_reinitialize(sz_diagnostic: SzDiagnosticAbstract) -> None:
-    """Test SzDiagnosic().reinitialize()."""
-    sz_diagnostic.reinitialize(0)
-
-
 # -----------------------------------------------------------------------------
 # SzDiagnostic fixtures
 # -----------------------------------------------------------------------------
