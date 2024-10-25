@@ -4,7 +4,7 @@
 TODO: szproduct_test.py
 """
 
-from typing import Any, Dict, Optional, Union
+from typing import Any
 
 import pytest
 
@@ -52,18 +52,6 @@ class SzProductTest(SzProductAbstract):
     # -------------------------------------------------------------------------
     # SzProduct methods
     # -------------------------------------------------------------------------
-
-    def destroy(self, *args: Any, **kwargs: Any) -> None:
-        """None"""
-
-    def initialize(
-        self,
-        instance_name: str,
-        settings: Union[str, Dict[Any, Any]],
-        verbose_logging: Optional[int] = 0,
-        **kwargs: Any,
-    ) -> None:
-        """None"""
 
     def get_license(self, **kwargs: Any) -> str:
         return ""

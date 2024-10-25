@@ -4,7 +4,7 @@
 TODO: szdiagnostic_test.py
 """
 
-from typing import Any, Dict, Optional, Union
+from typing import Any
 
 import pytest
 
@@ -76,27 +76,11 @@ class SzDiagnosticTest(SzDiagnosticAbstract):
     def check_datastore_performance(self, seconds_to_run: int, **kwargs: Any) -> str:
         return ""
 
-    def destroy(self, **kwargs: Any) -> None:
-        """None"""
-
     def get_datastore_info(self, **kwargs: Any) -> str:
         return ""
 
     def get_feature(self, feature_id: int, **kwargs: Any) -> str:
         return ""
 
-    def initialize(
-        self,
-        instance_name: str,
-        settings: Union[str, Dict[Any, Any]],
-        config_id: Optional[int] = None,
-        verbose_logging: Optional[int] = 0,
-        **kwargs: Any,
-    ) -> None:
-        """None"""
-
     def purge_repository(self, **kwargs: Any) -> None:
-        """None"""
-
-    def reinitialize(self, config_id: int, **kwargs: Any) -> None:
         """None"""

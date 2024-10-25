@@ -4,7 +4,7 @@
 TODO: szengine_test.py
 """
 
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, List, Optional, Tuple
 
 import pytest
 
@@ -223,9 +223,6 @@ class SzEngineTest(SzEngineAbstract):
     ) -> str:
         return ""
 
-    def destroy(self, **kwargs: Any) -> None:
-        """None"""
-
     def export_csv_entity_report(
         self,
         csv_column_list: str,
@@ -351,16 +348,6 @@ class SzEngineTest(SzEngineAbstract):
     ) -> str:
         return ""
 
-    def initialize(
-        self,
-        instance_name: str,
-        settings: Union[str, Dict[Any, Any]],
-        config_id: Optional[int] = 0,
-        verbose_logging: Optional[int] = 0,
-        **kwargs: Any,
-    ) -> None:
-        """None"""
-
     def preprocess_record(
         self,
         record_definition: str,
@@ -386,9 +373,6 @@ class SzEngineTest(SzEngineAbstract):
         **kwargs: Any,
     ) -> str:
         return ""
-
-    def reinitialize(self, config_id: int, **kwargs: Any) -> None:
-        """None"""
 
     def search_by_attributes(
         self,
