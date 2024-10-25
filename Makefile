@@ -189,7 +189,7 @@ print-make-variables:
 .PHONY: bandit
 bandit:
 	$(info --- bandit ---------------------------------------------------------------------)
-	@$(activate-venv); bandit -c .github/linters/bandit.yaml $(shell git ls-files '*.py' ':!:docs/source/*')
+	@$(activate-venv); bandit -c pyproject.toml $(shell git ls-files '*.py' ':!:docs/source/*')
 
 
 .PHONY: black
