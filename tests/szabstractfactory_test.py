@@ -104,8 +104,5 @@ class SzAbstractFactoryTest(SzAbstractFactoryAbstract):
         _ = kwargs
         return SzProductTest()
 
-    def destroy(self, **kwargs: Any) -> None:
-        _ = kwargs
-
     def reinitialize(self, config_id: int, **kwargs: Any) -> None:
         _ = kwargs
