@@ -253,9 +253,9 @@ class SzEngineTest(SzEngineAbstract):
         self,
         entity_ids: List[int],
         max_degrees: int,
-        build_out_degree: int,
+        build_out_degrees: int,
         build_out_max_entities: int,
-        flags: int = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS,
+        flags: int = SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS,
         **kwargs: Any,
     ) -> str:
         return ""
@@ -264,9 +264,9 @@ class SzEngineTest(SzEngineAbstract):
         self,
         record_keys: List[Tuple[str, str]],
         max_degrees: int,
-        build_out_degree: int,
+        build_out_degrees: int,
         build_out_max_entities: int,
-        flags: int = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS,
+        flags: int = SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS,
         **kwargs: Any,
     ) -> str:
         return ""
