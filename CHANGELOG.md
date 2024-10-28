@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.1.6] - 2024-10-28
+
+### Removed in 0.1.6
+
+- `SzAbstractFactory.destroy()`
+
 ## [0.1.5] - 2024-10-25
 
 ### Added in 0.1.5
