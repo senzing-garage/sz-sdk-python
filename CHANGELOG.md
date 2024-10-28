@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.1.7] - 2024-10-28
+
+### Changed in 0.1.7
+
+- Modified signatures for find_network_by_entity_id and find_network_by_record_id
+
 ## [0.1.6] - 2024-10-28
 
 ### Removed in 0.1.6
