@@ -8,7 +8,7 @@
 | src/senzing\_abstract/constants.py                   |       12 |        0 |    100% |           |
 | src/senzing\_abstract/engine\_exception\_map.py      |       19 |        0 |    100% |           |
 | src/senzing\_abstract/observer\_abstract.py          |        5 |        5 |      0% |     13-33 |
-| src/senzing\_abstract/szabstractfactory\_abstract.py |       29 |        1 |     97% |       214 |
+| src/senzing\_abstract/szabstractfactory\_abstract.py |       27 |        1 |     96% |       200 |
 | src/senzing\_abstract/szconfig\_abstract.py          |       26 |        1 |     96% |       254 |
 | src/senzing\_abstract/szconfigmanager\_abstract.py   |       24 |        1 |     96% |       204 |
 | src/senzing\_abstract/szdiagnostic\_abstract.py      |       20 |        1 |     95% |       137 |
@@ -22,7 +22,7 @@
 | src/senzing\_truthset/datasources.py                 |        2 |        2 |      0% |       3-5 |
 | src/senzing\_truthset/references.py                  |        2 |        2 |      0% |       3-5 |
 | src/senzing\_truthset/watchlist.py                   |        2 |        2 |      0% |       3-5 |
-|                                            **TOTAL** |  **415** |   **49** | **88%** |           |
+|                                            **TOTAL** |  **413** |   **49** | **88%** |           |
 
 
 ## Setup coverage badge
