@@ -9,6 +9,12 @@ from .constants import (
     SZ_VERBOSE_LOGGING,
     SZ_WITHOUT_INFO,
 )
+from .szabstractfactory_abstract import SzAbstractFactoryAbstract
+from .szconfig_abstract import SzConfigAbstract
+from .szconfigmanager_abstract import SzConfigManagerAbstract
+from .szdiagnostic_abstract import SzDiagnosticAbstract
+from .szengine_abstract import SzEngineAbstract
+from .szengineflags import SzEngineFlags
 from .szerror import (
     ENGINE_EXCEPTION_MAP,
     SzBadInputError,
@@ -26,12 +32,6 @@ from .szerror import (
     SzUnknownDataSourceError,
     SzUnrecoverableError,
 )
-from .szabstractfactory_abstract import SzAbstractFactoryAbstract
-from .szconfig_abstract import SzConfigAbstract
-from .szconfigmanager_abstract import SzConfigManagerAbstract
-from .szdiagnostic_abstract import SzDiagnosticAbstract
-from .szengine_abstract import SzEngineAbstract
-from .szengineflags import SzEngineFlags
 from .szproduct_abstract import SzProductAbstract
 
 __all__ = [
