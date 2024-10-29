@@ -4,9 +4,8 @@
 
 | Name                                                 |    Stmts |     Miss |   Cover |   Missing |
 |----------------------------------------------------- | -------: | -------: | ------: | --------: |
-| src/senzing\_abstract/\_\_init\_\_.py                |       11 |        0 |    100% |           |
+| src/senzing\_abstract/\_\_init\_\_.py                |       10 |        0 |    100% |           |
 | src/senzing\_abstract/constants.py                   |       12 |        0 |    100% |           |
-| src/senzing\_abstract/engine\_exception\_map.py      |       19 |        0 |    100% |           |
 | src/senzing\_abstract/observer\_abstract.py          |        5 |        5 |      0% |     13-33 |
 | src/senzing\_abstract/szabstractfactory\_abstract.py |       27 |        1 |     96% |       200 |
 | src/senzing\_abstract/szconfig\_abstract.py          |       26 |        1 |     96% |       254 |
@@ -14,7 +13,7 @@
 | src/senzing\_abstract/szdiagnostic\_abstract.py      |       20 |        1 |     95% |       137 |
 | src/senzing\_abstract/szengine\_abstract.py          |       75 |        1 |     99% |      1035 |
 | src/senzing\_abstract/szengineflags.py               |       92 |        0 |    100% |           |
-| src/senzing\_abstract/szerror.py                     |       49 |       26 |     47% |54-55, 64-76, 85, 94-102, 114-120, 136-151 |
+| src/senzing\_abstract/szerror.py                     |       19 |        0 |    100% |           |
 | src/senzing\_abstract/szhelpers.py                   |       24 |        0 |    100% |           |
 | src/senzing\_abstract/szproduct\_abstract.py         |       16 |        0 |    100% |           |
 | src/senzing\_truthset/\_\_init\_\_.py                |        5 |        5 |      0% |       1-6 |
@@ -22,7 +21,7 @@
 | src/senzing\_truthset/datasources.py                 |        2 |        2 |      0% |       3-5 |
 | src/senzing\_truthset/references.py                  |        2 |        2 |      0% |       3-5 |
 | src/senzing\_truthset/watchlist.py                   |        2 |        2 |      0% |       3-5 |
-|                                            **TOTAL** |  **413** |   **49** | **88%** |           |
+|                                            **TOTAL** |  **363** |   **23** | **94%** |           |
 
 
 ## Setup coverage badge
