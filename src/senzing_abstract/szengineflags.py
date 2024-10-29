@@ -7,7 +7,7 @@ TODO: szengineflags.py
 from enum import IntFlag
 from typing import List, Union
 
-from .engine_exception_map import SzError
+from .szerror import SzError
 
 try:
     from typing_extensions import Self  # type: ignore[attr-defined,no-redef]
