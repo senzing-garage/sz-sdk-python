@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.1.8] - 2024-10-29
+
+### Changed in 0.1.8
+
+- Modified signatures for preprocess_record to include default flag
+- Removed exception_map and moved into szerror.py
+
 ## [0.1.7] - 2024-10-28
 
 ### Changed in 0.1.7

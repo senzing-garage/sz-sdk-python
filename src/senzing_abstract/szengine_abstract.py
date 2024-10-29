@@ -759,7 +759,7 @@ class SzEngineAbstract(ABC):
     def preprocess_record(
         self,
         record_definition: str,
-        flags: int = 0,
+        flags: int = SzEngineFlags.SZ_RECORD_DEFAULT_FLAGS,
         **kwargs: Any,
     ) -> str:
         """
