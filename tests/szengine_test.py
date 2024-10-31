@@ -231,17 +231,13 @@ class SzEngineTest(SzEngineAbstract):
     ) -> int:
         return 0
 
-    def export_json_entity_report(
-        self, flags: int = SzEngineFlags.SZ_EXPORT_DEFAULT_FLAGS, **kwargs: Any
-    ) -> int:
+    def export_json_entity_report(self, flags: int = SzEngineFlags.SZ_EXPORT_DEFAULT_FLAGS, **kwargs: Any) -> int:
         return 0
 
     def fetch_next(self, export_handle: int, **kwargs: Any) -> str:
         return ""
 
-    def find_interesting_entities_by_entity_id(
-        self, entity_id: int, flags: int = 0, **kwargs: Any
-    ) -> str:
+    def find_interesting_entities_by_entity_id(self, entity_id: int, flags: int = 0, **kwargs: Any) -> str:
         return ""
 
     def find_interesting_entities_by_record_id(
@@ -359,9 +355,7 @@ class SzEngineTest(SzEngineAbstract):
     def prime_engine(self, **kwargs: Any) -> None:
         """None"""
 
-    def process_redo_record(
-        self, redo_record: str, flags: int = 0, **kwargs: Any
-    ) -> str:
+    def process_redo_record(self, redo_record: str, flags: int = 0, **kwargs: Any) -> str:
         return ""
 
     def reevaluate_entity(self, entity_id: int, flags: int = 0, **kwargs: Any) -> str:

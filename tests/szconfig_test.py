@@ -116,7 +116,5 @@ class SzConfigTest(SzConfigAbstract):
     def get_data_sources(self, config_handle: int, **kwargs: Any) -> str:
         return ""
 
-    def import_config(
-        self, config_definition: Union[str, Dict[Any, Any]], **kwargs: Any
-    ) -> int:
+    def import_config(self, config_definition: Union[str, Dict[Any, Any]], **kwargs: Any) -> int:
         return 0
