@@ -359,7 +359,7 @@ class SzEngineTest(SzEngineAbstract):
     def prime_engine(self, **kwargs: Any) -> None:
         """None"""
 
-    def process_redo_record(self, redo_record: str, flags: int, **kwargs: Any) -> str:
+    def process_redo_record(self, redo_record: str, flags: int = 0, **kwargs: Any) -> str:
         return ""
 
     def reevaluate_entity(self, entity_id: int, flags: int = 0, **kwargs: Any) -> str:
