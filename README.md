@@ -11,7 +11,7 @@
 | src/senzing\_abstract/szconfig\_abstract.py          |       26 |        1 |     96% |       254 |
 | src/senzing\_abstract/szconfigmanager\_abstract.py   |       24 |        1 |     96% |       204 |
 | src/senzing\_abstract/szdiagnostic\_abstract.py      |       20 |        1 |     95% |       137 |
-| src/senzing\_abstract/szengine\_abstract.py          |       75 |        1 |     99% |      1035 |
+| src/senzing\_abstract/szengine\_abstract.py          |       75 |        1 |     99% |      1037 |
 | src/senzing\_abstract/szengineflags.py               |       92 |        0 |    100% |           |
 | src/senzing\_abstract/szerror.py                     |       19 |        0 |    100% |           |
 | src/senzing\_abstract/szhelpers.py                   |       24 |        0 |    100% |           |
