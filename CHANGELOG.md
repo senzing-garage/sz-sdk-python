@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.1.10] - 2024-10-31
+
+### Changed in 0.1.10
+
+- Synchronized szengineflags with latest V4 build
+- Modified signatures for find_network_by_* to new default engine flag
+
 ## [0.1.9] - 2024-10-31
 
 ### Changed in 0.1.9
@@ -48,7 +55,7 @@ and this project adheres to [Semantic Versioning].
 
 ### Added in 0.1.4
 
-- `sz_enzine.preprocess_record()`
+- `sz_engine.preprocess_record()`
 - Engine flags:
   - `SZ_ENTITY_INCLUDE_RECORD_FEATURE_DETAILS`
   - `SZ_ENTITY_INCLUDE_RECORD_FEATURE_STATS`

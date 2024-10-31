@@ -255,7 +255,7 @@ class SzEngineTest(SzEngineAbstract):
         max_degrees: int,
         build_out_degrees: int,
         build_out_max_entities: int,
-        flags: int = SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS,
+        flags: int = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS,
         **kwargs: Any,
     ) -> str:
         return ""
@@ -266,7 +266,7 @@ class SzEngineTest(SzEngineAbstract):
         max_degrees: int,
         build_out_degrees: int,
         build_out_max_entities: int,
-        flags: int = SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS,
+        flags: int = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS,
         **kwargs: Any,
     ) -> str:
         return ""
