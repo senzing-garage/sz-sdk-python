@@ -28,7 +28,7 @@ def test_combine_flags_using_strings() -> None:
     SzEngineFlags.combine_flags(
         [
             "SZ_ENTITY_BRIEF_DEFAULT_FLAGS",
-            "SZ_FIND_NETWORK_DEFAULT_FLAGS",
+            "SZ_FIND_PATH_DEFAULT_FLAGS",
         ]
     )
 
