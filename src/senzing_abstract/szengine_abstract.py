@@ -805,7 +805,7 @@ class SzEngineAbstract(ABC):
         """
 
     @abstractmethod
-    def process_redo_record(self, redo_record: str, flags: int, **kwargs: Any) -> str:
+    def process_redo_record(self, redo_record: str, flags: int = 0, **kwargs: Any) -> str:
         """
         # TODO: The `process_redo_record` method...
 
