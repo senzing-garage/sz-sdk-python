@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.1.9] - 2024-10-31
+
+### Changed in 0.1.9
+
+- Modified signatures for process_redo_record to include default flag
+
 ## [0.1.8] - 2024-10-29
 
 ### Changed in 0.1.8
