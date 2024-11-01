@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.1.10] - 2024-11-01
+
+### Changed in 0.1.10
+
+- Synchronized ezengineflags with latest V4 stage build
+
 ## [0.1.9] - 2024-10-31
 
 ### Changed in 0.1.9
