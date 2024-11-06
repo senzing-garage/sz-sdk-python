@@ -99,7 +99,17 @@ class SzDiagnosticAbstract(ABC):
     # NOTE This is included but not to be documented
     @abstractmethod
     def get_feature(self, feature_id: int, **kwargs: Any) -> str:
-        """TODO:  Document get_feature()"""
+        """
+        **Warning:**
+        The `get_feature` method is an experimental method that returns diagnostic information of a feature.
+        Not recommended for use.
+
+        Args:
+            feature_id (int): The identifier of the feature to describe.
+
+        Returns:
+            str: A string containing a JSON document
+        """
 
     @abstractmethod
     def purge_repository(self, **kwargs: Any) -> None:
