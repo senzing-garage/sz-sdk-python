@@ -170,14 +170,19 @@ class SzEngineFlags(IntFlag):
     # The recommended default flag values for getting records.
     SZ_RECORD_DEFAULT_FLAGS = SZ_ENTITY_INCLUDE_RECORD_JSON_DATA
 
-    # The recommended default flag values for getting entities.
-    SZ_ENTITY_DEFAULT_FLAGS = (
-        SZ_ENTITY_INCLUDE_ALL_RELATIONS
-        | SZ_ENTITY_INCLUDE_REPRESENTATIVE_FEATURES
+    # The recommended default flag values for basic entity output.
+    SZ_ENTITY_CORE_FLAGS = (
+        SZ_ENTITY_INCLUDE_REPRESENTATIVE_FEATURES
         | SZ_ENTITY_INCLUDE_ENTITY_NAME
         | SZ_ENTITY_INCLUDE_RECORD_SUMMARY
         | SZ_ENTITY_INCLUDE_RECORD_DATA
         | SZ_ENTITY_INCLUDE_RECORD_MATCHING_INFO
+    )
+
+    # The recommended default flag values for getting entities.
+    SZ_ENTITY_DEFAULT_FLAGS = (
+        SZ_ENTITY_CORE_FLAGS
+        | SZ_ENTITY_INCLUDE_ALL_RELATIONS
         | SZ_ENTITY_INCLUDE_RELATED_ENTITY_NAME
         | SZ_ENTITY_INCLUDE_RELATED_RECORD_SUMMARY
         | SZ_ENTITY_INCLUDE_RELATED_MATCHING_INFO
@@ -227,7 +232,7 @@ class SzEngineFlags(IntFlag):
     SZ_HOW_ENTITY_DEFAULT_FLAGS = SZ_INCLUDE_FEATURE_SCORES
 
     # The recommended default flag values for virtual-entity-analysis on entities.
-    SZ_VIRTUAL_ENTITY_DEFAULT_FLAGS = SZ_ENTITY_DEFAULT_FLAGS
+    SZ_VIRTUAL_ENTITY_DEFAULT_FLAGS = SZ_ENTITY_CORE_FLAGS
 
     # The recommended settings for searching by attributes.
 
