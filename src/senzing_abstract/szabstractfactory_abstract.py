@@ -38,9 +38,9 @@ class SzAbstractFactoryAbstract(ABC):
     # -------------------------------------------------------------------------
 
     @abstractmethod
-    def create_sz_config(self, **kwargs: Any) -> SzConfigAbstract:
+    def create_config(self, **kwargs: Any) -> SzConfigAbstract:
         """
-        The `create_sz_config` method creates a new implementation of an `SzConfigAbstract` object.
+        The `create_config` method creates a new implementation of an `SzConfigAbstract` object.
 
         Args:
 
@@ -51,21 +51,21 @@ class SzAbstractFactoryAbstract(ABC):
 
         .. collapse:: Example:
 
-            .. literalinclude:: ../../examples/szabstractfactory/create_sz_config.py
+            .. literalinclude:: ../../examples/szabstractfactory/create_config.py
                 :linenos:
                 :language: python
 
             **Output:**
 
-            .. literalinclude:: ../../examples/szabstractfactory/create_sz_config.txt
+            .. literalinclude:: ../../examples/szabstractfactory/create_config.txt
                 :linenos:
                 :language: json
         """
 
     @abstractmethod
-    def create_sz_configmanager(self, **kwargs: Any) -> SzConfigManagerAbstract:
+    def create_configmanager(self, **kwargs: Any) -> SzConfigManagerAbstract:
         """
-        The `create_sz_configmanager` method creates a new implementation of an `SzConfigManagerAbstract` object.
+        The `create_configmanager` method creates a new implementation of an `SzConfigManagerAbstract` object.
 
         Args:
 
@@ -76,21 +76,21 @@ class SzAbstractFactoryAbstract(ABC):
 
         .. collapse:: Example:
 
-            .. literalinclude:: ../../examples/szabstractfactory/create_sz_configmanager.py
+            .. literalinclude:: ../../examples/szabstractfactory/create_configmanager.py
                 :linenos:
                 :language: python
 
             **Output:**
 
-            .. literalinclude:: ../../examples/szabstractfactory/create_sz_configmanager.txt
+            .. literalinclude:: ../../examples/szabstractfactory/create_configmanager.txt
                 :linenos:
                 :language: json
         """
 
     @abstractmethod
-    def create_sz_diagnostic(self, **kwargs: Any) -> SzDiagnosticAbstract:
+    def create_diagnostic(self, **kwargs: Any) -> SzDiagnosticAbstract:
         """
-        The `create_sz_diagnostic` method creates a new implementation of an `SzDiagnosticAbstract` object.
+        The `create_diagnostic` method creates a new implementation of an `SzDiagnosticAbstract` object.
 
         Args:
 
@@ -101,21 +101,21 @@ class SzAbstractFactoryAbstract(ABC):
 
         .. collapse:: Example:
 
-            .. literalinclude:: ../../examples/szabstractfactory/create_sz_diagnostic.py
+            .. literalinclude:: ../../examples/szabstractfactory/create_diagnostic.py
                 :linenos:
                 :language: python
 
             **Output:**
 
-            .. literalinclude:: ../../examples/szabstractfactory/create_sz_diagnostic.txt
+            .. literalinclude:: ../../examples/szabstractfactory/create_diagnostic.txt
                 :linenos:
                 :language: json
         """
 
     @abstractmethod
-    def create_sz_engine(self, **kwargs: Any) -> SzEngineAbstract:
+    def create_engine(self, **kwargs: Any) -> SzEngineAbstract:
         """
-        The `create_sz_engine` method creates a new implementation of an `SzEngineAbstract` object.
+        The `create_engine` method creates a new implementation of an `SzEngineAbstract` object.
 
         Args:
 
@@ -126,21 +126,21 @@ class SzAbstractFactoryAbstract(ABC):
 
         .. collapse:: Example:
 
-            .. literalinclude:: ../../examples/szabstractfactory/create_sz_engine.py
+            .. literalinclude:: ../../examples/szabstractfactory/create_engine.py
                 :linenos:
                 :language: python
 
             **Output:**
 
-            .. literalinclude:: ../../examples/szabstractfactory/create_sz_engine.txt
+            .. literalinclude:: ../../examples/szabstractfactory/create_engine.txt
                 :linenos:
                 :language: json
         """
 
     @abstractmethod
-    def create_sz_product(self, **kwargs: Any) -> SzProductAbstract:
+    def create_product(self, **kwargs: Any) -> SzProductAbstract:
         """
-        The `create_sz_product` method creates a new implementation of an `SzProductAbstract` object.
+        The `create_product` method creates a new implementation of an `SzProductAbstract` object.
 
         Args:
 
@@ -151,13 +151,13 @@ class SzAbstractFactoryAbstract(ABC):
 
         .. collapse:: Example:
 
-            .. literalinclude:: ../../examples/szabstractfactory/create_sz_product.py
+            .. literalinclude:: ../../examples/szabstractfactory/create_product.py
                 :linenos:
                 :language: python
 
             **Output:**
 
-            .. literalinclude:: ../../examples/szabstractfactory/create_sz_product.txt
+            .. literalinclude:: ../../examples/szabstractfactory/create_product.txt
                 :linenos:
                 :language: json
         """
