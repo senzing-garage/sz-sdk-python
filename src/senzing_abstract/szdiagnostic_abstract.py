@@ -5,7 +5,6 @@ TODO: szdiagnostic_abstract.py
 """
 
 from abc import ABC, abstractmethod
-from typing import Any
 
 from .szhelpers import construct_help
 
@@ -27,27 +26,11 @@ class SzDiagnosticAbstract(ABC):
     """
 
     # -------------------------------------------------------------------------
-    # Messages
-    # -------------------------------------------------------------------------
-
-    PREFIX = "szdiagnostic."
-    ID_MESSAGES = {
-        4001: PREFIX + "check_datastore_performance({0}) failed. Return code: {1}",
-        4002: PREFIX + "destroy() failed. Return code: {0}",
-        4003: PREFIX + "get_datastore_info() failed. Return code: {0}",
-        4004: PREFIX + "get_feature({0}) failed. Return code: {1}",
-        4005: PREFIX + "initialize({0}, {1}, {2}, {3}) failed. Return code: {4}",
-        4006: PREFIX + "purge_repository() failed. Return code: {0}",
-        4007: PREFIX + "reinitialize({0}) failed. Return Code: {1}",
-        4008: PREFIX + "SzDiagnostic({0}, {1}) failed. instance_name and settings must both be set or both be empty",
-    }
-
-    # -------------------------------------------------------------------------
     # Interface definition
     # -------------------------------------------------------------------------
 
     @abstractmethod
-    def check_datastore_performance(self, seconds_to_run: int, **kwargs: Any) -> str:
+    def check_datastore_performance(self, seconds_to_run: int) -> str:
         """
         The `check_datastore_performance` method performs inserts to determine rate of insertion.
 
@@ -75,10 +58,10 @@ class SzDiagnosticAbstract(ABC):
         """
 
     @abstractmethod
-    def get_datastore_info(self, **kwargs: Any) -> str:
+    def get_datastore_info(self) -> str:
         """
-        TODO: Document get_datastore_info()
-        The `get_datastore_info` method will...
+        The `get_datastore_info` method returns a JSON document with details of the datastore
+        currently in use by Senzing.
 
         Raises:
             szexception.SzError:
@@ -98,7 +81,7 @@ class SzDiagnosticAbstract(ABC):
 
     # NOTE This is included but not to be documented
     @abstractmethod
-    def get_feature(self, feature_id: int, **kwargs: Any) -> str:
+    def get_feature(self, feature_id: int) -> str:
         """
         **Warning:**
         The `get_feature` method is an experimental method that returns diagnostic information of a feature.
@@ -112,7 +95,7 @@ class SzDiagnosticAbstract(ABC):
         """
 
     @abstractmethod
-    def purge_repository(self, **kwargs: Any) -> None:
+    def purge_repository(self) -> None:
         """
         **Warning:**
         The `purge_repository` method removes every record in the Senzing repository.

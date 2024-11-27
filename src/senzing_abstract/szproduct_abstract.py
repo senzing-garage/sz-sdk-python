@@ -6,7 +6,6 @@ szproduct_abstract.py is the abstract class for all implementations of szproduct
 
 # TODO: Determine specific SzError, Errors for "Raises:" documentation.
 from abc import ABC, abstractmethod
-from typing import Any
 
 from .szhelpers import construct_help
 
@@ -24,29 +23,18 @@ __updated__ = "2023-11-27"
 
 class SzProductAbstract(ABC):
     """
-    SzProductAbstract is the definition of the Senzing Python API that is
+    SzProductAbstract is the definition of the Senzing Python SDK that is
     implemented by packages such as szproduct.py.
     """
-
-    # -------------------------------------------------------------------------
-    # Messages
-    # -------------------------------------------------------------------------
-
-    PREFIX = "szproduct."
-    ID_MESSAGES = {
-        4001: PREFIX + "destroy() failed. Return code: {0}",
-        4002: PREFIX + "initialize({0}, {1}, {2}) failed. Return code: {3}",
-        4003: PREFIX + "SzProduct({0}, {1}) failed. instance_name and settings must both be set or both be empty",
-    }
 
     # -------------------------------------------------------------------------
     # Interface definition
     # -------------------------------------------------------------------------
 
     @abstractmethod
-    def get_license(self, **kwargs: Any) -> str:
+    def get_license(self) -> str:
         """
-        The `get_license` method retrieves information about the currently used license by the Senzing API.
+        The `get_license` method retrieves information about the currently used license.
 
         Returns:
             str: A JSON document containing Senzing license metadata.
@@ -65,9 +53,9 @@ class SzProductAbstract(ABC):
         """
 
     @abstractmethod
-    def get_version(self, **kwargs: Any) -> str:
+    def get_version(self) -> str:
         """
-        The `get_version` method returns the version of the Senzing API.
+        The `get_version` method returns the version of Senzing.
 
         Returns:
             str: A JSON document containing metadata about the Senzing Engine version being used.

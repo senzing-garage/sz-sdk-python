@@ -7,7 +7,6 @@ szconfigmanager_abstract.py is the abstract class for all implementations of szc
 # TODO: Determine specific SzErrors, Errors for "Raises:" documentation.
 
 from abc import ABC, abstractmethod
-from typing import Any
 
 from .szhelpers import construct_help
 
@@ -25,33 +24,16 @@ __updated__ = "2023-11-08"
 
 class SzConfigManagerAbstract(ABC):
     """
-    SzConfigManagerAbstract is the definition of the Senzing Python API that is
+    SzConfigManagerAbstract is the definition of the Senzing Python SDK that is
     implemented by packages such as szconfigmanager.py.
     """
-
-    # -------------------------------------------------------------------------
-    # Messages
-    # -------------------------------------------------------------------------
-
-    PREFIX = "szconfigmanager."
-    ID_MESSAGES = {
-        4001: PREFIX + "add_config({0}, {1}) failed. Return code: {2}",
-        4002: PREFIX + "destroy() failed. Return code: {0}",
-        4003: PREFIX + "get_config({0}) failed. Return code: {1}",
-        4004: PREFIX + "get_configs() failed. Return code: {0}",
-        4005: PREFIX + "get_default_config_id() failed. Return code: {0}",
-        4006: PREFIX + "initialize({0}, {1}, {2}) failed. Return code: {3}",
-        4007: PREFIX + "replace_default_config_id({0}, {1}) failed. Return code: {2}",
-        4008: PREFIX + "set_default_config_id({0}) failed. Return code: {1}",
-        4009: PREFIX + "SzConfigManager({0}, {1}) failed. instance_name and settings must both be set or both be empty",
-    }
 
     # -------------------------------------------------------------------------
     # Interface definition
     # -------------------------------------------------------------------------
 
     @abstractmethod
-    def add_config(self, config_definition: str, config_comment: str, **kwargs: Any) -> int:
+    def add_config(self, config_definition: str, config_comment: str) -> int:
         """
         The `add_config` method adds a Senzing configuration JSON document to the Senzing database.
 
@@ -73,7 +55,7 @@ class SzConfigManagerAbstract(ABC):
         """
 
     @abstractmethod
-    def get_config(self, config_id: int, **kwargs: Any) -> str:
+    def get_config(self, config_id: int) -> str:
         """
         The `get_config` method retrieves a specific Senzing configuration JSON document from the Senzing database.
 
@@ -100,7 +82,7 @@ class SzConfigManagerAbstract(ABC):
         """
 
     @abstractmethod
-    def get_configs(self, **kwargs: Any) -> str:
+    def get_configs(self) -> str:
         """
         The `get_configs` method retrieves a list of Senzing configurations from the Senzing database.
 
@@ -124,7 +106,7 @@ class SzConfigManagerAbstract(ABC):
         """
 
     @abstractmethod
-    def get_default_config_id(self, **kwargs: Any) -> int:
+    def get_default_config_id(self) -> int:
         """
         The `get_default_config_id` method retrieves from the Senzing database the configuration identifier of the default Senzing configuration.
 
@@ -142,9 +124,7 @@ class SzConfigManagerAbstract(ABC):
         """
 
     @abstractmethod
-    def replace_default_config_id(
-        self, current_default_config_id: int, new_default_config_id: int, **kwargs: Any
-    ) -> None:
+    def replace_default_config_id(self, current_default_config_id: int, new_default_config_id: int) -> None:
         """
         The `replace_default_config_id` method replaces the old configuration identifier with a new configuration identifier in the Senzing database.
         It is like a "compare-and-swap" instruction to serialize concurrent editing of configuration.
@@ -166,9 +146,9 @@ class SzConfigManagerAbstract(ABC):
         """
 
     @abstractmethod
-    def set_default_config_id(self, config_id: int, **kwargs: Any) -> None:
+    def set_default_config_id(self, config_id: int) -> None:
         """
-        The `set_default_config_id` method replaces the sets a new configuration identifier in the Senzing database.
+        The `set_default_config_id` method replaces and sets a new configuration identifier in the Senzing database.
         To serialize modifying of the configuration identifier, see `replace_default_config_id`.
 
         Args:

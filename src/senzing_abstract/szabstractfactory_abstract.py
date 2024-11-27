@@ -6,7 +6,6 @@ szabstractfactory_abstract.py is the abstract class for all implementations of s
 
 
 from abc import ABC, abstractmethod
-from typing import Any
 
 from .szconfig_abstract import SzConfigAbstract
 from .szconfigmanager_abstract import SzConfigManagerAbstract
@@ -29,7 +28,7 @@ __updated__ = "2024-09-23"
 
 class SzAbstractFactoryAbstract(ABC):
     """
-    SzAbstractFactoryAbstract is the definition of the Senzing Python API
+    SzAbstractFactoryAbstract is the definition of the Senzing Python SDK
     SzAbstractFactory implementations.
     """
 
@@ -38,7 +37,7 @@ class SzAbstractFactoryAbstract(ABC):
     # -------------------------------------------------------------------------
 
     @abstractmethod
-    def create_config(self, **kwargs: Any) -> SzConfigAbstract:
+    def create_config(self) -> SzConfigAbstract:
         """
         The `create_config` method creates a new implementation of an `SzConfigAbstract` object.
 
@@ -63,7 +62,7 @@ class SzAbstractFactoryAbstract(ABC):
         """
 
     @abstractmethod
-    def create_configmanager(self, **kwargs: Any) -> SzConfigManagerAbstract:
+    def create_configmanager(self) -> SzConfigManagerAbstract:
         """
         The `create_configmanager` method creates a new implementation of an `SzConfigManagerAbstract` object.
 
@@ -88,7 +87,7 @@ class SzAbstractFactoryAbstract(ABC):
         """
 
     @abstractmethod
-    def create_diagnostic(self, **kwargs: Any) -> SzDiagnosticAbstract:
+    def create_diagnostic(self) -> SzDiagnosticAbstract:
         """
         The `create_diagnostic` method creates a new implementation of an `SzDiagnosticAbstract` object.
 
@@ -113,7 +112,7 @@ class SzAbstractFactoryAbstract(ABC):
         """
 
     @abstractmethod
-    def create_engine(self, **kwargs: Any) -> SzEngineAbstract:
+    def create_engine(self) -> SzEngineAbstract:
         """
         The `create_engine` method creates a new implementation of an `SzEngineAbstract` object.
 
@@ -138,7 +137,7 @@ class SzAbstractFactoryAbstract(ABC):
         """
 
     @abstractmethod
-    def create_product(self, **kwargs: Any) -> SzProductAbstract:
+    def create_product(self) -> SzProductAbstract:
         """
         The `create_product` method creates a new implementation of an `SzProductAbstract` object.
 
@@ -163,7 +162,7 @@ class SzAbstractFactoryAbstract(ABC):
         """
 
     @abstractmethod
-    def reinitialize(self, config_id: int, **kwargs: Any) -> None:
+    def reinitialize(self, config_id: int) -> None:
         """
         The `reinitialize` method reinitializes the Senzing objects using a specific configuration
         identifier. A list of available configuration identifiers can be retrieved using
