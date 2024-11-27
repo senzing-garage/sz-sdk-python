@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.1.12] - 2024-11-27
+
+### Removed in 0.1.12
+
+- Removed kwargs from all method definitions
+
+### Fixed in 0.1.12
+
+- Typo and spelling errors
+
+### Added in 0.1.12
+
+- Additional docstring documentation where missing
+
+
 ## [0.1.11] - 2024-11-26
 
 ### Changed in 0.1.11

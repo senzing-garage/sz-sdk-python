@@ -7,7 +7,7 @@ TODO: szengine_abstract.py
 # pylint: disable=C0302
 
 from abc import ABC, abstractmethod
-from typing import Any, List, Optional, Tuple
+from typing import List, Optional, Tuple
 
 from .szengineflags import SzEngineFlags
 from .szhelpers import construct_help
@@ -31,53 +31,6 @@ class SzEngineAbstract(ABC):
     """
 
     # -------------------------------------------------------------------------
-    # Messages
-    # -------------------------------------------------------------------------
-
-    PREFIX = "szengine."
-    """ :meta private: """
-
-    ID_MESSAGES = {
-        4001: PREFIX + "add_record({0}, {1}, {2}, {3}) failed. Return code: {4}",
-        4002: PREFIX + "close_export() failed. Return code: {0}",
-        4003: PREFIX + "count_redo_records() failed. Return code: {0}",
-        4004: PREFIX + "delete_record({0}, {1}, {2}) failed. Return code: {3}",
-        4005: PREFIX + "destroy() failed. Return code: {0}",
-        4006: PREFIX + "export_csv_entity_report({0}, {1}) failed. Return code: {2}",
-        4007: PREFIX + "export_json_entity_report({0}) failed. Return code: {1}",
-        4008: PREFIX + "fetch_next({0}) failed. Return code: {1}",
-        # NOTE Included but not documented or examples, early adaptor feature, needs manual additions to config
-        4009: PREFIX + "find_interesting_entities_by_entity_id({0}, {1}) failed. Return code: {2}",
-        # NOTE Included but not documented or examples, early adaptor feature, needs manual additions to config
-        4010: (PREFIX + "find_interesting_entities_by_record_id({0}, {1}, {2}) failed. Return" " code: {3}"),
-        4011: (PREFIX + "find_network_by_entity_id({0}, {1}, {2}, {3}, {4}) failed. Return code: {5}"),
-        4012: (PREFIX + "find_network_by_record_id({0}, {1}, {2}, {3}, {4}) failed. Return code: {5}"),
-        4013: PREFIX + "find_path_by_entity_id({0}, {1}, {2}, {3}, {4}, {5}) failed. Return code: {6}",
-        4014: PREFIX + "find_path_by_record_id({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}) failed. Return code: {8}",
-        4015: PREFIX + "get_active_config_id() failed. Return code: {0}",
-        4016: PREFIX + "get_entity_by_entity_id({0}, {1}) failed. Return code: {2}",
-        4017: PREFIX + "get_entity_by_record_id({0}, {1}, {2}) failed. Return code: {3}",
-        4018: PREFIX + "get_record({0}, {1}, {2}) failed. Return code: {3}",
-        4019: PREFIX + "get_redo_record() failed. Return code: {0}",
-        4021: PREFIX + "get_stats() failed. Return code: {0}",
-        4022: PREFIX + "get_virtual_entity_by_record_id({0}) failed. Return code: {1}",
-        4023: PREFIX + "how_entity_by_entity_id({0}) failed. Return code: {1}",
-        4024: PREFIX + "initialize({0}, {1}, {2}, {3}) failed. Return code: {4}",
-        4025: PREFIX + "prime_engine() failed. Return code: {0}",
-        4026: PREFIX + "process_redo_record({0}, {1}) failed. Return code: {2}",
-        4027: PREFIX + "reevaluate_entity({0}, {1}) failed. Return code: {2}",
-        4028: PREFIX + "reevaluate_record({0}, {1}, {2}) failed. Return code: {3}",
-        4029: PREFIX + "reinitialize({0}) failed. Return code: {1}",
-        4030: PREFIX + "search_by_attributes({0}) failed. Return code: {1}",
-        4031: PREFIX + "why_entities({0}, {1}) failed. Return code: {2}",
-        4032: PREFIX + "why_records({0}, {1}, {2}, {3}, {4}) failed. Return code: {5}",
-        4033: PREFIX + "why_record_in_entity({0}, {1}, {2}) failed. Return code: {3}",
-        4034: (PREFIX + "SzEngine({0}, {1}) failed. instance_name and settings must both be set or" " both be empty"),
-        4035: PREFIX + "preprocess_record({0}, {1}) failed. Return code: {2}",
-    }
-    """ :meta private: """
-
-    # -------------------------------------------------------------------------
     # Interface definition
     # -------------------------------------------------------------------------
 
@@ -88,7 +41,6 @@ class SzEngineAbstract(ABC):
         record_id: str,
         record_definition: str,
         flags: int = 0,
-        **kwargs: Any,
     ) -> str:
         """
         The `add_record` method adds a record into the Senzing repository.
@@ -119,7 +71,7 @@ class SzEngineAbstract(ABC):
         """
 
     @abstractmethod
-    def close_export(self, export_handle: int, **kwargs: Any) -> None:
+    def close_export(self, export_handle: int) -> None:
         """
         The `close_export` method closes the exported document created by `export_json_entity_report`.
         It is part of the `export_json_entity_report`, `fetch_next`, `close_export`
@@ -144,7 +96,7 @@ class SzEngineAbstract(ABC):
         """
 
     @abstractmethod
-    def count_redo_records(self, **kwargs: Any) -> int:
+    def count_redo_records(self) -> int:
         """
         The `count_redo_records` method returns the number of records in need of redo-ing.
 
@@ -172,7 +124,6 @@ class SzEngineAbstract(ABC):
         data_source_code: str,
         record_id: str,
         flags: int = 0,
-        **kwargs: Any,
     ) -> str:
         """
         The `delete_record` method deletes a record from the Senzing repository.
@@ -205,7 +156,6 @@ class SzEngineAbstract(ABC):
         self,
         csv_column_list: str,
         flags: int = SzEngineFlags.SZ_EXPORT_DEFAULT_FLAGS,
-        **kwargs: Any,
     ) -> int:
         """
         **Warning:** `export_csv_entity_report` is not recommended for large systems as it does not scale.
@@ -246,7 +196,7 @@ class SzEngineAbstract(ABC):
         """
 
     @abstractmethod
-    def export_json_entity_report(self, flags: int = SzEngineFlags.SZ_EXPORT_DEFAULT_FLAGS, **kwargs: Any) -> int:
+    def export_json_entity_report(self, flags: int = SzEngineFlags.SZ_EXPORT_DEFAULT_FLAGS) -> int:
         """
         **Warning:** `export_json_entity_report` is not recommended for large systems as it does not scale.
         It is recommended larger systems implement real-time replication to a data warehouse.
@@ -277,7 +227,7 @@ class SzEngineAbstract(ABC):
         """
 
     @abstractmethod
-    def fetch_next(self, export_handle: int, **kwargs: Any) -> str:
+    def fetch_next(self, export_handle: int) -> str:
         """
         The `fetch_next` method is used to scroll through an exported document one entity at a time.
         Successive calls of `fetch_next` will export successive rows of entity data until there is no more.
@@ -307,14 +257,12 @@ class SzEngineAbstract(ABC):
 
     # NOTE Included but not to be documented or examples, early adaptor feature, needs manual additions to config
     @abstractmethod
-    def find_interesting_entities_by_entity_id(self, entity_id: int, flags: int = 0, **kwargs: Any) -> str:
+    def find_interesting_entities_by_entity_id(self, entity_id: int, flags: int = 0) -> str:
         """TODO: Document find_interesting_entities_by_entity_id()"""
 
     # NOTE Included but not to be documented or examples, early adaptor feature, needs manual additions to config
     @abstractmethod
-    def find_interesting_entities_by_record_id(
-        self, data_source_code: str, record_id: str, flags: int = 0, **kwargs: Any
-    ) -> str:
+    def find_interesting_entities_by_record_id(self, data_source_code: str, record_id: str, flags: int = 0) -> str:
         """TODO: Document find_interesting_entities_by_record_id()"""
 
     @abstractmethod
@@ -325,7 +273,6 @@ class SzEngineAbstract(ABC):
         build_out_degrees: int,
         build_out_max_entities: int,
         flags: int = SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS,
-        **kwargs: Any,
     ) -> str:
         """
         The `find_network_by_entity_id` method finds all entities surrounding a requested set of entities.
@@ -334,7 +281,7 @@ class SzEngineAbstract(ABC):
         and the information for the entities in the path.
 
         Args:
-            entity_ids (str):
+            entity_ids (list(int)): The entity IDs to find the network between.
             max_degrees (int): The maximum number of degrees in paths between search entities.
             build_out_degrees (int): The number of degrees of relationships to show around each search entity.
             build_out_max_entities (int): The maximum number of entities to return in the discovered network.
@@ -366,7 +313,6 @@ class SzEngineAbstract(ABC):
         build_out_degrees: int,
         build_out_max_entities: int,
         flags: int = SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS,
-        **kwargs: Any,
     ) -> str:
         """
         The `find_network_by_record_id` method finds all entities surrounding a requested set of entities by their RECORD_ID values.
@@ -375,7 +321,7 @@ class SzEngineAbstract(ABC):
         and the information for the entities in the path.
 
         Args:
-            record_keys (str):
+            record_keys (list(tuple(str, str))): The data source codes and record IDs to find the network between.
             max_degrees (int): The maximum number of degrees in paths between search entities.
             build_out_degrees (int): The number of degrees of relationships to show around each search entity.
             build_out_max_entities (int): The maximum number of entities to return in the discovered network.
@@ -408,7 +354,6 @@ class SzEngineAbstract(ABC):
         avoid_entity_ids: Optional[List[int]] = None,
         required_data_sources: Optional[List[str]] = None,
         flags: int = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS,
-        **kwargs: Any,
     ) -> str:
         """
         The `find_path_by_entity_id` method finds the most efficient relationship between two entities path based on the parameters
@@ -420,8 +365,8 @@ class SzEngineAbstract(ABC):
             start_entity_id (int): The entity ID for the starting entity of the search path.
             end_entity_id (int): The entity ID for the ending entity of the search path.
             max_degrees (int): The maximum number of degrees in paths between search entities.
-            avoid_entity_ids (str): # TODO:
-            required_data_sources (str): # TODO:
+            avoid_entity_ids (list(int), optional): The entity IDs to avoid when finding a path.
+            required_data_sources (list(str), optional): The data source code(s) that must be in a path.
             flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS.
 
         Returns:
@@ -453,7 +398,6 @@ class SzEngineAbstract(ABC):
         avoid_record_keys: Optional[List[Tuple[str, str]]] = None,
         required_data_sources: Optional[List[str]] = None,
         flags: int = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS,
-        **kwargs: Any,
     ) -> str:
         """
         The `find_path_by_record_id` method finds the most efficient relationship between
@@ -469,8 +413,8 @@ class SzEngineAbstract(ABC):
             end_data_source_code (str): Identifies the provenance of the record for the ending entity of the search path.
             end_record_id (str): The unique identifier within the records of the same data source for the ending entity of the search path.
             max_degrees (int): The maximum number of degrees in paths between search entities.
-            avoid_record_keys (str): TODO:
-            required_data_sources (str): TODO:
+            avoid_record_keys (list(tuple(str, str)), optional): The data source codes and record IDs to avoid when finding a path.
+            required_data_sources (list(str), optional): The data source code(s) that must be in a path.
             flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS.
 
         Returns:
@@ -492,7 +436,7 @@ class SzEngineAbstract(ABC):
         """
 
     @abstractmethod
-    def get_active_config_id(self, **kwargs: Any) -> int:
+    def get_active_config_id(self) -> int:
         """
         The `get_active_config_id` method returns the identifier of the currently active Senzing engine configuration.
 
@@ -519,7 +463,6 @@ class SzEngineAbstract(ABC):
         self,
         entity_id: int,
         flags: int = SzEngineFlags.SZ_ENTITY_DEFAULT_FLAGS,
-        **kwargs: Any,
     ) -> str:
         """
         The `get_entity_by_entity_id` method returns entity data based on the ID of a resolved identity.
@@ -552,7 +495,6 @@ class SzEngineAbstract(ABC):
         data_source_code: str,
         record_id: str,
         flags: int = SzEngineFlags.SZ_ENTITY_DEFAULT_FLAGS,
-        **kwargs: Any,
     ) -> str:
         """
         The `get_entity_by_record_id` method returns entity data based on the ID of a record which is a member of the entity.
@@ -586,7 +528,6 @@ class SzEngineAbstract(ABC):
         data_source_code: str,
         record_id: str,
         flags: int = SzEngineFlags.SZ_RECORD_DEFAULT_FLAGS,
-        **kwargs: Any,
     ) -> str:
         """
         The `get_record` method returns a JSON document of a single record from the Senzing repository.
@@ -616,11 +557,10 @@ class SzEngineAbstract(ABC):
         """
 
     @abstractmethod
-    def get_redo_record(self, **kwargs: Any) -> str:
+    def get_redo_record(self) -> str:
         """
         The `get_redo_record` method returns the next internally queued redo record from the Senzing repository.
-        Usually, the `process_redo_record` or `process_redo_record_with_info` method is called to process the redo record
-        retrieved by `get_redo_record`.
+        The `process_redo_record` method is called to process the redo record retrieved by `get_redo_record`.
 
         Returns:
             str: A JSON document.
@@ -641,7 +581,7 @@ class SzEngineAbstract(ABC):
         """
 
     @abstractmethod
-    def get_stats(self, **kwargs: Any) -> str:
+    def get_stats(self) -> str:
         """
         The `get_stats` method retrieves workload statistics for the current process.
         These statistics will automatically reset after retrieval.
@@ -669,7 +609,6 @@ class SzEngineAbstract(ABC):
         self,
         record_keys: List[Tuple[str, str]],
         flags: int = SzEngineFlags.SZ_VIRTUAL_ENTITY_DEFAULT_FLAGS,
-        **kwargs: Any,
     ) -> str:
         """
         The `get_virtual_entity_by_record_id` method creates a view of a virtual entity
@@ -678,7 +617,7 @@ class SzEngineAbstract(ABC):
         Entity resolution is not performed.
 
         Args:
-            record_list (str): A JSON document of one or more records by DATA_SOURCE and RECORD_ID pairs, formatted as `{"RECORDS":[{"DATA_SOURCE":"DS1","RECORD_ID":"R1"},{"DATA_SOURCE":"DS2","RECORD_ID":"R2"}]}`.
+            record_keys (list(tuple(str, str))): The data source codes and record IDs identifying records to create the virtual entity from.
             flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_HOW_ENTITY_DEFAULT_FLAGS.
 
         Returns:
@@ -704,10 +643,9 @@ class SzEngineAbstract(ABC):
         self,
         entity_id: int,
         flags: int = SzEngineFlags.SZ_HOW_ENTITY_DEFAULT_FLAGS,
-        **kwargs: Any,
     ) -> str:
         """
-        The `how_entity_by_entity_id` method determines and details steps-by-step *how* records resolved to an ENTITY_ID.
+        The `how_entity_by_entity_id` method determines and details steps-by-step *how* records resolved to a single entity.
 
         In most cases, *how* provides more detailed information than *why* as the resolution is detailed step-by-step.
 
@@ -738,7 +676,6 @@ class SzEngineAbstract(ABC):
         self,
         record_definition: str,
         flags: int = SzEngineFlags.SZ_RECORD_DEFAULT_FLAGS,
-        **kwargs: Any,
     ) -> str:
         """
         The `preprocess_record` method tests adding a record into the Senzing datastore.
@@ -766,7 +703,7 @@ class SzEngineAbstract(ABC):
         """
 
     @abstractmethod
-    def prime_engine(self, **kwargs: Any) -> None:
+    def prime_engine(self) -> None:
         """
         The `prime_engine` method initializes high resource consumption components of Senzing
         used in some functions. If this call is not made, these resources are initialized the
@@ -783,9 +720,13 @@ class SzEngineAbstract(ABC):
         """
 
     @abstractmethod
-    def process_redo_record(self, redo_record: str, flags: int = 0, **kwargs: Any) -> str:
+    def process_redo_record(self, redo_record: str, flags: int = 0) -> str:
         """
-        # TODO: The `process_redo_record` method...
+        The `process_redo_record` method is called to process the redo record retrieved by `get_redo_record`.
+
+        Args:
+            redo_record (str): A redo record retrieved from get_redo_record.
+            flags (int, optional): Flags used to control information returned. Defaults to 0.
 
         Raises:
 
@@ -803,7 +744,7 @@ class SzEngineAbstract(ABC):
         """
 
     @abstractmethod
-    def reevaluate_entity(self, entity_id: int, flags: int = 0, **kwargs: Any) -> str:
+    def reevaluate_entity(self, entity_id: int, flags: int = 0) -> str:
         """
         The `reevaluate_entity` method reevaluates the specified entity.
 
@@ -827,7 +768,7 @@ class SzEngineAbstract(ABC):
         """
 
     @abstractmethod
-    def reevaluate_record(self, data_source_code: str, record_id: str, flags: int = 0, **kwargs: Any) -> str:
+    def reevaluate_record(self, data_source_code: str, record_id: str, flags: int = 0) -> str:
         """
         The `reevaluate_record` method reevaluates a specific record.
 
@@ -860,13 +801,12 @@ class SzEngineAbstract(ABC):
         attributes: str,
         flags: int = SzEngineFlags.SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS,
         search_profile: str = "",
-        **kwargs: Any,
     ) -> str:
         """
         The `search_by_attributes` method retrieves entity data based on a user-specified set of entity attributes.
 
         Args:
-            attributes (str):  A JSON document with the attribute data to search for.
+            attributes (str): A JSON document with the attribute data to search for.
             flags (int, optional): _description_. Defaults to SzEngineFlags.SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS.
             search_profile (str): The name of a configured search profile. Defaults to SEARCH.
 
@@ -894,7 +834,6 @@ class SzEngineAbstract(ABC):
         entity_id_1: int,
         entity_id_2: int,
         flags: int = SzEngineFlags.SZ_WHY_ENTITIES_DEFAULT_FLAGS,
-        **kwargs: Any,
     ) -> str:
         """
         The `why_entities` method determines why entities did not resolve or why they do relate.
@@ -928,10 +867,9 @@ class SzEngineAbstract(ABC):
         data_source_code: str,
         record_id: str,
         flags: int = SzEngineFlags.SZ_WHY_RECORDS_DEFAULT_FLAGS,
-        **kwargs: Any,
     ) -> str:
         """
-        The `why_record_in_entity` ... TODO:
+        The `why_record_in_entity` method determines why a record is included in an entity.
 
         Args:
             data_source_code (str): Identifies the provenance of the data.
@@ -964,7 +902,6 @@ class SzEngineAbstract(ABC):
         data_source_code_2: str,
         record_id_2: str,
         flags: int = SzEngineFlags.SZ_WHY_RECORDS_DEFAULT_FLAGS,
-        **kwargs: Any,
     ) -> str:
         """
         The `why_records` determines if any two records can or cannot resolve together, or if they relate.
