@@ -43,16 +43,16 @@ implmentations of the Senzing Python SDK are derived.
 [Coverage]: https://htmlpreview.github.io/?https://github.com/senzing-garage/sz-sdk-python/blob/python-coverage-comment-action-data/htmlcov/index.html
 [Development]: docs/development.md
 [DockerHub]: https://hub.docker.com/r/senzing/sz-sdk-python
-[Downloads Badge]: https://static.pepy.tech/badge/senzing-abstract
-[Downloads]: https://pepy.tech/project/senzing-abstract
+[Downloads Badge]: https://static.pepy.tech/badge/senzing
+[Downloads]: https://pepy.tech/project/senzing
 [Errors]: docs/errors.md
 [Examples]: docs/examples.md
 [License Badge]: https://img.shields.io/badge/License-Apache2-brightgreen.svg
 [License]: https://github.com/senzing-garage/sz-sdk-python/blob/main/LICENSE
 [PEP8 Badge]: https://img.shields.io/badge/code%20style-pep8-orange.svg
 [PEP8]: https://www.python.org/dev/peps/pep-0008/
-[PyPI version Badge]: https://badge.fury.io/py/senzing-abstract.svg
-[PyPi version]: https://badge.fury.io/py/senzing-abstract
+[PyPI version Badge]: https://badge.fury.io/py/senzing.svg
+[PyPi version]: https://badge.fury.io/py/senzing
 [Python 3.11 Badge]: https://img.shields.io/badge/python-3.11-blue.svg
 [Python 3.11]: https://www.python.org/downloads/release/python-3110/
 [Senzing Garage]: https://github.com/senzing-garage
