@@ -26,11 +26,14 @@ src_paths = ["examples", "src", "tests"]
 module = "senzing.szengineflags.*"
 ignore_missing_imports = "true"
 warn_unused_ignores = "false"
+exclude = "examples"
 
 [tool.pylint]
-ignored-argument-names = "args|kwargs"
 disable = [
+    "duplicate-code",
+    "import-error",
     "line-too-long",
+    "missing-module-docstring",
     "too-many-arguments",
     "too-many-positional-arguments",
     "too-many-public-methods",
@@ -38,7 +41,8 @@ disable = [
 ]
 ignore = [
     "__init__.py",
-    "docs/source/conf.py"
+    "docs/source/conf.py",
+    "examples"
 ]
 notes = [
     "FIXME"

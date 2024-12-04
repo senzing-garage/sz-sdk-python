@@ -7,12 +7,12 @@ szabstractfactory_abstract.py is the abstract class for all implementations of s
 
 from abc import ABC, abstractmethod
 
-from .szconfig import SzConfigAbstract
-from .szconfigmanager import SzConfigManagerAbstract
-from .szdiagnostic import SzDiagnosticAbstract
-from .szengine import SzEngineAbstract
+from .szconfig import SzConfig
+from .szconfigmanager import SzConfigManager
+from .szdiagnostic import SzDiagnostic
+from .szengine import SzEngine
 from .szhelpers import construct_help
-from .szproduct import SzProductAbstract
+from .szproduct import SzProduct
 
 # Metadata
 
@@ -38,7 +38,7 @@ class SzAbstractFactory(ABC):
     # -------------------------------------------------------------------------
 
     @abstractmethod
-    def create_config(self) -> SzConfigAbstract:
+    def create_config(self) -> SzConfig:
         """
         The `create_config` method creates a new implementation of an `SzConfigAbstract` object.
 
@@ -63,7 +63,7 @@ class SzAbstractFactory(ABC):
         """
 
     @abstractmethod
-    def create_configmanager(self) -> SzConfigManagerAbstract:
+    def create_configmanager(self) -> SzConfigManager:
         """
         The `create_configmanager` method creates a new implementation of an `SzConfigManagerAbstract` object.
 
@@ -88,7 +88,7 @@ class SzAbstractFactory(ABC):
         """
 
     @abstractmethod
-    def create_diagnostic(self) -> SzDiagnosticAbstract:
+    def create_diagnostic(self) -> SzDiagnostic:
         """
         The `create_diagnostic` method creates a new implementation of an `SzDiagnosticAbstract` object.
 
@@ -113,7 +113,7 @@ class SzAbstractFactory(ABC):
         """
 
     @abstractmethod
-    def create_engine(self) -> SzEngineAbstract:
+    def create_engine(self) -> SzEngine:
         """
         The `create_engine` method creates a new implementation of an `SzEngineAbstract` object.
 
@@ -138,7 +138,7 @@ class SzAbstractFactory(ABC):
         """
 
     @abstractmethod
-    def create_product(self) -> SzProductAbstract:
+    def create_product(self) -> SzProduct:
         """
         The `create_product` method creates a new implementation of an `SzProductAbstract` object.
 

@@ -4,18 +4,17 @@
 TODO: szproduct_test.py
 """
 
-from typing import Any
 
 import pytest
 
-from senzing import SzProductAbstract
+from senzing import SzProduct
 
 # -----------------------------------------------------------------------------
 # Test cases
 # -----------------------------------------------------------------------------
 
 
-def test_new_szexception(sz_product: SzProductAbstract) -> None:
+def test_new_szexception(sz_product: SzProduct) -> None:
     """Test SzProduct().get_license()."""
     _ = sz_product
 
@@ -26,7 +25,7 @@ def test_new_szexception(sz_product: SzProductAbstract) -> None:
 
 
 @pytest.fixture(name="sz_product", scope="module")
-def szproduct_fixture() -> SzProductAbstract:
+def szproduct_fixture() -> SzProduct:
     """
     Object under test.
     """
@@ -39,7 +38,7 @@ def szproduct_fixture() -> SzProductAbstract:
 # -----------------------------------------------------------------------------
 
 
-class SzProductTest(SzProductAbstract):
+class SzProductTest(SzProduct):
     """
     SzProduct module access library.
     """
@@ -48,8 +47,8 @@ class SzProductTest(SzProductAbstract):
     # SzProduct methods
     # -------------------------------------------------------------------------
 
-    def get_license(self, **kwargs: Any) -> str:
+    def get_license(self) -> str:
         return ""
 
-    def get_version(self, **kwargs: Any) -> str:
+    def get_version(self) -> str:
         return ""

@@ -4,43 +4,42 @@
 TODO: szdiagnostic_test.py
 """
 
-from typing import Any
 
 import pytest
 
-from senzing import SzDiagnosticAbstract
+from senzing import SzDiagnostic
 
 # -----------------------------------------------------------------------------
 # Test cases
 # -----------------------------------------------------------------------------
 
 
-def test_check_datastore_performance(sz_diagnostic: SzDiagnosticAbstract) -> None:
+def test_check_datastore_performance(sz_diagnostic: SzDiagnostic) -> None:
     """Test SzDiagnosic().check_datastore_performance()."""
     sz_diagnostic.check_datastore_performance(0)
 
 
-# def test_destroy(sz_diagnostic: SzDiagnosticAbstract) -> None:
+# def test_destroy(sz_diagnostic: SzDiagnostic) -> None:
 #     """Test SzDiagnosic().destroy()."""
 #     sz_diagnostic.destroy()
 
 
-def test_get_datastore_info(sz_diagnostic: SzDiagnosticAbstract) -> None:
+def test_get_datastore_info(sz_diagnostic: SzDiagnostic) -> None:
     """Test SzDiagnosic().get_datastore_info()."""
     sz_diagnostic.get_datastore_info()
 
 
-def test_get_feature(sz_diagnostic: SzDiagnosticAbstract) -> None:
+def test_get_feature(sz_diagnostic: SzDiagnostic) -> None:
     """Test SzDiagnosic().get_datastore_info()."""
     sz_diagnostic.get_feature(0)
 
 
-# def test_initialize(sz_diagnostic: SzDiagnosticAbstract) -> None:
+# def test_initialize(sz_diagnostic: SzDiagnostic) -> None:
 #     """Test SzDiagnosic().initialize()."""
 #     sz_diagnostic.initialize("", "")
 
 
-def test_purge_repository(sz_diagnostic: SzDiagnosticAbstract) -> None:
+def test_purge_repository(sz_diagnostic: SzDiagnostic) -> None:
     """Test SzDiagnosic().purge_repository()."""
     sz_diagnostic.purge_repository()
 
@@ -51,7 +50,7 @@ def test_purge_repository(sz_diagnostic: SzDiagnosticAbstract) -> None:
 
 
 @pytest.fixture(name="sz_diagnostic", scope="module")
-def szdiagnostic_fixture() -> SzDiagnosticAbstract:
+def szdiagnostic_fixture() -> SzDiagnostic:
     """
     Object under test.
     """
@@ -64,7 +63,7 @@ def szdiagnostic_fixture() -> SzDiagnosticAbstract:
 # -----------------------------------------------------------------------------
 
 
-class SzDiagnosticTest(SzDiagnosticAbstract):
+class SzDiagnosticTest(SzDiagnostic):
     """
     SzDiagnostic module access library.
     """
@@ -73,14 +72,14 @@ class SzDiagnosticTest(SzDiagnosticAbstract):
     # SzDiagnostic methods
     # -------------------------------------------------------------------------
 
-    def check_datastore_performance(self, seconds_to_run: int, **kwargs: Any) -> str:
+    def check_datastore_performance(self, seconds_to_run: int) -> str:
         return ""
 
-    def get_datastore_info(self, **kwargs: Any) -> str:
+    def get_datastore_info(self) -> str:
         return ""
 
-    def get_feature(self, feature_id: int, **kwargs: Any) -> str:
+    def get_feature(self, feature_id: int) -> str:
         return ""
 
-    def purge_repository(self, **kwargs: Any) -> None:
+    def purge_repository(self) -> None:
         """None"""

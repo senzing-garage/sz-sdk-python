@@ -9,11 +9,11 @@ from .constants import (
     SZ_VERBOSE_LOGGING,
     SZ_WITHOUT_INFO,
 )
-from .szabstractfactory import SzAbstractFactory, SzAbstractFactoryParameters
-from .szconfig import SzConfigAbstract
-from .szconfigmanager import SzConfigManagerAbstract
-from .szdiagnostic import SzDiagnosticAbstract
-from .szengine import SzEngineAbstract
+from .szabstractfactory import SzAbstractFactory
+from .szconfig import SzConfig
+from .szconfigmanager import SzConfigManager
+from .szdiagnostic import SzDiagnostic
+from .szengine import SzEngine
 from .szengineflags import SzEngineFlags
 from .szerror import (
     ENGINE_EXCEPTION_MAP,
@@ -32,7 +32,7 @@ from .szerror import (
     SzUnknownDataSourceError,
     SzUnrecoverableError,
 )
-from .szproduct import SzProductAbstract
+from .szproduct import SzProduct
 
 __all__ = [
     "ENGINE_EXCEPTION_MAP",
@@ -46,21 +46,20 @@ __all__ = [
     "SZ_VERBOSE_LOGGING",
     "SZ_WITHOUT_INFO",
     "SzAbstractFactory",
-    "SzAbstractFactoryParameters",
     "SzBadInputError",
-    "SzConfigAbstract",
-    "SzConfigManagerAbstract",
+    "SzConfig",
+    "SzConfigManager",
     "SzConfigurationError",
     "SzDatabaseConnectionLostError",
     "SzDatabaseError",
-    "SzDiagnosticAbstract",
-    "SzEngineAbstract",
+    "SzDiagnostic",
+    "SzEngine",
     "SzEngineFlags",
     "SzError",
     "SzLicenseError",
     "SzNotFoundError",
     "SzNotInitializedError",
-    "SzProductAbstract",
+    "SzProduct",
     "SzReplaceConflictError",
     "SzRetryableError",
     "SzRetryTimeoutExceededError",

@@ -10,11 +10,11 @@ import pytest
 
 from senzing import (
     SzAbstractFactory,
-    SzConfigAbstract,
-    SzConfigManagerAbstract,
-    SzDiagnosticAbstract,
-    SzEngineAbstract,
-    SzProductAbstract,
+    SzConfig,
+    SzConfigManager,
+    SzDiagnostic,
+    SzEngine,
+    SzProduct,
 )
 from szconfig_test import SzConfigTest
 from szconfigmanager_test import SzConfigManagerTest
@@ -30,31 +30,31 @@ from szproduct_test import SzProductTest
 def test_create_config(szabstractfactory: SzAbstractFactory) -> None:
     """Test SzConfig().add_data_source()."""
     actual = szabstractfactory.create_config()
-    assert isinstance(actual, SzConfigAbstract)
+    assert isinstance(actual, SzConfig)
 
 
 def test_create_configmanager(szabstractfactory: SzAbstractFactory) -> None:
     """Test SzConfig().add_data_source()."""
     actual = szabstractfactory.create_configmanager()
-    assert isinstance(actual, SzConfigManagerAbstract)
+    assert isinstance(actual, SzConfigManager)
 
 
 def test_create_diagnostic(szabstractfactory: SzAbstractFactory) -> None:
     """Test SzConfig().add_data_source()."""
     actual = szabstractfactory.create_diagnostic()
-    assert isinstance(actual, SzDiagnosticAbstract)
+    assert isinstance(actual, SzDiagnostic)
 
 
 def test_create_engine(szabstractfactory: SzAbstractFactory) -> None:
     """Test SzConfig().add_data_source()."""
     actual = szabstractfactory.create_engine()
-    assert isinstance(actual, SzEngineAbstract)
+    assert isinstance(actual, SzEngine)
 
 
 def test_create_product(szabstractfactory: SzAbstractFactory) -> None:
     """Test SzConfig().add_data_source()."""
     actual = szabstractfactory.create_product()
-    assert isinstance(actual, SzProductAbstract)
+    assert isinstance(actual, SzProduct)
 
 
 # -----------------------------------------------------------------------------
@@ -84,23 +84,23 @@ class SzAbstractFactoryTest(SzAbstractFactory):
     # SzAbstractFactory methods
     # -------------------------------------------------------------------------
 
-    def create_config(self, **kwargs: Any) -> SzConfigAbstract:
+    def create_config(self, **kwargs: Any) -> SzConfig:
         _ = kwargs
         return SzConfigTest()
 
-    def create_configmanager(self, **kwargs: Any) -> SzConfigManagerAbstract:
+    def create_configmanager(self, **kwargs: Any) -> SzConfigManager:
         _ = kwargs
         return SzConfigManagerTest()
 
-    def create_diagnostic(self, **kwargs: Any) -> SzDiagnosticAbstract:
+    def create_diagnostic(self, **kwargs: Any) -> SzDiagnostic:
         _ = kwargs
         return SzDiagnosticTest()
 
-    def create_engine(self, **kwargs: Any) -> SzEngineAbstract:
+    def create_engine(self, **kwargs: Any) -> SzEngine:
         _ = kwargs
         return SzEngineTest()
 
-    def create_product(self, **kwargs: Any) -> SzProductAbstract:
+    def create_product(self, **kwargs: Any) -> SzProduct:
         _ = kwargs
         return SzProductTest()
 

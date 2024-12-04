@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 """
-TODO: szengine_abstract.py
+TODO: szengine.py
 """
 
 # pylint: disable=C0302
@@ -14,7 +14,7 @@ from .szhelpers import construct_help
 
 # Metadata
 
-__all__ = ["SzEngineAbstract"]
+__all__ = ["SzEngine"]
 __version__ = "0.0.1"  # See https://www.python.org/dev/peps/pep-0396/
 __date__ = "2023-10-30"
 __updated__ = "2023-10-30"
@@ -25,7 +25,7 @@ __updated__ = "2023-10-30"
 # -------------------------------------------------------------------------
 
 
-class SzEngineAbstract(ABC):
+class SzEngine(ABC):
     """
     Senzing engine module access library
     """

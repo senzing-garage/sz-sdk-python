@@ -4,33 +4,32 @@
 TODO: szproduct_test.py
 """
 
-from typing import Any
 
 import pytest
 
-from senzing import SzProductAbstract
+from senzing import SzProduct
 
 # -----------------------------------------------------------------------------
 # Test cases
 # -----------------------------------------------------------------------------
 
 
-# def test_destroy(sz_product: SzProductAbstract) -> None:
+# def test_destroy(sz_product: SzProduct) -> None:
 #     """Test SzProduct().destroy()."""
 #     sz_product.destroy()
 
 
-# def test_initialize(sz_product: SzProductAbstract) -> None:
+# def test_initialize(sz_product: SzProduct) -> None:
 #     """Test SzProduct().initialize()."""
 #     sz_product.initialize("", "")
 
 
-def test_get_license(sz_product: SzProductAbstract) -> None:
+def test_get_license(sz_product: SzProduct) -> None:
     """Test SzProduct().get_license()."""
     sz_product.get_license()
 
 
-def test_get_version(sz_product: SzProductAbstract) -> None:
+def test_get_version(sz_product: SzProduct) -> None:
     """Test SzProduct().get_version()."""
     sz_product.get_version()
 
@@ -41,7 +40,7 @@ def test_get_version(sz_product: SzProductAbstract) -> None:
 
 
 @pytest.fixture(name="sz_product", scope="module")
-def szproduct_fixture() -> SzProductAbstract:
+def szproduct_fixture() -> SzProduct:
     """
     Object under test.
     """
@@ -54,7 +53,7 @@ def szproduct_fixture() -> SzProductAbstract:
 # -----------------------------------------------------------------------------
 
 
-class SzProductTest(SzProductAbstract):
+class SzProductTest(SzProduct):
     """
     SzProduct module access library.
     """
@@ -63,8 +62,8 @@ class SzProductTest(SzProductAbstract):
     # SzProduct methods
     # -------------------------------------------------------------------------
 
-    def get_license(self, **kwargs: Any) -> str:
+    def get_license(self) -> str:
         return ""
 
-    def get_version(self, **kwargs: Any) -> str:
+    def get_version(self) -> str:
         return ""
