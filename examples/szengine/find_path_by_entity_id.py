@@ -12,7 +12,7 @@ from senzing_xxxx import (
 AVOID_ENTITY_IDS: List[int] = []
 END_ENTITY_ID = 4
 FACTORY_PARAMETERS: SzAbstractFactoryParameters = {
-    # Differs based on implementation
+    # Differs based on which senzing_xxxx package is used.
 }
 FLAGS = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS
 MAX_DEGREES = 2

@@ -4,7 +4,7 @@ from senzing_xxxx import SzAbstractFactory, SzAbstractFactoryParameters, SzError
 
 CONFIG_COMMENT = "Just an empty example"
 FACTORY_PARAMETERS: SzAbstractFactoryParameters = {
-    # Differs based on implementation
+    # Differs based on which senzing_xxxx package is used.
 }
 
 try:

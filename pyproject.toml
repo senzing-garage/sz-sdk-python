@@ -26,7 +26,9 @@ src_paths = ["examples", "src", "tests"]
 module = "senzing.szengineflags.*"
 ignore_missing_imports = "true"
 warn_unused_ignores = "false"
-exclude = "examples"
+
+[[tool.mypy.overrides]]
+module = "examples.*"
 
 [tool.pylint]
 disable = [

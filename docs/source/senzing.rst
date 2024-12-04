@@ -8,6 +8,7 @@ senzing.szabstractfactory module
 --------------------------------
 
 .. automodule:: senzing.szabstractfactory
+   :members:
    :undoc-members:
    :show-inheritance:
 

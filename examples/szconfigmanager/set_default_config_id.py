@@ -7,7 +7,7 @@ from senzing_xxxx import SzAbstractFactory, SzAbstractFactoryParameters, SzError
 CONFIG_COMMENT = "Just an example"
 DATA_SOURCE_CODE = f"REPLACE_DEFAULT_CONFIG_ID_{time.time()}"
 FACTORY_PARAMETERS: SzAbstractFactoryParameters = {
-    # Differs based on implementation
+    # Differs based on which senzing_xxxx package is used.
 }
 
 try:

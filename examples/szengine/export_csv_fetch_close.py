@@ -11,7 +11,7 @@ CSV_COLUMN_LIST = (
     "RESOLVED_ENTITY_ID,RELATED_ENTITY_ID,RESOLVED_ENTITY_NAME,MATCH_LEVEL,MATCH_KEY,DATA_SOURCE,RECORD_ID"
 )
 FACTORY_PARAMETERS: SzAbstractFactoryParameters = {
-    # Differs based on implementation
+    # Differs based on which senzing_xxxx package is used.
 }
 FLAGS = SzEngineFlags.SZ_EXPORT_DEFAULT_FLAGS
 

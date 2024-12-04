@@ -9,7 +9,7 @@ from senzing_xxxx import (
 
 DATA_SOURCE_CODE = "TEST"
 FACTORY_PARAMETERS: SzAbstractFactoryParameters = {
-    # Differs based on implementation
+    # Differs based on which senzing_xxxx package is used.
 }
 FLAGS = SzEngineFlags.SZ_WITH_INFO
 RECORD_ID = "1"

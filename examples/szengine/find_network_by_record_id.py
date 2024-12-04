@@ -9,7 +9,7 @@ from senzing_xxxx import (
 
 BUILD_OUT_DEGREES = 1
 FACTORY_PARAMETERS: SzAbstractFactoryParameters = {
-    # Differs based on implementation
+    # Differs based on which senzing_xxxx package is used.
 }
 FLAGS = SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS
 MAX_DEGREES = 2

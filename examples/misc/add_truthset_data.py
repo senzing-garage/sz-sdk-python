@@ -14,7 +14,7 @@ from senzing_truthset import (
 )
 
 FACTORY_PARAMETERS: SzAbstractFactoryParameters = {
-    # Differs based on implementation
+    # Differs based on which senzing_xxxx package is used.
 }
 
 try:
