@@ -9,7 +9,7 @@ from typing import Any
 import pytest
 
 from senzing import (
-    SzAbstractFactoryAbstract,
+    SzAbstractFactory,
     SzConfigAbstract,
     SzConfigManagerAbstract,
     SzDiagnosticAbstract,
@@ -27,31 +27,31 @@ from szproduct_test import SzProductTest
 # -----------------------------------------------------------------------------
 
 
-def test_create_config(szabstractfactory: SzAbstractFactoryAbstract) -> None:
+def test_create_config(szabstractfactory: SzAbstractFactory) -> None:
     """Test SzConfig().add_data_source()."""
     actual = szabstractfactory.create_config()
     assert isinstance(actual, SzConfigAbstract)
 
 
-def test_create_configmanager(szabstractfactory: SzAbstractFactoryAbstract) -> None:
+def test_create_configmanager(szabstractfactory: SzAbstractFactory) -> None:
     """Test SzConfig().add_data_source()."""
     actual = szabstractfactory.create_configmanager()
     assert isinstance(actual, SzConfigManagerAbstract)
 
 
-def test_create_diagnostic(szabstractfactory: SzAbstractFactoryAbstract) -> None:
+def test_create_diagnostic(szabstractfactory: SzAbstractFactory) -> None:
     """Test SzConfig().add_data_source()."""
     actual = szabstractfactory.create_diagnostic()
     assert isinstance(actual, SzDiagnosticAbstract)
 
 
-def test_create_engine(szabstractfactory: SzAbstractFactoryAbstract) -> None:
+def test_create_engine(szabstractfactory: SzAbstractFactory) -> None:
     """Test SzConfig().add_data_source()."""
     actual = szabstractfactory.create_engine()
     assert isinstance(actual, SzEngineAbstract)
 
 
-def test_create_product(szabstractfactory: SzAbstractFactoryAbstract) -> None:
+def test_create_product(szabstractfactory: SzAbstractFactory) -> None:
     """Test SzConfig().add_data_source()."""
     actual = szabstractfactory.create_product()
     assert isinstance(actual, SzProductAbstract)
@@ -63,7 +63,7 @@ def test_create_product(szabstractfactory: SzAbstractFactoryAbstract) -> None:
 
 
 @pytest.fixture(name="szabstractfactory", scope="module")
-def szabstractfactory_fixture() -> SzAbstractFactoryAbstract:
+def szabstractfactory_fixture() -> SzAbstractFactory:
     """
     Single sz_abstractfactory object to use for all tests.
     """
@@ -75,7 +75,7 @@ def szabstractfactory_fixture() -> SzAbstractFactoryAbstract:
 # -----------------------------------------------------------------------------
 
 
-class SzAbstractFactoryTest(SzAbstractFactoryAbstract):
+class SzAbstractFactoryTest(SzAbstractFactory):
     """
     SzDiagnostic module access library.
     """

@@ -2,9 +2,7 @@
 
 from typing import List, Tuple
 
-import grpc
-
-from senzing_grpc import (
+from senzing_xxxx import (
     SzAbstractFactory,
     SzAbstractFactoryParameters,
     SzEngineFlags,
@@ -15,7 +13,7 @@ AVOID_RECORD_KEYS: List[Tuple[str, str]] = []
 END_DATA_SOURCE_CODE = "CUSTOMERS"
 END_RECORD_ID = "1009"
 FACTORY_PARAMETERS: SzAbstractFactoryParameters = {
-    "grpc_channel": grpc.insecure_channel("localhost:8261"),
+    # Differs based on implementation
 }
 FLAGS = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS
 MAX_DEGREES = 2

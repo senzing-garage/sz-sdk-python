@@ -2,9 +2,7 @@
 
 import json
 
-import grpc
-
-from senzing_grpc import (
+from senzing_xxxx import (
     SzAbstractFactory,
     SzAbstractFactoryParameters,
     SzEngineFlags,
@@ -13,7 +11,7 @@ from senzing_grpc import (
 
 ATTRIBUTES = json.dumps({"NAME_FULL": "BOB SMITH", "EMAIL_ADDRESS": "bsmith@work.com"})
 FACTORY_PARAMETERS: SzAbstractFactoryParameters = {
-    "grpc_channel": grpc.insecure_channel("localhost:8261"),
+    # Differs based on implementation
 }
 FLAGS = SzEngineFlags.SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS
 SEARCH_PROFILE = ""

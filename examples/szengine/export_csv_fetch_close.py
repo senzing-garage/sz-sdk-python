@@ -1,8 +1,6 @@
 #! /usr/bin/env python3
 
-import grpc
-
-from senzing_grpc import (
+from senzing_xxxx import (
     SzAbstractFactory,
     SzAbstractFactoryParameters,
     SzEngineFlags,
@@ -13,7 +11,7 @@ CSV_COLUMN_LIST = (
     "RESOLVED_ENTITY_ID,RELATED_ENTITY_ID,RESOLVED_ENTITY_NAME,MATCH_LEVEL,MATCH_KEY,DATA_SOURCE,RECORD_ID"
 )
 FACTORY_PARAMETERS: SzAbstractFactoryParameters = {
-    "grpc_channel": grpc.insecure_channel("localhost:8261"),
+    # Differs based on implementation
 }
 FLAGS = SzEngineFlags.SZ_EXPORT_DEFAULT_FLAGS
 

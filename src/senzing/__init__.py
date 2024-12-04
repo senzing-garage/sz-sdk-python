@@ -9,7 +9,7 @@ from .constants import (
     SZ_VERBOSE_LOGGING,
     SZ_WITHOUT_INFO,
 )
-from .szabstractfactory import SzAbstractFactoryAbstract
+from .szabstractfactory import SzAbstractFactory, SzAbstractFactoryParameters
 from .szconfig import SzConfigAbstract
 from .szconfigmanager import SzConfigManagerAbstract
 from .szdiagnostic import SzDiagnosticAbstract
@@ -45,7 +45,8 @@ __all__ = [
     "SZ_NO_SEARCH_PROFILE",
     "SZ_VERBOSE_LOGGING",
     "SZ_WITHOUT_INFO",
-    "SzAbstractFactoryAbstract",
+    "SzAbstractFactory",
+    "SzAbstractFactoryParameters",
     "SzBadInputError",
     "SzConfigAbstract",
     "SzConfigManagerAbstract",

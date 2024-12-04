@@ -1,9 +1,6 @@
 #! /usr/bin/env python3
 
-
-import grpc
-
-from senzing_grpc import (
+from senzing_xxxx import (
     SzAbstractFactory,
     SzAbstractFactoryParameters,
     SzEngineFlags,
@@ -12,7 +9,7 @@ from senzing_grpc import (
 
 DATA_SOURCE_CODE = "TEST"
 FACTORY_PARAMETERS: SzAbstractFactoryParameters = {
-    "grpc_channel": grpc.insecure_channel("localhost:8261"),
+    # Differs based on implementation
 }
 FLAGS = SzEngineFlags.SZ_WITH_INFO
 RECORD_DEFINITION = (

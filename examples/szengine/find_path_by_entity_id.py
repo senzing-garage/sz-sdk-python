@@ -2,9 +2,7 @@
 
 from typing import List
 
-import grpc
-
-from senzing_grpc import (
+from senzing_xxxx import (
     SzAbstractFactory,
     SzAbstractFactoryParameters,
     SzEngineFlags,
@@ -14,7 +12,7 @@ from senzing_grpc import (
 AVOID_ENTITY_IDS: List[int] = []
 END_ENTITY_ID = 4
 FACTORY_PARAMETERS: SzAbstractFactoryParameters = {
-    "grpc_channel": grpc.insecure_channel("localhost:8261"),
+    # Differs based on implementation
 }
 FLAGS = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS
 MAX_DEGREES = 2

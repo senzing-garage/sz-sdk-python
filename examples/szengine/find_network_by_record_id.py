@@ -1,8 +1,6 @@
 #! /usr/bin/env python3
 
-import grpc
-
-from senzing_grpc import (
+from senzing_xxxx import (
     SzAbstractFactory,
     SzAbstractFactoryParameters,
     SzEngineFlags,
@@ -11,7 +9,7 @@ from senzing_grpc import (
 
 BUILD_OUT_DEGREES = 1
 FACTORY_PARAMETERS: SzAbstractFactoryParameters = {
-    "grpc_channel": grpc.insecure_channel("localhost:8261"),
+    # Differs based on implementation
 }
 FLAGS = SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS
 MAX_DEGREES = 2

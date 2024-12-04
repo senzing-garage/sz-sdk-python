@@ -16,19 +16,20 @@ from .szproduct import SzProductAbstract
 
 # Metadata
 
-__all__ = ["SzAbstractFactoryAbstract"]
+__all__ = ["SzAbstractFactory"]
 __version__ = "0.0.1"  # See https://www.python.org/dev/peps/pep-0396/
 __date__ = "2024-09-23"
 __updated__ = "2024-09-23"
 
+
 # -----------------------------------------------------------------------------
-# SzAbstractFactoryAbstract
+# SzAbstractFactory
 # -----------------------------------------------------------------------------
 
 
-class SzAbstractFactoryAbstract(ABC):
+class SzAbstractFactory(ABC):
     """
-    SzAbstractFactoryAbstract is the definition of the Senzing Python SDK
+    SzAbstractFactory is the definition of the Senzing Python SDK
     SzAbstractFactory implementations.
     """
 

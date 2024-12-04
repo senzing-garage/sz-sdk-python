@@ -1,21 +1,20 @@
 #! /usr/bin/env python3
 
-import grpc
-from senzing_truthset import (
-    TRUTHSET_CUSTOMER_RECORDS,
-    TRUTHSET_REFERENCE_RECORDS,
-    TRUTHSET_WATCHLIST_RECORDS,
-)
-
-from senzing_grpc import (
+from senzing_xxxx import (
     SZ_WITHOUT_INFO,
     SzAbstractFactory,
     SzAbstractFactoryParameters,
     SzError,
 )
 
+from senzing_truthset import (
+    TRUTHSET_CUSTOMER_RECORDS,
+    TRUTHSET_REFERENCE_RECORDS,
+    TRUTHSET_WATCHLIST_RECORDS,
+)
+
 FACTORY_PARAMETERS: SzAbstractFactoryParameters = {
-    "grpc_channel": grpc.insecure_channel("localhost:8261"),
+    # Differs based on implementation
 }
 
 try:
