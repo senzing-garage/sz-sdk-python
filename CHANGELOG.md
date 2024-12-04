@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.2.0] - 2024-12-04
+
+### Changed in 0.2.0
+
+- Changed repository from `sz-sdk-python-abstract` to `sz-sdk-python`
+
 ## [0.1.12] - 2024-11-27
 
 ### Removed in 0.1.12
@@ -20,7 +26,6 @@ and this project adheres to [Semantic Versioning].
 ### Added in 0.1.12
 
 - Additional docstring documentation where missing
-
 
 ## [0.1.11] - 2024-11-26
 
