@@ -4,41 +4,41 @@ senzing package
 Submodules
 ----------
 
-senzing.szabstractfactory\_abstract module
-------------------------------------------
+senzing.szabstractfactory module
+--------------------------------
 
-.. automodule:: senzing.szabstractfactory_abstract
+.. automodule:: senzing.szabstractfactory
    :undoc-members:
    :show-inheritance:
 
-senzing.szconfig\_abstract module
----------------------------------
+senzing.szconfig module
+-----------------------
 
-.. automodule:: senzing.szconfig_abstract
+.. automodule:: senzing.szconfig
    :members:
    :undoc-members:
    :show-inheritance:
 
-senzing.szconfigmanager\_abstract module
-----------------------------------------
+senzing.szconfigmanager module
+------------------------------
 
-.. automodule:: senzing.szconfigmanager_abstract
+.. automodule:: senzing.szconfigmanager
    :members:
    :undoc-members:
    :show-inheritance:
 
-senzing.szdiagnostic\_abstract module
--------------------------------------
+senzing.szdiagnostic module
+---------------------------
 
-.. automodule:: senzing.szdiagnostic_abstract
+.. automodule:: senzing.szdiagnostic
    :members:
    :undoc-members:
    :show-inheritance:
 
-senzing.szengine\_abstract module
----------------------------------
+senzing.szengine module
+-----------------------
 
-.. automodule:: senzing.szengine_abstract
+.. automodule:: senzing.szengine
    :members:
    :undoc-members:
    :show-inheritance:
@@ -51,10 +51,10 @@ senzing.szengineflags module
    :undoc-members:
    :show-inheritance:
 
-senzing.szproduct\_abstract module
-----------------------------------
+senzing.szproduct module
+------------------------
 
-.. automodule:: senzing.szproduct_abstract
+.. automodule:: senzing.szproduct
    :members:
    :undoc-members:
    :show-inheritance:

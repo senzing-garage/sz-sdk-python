@@ -7,12 +7,12 @@ szabstractfactory_abstract.py is the abstract class for all implementations of s
 
 from abc import ABC, abstractmethod
 
-from .szconfig_abstract import SzConfigAbstract
-from .szconfigmanager_abstract import SzConfigManagerAbstract
-from .szdiagnostic_abstract import SzDiagnosticAbstract
-from .szengine_abstract import SzEngineAbstract
+from .szconfig import SzConfigAbstract
+from .szconfigmanager import SzConfigManagerAbstract
+from .szdiagnostic import SzDiagnosticAbstract
+from .szengine import SzEngineAbstract
 from .szhelpers import construct_help
-from .szproduct_abstract import SzProductAbstract
+from .szproduct import SzProductAbstract
 
 # Metadata
 

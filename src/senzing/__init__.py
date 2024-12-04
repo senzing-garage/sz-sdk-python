@@ -9,11 +9,11 @@ from .constants import (
     SZ_VERBOSE_LOGGING,
     SZ_WITHOUT_INFO,
 )
-from .szabstractfactory_abstract import SzAbstractFactoryAbstract
-from .szconfig_abstract import SzConfigAbstract
-from .szconfigmanager_abstract import SzConfigManagerAbstract
-from .szdiagnostic_abstract import SzDiagnosticAbstract
-from .szengine_abstract import SzEngineAbstract
+from .szabstractfactory import SzAbstractFactoryAbstract
+from .szconfig import SzConfigAbstract
+from .szconfigmanager import SzConfigManagerAbstract
+from .szdiagnostic import SzDiagnosticAbstract
+from .szengine import SzEngineAbstract
 from .szengineflags import SzEngineFlags
 from .szerror import (
     ENGINE_EXCEPTION_MAP,
@@ -32,7 +32,7 @@ from .szerror import (
     SzUnknownDataSourceError,
     SzUnrecoverableError,
 )
-from .szproduct_abstract import SzProductAbstract
+from .szproduct import SzProductAbstract
 
 __all__ = [
     "ENGINE_EXCEPTION_MAP",

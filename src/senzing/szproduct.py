@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 """
-szproduct_abstract.py is the abstract class for all implementations of szproduct.
+szproduct.py is the abstract class for all implementations of szproduct.
 """
 
 # TODO: Determine specific SzError, Errors for "Raises:" documentation.
