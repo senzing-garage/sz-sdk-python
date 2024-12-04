@@ -1,4 +1,4 @@
-# sz-sdk-python-abstract development
+# sz-sdk-python development
 
 The following instructions are useful during development.
 
@@ -34,7 +34,7 @@ Since the Senzing library is a prerequisite, it must be installed first.
 
    ```console
    export GIT_ACCOUNT=senzing-garage
-   export GIT_REPOSITORY=sz-sdk-python-abstract
+   export GIT_REPOSITORY=sz-sdk-python
    export GIT_ACCOUNT_DIR=~/${GIT_ACCOUNT}.git
    export GIT_REPOSITORY_DIR="${GIT_ACCOUNT_DIR}/${GIT_REPOSITORY}"
 
@@ -141,7 +141,7 @@ Create a code coverage map.
    Example:
 
    ```console
-   python3 -m pip freeze | grep -e senzing-abstract -e senzing_abstract
+   python3 -m pip freeze | grep -e senzing
 
    ```
 
@@ -159,13 +159,13 @@ Create a code coverage map.
    Example:
 
    ```console
-   python3 -m pip freeze | grep -e senzing-abstract -e senzing_abstract
+   python3 -m pip freeze | grep -e senzing
 
    ```
 
    Example return:
 
-   > senzing-abstract @ file:///home/senzing/senzing-garage.git/sz-sdk-python-abstract/dist/senzing_abstract-0.0.1-py3-none-any.whl#sha256=2a4e5218d66d5be60ee31bfad5943e6611fc921f28a4326d9594ceceae7e0ac1
+   > senzing-abstract @ file:///home/senzing/senzing-garage.git/sz-sdk-python/dist/senzing-0.0.1-py3-none-any.whl#sha256=2a4e5218d66d5be60ee31bfad5943e6611fc921f28a4326d9594ceceae7e0ac1
 
 1. Uninstall the `senzing-abstract` python package.
    Example:

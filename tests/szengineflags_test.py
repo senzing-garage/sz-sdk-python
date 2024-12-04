@@ -6,7 +6,7 @@ TODO: szengineflags_test.py
 
 import pytest
 
-from senzing_abstract import SzEngineFlags, SzError
+from senzing import SzEngineFlags, SzError
 
 # -----------------------------------------------------------------------------
 # Test cases

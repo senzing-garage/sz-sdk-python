@@ -8,7 +8,7 @@ from typing import Any, List, Optional, Tuple
 
 import pytest
 
-from senzing_abstract import SzEngineAbstract, SzEngineFlags
+from senzing import SzEngineAbstract, SzEngineFlags
 
 # -----------------------------------------------------------------------------
 # Test cases

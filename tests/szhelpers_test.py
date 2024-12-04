@@ -8,7 +8,7 @@ from typing import Any
 
 import pytest
 
-from senzing_abstract import SzProductAbstract
+from senzing import SzProductAbstract
 
 # -----------------------------------------------------------------------------
 # Test cases

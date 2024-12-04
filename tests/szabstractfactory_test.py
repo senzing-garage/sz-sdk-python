@@ -8,7 +8,7 @@ from typing import Any
 
 import pytest
 
-from senzing_abstract import (
+from senzing import (
     SzAbstractFactoryAbstract,
     SzConfigAbstract,
     SzConfigManagerAbstract,

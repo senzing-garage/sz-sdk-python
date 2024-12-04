@@ -110,7 +110,7 @@ test: test-tests test-examples
 .PHONY: test-tests
 test-tests:
 	$(info --- Unit tests -----------------------------------------------------------------)
-	@$(activate-venv); pytest tests --verbose --capture=no --cov=src/senzing_abstract --cov-report xml:coverage.xml
+	@$(activate-venv); pytest tests --verbose --capture=no --cov=src/senzing --cov-report xml:coverage.xml
 
 
 .PHONY: test-examples

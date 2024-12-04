@@ -1,1 +1,1 @@
-# sz-sdk-python-abstract errors
+# sz-sdk-python errors

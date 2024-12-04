@@ -8,7 +8,7 @@ from typing import Any, Dict, Union
 
 import pytest
 
-from senzing_abstract import SzConfigManagerAbstract
+from senzing import SzConfigManagerAbstract
 
 # -----------------------------------------------------------------------------
 # Test cases
