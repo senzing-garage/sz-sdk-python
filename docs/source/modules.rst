@@ -1,7 +1,7 @@
-senzing_abstract
-================
+senzing
+=======
 
 .. toctree::
    :maxdepth: 4
 
-   senzing_abstract
+   senzing

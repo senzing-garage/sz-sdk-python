@@ -80,7 +80,7 @@ The variables are used throughout the installation procedure.
 
 ```console
 export GIT_ACCOUNT=senzing-garage
-export GIT_REPOSITORY=sz-sdk-python-abstract
+export GIT_REPOSITORY=sz-sdk-python
 ```
 
 Synthesize environment variables.

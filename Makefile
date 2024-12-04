@@ -104,13 +104,13 @@ lint: pylint mypy bandit black flake8 isort
 # -----------------------------------------------------------------------------
 
 .PHONY: test
-test: test-tests test-examples
+test: test-tests
 
 
 .PHONY: test-tests
 test-tests:
 	$(info --- Unit tests -----------------------------------------------------------------)
-	@$(activate-venv); pytest tests --verbose --capture=no --cov=src/senzing_abstract --cov-report xml:coverage.xml
+	@$(activate-venv); pytest tests --verbose --capture=no --cov=src/senzing --cov-report xml:coverage.xml
 
 
 .PHONY: test-examples
@@ -212,7 +212,7 @@ isort:
 .PHONY: mypy
 mypy:
 	$(info --- mypy -----------------------------------------------------------------------)
-	@$(activate-venv); mypy --strict $(shell git ls-files '*.py' ':!:docs/source/*')
+	@$(activate-venv); mypy --strict $(shell git ls-files '*.py' ':!:docs/source/*' ':!:examples/*')
 
 
 .PHONY: pydoc

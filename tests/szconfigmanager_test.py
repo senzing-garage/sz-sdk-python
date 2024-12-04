@@ -8,49 +8,49 @@ from typing import Any, Dict, Union
 
 import pytest
 
-from senzing_abstract import SzConfigManagerAbstract
+from senzing import SzConfigManager
 
 # -----------------------------------------------------------------------------
 # Test cases
 # -----------------------------------------------------------------------------
 
 
-def test_add_config(sz_configmanager: SzConfigManagerAbstract) -> None:
+def test_add_config(sz_configmanager: SzConfigManager) -> None:
     """Test SzConfigManager().add_config()."""
     sz_configmanager.add_config("", "")
 
 
-# def test_destroy(sz_configmanager: SzConfigManagerAbstract) -> None:
+# def test_destroy(sz_configmanager: SzConfigManager) -> None:
 #     """Test SzConfigManager().destroy()."""
 #     sz_configmanager.destroy()
 
 
-def test_get_config(sz_configmanager: SzConfigManagerAbstract) -> None:
+def test_get_config(sz_configmanager: SzConfigManager) -> None:
     """Test SzConfigManager().get_config()."""
     sz_configmanager.get_config(0)
 
 
-def test_get_configs(sz_configmanager: SzConfigManagerAbstract) -> None:
+def test_get_configs(sz_configmanager: SzConfigManager) -> None:
     """Test SzConfigManager().get_configs()."""
     sz_configmanager.get_configs()
 
 
-def test_get_default_config_id(sz_configmanager: SzConfigManagerAbstract) -> None:
+def test_get_default_config_id(sz_configmanager: SzConfigManager) -> None:
     """Test SzConfigManager().get_default_config_id()."""
     sz_configmanager.get_default_config_id()
 
 
-# def test_initialize(sz_configmanager: SzConfigManagerAbstract) -> None:
+# def test_initialize(sz_configmanager: SzConfigManager) -> None:
 #     """Test SzConfigManager().initialize()."""
 #     sz_configmanager.initialize("", "")
 
 
-def test_replace_default_config_id(sz_configmanager: SzConfigManagerAbstract) -> None:
+def test_replace_default_config_id(sz_configmanager: SzConfigManager) -> None:
     """Test SzConfigManager().replace_default_config_id()."""
     sz_configmanager.replace_default_config_id(0, 0)
 
 
-def test_set_default_config_id(sz_configmanager: SzConfigManagerAbstract) -> None:
+def test_set_default_config_id(sz_configmanager: SzConfigManager) -> None:
     """Test SzConfigManager().set_default_config_id()."""
     sz_configmanager.set_default_config_id(0)
 
@@ -61,7 +61,7 @@ def test_set_default_config_id(sz_configmanager: SzConfigManagerAbstract) -> Non
 
 
 @pytest.fixture(name="sz_configmanager", scope="module")
-def szconfigmanager_fixture() -> SzConfigManagerAbstract:
+def szconfigmanager_fixture() -> SzConfigManager:
     """
     Object under test.
     """
@@ -74,7 +74,7 @@ def szconfigmanager_fixture() -> SzConfigManagerAbstract:
 # -----------------------------------------------------------------------------
 
 
-class SzConfigManagerTest(SzConfigManagerAbstract):
+class SzConfigManagerTest(SzConfigManager):
     """
     SzConfigManager module access library.
     """
@@ -87,17 +87,16 @@ class SzConfigManagerTest(SzConfigManagerAbstract):
         self,
         config_definition: Union[str, Dict[Any, Any]],
         config_comment: str,
-        **kwargs: Any,
     ) -> int:
         return 0
 
-    def get_config(self, config_id: int, **kwargs: Any) -> str:
+    def get_config(self, config_id: int) -> str:
         return ""
 
-    def get_configs(self, **kwargs: Any) -> str:
+    def get_configs(self) -> str:
         return ""
 
-    def get_default_config_id(self, **kwargs: Any) -> int:
+    def get_default_config_id(self) -> int:
         return 0
 
     def replace_default_config_id(
@@ -105,5 +104,5 @@ class SzConfigManagerTest(SzConfigManagerAbstract):
     ) -> None:
         """None"""
 
-    def set_default_config_id(self, config_id: int, **kwargs: Any) -> None:
+    def set_default_config_id(self, config_id: int) -> None:
         """None"""

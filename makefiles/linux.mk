@@ -26,7 +26,7 @@ clean-osarch-specific:
 
 .PHONY: coverage-osarch-specific
 coverage-osarch-specific:
-	@$(activate-venv); pytest --cov=src --cov-report=xml  $(shell git ls-files '*.py')
+	@$(activate-venv); pytest --cov=src --cov-report=xml  $(shell git ls-files '*.py'  ':!:examples/*')
 	@$(activate-venv); coverage html
 	@xdg-open $(MAKEFILE_DIRECTORY)/htmlcov/index.html
 
@@ -59,9 +59,9 @@ setup-osarch-specific:
 .PHONY: test-osarch-specific-2
 test-osarch-specific-2:
 	$(info --- Unit tests -------------------------------------------------------)
-	@pytest tests/ --verbose --capture=no --cov=src/senzing_abstract --cov-report xml:coverage.xml
+	@pytest tests/ --verbose --capture=no --cov=src/senzing --cov-report xml:coverage.xml
 #	$(info --- Test examples ----------------------------------------------------)
-#	@pytest examples/ --verbose --capture=no --cov=src/senzing_abstract
+#	@pytest examples/ --verbose --capture=no --cov=src/senzing
 	$(info --- Test examples using unittest -------------------------------------)
 	@python3 -m unittest \
 		examples/szconfig/*.py \

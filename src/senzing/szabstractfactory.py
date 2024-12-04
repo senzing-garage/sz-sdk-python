@@ -7,28 +7,29 @@ szabstractfactory_abstract.py is the abstract class for all implementations of s
 
 from abc import ABC, abstractmethod
 
-from .szconfig_abstract import SzConfigAbstract
-from .szconfigmanager_abstract import SzConfigManagerAbstract
-from .szdiagnostic_abstract import SzDiagnosticAbstract
-from .szengine_abstract import SzEngineAbstract
+from .szconfig import SzConfig
+from .szconfigmanager import SzConfigManager
+from .szdiagnostic import SzDiagnostic
+from .szengine import SzEngine
 from .szhelpers import construct_help
-from .szproduct_abstract import SzProductAbstract
+from .szproduct import SzProduct
 
 # Metadata
 
-__all__ = ["SzAbstractFactoryAbstract"]
+__all__ = ["SzAbstractFactory"]
 __version__ = "0.0.1"  # See https://www.python.org/dev/peps/pep-0396/
 __date__ = "2024-09-23"
 __updated__ = "2024-09-23"
 
+
 # -----------------------------------------------------------------------------
-# SzAbstractFactoryAbstract
+# SzAbstractFactory
 # -----------------------------------------------------------------------------
 
 
-class SzAbstractFactoryAbstract(ABC):
+class SzAbstractFactory(ABC):
     """
-    SzAbstractFactoryAbstract is the definition of the Senzing Python SDK
+    SzAbstractFactory is the definition of the Senzing Python SDK
     SzAbstractFactory implementations.
     """
 
@@ -37,7 +38,7 @@ class SzAbstractFactoryAbstract(ABC):
     # -------------------------------------------------------------------------
 
     @abstractmethod
-    def create_config(self) -> SzConfigAbstract:
+    def create_config(self) -> SzConfig:
         """
         The `create_config` method creates a new implementation of an `SzConfigAbstract` object.
 
@@ -62,7 +63,7 @@ class SzAbstractFactoryAbstract(ABC):
         """
 
     @abstractmethod
-    def create_configmanager(self) -> SzConfigManagerAbstract:
+    def create_configmanager(self) -> SzConfigManager:
         """
         The `create_configmanager` method creates a new implementation of an `SzConfigManagerAbstract` object.
 
@@ -87,7 +88,7 @@ class SzAbstractFactoryAbstract(ABC):
         """
 
     @abstractmethod
-    def create_diagnostic(self) -> SzDiagnosticAbstract:
+    def create_diagnostic(self) -> SzDiagnostic:
         """
         The `create_diagnostic` method creates a new implementation of an `SzDiagnosticAbstract` object.
 
@@ -112,7 +113,7 @@ class SzAbstractFactoryAbstract(ABC):
         """
 
     @abstractmethod
-    def create_engine(self) -> SzEngineAbstract:
+    def create_engine(self) -> SzEngine:
         """
         The `create_engine` method creates a new implementation of an `SzEngineAbstract` object.
 
@@ -137,7 +138,7 @@ class SzAbstractFactoryAbstract(ABC):
         """
 
     @abstractmethod
-    def create_product(self) -> SzProductAbstract:
+    def create_product(self) -> SzProduct:
         """
         The `create_product` method creates a new implementation of an `SzProductAbstract` object.
 

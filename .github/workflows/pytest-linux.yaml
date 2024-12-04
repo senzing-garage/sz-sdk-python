@@ -3,7 +3,7 @@ name: pytest linux
 on: [push, pull_request]
 
 env:
-  PYTHONPATH: /home/runner/work/sz-sdk-python-abstract/sz-sdk-python-abstract/src
+  PYTHONPATH: /home/runner/work/sz-sdk-python/sz-sdk-python/src
 
 permissions:
   contents: read

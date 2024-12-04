@@ -1,1 +1,1 @@
-# sz-sdk-python-abstract examples
+# sz-sdk-python examples

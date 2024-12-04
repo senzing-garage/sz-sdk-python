@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 """
-szproduct_abstract.py is the abstract class for all implementations of szproduct.
+szproduct.py is the abstract class for all implementations of szproduct.
 """
 
 # TODO: Determine specific SzError, Errors for "Raises:" documentation.
@@ -11,19 +11,19 @@ from .szhelpers import construct_help
 
 # Metadata
 
-__all__ = ["SzProductAbstract"]
+__all__ = ["SzProduct"]
 __version__ = "0.0.1"  # See https://www.python.org/dev/peps/pep-0396/
 __date__ = "2023-10-30"
 __updated__ = "2023-11-27"
 
 # -----------------------------------------------------------------------------
-# SzProductAbstract
+# SzProduct
 # -----------------------------------------------------------------------------
 
 
-class SzProductAbstract(ABC):
+class SzProduct(ABC):
     """
-    SzProductAbstract is the definition of the Senzing Python SDK that is
+    SzProduct is the definition of the Senzing Python SDK that is
     implemented by packages such as szproduct.py.
     """
 

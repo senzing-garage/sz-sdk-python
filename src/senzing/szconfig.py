@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 """
-szconfig_abstract.py is the abstract class for all implementations of szconfig.
+szconfig.py is the abstract class for all implementations of szconfig.
 """
 
 # TODO: Determine specific SzErrors, Errors for "Raises:" documentation.
@@ -12,19 +12,19 @@ from .szhelpers import construct_help
 
 # Metadata
 
-__all__ = ["SzConfigAbstract"]
+__all__ = ["SzConfig"]
 __version__ = "0.0.1"  # See https://www.python.org/dev/peps/pep-0396/
 __date__ = "2023-10-30"
 __updated__ = "2023-11-08"
 
 # -----------------------------------------------------------------------------
-# SzConfigAbstract
+# SzConfig
 # -----------------------------------------------------------------------------
 
 
-class SzConfigAbstract(ABC):
+class SzConfig(ABC):
     """
-    SzConfigAbstract is the definition of the Senzing Python SDK that is
+    SzConfig is the definition of the Senzing Python SDK that is
     implemented by packages such as szconfig.py.
     """
 
