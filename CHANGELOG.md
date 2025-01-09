@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.2.1] - 2025-01-09
+
+### Changed in 0.2.1
+
+- Added `typing-extensions` dependency for Python versions < 3.11
+
 ## [0.2.0] - 2024-12-04
 
 ### Changed in 0.2.0
