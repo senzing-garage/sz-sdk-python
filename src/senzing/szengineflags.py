@@ -44,12 +44,14 @@ __updated__ = "2024-10-24"
 class SzEngineFlags(IntFlag):
     """Engine Flags"""
 
+    # TODO Move to tool helpers for now and change tools and remove/comment examples
     @classmethod
     # TODO Check everywhere combine_flags is used
     # TODO Update all doc strings
     # TODO Instead of raising return -1 ?
     # def combine_flags(cls: type[TSzEngineFlags], flags: Union[List[Self], List[str]]) -> TSzEngineFlags:
-    def combine_flags(cls: type[TSzEngineFlags], *flags: TSzEngineFlags) -> TSzEngineFlags:
+    # def combine_flags(cls: type[TSzEngineFlags], *flags: TSzEngineFlags) -> TSzEngineFlags:
+    def combine_flags(cls: type[TSzEngineFlags], flags: Union[List[TSzEngineFlags], List[str]]) -> TSzEngineFlags:
         """
         The `combine_flags` method ORs together all flags in a list of strings.
 
@@ -73,7 +75,7 @@ class SzEngineFlags(IntFlag):
                 :linenos:
                 :language: json
         """
-        result = cls["SZ_WITHOUT_INFO"]
+        result = cls["__SZ_WITHOUT_INFO"]
         print(f"\n{result = }", flush=True)
         print(f"\n{type(result) = }", flush=True)
         # TODO
@@ -87,7 +89,8 @@ class SzEngineFlags(IntFlag):
                 # if isinstance(flag, str):
                 #     result = result | cls[flag.upper()]
                 # else:
-                result = result | flag
+                # result = result | flag
+                result = result | cls[flag.upper()] if isinstance(flag, str) else flag
         except (AttributeError, KeyError) as err:
             raise SzError(f"{err} is not a valid engine flag") from err
         # TODO
@@ -110,18 +113,20 @@ class SzEngineFlags(IntFlag):
     #     return flag_int
 
     @classmethod
-    def get_flags(cls):
+    def list_flags(cls):
         # return {member.name: member & member == member for member in cls}
-        return {member.name: member.value for member in cls}
+        return {member.name: member.value for member in cls if not member.name.startswith("_")}
 
     # TODO Reorder methods
     # TODO Make this return a dict on integers or add an integers_to_flags that calls this one?
+    # TODO Test all flags return correct result
     @classmethod
     # def integer_to_flag(cls: type[TSzEngineFlags], integer: int) -> list[str, None]:
+    # TODO Change Dict Any
     def get_flag_by_integer(cls: type[TSzEngineFlags], integer: int) -> Dict[str, Any]:
         """Converts an integer value to a list of corresponding IntFlag names."""
 
-        flag_dict: Dict[str, Any] = {"primary_engine_flag": "", "sub_engine_flags": []}
+        flag_dict: Dict[str, Any] = {"primary_engine_flag": "", "sub_engine_flags": {}}
 
         candidate_flag = [m.name for m in cls if m & m.value == integer]
         print(f"\n{candidate_flag = }", flush=True)
@@ -130,15 +135,21 @@ class SzEngineFlags(IntFlag):
             primary_flag = candidate_flag[0]
             flag_dict["primary_engine_flag"] = primary_flag
 
-            sub_flags: List[Union[None, str]] = []
+            # sub_flags: List[Union[None, str]] = []
+            # for member in cls:
+            #     if member & integer:
+            #         print(f"\n{integer = } - {member = }", flush=True)
+            #         sub_flags.append(member.name)
+            #         integer &= ~member
+            sub_flags: Dict[str, int] = {}
             for member in cls:
                 if member & integer:
                     print(f"\n{integer = } - {member = }", flush=True)
-                    sub_flags.append(member.name)
+                    sub_flags[member.name] = member.value
                     integer &= ~member
 
             if sub_flags:
-                flag_dict["sub_engine_flag"] = sub_flags
+                flag_dict["sub_engine_flags"] = sub_flags
                 print(f"\n{sub_flags = }", flush=True)
 
         # if not flags:
@@ -230,7 +241,7 @@ class SzEngineFlags(IntFlag):
 
     SZ_WITH_INFO = 1 << 62
     # TODO
-    SZ_WITHOUT_INFO = 0
+    __SZ_WITHOUT_INFO = 0
 
     # Flags for searching for entities.
 
