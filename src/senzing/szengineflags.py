@@ -30,6 +30,16 @@ __updated__ = "2024-10-24"
 # SzEngineFlags class
 # -----------------------------------------------------------------------------
 
+# TODO
+# In [44]: SzEngineFlags.__members__["SZ_WITH_INFO"]
+# Out[44]: <SzEngineFlags.SZ_WITH_INFO: 4611686018427387904>
+
+# In [45]: SzEngineFlags["SZ_WITH_INFO"]
+# Out[45]: <SzEngineFlags.SZ_WITH_INFO: 4611686018427387904>
+
+# In [46]: SzEngineFlags.SZ_WITH_INFO
+# Out[46]: <SzEngineFlags.SZ_WITH_INFO: 4611686018427387904>
+
 
 class SzEngineFlags(IntFlag):
     """Engine Flags"""
@@ -37,6 +47,7 @@ class SzEngineFlags(IntFlag):
     @classmethod
     # TODO Check everywhere combine_flags is used
     # TODO Update all doc strings
+    # TODO Instead of raising return -1 ?
     # def combine_flags(cls: type[TSzEngineFlags], flags: Union[List[Self], List[str]]) -> TSzEngineFlags:
     def combine_flags(cls: type[TSzEngineFlags], *flags: TSzEngineFlags) -> TSzEngineFlags:
         """
@@ -82,28 +93,32 @@ class SzEngineFlags(IntFlag):
         # TODO
         return result
 
-    @classmethod
-    # TODO Is this needed?
-    # TODO Change to get_flag_integer
-    # TODO Make this return a dict on flags or add a _flags_to_integers that calls this one?
-    # def get_flag_int(cls, flag: Union[Self, str]) -> int:
-    def flag_to_integer(cls: type[TSzEngineFlags], flag: TSzEngineFlags) -> int:
-        """TODO:"""
-        try:
-            # TODO
-            # if isinstance(flag, str):
-            # flag = cls[flag.upper()]
-            flag_int = flag.value
-        except (AttributeError, KeyError) as err:
-            raise SzError(f"{err} is not a valid engine flag") from err
-        return flag_int
+    # @classmethod
+    # # TODO Is this needed?
+    # # TODO Change to get_flag_integer
+    # # TODO Make this return a dict on flags or add a _flags_to_integers that calls this one?
+    # # def get_flag_int(cls, flag: Union[Self, str]) -> int:
+    # def flag_to_integer(cls: type[TSzEngineFlags], flag: TSzEngineFlags) -> int:
+    #     """TODO:"""
+    #     try:
+    #         # TODO
+    #         # if isinstance(flag, str):
+    #         # flag = cls[flag.upper()]
+    #         flag_int = flag.value
+    #     except (AttributeError, KeyError) as err:
+    #         raise SzError(f"{err} is not a valid engine flag") from err
+    #     return flag_int
 
-    # TODO
+    @classmethod
+    def get_flags(cls):
+        # return {member.name: member & member == member for member in cls}
+        return {member.name: member.value for member in cls}
+
     # TODO Reorder methods
     # TODO Make this return a dict on integers or add an integers_to_flags that calls this one?
     @classmethod
     # def integer_to_flag(cls: type[TSzEngineFlags], integer: int) -> list[str, None]:
-    def integer_to_flag(cls: type[TSzEngineFlags], integer: int) -> Dict[str, Any]:
+    def get_flag_by_integer(cls: type[TSzEngineFlags], integer: int) -> Dict[str, Any]:
         """Converts an integer value to a list of corresponding IntFlag names."""
 
         flag_dict: Dict[str, Any] = {"primary_engine_flag": "", "sub_engine_flags": []}
