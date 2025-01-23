@@ -15,6 +15,7 @@ __updated__ = "2023-10-30"
 # -----------------------------------------------------------------------------
 
 SZ_NO_FLAGS = 0
+# TODO Where used and remove if adding to szengineflags?
 SZ_WITHOUT_INFO = 0
 
 

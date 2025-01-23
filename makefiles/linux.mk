@@ -28,7 +28,7 @@ clean-osarch-specific:
 coverage-osarch-specific:
 	@$(activate-venv); pytest --cov=src --cov-report=xml  $(shell git ls-files '*.py'  ':!:examples/*')
 	@$(activate-venv); coverage html
-	@xdg-open $(MAKEFILE_DIRECTORY)/htmlcov/index.html
+	@xdg-open $(MAKEFILE_DIRECTORY)/htmlcov/index.html  1>/dev/null 2>&1
 
 
 .PHONY: dependencies-for-development-osarch-specific
@@ -38,7 +38,7 @@ dependencies-for-development-osarch-specific:
 .PHONY: documentation-osarch-specific
 documentation-osarch-specific:
 	@$(activate-venv); cd docs; rm -rf build; make html
-	@xdg-open file://$(MAKEFILE_DIRECTORY)/docs/build/html/index.html
+	@xdg-open file://$(MAKEFILE_DIRECTORY)/docs/build/html/index.html  1>/dev/null 2>&1
 
 
 .PHONY: hello-world-osarch-specific

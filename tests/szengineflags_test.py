@@ -45,15 +45,15 @@ def test_combine_flags_bad_string() -> None:
 
 def test_get_flag_int() -> None:
     """Test SzProduct().get_version()."""
-    SzEngineFlags.get_flag_int(SzEngineFlags.SZ_ENTITY_BRIEF_DEFAULT_FLAGS)
+    SzEngineFlags.flag_to_integer(SzEngineFlags.SZ_ENTITY_BRIEF_DEFAULT_FLAGS)
 
 
 def test_get_flag_int_using_strings() -> None:
     """Test SzProduct().get_version()."""
-    SzEngineFlags.get_flag_int("SZ_ENTITY_BRIEF_DEFAULT_FLAGS")
+    SzEngineFlags.flag_to_integer("SZ_ENTITY_BRIEF_DEFAULT_FLAGS")
 
 
 def test_get_flag_int_bad_string() -> None:
     """Test SzProduct().get_version()."""
     with pytest.raises(SzError):
-        SzEngineFlags.get_flag_int("BAD_STRING")
+        SzEngineFlags.flag_to_integer("BAD_STRING")

@@ -56,18 +56,33 @@ class SzEngine(ABC):
             str: If flags are set to return the WITH_INFO response a JSON document containing the details, otherwise an empty JSON document.
 
         Raises:
+            SzError:
 
-        .. collapse:: Example:
+        .. collapse:: Examples:
 
-            .. literalinclude:: ../../examples/szengine/add_record.py
-                :linenos:
-                :language: python
+            .. collapse:: Core implementation:
 
-            **Output:**
+                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/add_record.py
+                    :linenos:
+                    :language: python
 
-            .. literalinclude:: ../../examples/szengine/add_record.txt
-                :linenos:
-                :language: json
+                **Output:**
+
+                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/add_record.txt
+                    :linenos:
+                    :language: json
+
+            .. collapse:: gRPC implementation:
+
+                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/add_record.py
+                    :linenos:
+                    :language: python
+
+                **Output:**
+
+                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/add_record.txt
+                    :linenos:
+                    :language: json
         """
 
     @abstractmethod
@@ -82,17 +97,6 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Example:
-
-            .. literalinclude:: ../../examples/szengine/export_json_fetch_close.py
-                :linenos:
-                :language: python
-
-            **Output:**
-
-            .. literalinclude:: ../../examples/szengine/export_json_fetch_close.txt
-                :linenos:
-                :language: json
         """
 
     @abstractmethod

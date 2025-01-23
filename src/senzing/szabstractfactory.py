@@ -49,17 +49,31 @@ class SzAbstractFactory(ABC):
 
         Raises:
 
-        .. collapse:: Example:
+        .. collapse:: Examples:
 
-            .. literalinclude:: ../../examples/szabstractfactory/create_config.py
-                :linenos:
-                :language: python
+            .. collapse:: Core implementation:
 
-            **Output:**
+                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szabstractfactory/create_config.py
+                    :linenos:
+                    :language: python
 
-            .. literalinclude:: ../../examples/szabstractfactory/create_config.txt
-                :linenos:
-                :language: json
+                **Output:**
+
+                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szabstractfactory/create_config.txt
+                    :linenos:
+                    :language: json
+
+            .. collapse:: gRPC implementation:
+
+                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szabstractfactory/create_config.py
+                    :linenos:
+                    :language: python
+
+                **Output:**
+
+                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szabstractfactory/create_config.txt
+                    :linenos:
+                    :language: json
         """
 
     @abstractmethod

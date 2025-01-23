@@ -10,7 +10,7 @@ import os
 import sys
 
 project = "sz-sdk-python"
-copyright = "2024, Senzing"
+copyright = "2025, Senzing"
 author = "senzing"
 
 # -- General configuration ---------------------------------------------------
@@ -41,6 +41,7 @@ extensions = [
     "sphinx.ext.doctest",
     "sphinx.ext.intersphinx",
     "sphinx.ext.napoleon",  # to read Google-style or Numpy-style docstrings
+    "sphinxext.remoteliteralinclude",  # extends literalinclude to be able to pull files from URLs
     "sphinx.ext.viewcode",  # to allow vieing the source code in the web page
 ]
 
