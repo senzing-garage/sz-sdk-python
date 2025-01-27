@@ -4,56 +4,34 @@
 TODO: szengineflags_test.py
 """
 
-import pytest
+import json
 
-from senzing import SzEngineFlags, SzError
+from pytest_schema import schema
+
+from senzing import SzEngineFlags
 
 # -----------------------------------------------------------------------------
 # Test cases
 # -----------------------------------------------------------------------------
 
 
-def test_combine_flags() -> None:
-    """Test SzProduct().get_license()."""
-    SzEngineFlags.combine_flags(
-        [
-            SzEngineFlags.SZ_ENTITY_BRIEF_DEFAULT_FLAGS,
-            SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS,
-        ]
-    )
+def test_flags_by_name() -> None:
+    """Test szengineflags.flags_by_name()."""
+    actual = SzEngineFlags.flags_by_name()
+    actual_as_dict = json.loads(actual)
+    assert schema(test_flags_by_name_schema) == actual_as_dict
 
 
-def test_combine_flags_using_strings() -> None:
-    """Test SzProduct().get_license()."""
-    SzEngineFlags.combine_flags(
-        [
-            "SZ_ENTITY_BRIEF_DEFAULT_FLAGS",
-            "SZ_FIND_NETWORK_DEFAULT_FLAGS",
-        ]
-    )
+def test_flags_by_value() -> None:
+    """Test szengineflags.flags_by_value()."""
+    actual = SzEngineFlags.flags_by_value()
+    actual_as_dict = json.loads(actual)
+    assert schema(test_flags_by_value_schema) == actual_as_dict
 
 
-def test_combine_flags_bad_string() -> None:
-    """Test SzProduct().get_license()."""
-    with pytest.raises(SzError):
-        SzEngineFlags.combine_flags(
-            [
-                "BAD_STRING",
-            ]
-        )
+# -----------------------------------------------------------------------------
+# Schemas
+# -----------------------------------------------------------------------------
 
-
-def test_get_flag_int() -> None:
-    """Test SzProduct().get_version()."""
-    SzEngineFlags.flag_to_integer(SzEngineFlags.SZ_ENTITY_BRIEF_DEFAULT_FLAGS)
-
-
-def test_get_flag_int_using_strings() -> None:
-    """Test SzProduct().get_version()."""
-    SzEngineFlags.flag_to_integer("SZ_ENTITY_BRIEF_DEFAULT_FLAGS")
-
-
-def test_get_flag_int_bad_string() -> None:
-    """Test SzProduct().get_version()."""
-    with pytest.raises(SzError):
-        SzEngineFlags.flag_to_integer("BAD_STRING")
+test_flags_by_name_schema = {str, int}
+test_flags_by_value_schema = {str, int}

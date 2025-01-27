@@ -34,6 +34,7 @@ class SzEngine(ABC):
     # Interface definition
     # -------------------------------------------------------------------------
 
+    # TODO Modify tests from "{}" to ""
     @abstractmethod
     def add_record(
         self,
@@ -53,7 +54,7 @@ class SzEngine(ABC):
             flags (int, optional): Flags used to control information returned. Defaults to 0.
 
         Returns:
-            str: If flags are set to return the WITH_INFO response a JSON document containing the details, otherwise an empty JSON document.
+            str: If flags are set to return the WITH_INFO response a JSON document containing the details, otherwise an empty string.
 
         Raises:
             SzError:
@@ -139,7 +140,7 @@ class SzEngine(ABC):
             flags (int, optional): Flags used to control information returned. Defaults to 0.
 
         Returns:
-            str: If flags are set to return the WITH_INFO response a JSON document containing the details, otherwise an empty JSON document.
+            str: If flags are set to return the WITH_INFO response a JSON document containing the details, otherwise an empty string.
 
         Raises:
 
@@ -782,7 +783,7 @@ class SzEngine(ABC):
             flags (int, optional):  Flags used to control information returned. Defaults to 0.
 
         Returns:
-            str: If flags are set to return the WITH_INFO response a JSON document containing the details, otherwise an empty JSON document.
+            str: If flags are set to return the WITH_INFO response a JSON document containing the details, otherwise an empty string.
 
         Raises:
 

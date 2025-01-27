@@ -5,17 +5,8 @@ TODO: szengineflags.py
 """
 
 from enum import IntFlag
-from typing import Any, Dict, List, TypeVar, Union
+from typing import Dict, TypeVar
 
-from .szerror import SzError, SzRetryableError
-
-# TODO
-# try:
-#     from typing import Self  # type: ignore[attr-defined,no-redef]
-# except ImportError:
-#     from typing_extensions import Self  # type: ignore[attr-defined,no-redef]
-
-# TODO
 TSzEngineFlags = TypeVar("TSzEngineFlags", bound="SzEngineFlags")  # pylint: disable=C0103
 
 
@@ -26,40 +17,30 @@ __version__ = "0.0.1"  # See https://www.python.org/dev/peps/pep-0396/
 __date__ = "2023-10-30"
 __updated__ = "2024-10-24"
 
+
 # -----------------------------------------------------------------------------
 # SzEngineFlags class
 # -----------------------------------------------------------------------------
-
-# TODO
-# In [44]: SzEngineFlags.__members__["SZ_WITH_INFO"]
-# Out[44]: <SzEngineFlags.SZ_WITH_INFO: 4611686018427387904>
-
-# In [45]: SzEngineFlags["SZ_WITH_INFO"]
-# Out[45]: <SzEngineFlags.SZ_WITH_INFO: 4611686018427387904>
-
-# In [46]: SzEngineFlags.SZ_WITH_INFO
-# Out[46]: <SzEngineFlags.SZ_WITH_INFO: 4611686018427387904>
 
 
 class SzEngineFlags(IntFlag):
     """Engine Flags"""
 
-    # TODO Move to tool helpers for now and change tools and remove/comment examples
     @classmethod
-    # TODO Check everywhere combine_flags is used
-    # TODO Update all doc strings
-    # TODO Instead of raising return -1 ?
-    # def combine_flags(cls: type[TSzEngineFlags], flags: Union[List[Self], List[str]]) -> TSzEngineFlags:
-    # def combine_flags(cls: type[TSzEngineFlags], *flags: TSzEngineFlags) -> TSzEngineFlags:
-    def combine_flags(cls: type[TSzEngineFlags], flags: Union[List[TSzEngineFlags], List[str]]) -> TSzEngineFlags:
+    def _members_dict(cls) -> Dict[str, int]:
+        return {member.name: member.value for member in cls if member.name and not member.name.startswith("_")}
+
+    # TODO Change tests and add these 2 new methods
+    @classmethod
+    def flags_by_name(cls: type[TSzEngineFlags]) -> Dict[str, int]:
         """
-        The `combine_flags` method ORs together all flags in a list of strings.
+        The `flags_by_name` method returns the name of all engine flags and corresponding integer values.
 
         Args:
-            flags (List[str]): A list of strings each representing an engine flag.
+
 
         Returns:
-            int: Value of ORing flags together.
+            dict[str, int]: Dictionary keyed on the flag names.
 
         Raises:
 
@@ -75,94 +56,35 @@ class SzEngineFlags(IntFlag):
                 :linenos:
                 :language: json
         """
-        result = cls["__SZ_WITHOUT_INFO"]
-        print(f"\n{result = }", flush=True)
-        print(f"\n{type(result) = }", flush=True)
-        # TODO
-        # result = 0
-        try:
-            print(f"\n{flags = }", flush=True)
-            print(f"\n{type(flags) = }", flush=True)
-            for flag in flags:
-                print(f"\n{flag = }", flush=True)
-                print(f"\n{type(flag) = }", flush=True)
-                # if isinstance(flag, str):
-                #     result = result | cls[flag.upper()]
-                # else:
-                # result = result | flag
-                result = result | cls[flag.upper()] if isinstance(flag, str) else flag
-        except (AttributeError, KeyError) as err:
-            raise SzError(f"{err} is not a valid engine flag") from err
-        # TODO
-        return result
-
-    # @classmethod
-    # # TODO Is this needed?
-    # # TODO Change to get_flag_integer
-    # # TODO Make this return a dict on flags or add a _flags_to_integers that calls this one?
-    # # def get_flag_int(cls, flag: Union[Self, str]) -> int:
-    # def flag_to_integer(cls: type[TSzEngineFlags], flag: TSzEngineFlags) -> int:
-    #     """TODO:"""
-    #     try:
-    #         # TODO
-    #         # if isinstance(flag, str):
-    #         # flag = cls[flag.upper()]
-    #         flag_int = flag.value
-    #     except (AttributeError, KeyError) as err:
-    #         raise SzError(f"{err} is not a valid engine flag") from err
-    #     return flag_int
+        return dict(sorted(cls._members_dict().items()))
 
     @classmethod
-    def list_flags(cls):
-        # return {member.name: member & member == member for member in cls}
-        return {member.name: member.value for member in cls if not member.name.startswith("_")}
+    def flags_by_value(cls) -> Dict[int, str]:
+        """
+        The `flags_by_value` method returns the value of all engine flags and corresponding flag names.
 
-    # TODO Reorder methods
-    # TODO Make this return a dict on integers or add an integers_to_flags that calls this one?
-    # TODO Test all flags return correct result
-    @classmethod
-    # def integer_to_flag(cls: type[TSzEngineFlags], integer: int) -> list[str, None]:
-    # TODO Change Dict Any
-    def get_flag_by_integer(cls: type[TSzEngineFlags], integer: int) -> Dict[str, Any]:
-        """Converts an integer value to a list of corresponding IntFlag names."""
+        Args:
 
-        flag_dict: Dict[str, Any] = {"primary_engine_flag": "", "sub_engine_flags": {}}
 
-        candidate_flag = [m.name for m in cls if m & m.value == integer]
-        print(f"\n{candidate_flag = }", flush=True)
+        Returns:
+            dict[int, str]: Dictionary keyed on the flag integer values.
 
-        if candidate_flag:
-            primary_flag = candidate_flag[0]
-            flag_dict["primary_engine_flag"] = primary_flag
+        Raises:
 
-            # sub_flags: List[Union[None, str]] = []
-            # for member in cls:
-            #     if member & integer:
-            #         print(f"\n{integer = } - {member = }", flush=True)
-            #         sub_flags.append(member.name)
-            #         integer &= ~member
-            sub_flags: Dict[str, int] = {}
-            for member in cls:
-                if member & integer:
-                    print(f"\n{integer = } - {member = }", flush=True)
-                    sub_flags[member.name] = member.value
-                    integer &= ~member
+        .. collapse:: Example:
 
-            if sub_flags:
-                flag_dict["sub_engine_flags"] = sub_flags
-                print(f"\n{sub_flags = }", flush=True)
+            .. literalinclude:: ../../examples/misc/engine_flags_combine_flags.py
+                :linenos:
+                :language: python
 
-        # if not flags:
-        #     # TODO language
-        #     raise SzRetryableError(f"no flags correspond to integer {integer}")
-        #     # pass
-        # else:
-        #     return flags
+            **Output:**
 
-        print(f"\n{flag_dict = }", flush=True)
-
-        # return sub_flags
-        return flag_dict
+            .. literalinclude:: ../../examples/misc/engine_flags_combine_flags.txt
+                :linenos:
+                :language: json
+        """
+        flags = {value: name for name, value in cls._members_dict().items()}
+        return dict(sorted(flags.items()))
 
     # Flags for including special data.
 
@@ -236,12 +158,10 @@ class SzEngineFlags(IntFlag):
 
     SZ_SEARCH_INCLUDE_STATS = 1 << 27
 
-    # TODO
-    # Flag for returning with info responses.
+    # Flag for returning (or not) with info responses.
 
     SZ_WITH_INFO = 1 << 62
-    # TODO
-    __SZ_WITHOUT_INFO = 0
+    __SZ_WITHOUT_INFO = 0  # __SZ_WITHOUT_INFO isn't in the C API, will be used for future methods.
 
     # Flags for searching for entities.
 
@@ -354,23 +274,3 @@ class SzEngineFlags(IntFlag):
 
     # Rhe recommended default flag values for search-by-attributes.
     SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS = SZ_SEARCH_BY_ATTRIBUTES_ALL
-
-
-# TODO
-# def combine_flags2(*flags: SzEngineFlags) -> SzEngineFlags:
-#     result = 0
-#     try:
-#         for flag in flags:
-#             if isinstance(flag, str):
-#                 result = result | flag.upper()
-#             else:
-#                 result = result | flag
-#     except (AttributeError, KeyError) as err:
-#         raise SzError(f"{err} is not a valid engine flag") from err
-#     # TODO
-#     return result
-#     # TODO
-#     # print(f"\n{result = }", flush=True)
-#     # print(f"\n{type(result) = }", flush=True)
-#     # print(f"\n{result.value = }", flush=True)
-#     # return result.value
