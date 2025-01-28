@@ -5,13 +5,13 @@
 | Name                                  |    Stmts |     Miss |   Cover |   Missing |
 |-------------------------------------- | -------: | -------: | ------: | --------: |
 | src/senzing/\_\_init\_\_.py           |       10 |        0 |    100% |           |
-| src/senzing/constants.py              |       12 |        0 |    100% |           |
-| src/senzing/szabstractfactory.py      |       26 |        1 |     96% |       200 |
-| src/senzing/szconfig.py               |       23 |        1 |     96% |       230 |
-| src/senzing/szconfigmanager.py        |       21 |        1 |     95% |       181 |
-| src/senzing/szdiagnostic.py           |       17 |        1 |     94% |       129 |
-| src/senzing/szengine.py               |       71 |        1 |     99% |       948 |
-| src/senzing/szengineflags.py          |       93 |        0 |    100% |           |
+| src/senzing/constants.py              |       13 |        0 |    100% |           |
+| src/senzing/szabstractfactory.py      |       26 |        1 |     96% |       290 |
+| src/senzing/szconfig.py               |       23 |        1 |     96% |       340 |
+| src/senzing/szconfigmanager.py        |       21 |        1 |     95% |       289 |
+| src/senzing/szdiagnostic.py           |       17 |        1 |     94% |       177 |
+| src/senzing/szengine.py               |       71 |        1 |     99% |      1323 |
+| src/senzing/szengineflags.py          |       80 |        0 |    100% |           |
 | src/senzing/szerror.py                |       19 |        0 |    100% |           |
 | src/senzing/szhelpers.py              |       24 |        0 |    100% |           |
 | src/senzing/szproduct.py              |       13 |        0 |    100% |           |
@@ -20,7 +20,7 @@
 | src/senzing\_truthset/datasources.py  |        2 |        2 |      0% |       3-5 |
 | src/senzing\_truthset/references.py   |        2 |        2 |      0% |       3-5 |
 | src/senzing\_truthset/watchlist.py    |        2 |        2 |      0% |       3-5 |
-|                             **TOTAL** |  **342** |   **18** | **95%** |           |
+|                             **TOTAL** |  **330** |   **18** | **95%** |           |
 
 
 ## Setup coverage badge
