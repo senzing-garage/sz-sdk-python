@@ -30,7 +30,6 @@ class SzEngineFlags(IntFlag):
     def _members_dict(cls) -> Dict[str, int]:
         return {member.name: member.value for member in cls if member.name and not member.name.startswith("_")}
 
-    # TODO Change tests and add these 2 new methods
     @classmethod
     def flags_by_name(cls: type[TSzEngineFlags]) -> Dict[str, int]:
         """
@@ -161,7 +160,7 @@ class SzEngineFlags(IntFlag):
     # Flag for returning (or not) with info responses.
 
     SZ_WITH_INFO = 1 << 62
-    __SZ_WITHOUT_INFO = 0  # __SZ_WITHOUT_INFO isn't in the C API, will be used for future methods.
+    _SZ_WITHOUT_INFO = 0  # __SZ_WITHOUT_INFO isn't in the C API, will be used for future methods.
 
     # Flags for searching for entities.
 

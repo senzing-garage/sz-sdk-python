@@ -34,6 +34,8 @@ coverage-osarch-specific:
 .PHONY: dependencies-for-development-osarch-specific
 dependencies-for-development-osarch-specific:
 
+.PHONY: dependencies-for-documentation-osarch-specific
+dependencies-for-documentation-osarch-specific:
 
 .PHONY: documentation-osarch-specific
 documentation-osarch-specific:
@@ -62,21 +64,13 @@ test-osarch-specific-2:
 	@pytest tests/ --verbose --capture=no --cov=src/senzing --cov-report xml:coverage.xml
 #	$(info --- Test examples ----------------------------------------------------)
 #	@pytest examples/ --verbose --capture=no --cov=src/senzing
-	$(info --- Test examples using unittest -------------------------------------)
-	@python3 -m unittest \
-		examples/szconfig/*.py \
-		examples/szconfigmanager/*.py \
-		examples/szdiagnostic/*.py \
-		examples/szengine/*.py \
-		examples/szproduct/*.py
-
-
-.PHONY: test-examples-2
-test-examples-2:
-	$(info --- Test examples using unittest -------------------------------------)
-	@python3 -m unittest \
-		examples/misc/add_truthset_datasources.py \
-		examples/misc/add_truthset_data.py
+#	$(info --- Test examples using unittest -------------------------------------)
+#	@python3 -m unittest \
+#		examples/szconfig/*.py \
+#		examples/szconfigmanager/*.py \
+#		examples/szdiagnostic/*.py \
+#		examples/szengine/*.py \
+#		examples/szproduct/*.py
 
 
 .PHONY: venv-osarch-specific

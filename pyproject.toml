@@ -30,6 +30,10 @@ warn_unused_ignores = "false"
 [[tool.mypy.overrides]]
 module = "examples.*"
 
+[[tool.mypy.overrides]]
+module = "pytest_schema.*"
+ignore_missing_imports = "true"
+
 [tool.pylint]
 disable = [
     "duplicate-code",
