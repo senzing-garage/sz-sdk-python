@@ -5,21 +5,18 @@ TODO: szengineflags.py
 """
 
 from enum import IntFlag
-from typing import List, Union
+from typing import Dict, TypeVar
 
-from .szerror import SzError
+TSzEngineFlags = TypeVar("TSzEngineFlags", bound="SzEngineFlags")  # pylint: disable=C0103
 
-try:
-    from typing import Self  # type: ignore[attr-defined,no-redef]
-except ImportError:
-    from typing_extensions import Self  # type: ignore[attr-defined,no-redef]
 
 # Metadata
 
 __all__ = ["SzEngineFlags"]
 __version__ = "0.0.1"  # See https://www.python.org/dev/peps/pep-0396/
 __date__ = "2023-10-30"
-__updated__ = "2024-10-24"
+__updated__ = "2025-01-28"
+
 
 # -----------------------------------------------------------------------------
 # SzEngineFlags class
@@ -30,51 +27,63 @@ class SzEngineFlags(IntFlag):
     """Engine Flags"""
 
     @classmethod
-    def combine_flags(cls, flags: Union[List[Self], List[str]]) -> int:
+    def _members_dict(cls) -> Dict[str, int]:
+        return {member.name: member.value for member in cls if member.name and not member.name.startswith("_")}
+
+    @classmethod
+    def flags_by_name(cls: type[TSzEngineFlags]) -> Dict[str, int]:
         """
-        The `combine_flags` method ORs together all flags in a list of strings.
+        The `flags_by_name` method returns the name of all engine flags and corresponding integer values.
 
         Args:
-            flags (List[str]): A list of strings each representing an engine flag.
+
 
         Returns:
-            int: Value of ORing flags together.
+            dict[str, int]: Dictionary keyed on the flag names.
 
         Raises:
 
-        .. collapse:: Example:
+        .. collapse:: Examples:
 
-            .. literalinclude:: ../../examples/misc/engine_flags_combine_flags.py
+            .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/misc/engine_flags_by_name.py
                 :linenos:
                 :language: python
 
             **Output:**
 
-            .. literalinclude:: ../../examples/misc/engine_flags_combine_flags.txt
+            .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/misc/engine_flags_by_name.txt
                 :linenos:
                 :language: json
         """
-        result = 0
-        try:
-            for flag in flags:
-                if isinstance(flag, str):
-                    result = result | cls[flag.upper()]
-                else:
-                    result = result | flag
-        except (AttributeError, KeyError) as err:
-            raise SzError(f"{err} is not a valid engine flag") from err
-        return result
+        return dict(sorted(cls._members_dict().items()))
 
     @classmethod
-    def get_flag_int(cls, flag: Union[Self, str]) -> int:
-        """TODO:"""
-        try:
-            if isinstance(flag, str):
-                flag = cls[flag.upper()]
-            flag_int = flag.value
-        except (AttributeError, KeyError) as err:
-            raise SzError(f"{err} is not a valid engine flag") from err
-        return flag_int
+    def flags_by_value(cls) -> Dict[int, str]:
+        """
+        The `flags_by_value` method returns the value of all engine flags and corresponding flag names.
+
+        Args:
+
+
+        Returns:
+            dict[int, str]: Dictionary keyed on the flag integer values.
+
+        Raises:
+
+        .. collapse:: Examples:
+
+            .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/misc/engine_flags_by_value.py
+                :linenos:
+                :language: python
+
+            **Output:**
+
+            .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/misc/engine_flags_by_value.txt
+                :linenos:
+                :language: json
+        """
+        flags = {value: name for name, value in cls._members_dict().items()}
+        return dict(sorted(flags.items()))
 
     # Flags for including special data.
 
@@ -148,9 +157,10 @@ class SzEngineFlags(IntFlag):
 
     SZ_SEARCH_INCLUDE_STATS = 1 << 27
 
-    # Flag for returning with info responses.
+    # Flag for returning (or not) with info responses.
 
     SZ_WITH_INFO = 1 << 62
+    _SZ_WITHOUT_INFO = 0  # __SZ_WITHOUT_INFO isn't in the C API, will be used for future methods.
 
     # Flags for searching for entities.
 

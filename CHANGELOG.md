@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.2.2] - 2025-01-28
+
+### Added in 0.2.2
+
+- Simpler class methods for szengineflags to build upon in a future release
+- documentation-requirements.txt 
+
+### Changed in 0.2.2
+
+- Switched Git workflows and make files to pytest
+- Modified Sphinx documentation to pull examples from core and gRPC repositories
+- General documentation updates
+
+### Removed in 0.2.2
+
+- Class methods for szengineflags, only required one moved to sz-python-tools helpers
+- Examples, now referenced in core and gRPC when building docs
+
+### Fixed in 0.2.2
+
+- Fixed error from building Sphinx doc for html_static_path = ["_static"]
+
 ## [0.2.1] - 2025-01-09
 
 ### Changed in 0.2.1
