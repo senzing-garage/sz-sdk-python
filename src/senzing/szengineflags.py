@@ -44,15 +44,15 @@ class SzEngineFlags(IntFlag):
 
         Raises:
 
-        .. collapse:: Example:
+        .. collapse:: Examples:
 
-            .. literalinclude:: ../../examples/misc/engine_flags_combine_flags.py
+            .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/misc/engine_flags_by_name.py
                 :linenos:
                 :language: python
 
             **Output:**
 
-            .. literalinclude:: ../../examples/misc/engine_flags_combine_flags.txt
+            .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/misc/engine_flags_by_name.txt
                 :linenos:
                 :language: json
         """
@@ -71,15 +71,15 @@ class SzEngineFlags(IntFlag):
 
         Raises:
 
-        .. collapse:: Example:
+        .. collapse:: Examples:
 
-            .. literalinclude:: ../../examples/misc/engine_flags_combine_flags.py
+            .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/misc/engine_flags_by_value.py
                 :linenos:
                 :language: python
 
             **Output:**
 
-            .. literalinclude:: ../../examples/misc/engine_flags_combine_flags.txt
+            .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/misc/engine_flags_by_value.txt
                 :linenos:
                 :language: json
         """

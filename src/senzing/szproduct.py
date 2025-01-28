@@ -39,17 +39,31 @@ class SzProduct(ABC):
         Returns:
             str: A JSON document containing Senzing license metadata.
 
-        .. collapse:: Example:
+        .. collapse:: Examples:
 
-            .. literalinclude:: ../../examples/szproduct/get_license.py
-                :linenos:
-                :language: python
+            .. collapse:: Core implementation:
 
-            **Output:**
+                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szproduct/get_license.py
+                    :linenos:
+                    :language: python
 
-            .. literalinclude:: ../../examples/szproduct/get_license.txt
-                :linenos:
-                :language: json
+                **Output:**
+
+                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szproduct/get_license.txt
+                    :linenos:
+                    :language: json
+
+            .. collapse:: gRPC implementation:
+
+                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szproduct/get_license.py
+                    :linenos:
+                    :language: python
+
+                **Output:**
+
+                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szproduct/get_license.txt
+                    :linenos:
+                    :language: json
         """
 
     @abstractmethod
@@ -60,17 +74,31 @@ class SzProduct(ABC):
         Returns:
             str: A JSON document containing metadata about the Senzing Engine version being used.
 
-        .. collapse:: Example:
+        .. collapse:: Examples:
 
-            .. literalinclude:: ../../examples/szproduct/get_version.py
-                :linenos:
-                :language: python
+            .. collapse:: Core implementation:
 
-            **Output:**
+                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szproduct/get_version.py
+                    :linenos:
+                    :language: python
 
-            .. literalinclude:: ../../examples/szproduct/get_version.txt
-                :linenos:
-                :language: json
+                **Output:**
+
+                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szproduct/get_version.txt
+                    :linenos:
+                    :language: json
+
+            .. collapse:: gRPC implementation:
+
+                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szproduct/get_version.py
+                    :linenos:
+                    :language: python
+
+                **Output:**
+
+                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szproduct/get_version.txt
+                    :linenos:
+                    :language: json
         """
 
     # -------------------------------------------------------------------------

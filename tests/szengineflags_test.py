@@ -4,8 +4,6 @@
 TODO: szengineflags_test.py
 """
 
-import json
-
 from pytest_schema import schema
 
 from senzing import SzEngineFlags
@@ -18,15 +16,13 @@ from senzing import SzEngineFlags
 def test_flags_by_name() -> None:
     """Test szengineflags.flags_by_name()."""
     actual = SzEngineFlags.flags_by_name()
-    actual_as_dict = json.loads(actual)
-    assert schema(test_flags_by_name_schema) == actual_as_dict
+    assert schema(test_flags_by_name_schema) == actual
 
 
 def test_flags_by_value() -> None:
     """Test szengineflags.flags_by_value()."""
     actual = SzEngineFlags.flags_by_value()
-    actual_as_dict = json.loads(actual)
-    assert schema(test_flags_by_value_schema) == actual_as_dict
+    assert schema(test_flags_by_value_schema) == actual
 
 
 # -----------------------------------------------------------------------------
@@ -34,4 +30,4 @@ def test_flags_by_value() -> None:
 # -----------------------------------------------------------------------------
 
 test_flags_by_name_schema = {str, int}
-test_flags_by_value_schema = {str, int}
+test_flags_by_value_schema = {int, str}
