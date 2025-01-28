@@ -15,7 +15,7 @@ TSzEngineFlags = TypeVar("TSzEngineFlags", bound="SzEngineFlags")  # pylint: dis
 __all__ = ["SzEngineFlags"]
 __version__ = "0.0.1"  # See https://www.python.org/dev/peps/pep-0396/
 __date__ = "2023-10-30"
-__updated__ = "2024-10-24"
+__updated__ = "2025-01-28"
 
 
 # -----------------------------------------------------------------------------
