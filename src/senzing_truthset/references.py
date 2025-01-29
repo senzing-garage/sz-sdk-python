@@ -1,4 +1,4 @@
-""" TruthSet data for REFERENCES """
+"""TruthSet data for REFERENCES"""
 
 from typing import Any, Dict
 
