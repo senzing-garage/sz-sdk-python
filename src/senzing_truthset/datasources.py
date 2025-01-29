@@ -1,4 +1,4 @@
-""" TruthSet datasources """
+"""TruthSet datasources"""
 
 from typing import Any, Dict
 

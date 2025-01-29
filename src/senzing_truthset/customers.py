@@ -1,4 +1,4 @@
-""" TruthSet data for CUSTOMER """
+"""TruthSet data for CUSTOMER"""
 
 from typing import Any, Dict
 

@@ -1,4 +1,4 @@
-""" TruthSet data for WATCHLIST """
+"""TruthSet data for WATCHLIST"""
 
 from typing import Any, Dict
 
