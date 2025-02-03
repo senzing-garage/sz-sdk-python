@@ -156,6 +156,9 @@ class SzEngineFlags(IntFlag):
     # Flags for including search result feature scores.
 
     SZ_SEARCH_INCLUDE_STATS = 1 << 27
+    SZ_SEARCH_INCLUDE_ALL_CANDIDATES = 1 << 32
+    SZ_SEARCH_INCLUDE_REQUEST = 1 << 37
+    SZ_SEARCH_INCLUDE_REQUEST_DETAILS = 1 << 38
 
     # Flag for returning (or not) with info responses.
 
