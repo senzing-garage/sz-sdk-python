@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 from senzing import SzEngineFlags, SzError
 
-from .setup_senzing import get_sz_abstract_factory
+from setup_senzing import get_sz_abstract_factory
 
 DATA_SOURCE_CODE = "CUSTOMERS"
 FLAGS = SzEngineFlags.SZ_WITH_INFO

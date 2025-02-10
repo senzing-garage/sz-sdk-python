@@ -3,7 +3,7 @@ import time
 
 from senzing import SzError
 
-from .setup_senzing import get_sz_abstract_factory
+from setup_senzing import get_sz_abstract_factory
 
 CONFIG_COMMENT = "Just an example"
 DATA_SOURCE_CODE = f"REPLACE_DEFAULT_CONFIG_ID_{time.time()}"
