@@ -75,6 +75,7 @@ dependencies-for-development: venv dependencies-for-development-osarch-specific
 		python3 -m pip install --upgrade pip; \
 		python3 -m pip install --requirement development-requirements.txt
 
+
 .PHONY: dependencies-for-documentation
 dependencies-for-documentation: venv dependencies-for-documentation-osarch-specific
 	$(activate-venv); \
@@ -115,24 +116,7 @@ lint: pylint mypy bandit black flake8 isort
 # -----------------------------------------------------------------------------
 
 .PHONY: test
-test: test-tests
-
-
-.PHONY: test-tests
-test-tests:
-	$(info --- Unit tests -----------------------------------------------------------------)
-	@$(activate-venv); pytest tests --verbose --capture=no --cov=src/senzing --cov-report xml:coverage.xml
-
-
-# .PHONY: test-examples
-# test-examples:
-# 	$(info --- Test examples --------------------------------------------------------------)
-# 	@$(activate-venv); python3 -m unittest \
-# 		examples/szconfig/*.py \
-# 		examples/szconfigmanager/*.py \
-# 		examples/szdiagnostic/*.py \
-# 		examples/szengine/*.py \
-# 		examples/szproduct/*.py
+test: test-osarch-specific
 
 
 .PHONY: docker-test
@@ -228,7 +212,7 @@ isort:
 mypy:
 	$(info ${\n})
 	$(info --- mypy -----------------------------------------------------------------------)
-	@$(activate-venv); mypy --strict $(shell git ls-files '*.py' ':!:docs/source/*' ':!:examples/*')
+	@$(activate-venv); mypy --strict $(shell git ls-files '*.py' ':!:docs/source/*')
 
 
 .PHONY: pydoc

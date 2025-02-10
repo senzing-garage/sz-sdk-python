@@ -4,6 +4,7 @@
 # Variables
 # -----------------------------------------------------------------------------
 
+SENZING_TOOLS_DATABASE_URL ?= sqlite3://na:na@nowhere/C:\Temp\sqlite\G2C.db
 
 # -----------------------------------------------------------------------------
 # OS specific targets
@@ -24,10 +25,17 @@ clean-osarch-specific:
 
 
 .PHONY: coverage-osarch-specific
+coverage-osarch-specific: export SENZING_LOG_LEVEL=TRACE
 coverage-osarch-specific:
 	@pytest --cov=src --cov-report=xml  $(shell git ls-files '*.py')
 	@coverage html
 	@explorer $(MAKEFILE_DIRECTORY)/htmlcov/index.html
+
+
+.PHONY: dependencies-osarch-specific
+dependencies-osarch-specific:
+	python3 -m pip install --upgrade pip
+	pip install psutil pytest pytest-cov pytest-schema
 
 
 .PHONY: documentation-osarch-specific
@@ -48,7 +56,16 @@ package-osarch-specific:
 
 .PHONY: setup-osarch-specific
 setup-osarch-specific:
-	$(info No setup required.)
+	@mkdir C:\Temp\sqlite
+	@type nul > C:\Temp\sqlite\G2C.db
+
+
+.PHONY: test-osarch-specific
+test-osarch-specific:
+	$(info --- Unit tests -------------------------------------------------------)
+	@pytest tests/ --verbose --capture=no --cov=src/senzing_core
+	$(info --- Test examples ----------------------------------------------------)
+	@pytest examples/ --verbose --capture=no --cov=src/senzing_core
 
 
 .PHONY: venv-osarch-specific

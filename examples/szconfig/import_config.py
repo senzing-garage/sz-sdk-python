@@ -1,0 +1,14 @@
+#! /usr/bin/env python3
+from senzing import SzError
+
+from .setup_senzing import get_sz_abstract_factory
+
+try:
+    sz_abstract_factory = get_sz_abstract_factory()
+    sz_config = sz_abstract_factory.create_config()
+    sz_configmanager = sz_abstract_factory.create_configmanager()
+    config_id = sz_configmanager.get_default_config_id()
+    CONFIG_DEFINITION = sz_configmanager.get_config(config_id)
+    config_handle = sz_config.import_config(CONFIG_DEFINITION)
+except SzError as err:
+    print(f"\nERROR: {err}\n")
