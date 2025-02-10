@@ -21,6 +21,7 @@ from .szerror import (
     SzBadInputError,
     SzConfigurationError,
     SzDatabaseConnectionLostError,
+    SzDatabaseTransientError,
     SzDatabaseError,
     SzError,
     SzLicenseError,
@@ -32,6 +33,7 @@ from .szerror import (
     SzUnhandledError,
     SzUnknownDataSourceError,
     SzUnrecoverableError,
+    SzSdkError
 )
 from .szproduct import SzProduct
 
@@ -53,6 +55,7 @@ __all__ = [
     "SzConfigManager",
     "SzConfigurationError",
     "SzDatabaseConnectionLostError",
+    "SzDatabaseTransientError",
     "SzDatabaseError",
     "SzDiagnostic",
     "SzEngine",
@@ -65,6 +68,7 @@ __all__ = [
     "SzReplaceConflictError",
     "SzRetryableError",
     "SzRetryTimeoutExceededError",
+    "SzSdkError",
     "SzUnhandledError",
     "SzUnknownDataSourceError",
     "SzUnrecoverableError",
