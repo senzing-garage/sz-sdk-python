@@ -30,10 +30,10 @@ from .szerror import (
     SzReplaceConflictError,
     SzRetryableError,
     SzRetryTimeoutExceededError,
+    SzSdkError,
     SzUnhandledError,
     SzUnknownDataSourceError,
     SzUnrecoverableError,
-    SzSdkError
 )
 from .szproduct import SzProduct
 
