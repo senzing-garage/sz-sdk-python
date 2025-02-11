@@ -40,12 +40,12 @@ class SzAbstractFactory(ABC):
     @abstractmethod
     def create_config(self) -> SzConfig:
         """
-        The `create_config` method creates a new implementation of an `SzConfigAbstract` object.
+        The `create_config` method creates a new implementation of an `SzConfig` object.
 
         Args:
 
         Returns:
-            SzConfigAbstract: A new implementation.
+            senzing.SzConfig: A new implementation.
 
         Raises:
 
@@ -65,12 +65,12 @@ class SzAbstractFactory(ABC):
     @abstractmethod
     def create_configmanager(self) -> SzConfigManager:
         """
-        The `create_configmanager` method creates a new implementation of an `SzConfigManagerAbstract` object.
+        The `create_configmanager` method creates a new implementation of an `SzConfigManager` object.
 
         Args:
 
         Returns:
-            SzConfigManagerAbstract: A new implementation.
+            senzing.SzConfigManager: A new implementation.
 
         Raises:
 
@@ -90,12 +90,12 @@ class SzAbstractFactory(ABC):
     @abstractmethod
     def create_diagnostic(self) -> SzDiagnostic:
         """
-        The `create_diagnostic` method creates a new implementation of an `SzDiagnosticAbstract` object.
+        The `create_diagnostic` method creates a new implementation of an `SzDiagnostic` object.
 
         Args:
 
         Returns:
-            SzDiagnosticAbstract: A new implementation.
+            senzing.SzDiagnostic: A new implementation.
 
         Raises:
 
@@ -115,12 +115,12 @@ class SzAbstractFactory(ABC):
     @abstractmethod
     def create_engine(self) -> SzEngine:
         """
-        The `create_engine` method creates a new implementation of an `SzEngineAbstract` object.
+        The `create_engine` method creates a new implementation of an `SzEngine` object.
 
         Args:
 
         Returns:
-            SzEngineAbstract: A new implementation.
+            senzing.SzEngine: A new implementation.
 
         Raises:
 
@@ -140,12 +140,12 @@ class SzAbstractFactory(ABC):
     @abstractmethod
     def create_product(self) -> SzProduct:
         """
-        The `create_product` method creates a new implementation of an `SzProductAbstract` object.
+        The `create_product` method creates a new implementation of an `SzProduct` object.
 
         Args:
 
         Returns:
-            SzProductAbstract: A new implementation.
+            senzing.SzProduct: A new implementation.
 
         Raises:
 
