@@ -1,15 +1,11 @@
 #! /usr/bin/env python3
-
-from senzing_xxxx import SzAbstractFactory, SzAbstractFactoryParameters, SzError
-
+from senzing import SzError
 from senzing_truthset import TRUTHSET_DATASOURCES
 
-FACTORY_PARAMETERS: SzAbstractFactoryParameters = {
-    # Differs based on which senzing_xxxx package is used.
-}
+from . import get_sz_abstract_factory
 
 try:
-    sz_abstract_factory = SzAbstractFactory(**FACTORY_PARAMETERS)
+    sz_abstract_factory = get_sz_abstract_factory()
     sz_config = sz_abstract_factory.create_config()
     sz_configmanager = sz_abstract_factory.create_configmanager()
     sz_diagnostic = sz_abstract_factory.create_diagnostic()

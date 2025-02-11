@@ -3,7 +3,7 @@ from typing import List, Tuple
 
 from senzing import SzEngineFlags, SzError
 
-from setup_senzing import get_sz_abstract_factory
+from . import get_sz_abstract_factory
 
 AVOID_RECORD_KEYS: List[Tuple[str, str]] = []
 END_DATA_SOURCE_CODE = "CUSTOMERS"

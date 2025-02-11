@@ -2,6 +2,8 @@
 
 from senzing_core import SzAbstractFactoryCore
 
+from senzing import SzAbstractFactory
+
 INSTANCE_NAME = "Example"
 SETTINGS = {
     "PIPELINE": {
@@ -13,5 +15,6 @@ SETTINGS = {
 }
 
 
-def get_sz_abstract_factory():
+def get_sz_abstract_factory() -> SzAbstractFactory:
+    """Example AbstractFactory"""
     return SzAbstractFactoryCore(INSTANCE_NAME, SETTINGS)

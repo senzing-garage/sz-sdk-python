@@ -3,7 +3,7 @@ import json
 
 from senzing import SzEngineFlags, SzError
 
-from setup_senzing import get_sz_abstract_factory
+from . import get_sz_abstract_factory
 
 ATTRIBUTES = json.dumps({"NAME_FULL": "BOB SMITH", "EMAIL_ADDRESS": "bsmith@work.com"})
 FLAGS = SzEngineFlags.SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS

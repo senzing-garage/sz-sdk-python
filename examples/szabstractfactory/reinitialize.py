@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 from senzing import SzError
 
-from setup_senzing import get_sz_abstract_factory
+from . import get_sz_abstract_factory
 
 try:
     # Using get_active_config_id for demonstrations purposes.

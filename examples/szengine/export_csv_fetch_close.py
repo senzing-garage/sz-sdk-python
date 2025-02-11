@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 from senzing import SzEngineFlags, SzError
 
-from setup_senzing import get_sz_abstract_factory
+from . import get_sz_abstract_factory
 
 CSV_COLUMN_LIST = (
     "RESOLVED_ENTITY_ID,RELATED_ENTITY_ID,RESOLVED_ENTITY_NAME,MATCH_LEVEL,MATCH_KEY,DATA_SOURCE,RECORD_ID"

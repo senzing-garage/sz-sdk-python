@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 from senzing import SzError
 
-from setup_senzing import get_sz_abstract_factory
+from . import get_sz_abstract_factory
 
 CONFIG_COMMENT = "Just an empty example"
 try:

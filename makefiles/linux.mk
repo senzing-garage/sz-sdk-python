@@ -69,7 +69,8 @@ test-osarch-specific:
 	$(info --- Unit tests -------------------------------------------------------)
 	@$(activate-venv); pytest tests/ --verbose --capture=no --cov=src --cov-report xml:coverage.xml
 	$(info --- Test examples using pytest -------------------------------------)
-	@$(activate-venv); pytest examples/szconfig/ \
+	@$(activate-venv); pytest \
+		examples/szconfig/ \
 		examples/szconfigmanager/ \
 		examples/szdiagnostic/ \
 		examples/szengine/ \
