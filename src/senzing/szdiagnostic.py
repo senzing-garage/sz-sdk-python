@@ -44,31 +44,17 @@ class SzDiagnostic(ABC):
             TypeError: Incorrect datatype of input parameter.
             szexception.SzError:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szdiagnostic/check_datastore_performance.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szdiagnostic/check_datastore_performance.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szdiagnostic/check_datastore_performance.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szdiagnostic/check_datastore_performance.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szdiagnostic/check_datastore_performance.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szdiagnostic/check_datastore_performance.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -80,31 +66,17 @@ class SzDiagnostic(ABC):
         Raises:
             szexception.SzError:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szdiagnostic/get_datastore_info.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szdiagnostic/get_datastore_info.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szdiagnostic/get_datastore_info.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szdiagnostic/get_datastore_info.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szdiagnostic/get_datastore_info.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szdiagnostic/get_datastore_info.txt
+                :linenos:
+                :language: json
         """
 
     # NOTE This is included but not to be documented
@@ -133,31 +105,11 @@ class SzDiagnostic(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szdiagnostic/purge_repository.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szdiagnostic/purge_repository.txt
-                    :linenos:
-                    :language: none
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szdiagnostic/purge_repository.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szdiagnostic/purge_repository.txt
-                    :linenos:
-                    :language: none
+            .. literalinclude:: ../../examples/szdiagnostic/purge_repository.py
+                :linenos:
+                :language: python
         """
 
     # -------------------------------------------------------------------------

@@ -47,31 +47,17 @@ class SzConfig(ABC):
         Raises:
             TypeError: Incorrect datatype of input parameter.
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szconfig/add_data_source.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szconfig/add_data_source.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szconfig/add_data_source.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szconfig/add_data_source.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szconfig/add_data_source.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szconfig/add_data_source.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -85,31 +71,11 @@ class SzConfig(ABC):
         Raises:
             TypeError: Incorrect datatype of input parameter.
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szconfig/create_and_close.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szconfig/create_and_close.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szconfig/create_and_close.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szconfig/create_and_close.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szconfig/create_and_close.py
+                :linenos:
+                :language: python
         """
 
     @abstractmethod
@@ -129,31 +95,11 @@ class SzConfig(ABC):
         Raises:
             TypeError: Incorrect datatype of input parameter.
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szconfig/create_and_close.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szconfig/create_and_close.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szconfig/create_and_close.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szconfig/create_and_close.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szconfig/create_and_close.py
+                :linenos:
+                :language: python
         """
 
     @abstractmethod
@@ -168,31 +114,11 @@ class SzConfig(ABC):
         Raises:
             TypeError: Incorrect datatype of input parameter.
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szconfig/delete_data_source.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szconfig/delete_data_source.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szconfig/delete_data_source.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szconfig/delete_data_source.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szconfig/delete_data_source.py
+                :linenos:
+                :language: python
         """
 
     @abstractmethod
@@ -209,31 +135,23 @@ class SzConfig(ABC):
         Raises:
             TypeError: Incorrect datatype of input parameter.
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szconfig/export_config.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szconfig/export_config.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
+            .. literalinclude:: ../../examples/szconfig/export_config.txt
+                :linenos:
+                :language: json
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szconfig/export_config.txt
-                    :linenos:
-                    :language: json
+            **Create, export, import, and close example**
 
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szconfig/export_config.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szconfig/export_config.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szconfig/create_export_import_close.py
+                :linenos:
+                :language: python
         """
 
     @abstractmethod
@@ -251,31 +169,17 @@ class SzConfig(ABC):
         Raises:
             TypeError: Incorrect datatype of input parameter.
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szconfig/get_data_sources.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szconfig/get_data_sources.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szconfig/get_data_sources.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szconfig/get_data_sources.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szconfig/get_data_sources.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szconfig/get_data_sources.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -296,31 +200,17 @@ class SzConfig(ABC):
         Raises:
             TypeError: Incorrect datatype of input parameter.
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szconfig/import_config.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szconfig/import_config.py
-                    :linenos:
-                    :language: python
+            **Create, save, load, and close**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szconfig/import_config.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szconfig/import_config.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szconfig/import_config.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szconfig/create_export_import_close.py
+                :linenos:
+                :language: python
         """
 
     # -------------------------------------------------------------------------

@@ -33,6 +33,7 @@ html_static_path = ["_static"]
 
 sys.path.insert(0, os.path.abspath("../../src"))
 
+
 extensions = [
     "autodocsumm",  # to generate tables of functions, attributes, methods, etc.
     "sphinx_toolbox.collapse",  # support collapsable sections
