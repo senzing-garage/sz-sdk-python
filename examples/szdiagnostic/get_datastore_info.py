@@ -3,8 +3,8 @@ from senzing import SzError
 
 from . import get_sz_diagnostic
 
+sz_diagnostic = get_sz_diagnostic()
 try:
-    sz_diagnostic = get_sz_diagnostic()
     RESULT = sz_diagnostic.get_datastore_info()
     print(f"\n{RESULT}\n")
 except SzError as err:

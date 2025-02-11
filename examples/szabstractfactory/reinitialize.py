@@ -3,9 +3,9 @@ from senzing import SzError
 
 from . import get_sz_abstract_factory
 
+sz_abstract_factory = get_sz_abstract_factory()
 try:
     # Using get_active_config_id for demonstrations purposes.
-    sz_abstract_factory = get_sz_abstract_factory()
     sz_engine = sz_abstract_factory.create_engine()
     config_id = sz_engine.get_active_config_id()
     sz_abstract_factory.reinitialize(config_id)

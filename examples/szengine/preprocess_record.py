@@ -5,6 +5,7 @@ from senzing import SzEngineFlags, SzError
 
 from . import get_sz_engine
 
+sz_engine = get_sz_engine()
 FLAGS = SzEngineFlags.SZ_RECORD_DEFAULT_FLAGS
 RECORD_DEFINITION = json.dumps(
     {
@@ -23,7 +24,6 @@ RECORD_DEFINITION = json.dumps(
     }
 )
 try:
-    sz_engine = get_sz_engine()
     RESULT = sz_engine.preprocess_record(RECORD_DEFINITION, FLAGS)
     print(f"\n{RESULT}\n")
 except SzError as err:

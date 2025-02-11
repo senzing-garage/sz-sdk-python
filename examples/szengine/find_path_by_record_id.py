@@ -5,6 +5,7 @@ from senzing import SzEngineFlags, SzError
 
 from . import get_sz_engine
 
+sz_engine = get_sz_engine()
 AVOID_RECORD_KEYS: List[Tuple[str, str]] = []
 END_DATA_SOURCE_CODE = "CUSTOMERS"
 END_RECORD_ID = "1009"
@@ -14,7 +15,6 @@ REQUIRED_DATA_SOURCES: List[str] = []
 START_DATA_SOURCE_CODE = "CUSTOMERS"
 START_RECORD_ID = "1001"
 try:
-    sz_engine = get_sz_engine()
     RESULT = sz_engine.find_path_by_record_id(
         START_DATA_SOURCE_CODE,
         START_RECORD_ID,

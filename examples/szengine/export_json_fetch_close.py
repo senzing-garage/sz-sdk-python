@@ -3,9 +3,9 @@ from senzing import SzEngineFlags, SzError
 
 from . import get_sz_engine
 
+sz_engine = get_sz_engine()
 FLAGS = SzEngineFlags.SZ_EXPORT_DEFAULT_FLAGS
 try:
-    sz_engine = get_sz_engine()
     export_handle = sz_engine.export_json_entity_report(FLAGS)
     while True:
         fragment = sz_engine.fetch_next(export_handle)

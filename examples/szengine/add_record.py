@@ -5,6 +5,7 @@ from senzing import SzEngineFlags, SzError
 
 from . import get_sz_engine
 
+sz_engine = get_sz_engine()
 DATA_SOURCE_CODE = "TEST"
 FLAGS = SzEngineFlags.SZ_WITH_INFO
 RECORD_DEFINITION = json.dumps(
@@ -25,7 +26,6 @@ RECORD_DEFINITION = json.dumps(
 )
 RECORD_ID = "1"
 try:
-    sz_engine = get_sz_engine()
     RESULT = sz_engine.add_record(DATA_SOURCE_CODE, RECORD_ID, RECORD_DEFINITION, FLAGS)
     print(f"\n{RESULT}\n")
 except SzError as err:
