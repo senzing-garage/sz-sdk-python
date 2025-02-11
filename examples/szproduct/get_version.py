@@ -1,11 +1,10 @@
 #! /usr/bin/env python3
 from senzing import SzError
 
-from . import get_sz_abstract_factory
+from . import get_sz_product
 
 try:
-    sz_abstract_factory = get_sz_abstract_factory()
-    sz_product = sz_abstract_factory.create_product()
+    sz_product = get_sz_product()
     RESULT = sz_product.get_version()
     print(f"\n{RESULT}\n")
 except SzError as err:

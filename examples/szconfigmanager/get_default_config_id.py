@@ -1,11 +1,10 @@
 #! /usr/bin/env python3
 from senzing import SzError
 
-from . import get_sz_abstract_factory
+from . import get_sz_configmanager
 
 try:
-    sz_abstract_factory = get_sz_abstract_factory()
-    sz_configmanager = sz_abstract_factory.create_configmanager()
+    sz_configmanager = get_sz_configmanager()
     CONFIG_ID = sz_configmanager.get_default_config_id()
     print(f"\n{CONFIG_ID}\n")
 except SzError as err:

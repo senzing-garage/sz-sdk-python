@@ -1,11 +1,10 @@
 #! /usr/bin/env python3
 from senzing import SzError
 
-from . import get_sz_abstract_factory
+from . import get_sz_engine
 
 try:
-    sz_abstract_factory = get_sz_abstract_factory()
-    sz_engine = sz_abstract_factory.create_engine()
+    sz_engine = get_sz_engine()
     RESULT = sz_engine.get_redo_record()
     print(f"\n{RESULT}\n")
 except SzError as err:

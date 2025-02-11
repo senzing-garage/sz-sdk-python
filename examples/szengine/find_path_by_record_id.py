@@ -3,7 +3,7 @@ from typing import List, Tuple
 
 from senzing import SzEngineFlags, SzError
 
-from . import get_sz_abstract_factory
+from . import get_sz_engine
 
 AVOID_RECORD_KEYS: List[Tuple[str, str]] = []
 END_DATA_SOURCE_CODE = "CUSTOMERS"
@@ -14,8 +14,7 @@ REQUIRED_DATA_SOURCES: List[str] = []
 START_DATA_SOURCE_CODE = "CUSTOMERS"
 START_RECORD_ID = "1001"
 try:
-    sz_abstract_factory = get_sz_abstract_factory()
-    sz_engine = sz_abstract_factory.create_engine()
+    sz_engine = get_sz_engine()
     RESULT = sz_engine.find_path_by_record_id(
         START_DATA_SOURCE_CODE,
         START_RECORD_ID,

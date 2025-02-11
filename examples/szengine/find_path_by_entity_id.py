@@ -3,7 +3,7 @@ from typing import List
 
 from senzing import SzEngineFlags, SzError
 
-from . import get_sz_abstract_factory
+from . import get_sz_engine
 
 AVOID_ENTITY_IDS: List[int] = []
 END_ENTITY_ID = 4
@@ -12,8 +12,7 @@ MAX_DEGREES = 2
 REQUIRED_DATA_SOURCES: List[str] = []
 START_ENTITY_ID = 1
 try:
-    sz_abstract_factory = get_sz_abstract_factory()
-    sz_engine = sz_abstract_factory.create_engine()
+    sz_engine = get_sz_engine()
     RESULT = sz_engine.find_path_by_entity_id(
         START_ENTITY_ID,
         END_ENTITY_ID,
