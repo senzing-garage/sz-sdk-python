@@ -5,9 +5,9 @@ from . import get_sz_engine
 sz_engine = get_sz_engine()
 try:
     DATA_SOURCE_CODE = "CUSTOMERS"
-    FLAGS = SzEngineFlags.SZ_WITH_INFO
+    flags = SzEngineFlags.SZ_WITH_INFO
     RECORD_ID = "1001"
-    RESULT = sz_engine.reevaluate_record(DATA_SOURCE_CODE, RECORD_ID, FLAGS)
-    print(f"\n{RESULT}\n")
+    result = sz_engine.reevaluate_record(DATA_SOURCE_CODE, RECORD_ID, flags)
+    print(f"\n{result}\n")
 except SzError as err:
     print(f"\nERROR: {err}\n")

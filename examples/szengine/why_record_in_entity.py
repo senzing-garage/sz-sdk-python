@@ -5,13 +5,13 @@ from . import get_sz_engine
 sz_engine = get_sz_engine()
 try:
     DATA_SOURCE_CODE = "CUSTOMERS"
-    FLAGS = SzEngineFlags.SZ_WHY_RECORDS_DEFAULT_FLAGS
+    flags = SzEngineFlags.SZ_WHY_RECORDS_DEFAULT_FLAGS
     RECORD_ID = "1001"
-    RESULT = sz_engine.why_record_in_entity(
+    result = sz_engine.why_record_in_entity(
         DATA_SOURCE_CODE,
         RECORD_ID,
-        FLAGS,
+        flags,
     )
-    print(f"\n{RESULT}\n")
+    print(f"\n{result}\n")
 except SzError as err:
     print(f"\nERROR: {err}\n")
