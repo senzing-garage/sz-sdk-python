@@ -1,4 +1,3 @@
-#! /usr/bin/env python3
 from senzing import SzError
 from senzing_truthset import TRUTHSET_DATASOURCES
 

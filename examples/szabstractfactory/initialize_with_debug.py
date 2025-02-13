@@ -1,4 +1,3 @@
-#! /usr/bin/env python3
 from senzing_core import SzAbstractFactoryCore
 
 from senzing import SzError

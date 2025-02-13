@@ -1,4 +1,3 @@
-#! /usr/bin/env python3
 from senzing import SzError
 
 from . import get_sz_config

@@ -1,4 +1,3 @@
-#! /usr/bin/env python3
 from senzing import SZ_WITHOUT_INFO, SzError
 from senzing_truthset import (
     TRUTHSET_CUSTOMER_RECORDS,
