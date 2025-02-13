@@ -1,8 +1,7 @@
 from senzing import SzEngineFlags, SzError
 
-from . import get_sz_engine
+from . import sz_engine
 
-sz_engine = get_sz_engine()
 try:
     CSV_COLUMN_LIST = (
         "RESOLVED_ENTITY_ID,RELATED_ENTITY_ID,RESOLVED_ENTITY_NAME,MATCH_LEVEL,MATCH_KEY,DATA_SOURCE,RECORD_ID"

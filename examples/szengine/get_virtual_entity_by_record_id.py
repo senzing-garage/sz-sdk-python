@@ -1,8 +1,7 @@
 from senzing import SzEngineFlags, SzError
 
-from . import get_sz_engine
+from . import sz_engine
 
-sz_engine = get_sz_engine()
 try:
     flags = SzEngineFlags.SZ_VIRTUAL_ENTITY_DEFAULT_FLAGS
     record_list = [

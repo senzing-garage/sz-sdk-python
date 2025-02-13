@@ -1,8 +1,7 @@
 from senzing import SzError
 
-from . import get_sz_configmanager
+from . import sz_configmanager
 
-sz_configmanager = get_sz_configmanager()
 try:
     config_id = sz_configmanager.get_default_config_id()
     config_definition = sz_configmanager.get_config(config_id)

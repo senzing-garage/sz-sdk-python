@@ -1,8 +1,7 @@
 from senzing import SzEngineFlags, SzError
 
-from . import get_sz_engine
+from . import sz_engine
 
-sz_engine = get_sz_engine()
 try:
     DATA_SOURCE_CODE_1 = "CUSTOMERS"
     DATA_SOURCE_CODE_2 = "CUSTOMERS"

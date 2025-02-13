@@ -76,7 +76,9 @@ jobs:
         run: |
           source ./venv/bin/activate
           set +e
-          pytest examples/szconfig/ \
+          pytest \
+            examples/szabstractfactory/ \
+            examples/szconfig/ \
             examples/szconfigmanager/ \
             examples/szdiagnostic/ \
             examples/szengine/ \

@@ -2,9 +2,8 @@ from typing import List, Tuple
 
 from senzing import SzEngineFlags, SzError
 
-from . import get_sz_engine
+from . import sz_engine
 
-sz_engine = get_sz_engine()
 try:
     avoid_record_keys: List[Tuple[str, str]] = []
     END_DATA_SOURCE_CODE = "CUSTOMERS"

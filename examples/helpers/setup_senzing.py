@@ -22,7 +22,13 @@ SETTINGS = {
 
 def get_sz_abstract_factory() -> SzAbstractFactory:
     """Example AbstractFactory"""
-    return SzAbstractFactoryCore(INSTANCE_NAME, SETTINGS)
+
+    try:
+        result = SzAbstractFactoryCore(INSTANCE_NAME, SETTINGS)
+    except Exception as err:
+        print(f"\nERROR: {err}\n")
+
+    return result
 
 
 def get_sz_config() -> SzConfig:
@@ -53,3 +59,11 @@ def get_sz_product() -> SzProduct:
     """Example Product"""
     sz_abstract_factory = get_sz_abstract_factory()
     return sz_abstract_factory.create_product()
+
+
+sz_abstract_factory = get_sz_abstract_factory()
+sz_config = get_sz_config()
+sz_configmanager = get_sz_configmanager()
+sz_diagnostic = get_sz_diagnostic()
+sz_engine = get_sz_engine()
+sz_product = get_sz_product()

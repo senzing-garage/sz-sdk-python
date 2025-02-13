@@ -1,8 +1,7 @@
 from senzing import SzError
 
-from . import get_sz_diagnostic
+from . import sz_diagnostic
 
-sz_diagnostic = get_sz_diagnostic()
 try:
     result = sz_diagnostic.get_datastore_info()
     print(f"\n{result}\n")

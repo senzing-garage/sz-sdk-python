@@ -1,8 +1,7 @@
 from senzing import SzEngineFlags, SzError
 
-from . import get_sz_engine
+from . import sz_engine
 
-sz_engine = get_sz_engine()
 try:
     BUILD_OUT_DEGREES = 1
     flags = SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS

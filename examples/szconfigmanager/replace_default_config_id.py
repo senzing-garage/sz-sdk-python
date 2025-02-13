@@ -2,9 +2,8 @@ import time
 
 from senzing import SzError
 
-from . import get_sz_abstract_factory
+from . import sz_abstract_factory
 
-sz_abstract_factory = get_sz_abstract_factory()
 try:
     CONFIG_COMMENT = "Just an example"
     data_source_code = f"REPLACE_DEFAULT_CONFIG_ID_{time.time()}"

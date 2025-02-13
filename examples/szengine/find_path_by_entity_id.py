@@ -2,9 +2,8 @@ from typing import List
 
 from senzing import SzEngineFlags, SzError
 
-from . import get_sz_engine
+from . import sz_engine
 
-sz_engine = get_sz_engine()
 try:
     avoid_entity_ids: List[int] = []
     END_ENTITY_ID = 4

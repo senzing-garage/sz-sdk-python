@@ -1,8 +1,7 @@
 from senzing import SzError
 
-from . import get_sz_config
+from . import sz_config
 
-sz_config = get_sz_config()
 try:
     config_handle = sz_config.create_config()  # Create first in-memory.
     config_definition = sz_config.export_config(config_handle)  # Save in-memory to string.

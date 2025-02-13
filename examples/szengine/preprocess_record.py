@@ -2,9 +2,8 @@ import json
 
 from senzing import SzEngineFlags, SzError
 
-from . import get_sz_engine
+from . import sz_engine
 
-sz_engine = get_sz_engine()
 try:
     flags = SzEngineFlags.SZ_RECORD_DEFAULT_FLAGS
     record_definition = json.dumps(

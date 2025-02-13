@@ -1,8 +1,7 @@
 from senzing import SzError
 
-from . import get_sz_config
+from . import sz_config
 
-sz_config = get_sz_config()
 try:
     DATA_SOURCE_CODE = "NAME_OF_DATASOURCE"
     config_handle = sz_config.create_config()
