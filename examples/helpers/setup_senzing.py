@@ -23,12 +23,10 @@ SETTINGS = {
 
 def get_sz_abstract_factory() -> SzAbstractFactory:
     """Example AbstractFactory"""
-
     try:
         result = SzAbstractFactoryCore(INSTANCE_NAME, SETTINGS)
     except SzError as err:
         print(f"\nERROR: {err}\n")
-
     return result
 
 
