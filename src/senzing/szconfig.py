@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 """
-szconfig.py is the abstract class for all implementations of szconfig.
+szconfig.py is the abstract class for all implementations of SzConfig.
 """
 
 # TODO: Determine specific SzErrors, Errors for "Raises:" documentation.

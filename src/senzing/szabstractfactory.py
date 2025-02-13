@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 """
-szabstractfactory_abstract.py is the abstract class for all implementations of szabstractfactory.
+szabstractfactory.py is the abstract class for all implementations of SzAbstractFactory.
 """
 
 
@@ -45,7 +45,7 @@ class SzAbstractFactory(ABC):
         Args:
 
         Returns:
-            senzing.SzConfig: A new implementation.
+            SzConfig: A new implementation.
 
         Raises:
 
@@ -70,7 +70,7 @@ class SzAbstractFactory(ABC):
         Args:
 
         Returns:
-            senzing.SzConfigManager: A new implementation.
+            SzConfigManager: A new implementation.
 
         Raises:
 
@@ -95,7 +95,7 @@ class SzAbstractFactory(ABC):
         Args:
 
         Returns:
-            senzing.SzDiagnostic: A new implementation.
+            SzDiagnostic: A new implementation.
 
         Raises:
 
@@ -120,7 +120,7 @@ class SzAbstractFactory(ABC):
         Args:
 
         Returns:
-            senzing.SzEngine: A new implementation.
+            SzEngine: A new implementation.
 
         Raises:
 
@@ -145,7 +145,7 @@ class SzAbstractFactory(ABC):
         Args:
 
         Returns:
-            senzing.SzProduct: A new implementation.
+            SzProduct: A new implementation.
 
         Raises:
 

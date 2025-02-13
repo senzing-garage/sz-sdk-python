@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 """
-TODO: szengine.py
+szengine.py is the abstract class for all implementations of SzEngine.
 """
 
 # pylint: disable=C0302

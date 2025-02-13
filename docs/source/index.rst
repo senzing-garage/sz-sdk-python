@@ -32,18 +32,22 @@ Information for these SDKs can be found at `docs.senzing.com`_.
    :maxdepth: 2
    :caption: Contents:
 
-   modules
+   senzing
 
+References
+==========
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+#. :ref:`genindex`
+#. :ref:`modindex`
+#. :ref:`search`
+#. `GitHub`_
+#. `Pypi`_
+#. `senzing-core`_
+#. `senzing-grpc`_
 
 .. _docs.senzing.com: https://www.senzing.com/docs
-.. _senzing: https://github.com/senzing-garage/sz-sdk-python
+.. _GitHub: https://github.com/senzing-garage/sz-sdk-python/tree/main/examples
+.. _Pypi: https://pypi.org/project/senzing/
 .. _senzing-core: https://garage.senzing.com/sz-sdk-python-core
 .. _senzing-grpc: https://garage.senzing.com/sz-sdk-python-grpc
+.. _senzing: https://github.com/senzing-garage/sz-sdk-python

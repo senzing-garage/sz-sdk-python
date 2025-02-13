@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 """
-TODO: szdiagnostic.py
+szdiagnostic.py is the abstract class for all implementations of SzDiagnostic.
 """
 
 from abc import ABC, abstractmethod
