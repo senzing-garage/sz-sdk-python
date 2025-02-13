@@ -70,14 +70,14 @@ test-osarch-specific:
 	@$(activate-venv); pytest tests/ --verbose --capture=no --cov=src --cov-report xml:coverage.xml
 	$(info --- Test examples using pytest -------------------------------------)
 	@$(activate-venv); pytest \
+		examples/misc/ \
+		examples/extras/ \
 		examples/szabstractfactory/ \
 		examples/szconfig/ \
 		examples/szconfigmanager/ \
 		examples/szdiagnostic/ \
 		examples/szengine/ \
 		examples/szproduct/ \
-		examples/extras/ \
-		examples/misc/ \
 		--capture=no \
 		-o python_files=*.py \
 		--verbose; \

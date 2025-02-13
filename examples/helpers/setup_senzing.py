@@ -6,6 +6,7 @@ from senzing import (
     SzConfigManager,
     SzDiagnostic,
     SzEngine,
+    SzError,
     SzProduct,
 )
 
@@ -25,7 +26,7 @@ def get_sz_abstract_factory() -> SzAbstractFactory:
 
     try:
         result = SzAbstractFactoryCore(INSTANCE_NAME, SETTINGS)
-    except Exception as err:
+    except SzError as err:
         print(f"\nERROR: {err}\n")
 
     return result
@@ -33,32 +34,27 @@ def get_sz_abstract_factory() -> SzAbstractFactory:
 
 def get_sz_config() -> SzConfig:
     """Example Config"""
-    sz_abstract_factory = get_sz_abstract_factory()
-    return sz_abstract_factory.create_config()
+    return get_sz_abstract_factory().create_config()
 
 
 def get_sz_configmanager() -> SzConfigManager:
     """Example ConfigManager"""
-    sz_abstract_factory = get_sz_abstract_factory()
-    return sz_abstract_factory.create_configmanager()
+    return get_sz_abstract_factory().create_configmanager()
 
 
 def get_sz_diagnostic() -> SzDiagnostic:
     """Example Diagnostic"""
-    sz_abstract_factory = get_sz_abstract_factory()
-    return sz_abstract_factory.create_diagnostic()
+    return get_sz_abstract_factory().create_diagnostic()
 
 
 def get_sz_engine() -> SzEngine:
     """Example Engine"""
-    sz_abstract_factory = get_sz_abstract_factory()
-    return sz_abstract_factory.create_engine()
+    return get_sz_abstract_factory().create_engine()
 
 
 def get_sz_product() -> SzProduct:
     """Example Product"""
-    sz_abstract_factory = get_sz_abstract_factory()
-    return sz_abstract_factory.create_product()
+    return get_sz_abstract_factory().create_product()
 
 
 sz_abstract_factory = get_sz_abstract_factory()

@@ -32,23 +32,6 @@ TEST_RECORDS: List[Tuple[str, str]] = [
 # -----------------------------------------------------------------------------
 
 
-def add_data_sources(sz_abstract_factory_local: SzAbstractFactory, data_sources: List[str]) -> None:
-    """Add all of the records in the list."""
-
-    sz_configmanager = sz_abstract_factory_local.create_configmanager()
-    sz_config = sz_abstract_factory_local.create_config()
-    default_config_id = sz_configmanager.get_default_config_id()
-    old_config_definition = sz_configmanager.get_config(default_config_id)
-    config_handle = sz_config.import_config(old_config_definition)
-    for data_source in data_sources:
-        sz_config.add_data_source(config_handle, data_source)
-    new_config_definition = sz_config.export_config(config_handle)
-    sz_config.close_config(config_handle)
-    new_config_id = sz_configmanager.add_config(new_config_definition, "Test")
-    sz_configmanager.replace_default_config_id(default_config_id, new_config_id)
-    sz_abstract_factory_local.reinitialize(new_config_id)
-
-
 def add_records(sz_abstract_factory_local: SzAbstractFactory, record_id_list: List[Tuple[str, str]]) -> None:
     """Add all of the records in the list."""
     sz_engine_local = sz_abstract_factory_local.create_engine()
@@ -71,6 +54,4 @@ def add_records(sz_abstract_factory_local: SzAbstractFactory, record_id_list: Li
 
 print("\n---- szengine --------------------------------------------------------\n")
 
-x = DATA_SOURCES.keys()
-add_data_sources(sz_abstract_factory, list(DATA_SOURCES.keys()))
 add_records(sz_abstract_factory, TEST_RECORDS)
