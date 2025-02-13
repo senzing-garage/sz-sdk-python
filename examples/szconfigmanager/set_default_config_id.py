@@ -5,9 +5,9 @@ from senzing import SzError
 from . import get_sz_abstract_factory
 
 sz_abstract_factory = get_sz_abstract_factory()
-CONFIG_COMMENT = "Just an example"
-DATA_SOURCE_CODE = f"REPLACE_DEFAULT_CONFIG_ID_{time.time()}"
 try:
+    CONFIG_COMMENT = "Just an example"
+    DATA_SOURCE_CODE = f"REPLACE_DEFAULT_CONFIG_ID_{time.time()}"
     sz_config = sz_abstract_factory.create_config()
     sz_configmanager = sz_abstract_factory.create_configmanager()
     old_config_id = sz_configmanager.get_default_config_id()

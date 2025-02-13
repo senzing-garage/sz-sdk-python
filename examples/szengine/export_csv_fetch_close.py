@@ -3,11 +3,11 @@ from senzing import SzEngineFlags, SzError
 from . import get_sz_engine
 
 sz_engine = get_sz_engine()
-CSV_COLUMN_LIST = (
-    "RESOLVED_ENTITY_ID,RELATED_ENTITY_ID,RESOLVED_ENTITY_NAME,MATCH_LEVEL,MATCH_KEY,DATA_SOURCE,RECORD_ID"
-)
-FLAGS = SzEngineFlags.SZ_EXPORT_DEFAULT_FLAGS
 try:
+    CSV_COLUMN_LIST = (
+        "RESOLVED_ENTITY_ID,RELATED_ENTITY_ID,RESOLVED_ENTITY_NAME,MATCH_LEVEL,MATCH_KEY,DATA_SOURCE,RECORD_ID"
+    )
+    FLAGS = SzEngineFlags.SZ_EXPORT_DEFAULT_FLAGS
     export_handle = sz_engine.export_csv_entity_report(CSV_COLUMN_LIST, FLAGS)
     while True:
         fragment = sz_engine.fetch_next(export_handle)
