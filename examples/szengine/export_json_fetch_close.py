@@ -4,8 +4,8 @@ from . import get_sz_engine
 
 sz_engine = get_sz_engine()
 try:
-    FLAGS = SzEngineFlags.SZ_EXPORT_DEFAULT_FLAGS
-    export_handle = sz_engine.export_json_entity_report(FLAGS)
+    flags = SzEngineFlags.SZ_EXPORT_DEFAULT_FLAGS
+    export_handle = sz_engine.export_json_entity_report(flags)
     while True:
         fragment = sz_engine.fetch_next(export_handle)
         if not fragment:

@@ -6,24 +6,24 @@ from . import get_sz_engine
 
 sz_engine = get_sz_engine()
 try:
-    AVOID_RECORD_KEYS: List[Tuple[str, str]] = []
+    avoid_record_keys: List[Tuple[str, str]] = []
     END_DATA_SOURCE_CODE = "CUSTOMERS"
     END_RECORD_ID = "1009"
-    FLAGS = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS
+    flags = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS
     MAX_DEGREES = 2
-    REQUIRED_DATA_SOURCES: List[str] = []
+    required_data_sources: List[str] = []
     START_DATA_SOURCE_CODE = "CUSTOMERS"
     START_RECORD_ID = "1001"
-    RESULT = sz_engine.find_path_by_record_id(
+    result = sz_engine.find_path_by_record_id(
         START_DATA_SOURCE_CODE,
         START_RECORD_ID,
         END_DATA_SOURCE_CODE,
         END_RECORD_ID,
         MAX_DEGREES,
-        AVOID_RECORD_KEYS,
-        REQUIRED_DATA_SOURCES,
-        FLAGS,
+        avoid_record_keys,
+        required_data_sources,
+        flags,
     )
-    print(f"\n{RESULT}\n")
+    print(f"\n{result}\n")
 except SzError as err:
     print(f"\nERROR: {err}\n")

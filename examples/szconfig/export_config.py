@@ -5,8 +5,8 @@ from . import get_sz_config
 sz_config = get_sz_config()
 try:
     config_handle = sz_config.create_config()  # Create first in-memory.
-    CONFIG_DEFINITION = sz_config.export_config(config_handle)  # Save in-memory to string.
+    config_definition = sz_config.export_config(config_handle)  # Save in-memory to string.
     sz_config.close_config(config_handle)
-    print(f"\n{CONFIG_DEFINITION}\n")
+    print(f"\n{config_definition}\n")
 except SzError as err:
     print(f"\nERROR: {err}\n")

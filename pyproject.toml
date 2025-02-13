@@ -37,7 +37,6 @@ ignore_missing_imports = "true"
 [tool.pylint]
 disable = [
     "duplicate-code",
-    "import-error",
     "line-too-long",
     "missing-module-docstring",
     "too-many-arguments",

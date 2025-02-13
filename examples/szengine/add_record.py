@@ -7,8 +7,8 @@ from . import get_sz_engine
 sz_engine = get_sz_engine()
 try:
     DATA_SOURCE_CODE = "TEST"
-    FLAGS = SzEngineFlags.SZ_WITH_INFO
-    RECORD_DEFINITION = json.dumps(
+    flags = SzEngineFlags.SZ_WITH_INFO
+    record_definition = json.dumps(
         {
             "RECORD_TYPE": "PERSON",
             "PRIMARY_NAME_LAST": "Smith",
@@ -25,7 +25,7 @@ try:
         }
     )
     RECORD_ID = "1"
-    RESULT = sz_engine.add_record(DATA_SOURCE_CODE, RECORD_ID, RECORD_DEFINITION, FLAGS)
-    print(f"\n{RESULT}\n")
+    result = sz_engine.add_record(DATA_SOURCE_CODE, RECORD_ID, record_definition, flags)
+    print(f"\n{result}\n")
 except SzError as err:
     print(f"\nERROR: {err}\n")
