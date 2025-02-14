@@ -30,9 +30,10 @@ jobs:
           echo "PATH=${PATH}" >> "${GITHUB_ENV}"
           python -m pip install --upgrade pip
           python -m pip install --requirement requirements.txt
+          python -m pip install --requirement test-requirements.txt
           python -m pip install mypy pytest orjson
 
       - name: Run mypy tests
         run: |
           # shellcheck disable=SC2046
-          mypy --strict $(git ls-files '*.py' ':!:docs/source/*' ':!:examples/*')
+          mypy --strict $(git ls-files '*.py' ':!:docs/source/*')

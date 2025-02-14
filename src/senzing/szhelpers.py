@@ -1,5 +1,5 @@
 """
-TODO: szhelpers.py
+szhelpers.py has non-public helper methods.
 """
 
 import inspect

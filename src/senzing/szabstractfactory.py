@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 """
-szabstractfactory_abstract.py is the abstract class for all implementations of szabstractfactory.
+szabstractfactory.py is the abstract class for all implementations of SzAbstractFactory.
 """
 
 
@@ -40,196 +40,126 @@ class SzAbstractFactory(ABC):
     @abstractmethod
     def create_config(self) -> SzConfig:
         """
-        The `create_config` method creates a new implementation of an `SzConfigAbstract` object.
+        The `create_config` method creates a new implementation of an `SzConfig` object.
 
         Args:
 
         Returns:
-            SzConfigAbstract: A new implementation.
+            SzConfig: A new implementation.
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szabstractfactory/create_config.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szabstractfactory/create_config.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szabstractfactory/create_config.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szabstractfactory/create_config.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szabstractfactory/create_config.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szabstractfactory/create_config.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
     def create_configmanager(self) -> SzConfigManager:
         """
-        The `create_configmanager` method creates a new implementation of an `SzConfigManagerAbstract` object.
+        The `create_configmanager` method creates a new implementation of an `SzConfigManager` object.
 
         Args:
 
         Returns:
-            SzConfigManagerAbstract: A new implementation.
+            SzConfigManager: A new implementation.
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szabstractfactory/create_configmanager.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szabstractfactory/create_configmanager.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szabstractfactory/create_configmanager.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szabstractfactory/create_configmanager.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szabstractfactory/create_configmanager.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szabstractfactory/create_configmanager.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
     def create_diagnostic(self) -> SzDiagnostic:
         """
-        The `create_diagnostic` method creates a new implementation of an `SzDiagnosticAbstract` object.
+        The `create_diagnostic` method creates a new implementation of an `SzDiagnostic` object.
 
         Args:
 
         Returns:
-            SzDiagnosticAbstract: A new implementation.
+            SzDiagnostic: A new implementation.
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szabstractfactory/create_diagnostic.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szabstractfactory/create_diagnostic.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szabstractfactory/create_diagnostic.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szabstractfactory/create_diagnostic.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szabstractfactory/create_diagnostic.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szabstractfactory/create_diagnostic.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
     def create_engine(self) -> SzEngine:
         """
-        The `create_engine` method creates a new implementation of an `SzEngineAbstract` object.
+        The `create_engine` method creates a new implementation of an `SzEngine` object.
 
         Args:
 
         Returns:
-            SzEngineAbstract: A new implementation.
+            SzEngine: A new implementation.
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szabstractfactory/create_engine.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szabstractfactory/create_engine.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szabstractfactory/create_engine.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szabstractfactory/create_engine.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szabstractfactory/create_engine.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szabstractfactory/create_engine.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
     def create_product(self) -> SzProduct:
         """
-        The `create_product` method creates a new implementation of an `SzProductAbstract` object.
+        The `create_product` method creates a new implementation of an `SzProduct` object.
 
         Args:
 
         Returns:
-            SzProductAbstract: A new implementation.
+            SzProduct: A new implementation.
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szabstractfactory/create_product.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szabstractfactory/create_product.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szabstractfactory/create_product.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szabstractfactory/create_product.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szabstractfactory/create_product.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szabstractfactory/create_product.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -246,31 +176,11 @@ class SzAbstractFactory(ABC):
             TypeError: Incorrect datatype of input parameter.
             szexception.SzError: config_id does not exist.
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szabstractfactory/reinitialize.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szabstractfactory/reinitialize.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szabstractfactory/reinitialize.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szabstractfactory/reinitialize.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szabstractfactory/reinitialize.py
+                :linenos:
+                :language: python
         """
 
     # -------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 """
-TODO: szengine.py
+szengine.py is the abstract class for all implementations of SzEngine.
 """
 
 # pylint: disable=C0302
@@ -57,33 +57,18 @@ class SzEngine(ABC):
             str: If flags are set to return the WITH_INFO response a JSON document containing the details, otherwise an empty string.
 
         Raises:
-            SzError:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/add_record.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/add_record.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/add_record.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/add_record.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/add_record.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/add_record.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -98,6 +83,17 @@ class SzEngine(ABC):
 
         Raises:
 
+        .. collapse:: Example:
+
+            .. literalinclude:: ../../examples/szengine/export_json_fetch_close.py
+                :linenos:
+                :language: python
+
+            **Output:**
+
+            .. literalinclude:: ../../examples/szengine/export_json_fetch_close.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -110,31 +106,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/count_redo_records.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/count_redo_records.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/count_redo_records.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/count_redo_records.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/count_redo_records.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/count_redo_records.txt
+                :linenos:
+                :language: guess
         """
 
     @abstractmethod
@@ -158,31 +140,16 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/delete_record.py
+                :linenos:
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/delete_record.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/delete_record.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/delete_record.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/delete_record.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/delete_record.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -216,31 +183,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/export_csv_fetch_close.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/export_csv_fetch_close.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/export_csv_fetch_close.txt
-                    :linenos:
-                    :language: none
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/export_csv_fetch_close.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/export_csv_fetch_close.txt
-                    :linenos:
-                    :language: none
+            .. literalinclude:: ../../examples/szengine/export_csv_fetch_close.txt
+                :linenos:
+                :language: guess
         """
 
     @abstractmethod
@@ -261,31 +214,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/export_json_fetch_close.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/export_json_fetch_close.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/export_json_fetch_close.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/export_json_fetch_close.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/export_json_fetch_close.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/export_json_fetch_close.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -304,31 +243,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/export_json_fetch_close.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/export_json_fetch_close.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/export_json_fetch_close.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/export_json_fetch_close.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/export_json_fetch_close.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/export_json_fetch_close.txt
+                :linenos:
+                :language: json
         """
 
     # NOTE Included but not to be documented or examples, early adaptor feature, needs manual additions to config
@@ -368,31 +293,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/find_network_by_entity_id.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/find_network_by_entity_id.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/find_network_by_entity_id.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/find_network_by_entity_id.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/find_network_by_entity_id.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/find_network_by_entity_id.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -422,31 +333,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/find_network_by_record_id.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/find_network_by_record_id.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/find_network_by_record_id.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/find_network_by_record_id.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/find_network_by_record_id.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/find_network_by_record_id.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -478,31 +375,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/find_path_by_entity_id.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/find_path_by_entity_id.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/find_path_by_entity_id.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/find_path_by_entity_id.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/find_path_by_entity_id.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/find_path_by_entity_id.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -540,31 +423,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/find_path_by_record_id.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/find_path_by_record_id.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/find_path_by_record_id.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/find_path_by_record_id.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/find_path_by_record_id.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/find_path_by_record_id.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -577,31 +446,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/get_active_config_id.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/get_active_config_id.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/get_active_config_id.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/get_active_config_id.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/get_active_config_id.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/get_active_config_id.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -622,31 +477,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/get_entity_by_entity_id.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/get_entity_by_entity_id.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/get_entity_by_entity_id.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/get_entity_by_entity_id.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/get_entity_by_entity_id.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/get_entity_by_entity_id.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -669,30 +510,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/get_entity_by_record_id.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/get_entity_by_record_id.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/get_entity_by_record_id.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/get_entity_by_record_id.py
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/get_entity_by_record_id.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/get_entity_by_record_id.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -716,31 +544,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/get_record.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/get_record.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/get_record.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/get_record.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/get_record.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/get_record.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -754,31 +568,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/get_redo_record.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/get_redo_record.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/get_redo_record.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/get_redo_record.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/get_redo_record.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/get_redo_record.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -792,31 +592,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/get_stats.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/get_stats.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/get_stats.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/get_stats.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/get_stats.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/get_stats.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -840,31 +626,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/get_virtual_entity_by_record_id.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/get_virtual_entity_by_record_id.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/get_virtual_entity_by_record_id.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/get_virtual_entity_by_record_id.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/get_virtual_entity_by_record_id.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/get_virtual_entity_by_record_id.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -887,31 +659,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/how_entity_by_entity_id.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/how_entity_by_entity_id.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/how_entity_by_entity_id.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/how_entity_by_entity_id.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/how_entity_by_entity_id.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/how_entity_by_entity_id.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -932,31 +690,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/preprocess_record.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/preprocess_record.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/preprocess_record.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/preprocess_record.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/preprocess_record.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/preprocess_record.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -969,31 +713,11 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/prime_engine.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/prime_engine.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/prime_engine.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/prime_engine.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/prime_engine.py
+                :linenos:
+                :language: python
         """
 
     @abstractmethod
@@ -1007,31 +731,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/process_redo_record.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/process_redo_record.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/process_redo_record.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/process_redo_record.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/process_redo_record.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/process_redo_record.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -1045,31 +755,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/reevaluate_entity.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/reevaluate_entity.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/reevaluate_entity.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/reevaluate_entity.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/reevaluate_entity.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/reevaluate_entity.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -1087,31 +783,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/reevaluate_record.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/reevaluate_record.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/reevaluate_record.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/export_json_fetch_close.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/export_json_fetch_close.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/reevaluate_record.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -1134,31 +816,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/search_by_attributes.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/search_by_attributes.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/search_by_attributes.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/search_by_attributes.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/search_by_attributes.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/search_by_attributes.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -1181,31 +849,17 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/why_entities.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/why_entities.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/why_entities.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/why_entities.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/why_entities.txt
-                    :linenos:
-                    :language: json
+            .. literalinclude:: ../../examples/szengine/why_entities.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -1228,29 +882,15 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/why_record_in_entity.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/why_record_in_entity.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/why_record_in_entity.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/why_record_in_entity.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/why_record_in_entity.txt
+            .. literalinclude:: ../../examples/szengine/why_record_in_entity.txt
                     :linenos:
                     :language: json
         """
@@ -1279,29 +919,15 @@ class SzEngine(ABC):
 
         Raises:
 
-        .. collapse:: Examples:
+        .. collapse:: Example:
 
-            .. collapse:: Core implementation:
+            .. literalinclude:: ../../examples/szengine/why_records.py
+                :linenos:
+                :language: python
 
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/why_records.py
-                    :linenos:
-                    :language: python
+            **Output:**
 
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/szengine/why_records.txt
-                    :linenos:
-                    :language: json
-
-            .. collapse:: gRPC implementation:
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/why_records.py
-                    :linenos:
-                    :language: python
-
-                **Output:**
-
-                .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-grpc/refs/heads/main/examples/szengine/why_records.txt
+            .. literalinclude:: ../../examples/szengine/why_records.txt
                     :linenos:
                     :language: json
         """

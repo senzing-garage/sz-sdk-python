@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 """
-TODO: szengineflags.py
+szengineflags.py has constants that are used when calling Senzing functions.
 """
 
 from enum import IntFlag

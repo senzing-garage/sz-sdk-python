@@ -5,6 +5,7 @@
 # -----------------------------------------------------------------------------
 
 PATH := $(MAKEFILE_DIRECTORY)/bin:$(PATH)
+SENZING_TOOLS_DATABASE_URL ?= sqlite3://na:na@/tmp/sqlite/G2C.db
 
 # -----------------------------------------------------------------------------
 # OS specific targets
@@ -12,6 +13,7 @@ PATH := $(MAKEFILE_DIRECTORY)/bin:$(PATH)
 
 .PHONY: clean-osarch-specific
 clean-osarch-specific:
+	@rm -fr /tmp/sqlite || true
 	@rm -f  $(MAKEFILE_DIRECTORY)/.coverage || true
 	@rm -f  $(MAKEFILE_DIRECTORY)/coverage.xml || true
 	@rm -fr $(DIST_DIRECTORY) || true
@@ -25,17 +27,20 @@ clean-osarch-specific:
 
 
 .PHONY: coverage-osarch-specific
+coverage-osarch-specific: export SENZING_LOG_LEVEL=TRACE
 coverage-osarch-specific:
-	@$(activate-venv); pytest --cov=src --cov-report=xml  $(shell git ls-files '*.py'  ':!:examples/*')
+	@$(activate-venv); pytest --cov=src --cov-report=xml  $(shell git ls-files '*.py')
 	@$(activate-venv); coverage html
-	@xdg-open $(MAKEFILE_DIRECTORY)/htmlcov/index.html  1>/dev/null 2>&1
+	@xdg-open $(MAKEFILE_DIRECTORY)/htmlcov/index.html 1>/dev/null 2>&1
 
 
 .PHONY: dependencies-for-development-osarch-specific
 dependencies-for-development-osarch-specific:
 
+
 .PHONY: dependencies-for-documentation-osarch-specific
 dependencies-for-documentation-osarch-specific:
+
 
 .PHONY: documentation-osarch-specific
 documentation-osarch-specific:
@@ -55,22 +60,35 @@ package-osarch-specific:
 
 .PHONY: setup-osarch-specific
 setup-osarch-specific:
-	$(info No setup required.)
+	@mkdir /tmp/sqlite
+	@cp testdata/sqlite/G2C.db /tmp/sqlite/G2C.db
 
 
-.PHONY: test-osarch-specific-2
-test-osarch-specific-2:
+.PHONY: test-osarch-specific
+test-osarch-specific:
 	$(info --- Unit tests -------------------------------------------------------)
-	@pytest tests/ --verbose --capture=no --cov=src/senzing --cov-report xml:coverage.xml
-#	$(info --- Test examples ----------------------------------------------------)
-#	@pytest examples/ --verbose --capture=no --cov=src/senzing
-#	$(info --- Test examples using unittest -------------------------------------)
-#	@python3 -m unittest \
-#		examples/szconfig/*.py \
-#		examples/szconfigmanager/*.py \
-#		examples/szdiagnostic/*.py \
-#		examples/szengine/*.py \
-#		examples/szproduct/*.py
+	@$(activate-venv); pytest tests/ --verbose --capture=no --cov=src --cov-report xml:coverage.xml
+	$(info --- Test examples using pytest -------------------------------------)
+	@$(activate-venv); pytest \
+		examples/misc/ \
+		examples/docs/ \
+		examples/extras/ \
+		examples/szabstractfactory/ \
+		examples/szconfig/ \
+		examples/szconfigmanager/ \
+		examples/szdiagnostic/ \
+		examples/szengine/ \
+		examples/szproduct/ \
+		--capture=no \
+		-o python_files=*.py \
+		--verbose; \
+		pytest_exit_code="$$?"; \
+		if [ "$$pytest_exit_code" -eq 5 ]; then \
+			printf '\nExit code from pytest was %s, this is expected testing the examples if there were no Python errors\n' "$$pytest_exit_code"; \
+			exit 0; \
+		else \
+			exit "$$pytest_exit_code"; \
+		fi
 
 
 .PHONY: venv-osarch-specific
