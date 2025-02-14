@@ -7,19 +7,24 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.2.4] - 2025-02-14
+
+### Changed in 0.2.4
+
+- Updated documentation
+
 ## [0.2.3] - 2025-02-10
 
 ### Fixed in 0.2.3
 
 - Added SzDatabaseTransientError & SzSdkError to \_\_init\_\_.py for importing
 
-
 ## [0.2.2] - 2025-01-28
 
 ### Added in 0.2.2
 
 - Simpler class methods for szengineflags to build upon in a future release
-- documentation-requirements.txt 
+- documentation-requirements.txt
 
 ### Changed in 0.2.2
 
