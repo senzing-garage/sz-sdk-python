@@ -64,6 +64,7 @@ jobs:
       - name: Run pytest on tests
         run: |
           source ./venv/bin/activate
+          # shellcheck disable=SC2034
           DYLD_LIBRARY_PATH="$HOME"/senzing/er/lib:"$HOME"/senzing/er/lib/macos
           LD_LIBRARY_PATH="$HOME"/senzing/er/lib:"$HOME"/senzing/er/lib/macos
           pytest tests/ --verbose --capture=no --cov=src
