@@ -157,6 +157,12 @@ class SzConfigManager(ABC):
             .. literalinclude:: ../../examples/szconfigmanager/get_default_config_id.py
                 :linenos:
                 :language: python
+
+            **Output:**
+
+            .. literalinclude:: ../../examples/szconfigmanager/get_default_config_id.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -179,6 +185,12 @@ class SzConfigManager(ABC):
             .. literalinclude:: ../../examples/szconfigmanager/register_config.py
                 :linenos:
                 :language: python
+
+            **Output:**
+
+            .. literalinclude:: ../../examples/szconfigmanager/register_config.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -221,6 +233,12 @@ class SzConfigManager(ABC):
             .. literalinclude:: ../../examples/szconfigmanager/set_default_config.py
                 :linenos:
                 :language: python
+
+            **Output:**
+
+            .. literalinclude:: ../../examples/szconfigmanager/set_default_config.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod

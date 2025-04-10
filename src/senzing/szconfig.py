@@ -60,7 +60,7 @@ class SzConfig(ABC):
         """
 
     @abstractmethod
-    def delete_data_source(self, data_source_code: str) -> None:
+    def delete_data_source(self, data_source_code: str) -> str:
         """
         The `delete_data_source` method removes a data source from an existing in-memory configuration.
 
@@ -75,6 +75,12 @@ class SzConfig(ABC):
             .. literalinclude:: ../../examples/szconfig/delete_data_source.py
                 :linenos:
                 :language: python
+
+            **Output:**
+
+            .. literalinclude:: ../../examples/szconfig/delete_data_source.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
