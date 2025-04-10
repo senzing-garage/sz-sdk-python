@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.2.5] - 2025-03-11
+
+### Changed in 0.2.5
+
+- Restructured `SzConfigManager` and `SzConfig`
+
 ## [0.2.4] - 2025-02-14
 
 ### Changed in 0.2.4
