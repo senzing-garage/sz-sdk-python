@@ -8,6 +8,7 @@ TODO: szproduct_test.py
 import pytest
 
 from senzing import SzProduct
+from senzing_mock import SzProductMock
 
 # -----------------------------------------------------------------------------
 # Test cases
@@ -34,6 +35,16 @@ def test_get_version(sz_product: SzProduct) -> None:
     sz_product.get_version()
 
 
+def test_help_1(sz_product: SzProduct) -> None:
+    """Test SzProduct().help()."""
+    sz_product.help()
+
+
+def test_help_2(sz_product: SzProduct) -> None:
+    """Test SzProduct().help(...)."""
+    sz_product.help("get_license")
+
+
 # -----------------------------------------------------------------------------
 # SzConfig fixtures
 # -----------------------------------------------------------------------------
@@ -45,25 +56,4 @@ def szproduct_fixture() -> SzProduct:
     Object under test.
     """
 
-    return SzProductTest()
-
-
-# -----------------------------------------------------------------------------
-# SzProductTest class
-# -----------------------------------------------------------------------------
-
-
-class SzProductTest(SzProduct):
-    """
-    SzProduct module access library.
-    """
-
-    # -------------------------------------------------------------------------
-    # SzProduct methods
-    # -------------------------------------------------------------------------
-
-    def get_license(self) -> str:
-        return ""
-
-    def get_version(self) -> str:
-        return ""
+    return SzProductMock()

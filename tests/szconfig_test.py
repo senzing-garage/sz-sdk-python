@@ -8,6 +8,7 @@ TODO: szconfig_test.py
 import pytest
 
 from senzing import SzConfig
+from senzing_mock import SzConfigMock
 
 # -----------------------------------------------------------------------------
 # Test cases
@@ -34,6 +35,16 @@ def test_get_data_sources(sz_config: SzConfig) -> None:
     sz_config.get_data_sources()
 
 
+def test_help_1(sz_config: SzConfig) -> None:
+    """Test SzConfig().help()."""
+    sz_config.help()
+
+
+def test_help_2(sz_config: SzConfig) -> None:
+    """Test SzConfig().help(...)."""
+    sz_config.help("add_data_source")
+
+
 # -----------------------------------------------------------------------------
 # szConfig fixtures
 # -----------------------------------------------------------------------------
@@ -45,37 +56,4 @@ def szconfig_fixture() -> SzConfig:
     Object under test.
     """
 
-    return SzConfigTest()
-
-
-# -----------------------------------------------------------------------------
-# SzConfigTest class
-# -----------------------------------------------------------------------------
-
-
-class SzConfigTest(SzConfig):
-    """
-    SzConfig module access library.
-    """
-
-    # -------------------------------------------------------------------------
-    # SzConfig methods
-    # -------------------------------------------------------------------------
-
-    def add_data_source(
-        self,
-        data_source_code: str,
-    ) -> str:
-        return ""
-
-    def delete_data_source(
-        self,
-        data_source_code: str,
-    ) -> str:
-        return ""
-
-    def export(self) -> str:
-        return ""
-
-    def get_data_sources(self) -> str:
-        return ""
+    return SzConfigMock()

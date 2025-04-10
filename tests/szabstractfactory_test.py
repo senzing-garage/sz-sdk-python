@@ -4,7 +4,6 @@
 TODO: szabstractfactory_test.py
 """
 
-from typing import Any
 
 import pytest
 
@@ -15,8 +14,7 @@ from senzing import (
     SzEngine,
     SzProduct,
 )
-
-from . import SzConfigManagerTest, SzDiagnosticTest, SzEngineTest, SzProductTest
+from senzing_mock import SzAbstractFactoryMock
 
 # -----------------------------------------------------------------------------
 # SzAbstractFactory testcases
@@ -47,6 +45,16 @@ def test_create_product(szabstractfactory: SzAbstractFactory) -> None:
     assert isinstance(actual, SzProduct)
 
 
+def test_help_1(szabstractfactory: SzAbstractFactory) -> None:
+    """Test SzAbstractFactory().help()."""
+    szabstractfactory.help()
+
+
+def test_help_2(szabstractfactory: SzAbstractFactory) -> None:
+    """Test SzAbstractFactory().help(...)."""
+    szabstractfactory.help("create_configmanager")
+
+
 def test_reinitialize(szabstractfactory: SzAbstractFactory) -> None:
     """Test SzAbstractFactory.reinitialize()."""
     szabstractfactory.reinitialize(0)
@@ -62,38 +70,4 @@ def szabstractfactory_fixture() -> SzAbstractFactory:
     """
     Single sz_abstractfactory object to use for all tests.
     """
-    return SzAbstractFactoryTest()
-
-
-# -----------------------------------------------------------------------------
-# SzDiagnosticTest class
-# -----------------------------------------------------------------------------
-
-
-class SzAbstractFactoryTest(SzAbstractFactory):
-    """
-    SzDiagnostic module access library.
-    """
-
-    # -------------------------------------------------------------------------
-    # SzAbstractFactory methods
-    # -------------------------------------------------------------------------
-
-    def create_configmanager(self, **kwargs: Any) -> SzConfigManager:
-        _ = kwargs
-        return SzConfigManagerTest()
-
-    def create_diagnostic(self, **kwargs: Any) -> SzDiagnostic:
-        _ = kwargs
-        return SzDiagnosticTest()
-
-    def create_engine(self, **kwargs: Any) -> SzEngine:
-        _ = kwargs
-        return SzEngineTest()
-
-    def create_product(self, **kwargs: Any) -> SzProduct:
-        _ = kwargs
-        return SzProductTest()
-
-    def reinitialize(self, config_id: int, **kwargs: Any) -> None:
-        _ = kwargs
+    return SzAbstractFactoryMock()

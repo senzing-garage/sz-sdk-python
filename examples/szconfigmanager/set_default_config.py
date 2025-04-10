@@ -14,9 +14,9 @@ try:
 
     # Persist the new default config.
 
-    config_definition = sz_config.export()
+    CONFIG_DEFINITION = sz_config.export()
     CONFIG_COMMENT = "Just an example"
-    config_id = sz_configmanager.set_default_config(config_definition, CONFIG_COMMENT)
+    CONFIG_ID = sz_configmanager.set_default_config(CONFIG_DEFINITION, CONFIG_COMMENT)
 
 except SzError as err:
     print(f"\nERROR: {err}\n")

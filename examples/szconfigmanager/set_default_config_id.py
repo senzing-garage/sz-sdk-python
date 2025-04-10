@@ -14,13 +14,13 @@ try:
 
     # Persist the new config.
 
-    config_definition = sz_config.export()
+    CONFIG_DEFINITION = sz_config.export()
     CONFIG_COMMENT = "Just an example"
-    new_default_config_id = sz_configmanager.register_config(config_definition, CONFIG_COMMENT)
+    NEW_DEFAULT_CONFIG_ID = sz_configmanager.register_config(CONFIG_DEFINITION, CONFIG_COMMENT)
 
     # Set default config id.
 
-    sz_configmanager.set_default_config_id(new_default_config_id)
+    sz_configmanager.set_default_config_id(NEW_DEFAULT_CONFIG_ID)
 
 except SzError as err:
     print(f"\nERROR: {err}\n")
