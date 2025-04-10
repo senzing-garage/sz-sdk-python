@@ -37,13 +37,6 @@ and the creation of the Senzing objects has been abstracted to
 .. literalinclude:: ../../examples/docs/import_sz_engine.txt
       :language: python
 
-Using the `senzing-core`_ Python package, the implementation looks like the following:
-
-.. literalinclude:: ../../examples/helpers/setup_senzing.py
-      :linenos:
-      :language: python
-
-Naturally, the ``__init__.py`` file needs to be modified to support importing the variables.
 For the full implementation of the documentation examples, visit the source code on
 `GitHub`_.
 

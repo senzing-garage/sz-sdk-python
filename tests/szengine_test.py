@@ -150,6 +150,11 @@ def test_prime_engine(sz_engine: SzEngine) -> None:
     sz_engine.prime_engine()
 
 
+def test_process_redo_record(sz_engine: SzEngine) -> None:
+    """Test SzEngine().process_redo_record()."""
+    sz_engine.process_redo_record("")
+
+
 def test_reevaluate_entity(sz_engine: SzEngine) -> None:
     """Test SzEngine().reevaluate_entity()."""
     sz_engine.reevaluate_entity(0)
