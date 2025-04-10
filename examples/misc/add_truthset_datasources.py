@@ -1,10 +1,9 @@
 from senzing import SzError
 from senzing_truthset import TRUTHSET_DATASOURCES
 
-from . import get_sz_abstract_factory
+from . import sz_abstract_factory
 
 try:
-    sz_abstract_factory = get_sz_abstract_factory()
     sz_configmanager = sz_abstract_factory.create_configmanager()
     sz_config = sz_configmanager.create_config_from_template()
 
