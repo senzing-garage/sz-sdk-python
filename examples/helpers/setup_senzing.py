@@ -2,7 +2,6 @@ from senzing_core import SzAbstractFactoryCore
 
 from senzing import (
     SzAbstractFactory,
-    SzConfig,
     SzConfigManager,
     SzDiagnostic,
     SzEngine,
@@ -30,11 +29,6 @@ def get_sz_abstract_factory() -> SzAbstractFactory:
     return result
 
 
-def get_sz_config() -> SzConfig:
-    """Example Config"""
-    return get_sz_abstract_factory().create_config()
-
-
 def get_sz_configmanager() -> SzConfigManager:
     """Example ConfigManager"""
     return get_sz_abstract_factory().create_configmanager()
@@ -56,7 +50,6 @@ def get_sz_product() -> SzProduct:
 
 
 sz_abstract_factory = get_sz_abstract_factory()
-sz_config = get_sz_config()
 sz_configmanager = get_sz_configmanager()
 sz_diagnostic = get_sz_diagnostic()
 sz_engine = get_sz_engine()

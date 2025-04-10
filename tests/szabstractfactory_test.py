@@ -10,51 +10,46 @@ import pytest
 
 from senzing import (
     SzAbstractFactory,
-    SzConfig,
     SzConfigManager,
     SzDiagnostic,
     SzEngine,
     SzProduct,
 )
-from szconfig_test import SzConfigTest
-from szconfigmanager_test import SzConfigManagerTest
-from szdiagnostic_test import SzDiagnosticTest
-from szengine_test import SzEngineTest
-from szproduct_test import SzProductTest
+
+from . import SzConfigManagerTest, SzDiagnosticTest, SzEngineTest, SzProductTest
 
 # -----------------------------------------------------------------------------
 # SzAbstractFactory testcases
 # -----------------------------------------------------------------------------
 
 
-def test_create_config(szabstractfactory: SzAbstractFactory) -> None:
-    """Test SzConfig().add_data_source()."""
-    actual = szabstractfactory.create_config()
-    assert isinstance(actual, SzConfig)
-
-
 def test_create_configmanager(szabstractfactory: SzAbstractFactory) -> None:
-    """Test SzConfig().add_data_source()."""
+    """Test SzAbstractFactory.create_configmanager()."""
     actual = szabstractfactory.create_configmanager()
     assert isinstance(actual, SzConfigManager)
 
 
 def test_create_diagnostic(szabstractfactory: SzAbstractFactory) -> None:
-    """Test SzConfig().add_data_source()."""
+    """Test SzAbstractFactory.create_diagnostic()."""
     actual = szabstractfactory.create_diagnostic()
     assert isinstance(actual, SzDiagnostic)
 
 
 def test_create_engine(szabstractfactory: SzAbstractFactory) -> None:
-    """Test SzConfig().add_data_source()."""
+    """Test SzAbstractFactory.create_engine()."""
     actual = szabstractfactory.create_engine()
     assert isinstance(actual, SzEngine)
 
 
 def test_create_product(szabstractfactory: SzAbstractFactory) -> None:
-    """Test SzConfig().add_data_source()."""
+    """Test SzAbstractFactory.create_product()."""
     actual = szabstractfactory.create_product()
     assert isinstance(actual, SzProduct)
+
+
+def test_reinitialize(szabstractfactory: SzAbstractFactory) -> None:
+    """Test SzAbstractFactory.reinitialize()."""
+    szabstractfactory.reinitialize(0)
 
 
 # -----------------------------------------------------------------------------
@@ -83,10 +78,6 @@ class SzAbstractFactoryTest(SzAbstractFactory):
     # -------------------------------------------------------------------------
     # SzAbstractFactory methods
     # -------------------------------------------------------------------------
-
-    def create_config(self, **kwargs: Any) -> SzConfig:
-        _ = kwargs
-        return SzConfigTest()
 
     def create_configmanager(self, **kwargs: Any) -> SzConfigManager:
         _ = kwargs

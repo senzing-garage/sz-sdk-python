@@ -1,11 +1,11 @@
 from senzing import SzError
 
-from . import sz_config
+from . import sz_configmanager
 
 try:
     DATA_SOURCE_CODE = "TEST"
-    config_handle = sz_config.create_config()
-    sz_config.delete_data_source(config_handle, DATA_SOURCE_CODE)
-    sz_config.close_config(config_handle)
+    sz_config = sz_configmanager.create_config_from_template()
+    result = sz_config.delete_data_source(DATA_SOURCE_CODE)
+    print(f"\n{result}\n")
 except SzError as err:
     print(f"\nERROR: {err}\n")
