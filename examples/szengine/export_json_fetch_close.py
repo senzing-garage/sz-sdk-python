@@ -4,12 +4,12 @@ from . import sz_engine
 
 try:
     flags = SzEngineFlags.SZ_EXPORT_DEFAULT_FLAGS
-    export_handle = sz_engine.export_json_entity_report(flags)
+    EXPORT_HANDLE = sz_engine.export_json_entity_report(flags)
     while True:
-        fragment = sz_engine.fetch_next(export_handle)
-        if not fragment:
+        FRAGMENT = sz_engine.fetch_next(EXPORT_HANDLE)
+        if not FRAGMENT:
             break
-        print(fragment, end="")
-    sz_engine.close_export(export_handle)
+        print(FRAGMENT, end="")
+    sz_engine.close_export(EXPORT_HANDLE)
 except SzError as err:
     print(f"\nERROR: {err}\n")

@@ -4,10 +4,10 @@
 TODO: szdiagnostic_test.py
 """
 
-
 import pytest
 
 from senzing import SzDiagnostic
+from senzing_mock import SzDiagnosticMock
 
 # -----------------------------------------------------------------------------
 # Test cases
@@ -34,6 +34,16 @@ def test_get_feature(sz_diagnostic: SzDiagnostic) -> None:
     sz_diagnostic.get_feature(0)
 
 
+def test_help_1(sz_diagnostic: SzDiagnostic) -> None:
+    """Test SzDiagnosic().help()."""
+    sz_diagnostic.help()
+
+
+def test_help_2(sz_diagnostic: SzDiagnostic) -> None:
+    """Test SzDiagnosic().help(...)."""
+    sz_diagnostic.help("check_datastore_performance")
+
+
 # def test_initialize(sz_diagnostic: SzDiagnostic) -> None:
 #     """Test SzDiagnosic().initialize()."""
 #     sz_diagnostic.initialize("", "")
@@ -55,31 +65,4 @@ def szdiagnostic_fixture() -> SzDiagnostic:
     Object under test.
     """
 
-    return SzDiagnosticTest()
-
-
-# -----------------------------------------------------------------------------
-# SzDiagnosticTest class
-# -----------------------------------------------------------------------------
-
-
-class SzDiagnosticTest(SzDiagnostic):
-    """
-    SzDiagnostic module access library.
-    """
-
-    # -------------------------------------------------------------------------
-    # SzDiagnostic methods
-    # -------------------------------------------------------------------------
-
-    def check_datastore_performance(self, seconds_to_run: int) -> str:
-        return ""
-
-    def get_datastore_info(self) -> str:
-        return ""
-
-    def get_feature(self, feature_id: int) -> str:
-        return ""
-
-    def purge_repository(self) -> None:
-        """None"""
+    return SzDiagnosticMock()

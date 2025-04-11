@@ -3,7 +3,6 @@ from senzing import SzError
 from . import sz_configmanager
 
 try:
-    CONFIG_LIST = sz_configmanager.get_configs()
-    print(f"\n{CONFIG_LIST}\n")
+    sz_config = sz_configmanager.create_config_from_template()
 except SzError as err:
     print(f"\nERROR: {err}\n")

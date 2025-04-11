@@ -1,11 +1,10 @@
 from senzing import SzError
 
-from . import sz_config
+from . import sz_configmanager
 
 try:
-    config_handle = sz_config.create_config()
-    result = sz_config.get_data_sources(config_handle)
-    sz_config.close_config(config_handle)
-    print(f"\n{result}\n")
+    sz_config = sz_configmanager.create_config_from_template()
+    RESULT = sz_config.get_data_sources()
+    print(f"\n{RESULT}\n")
 except SzError as err:
     print(f"\nERROR: {err}\n")

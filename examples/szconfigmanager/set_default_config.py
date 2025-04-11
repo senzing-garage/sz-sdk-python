@@ -12,15 +12,11 @@ try:
     data_source_code = f"REPLACE_DEFAULT_CONFIG_ID_{time.time()}"
     sz_config.add_data_source(data_source_code)
 
-    # Persist the new config.
+    # Persist the new default config.
 
     CONFIG_DEFINITION = sz_config.export()
     CONFIG_COMMENT = "Just an example"
-    NEW_DEFAULT_CONFIG_ID = sz_configmanager.register_config(CONFIG_DEFINITION, CONFIG_COMMENT)
-
-    # Set default config id.
-
-    sz_configmanager.set_default_config_id(NEW_DEFAULT_CONFIG_ID)
+    CONFIG_ID = sz_configmanager.set_default_config(CONFIG_DEFINITION, CONFIG_COMMENT)
 
 except SzError as err:
     print(f"\nERROR: {err}\n")

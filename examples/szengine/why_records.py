@@ -8,13 +8,13 @@ try:
     flags = SzEngineFlags.SZ_WHY_ENTITIES_DEFAULT_FLAGS
     RECORD_ID_1 = "1001"
     RECORD_ID_2 = "1002"
-    result = sz_engine.why_records(
+    RESULT = sz_engine.why_records(
         DATA_SOURCE_CODE_1,
         RECORD_ID_1,
         DATA_SOURCE_CODE_2,
         RECORD_ID_2,
         flags,
     )
-    print(f"\n{result}\n")
+    print(f"\n{RESULT}\n")
 except SzError as err:
     print(f"\nERROR: {err}\n")
