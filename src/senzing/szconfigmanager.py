@@ -8,6 +8,7 @@ szconfigmanager.py is the abstract class for all implementations of SzConfigMana
 
 from abc import ABC, abstractmethod
 
+from .szconfig import SzConfig
 from .szhelpers import construct_help
 
 # Metadata
@@ -33,50 +34,85 @@ class SzConfigManager(ABC):
     # -------------------------------------------------------------------------
 
     @abstractmethod
-    def add_config(self, config_definition: str, config_comment: str) -> int:
+    def create_config_from_config_id(self, config_id: int) -> SzConfig:
         """
-        The `add_config` method adds a Senzing configuration JSON document to the Senzing database.
+        The `create_config_from_config_id` method creates an in-memory Senzing configuration
+        from a specific Senzing configuration stored in the Senzing database.
 
         Args:
-            config_definition (str): The Senzing configuration JSON document.
-            config_comment (str):  free-form string of comments describing the configuration document.
+            config_id (int): The configuration identifier of the desired Senzing configuration to retrieve.
 
         Returns:
-            int: A configuration identifier.
+            SzConfig: Represents an in-memory Senzing configuration that can be modified.
 
         Raises:
             TypeError: Incorrect datatype of input parameter.
 
         .. collapse:: Example:
 
-            .. literalinclude:: ../../examples/szconfigmanager/add_config.py
-                :linenos:
-                :language: python
-        """
-
-    @abstractmethod
-    def get_config(self, config_id: int) -> str:
-        """
-        The `get_config` method retrieves a specific Senzing configuration JSON document from the Senzing database.
-
-        Args:
-            config_id (int): The configuration identifier of the desired Senzing Engine configuration JSON document to retrieve.
-
-        Returns:
-            str: A JSON document containing the Senzing configuration.
-
-        Raises:
-            TypeError: Incorrect datatype of input parameter.
-
-        .. collapse:: Example:
-
-            .. literalinclude:: ../../examples/szconfigmanager/get_config.py
+            .. literalinclude:: ../../examples/szconfigmanager/create_config_from_config_id.py
                 :linenos:
                 :language: python
 
             **Output:**
 
-            .. literalinclude:: ../../examples/szconfigmanager/get_config.txt
+            .. literalinclude:: ../../examples/szconfigmanager/create_config_from_config_id.txt
+                :linenos:
+                :language: json
+        """
+
+    @abstractmethod
+    def create_config_from_string(self, config_definition: str) -> SzConfig:
+        """
+        The `create_config_from_string` method creates an in-memory Senzing configuration
+        from the given Senzing configuration JSON document.
+
+        Args:
+            config_definition (str): The Senzing configuration JSON document.
+
+        Returns:
+            SzConfig: Represents an in-memory Senzing configuration that can be modified.
+
+        Raises:
+            TypeError: Incorrect datatype of input parameter.
+
+        .. collapse:: Example:
+
+            .. literalinclude:: ../../examples/szconfigmanager/create_config_from_string.py
+                :linenos:
+                :language: python
+
+            **Output:**
+
+            .. literalinclude:: ../../examples/szconfigmanager/create_config_from_string.txt
+                :linenos:
+                :language: json
+        """
+
+    @abstractmethod
+    def create_config_from_template(self) -> SzConfig:
+        """
+        The `create_config_from_template` method creates an in-memory Senzing configuration
+        from the template Senzing configuration JSON document located at PIPELINE.RESOURCEPATH/templates/g2config.json
+
+        Args:
+            config_definition (str): The Senzing configuration JSON document.
+
+        Returns:
+            SzConfig: Represents an in-memory Senzing configuration that can be modified.
+
+        Raises:
+            TypeError: Incorrect datatype of input parameter.
+
+        .. collapse:: Example:
+
+            .. literalinclude:: ../../examples/szconfigmanager/create_config_from_template.py
+                :linenos:
+                :language: python
+
+            **Output:**
+
+            .. literalinclude:: ../../examples/szconfigmanager/create_config_from_template.txt
                 :linenos:
                 :language: json
         """
@@ -121,6 +157,40 @@ class SzConfigManager(ABC):
             .. literalinclude:: ../../examples/szconfigmanager/get_default_config_id.py
                 :linenos:
                 :language: python
+
+            **Output:**
+
+            .. literalinclude:: ../../examples/szconfigmanager/get_default_config_id.txt
+                :linenos:
+                :language: json
+        """
+
+    @abstractmethod
+    def register_config(self, config_definition: str, config_comment: str) -> int:
+        """
+        The `register_config` method adds a Senzing configuration JSON document to the Senzing database.
+
+        Args:
+            config_definition (str): The Senzing configuration JSON document.
+            config_comment (str):  free-form string of comments describing the configuration document.
+
+        Returns:
+            int: A configuration identifier.
+
+        Raises:
+            TypeError: Incorrect datatype of input parameter.
+
+        .. collapse:: Example:
+
+            .. literalinclude:: ../../examples/szconfigmanager/register_config.py
+                :linenos:
+                :language: python
+
+            **Output:**
+
+            .. literalinclude:: ../../examples/szconfigmanager/register_config.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod
@@ -143,6 +213,32 @@ class SzConfigManager(ABC):
             .. literalinclude:: ../../examples/szconfigmanager/replace_default_config_id.py
                 :linenos:
                 :language: python
+        """
+
+    @abstractmethod
+    def set_default_config(self, config_definition: str, config_comment: str) -> int:
+        """
+        The `set_default_config` method replaces the current default Senzing configuration in the Senzing database.
+        To serialize modifying of the configuration identifier, see `replace_default_config_id`.
+
+        Args:
+            config_definition (str): The Senzing configuration JSON document.
+            config_comment (str):  free-form string of comments describing the configuration document.
+
+        Raises:
+            TypeError: Incorrect datatype of input parameter.
+
+        .. collapse:: Example:
+
+            .. literalinclude:: ../../examples/szconfigmanager/set_default_config.py
+                :linenos:
+                :language: python
+
+            **Output:**
+
+            .. literalinclude:: ../../examples/szconfigmanager/set_default_config.txt
+                :linenos:
+                :language: json
         """
 
     @abstractmethod

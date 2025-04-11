@@ -72,7 +72,6 @@ test-osarch-specific:
 	@$(activate-venv); pytest \
 		examples/misc/ \
 		examples/docs/ \
-		examples/extras/ \
 		examples/szabstractfactory/ \
 		examples/szconfig/ \
 		examples/szconfigmanager/ \

@@ -5,10 +5,9 @@ from senzing_truthset import (
     TRUTHSET_WATCHLIST_RECORDS,
 )
 
-from . import get_sz_abstract_factory
+from . import sz_abstract_factory
 
 try:
-    sz_abstract_factory = get_sz_abstract_factory()
     sz_engine = sz_abstract_factory.create_engine()
     record_sets = [
         TRUTHSET_CUSTOMER_RECORDS,

@@ -4,10 +4,10 @@
 TODO: szproduct_test.py
 """
 
-
 import pytest
 
 from senzing import SzProduct
+from senzing_mock import SzProductMock
 
 # -----------------------------------------------------------------------------
 # Test cases
@@ -30,25 +30,4 @@ def szproduct_fixture() -> SzProduct:
     Object under test.
     """
 
-    return SzProductTest()
-
-
-# -----------------------------------------------------------------------------
-# SzProductTest class
-# -----------------------------------------------------------------------------
-
-
-class SzProductTest(SzProduct):
-    """
-    SzProduct module access library.
-    """
-
-    # -------------------------------------------------------------------------
-    # SzProduct methods
-    # -------------------------------------------------------------------------
-
-    def get_license(self) -> str:
-        return ""
-
-    def get_version(self) -> str:
-        return ""
+    return SzProductMock()
