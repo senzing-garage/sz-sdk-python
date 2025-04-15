@@ -328,6 +328,15 @@ class SzEngineMock(SzEngine):
     ) -> str:
         return ""
 
+    def why_search(
+        self,
+        attributes: str,
+        entity_id: int,
+        flags: int = SzEngineFlags.SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS,
+        search_profile: str = "",
+    ) -> str:
+        return ""
+
 
 # -----------------------------------------------------------------------------
 # SzProductMock class

@@ -185,6 +185,11 @@ def test_why_records(sz_engine: SzEngine) -> None:
     sz_engine.why_records("", "", "", "")
 
 
+def test_why_search(sz_engine: SzEngine) -> None:
+    """Test SzEngine().why_search()."""
+    sz_engine.why_search("", 0)
+
+
 # -----------------------------------------------------------------------------
 # SzEngine fixtures
 # -----------------------------------------------------------------------------
