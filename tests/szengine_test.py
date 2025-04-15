@@ -35,11 +35,6 @@ def test_delete_record(sz_engine: SzEngine) -> None:
     sz_engine.delete_record("", "")
 
 
-# def test_destroy(sz_engine: SzEngine) -> None:
-#     """Test SzEngine.destroy()."""
-#     sz_engine.destroy()
-
-
 def test_export_csv_entity_report(sz_engine: SzEngine) -> None:
     """Test SzEngine.export_csv_entity_report()."""
     sz_engine.export_csv_entity_report("")
@@ -135,11 +130,6 @@ def test_how_entity_by_entity_id(sz_engine: SzEngine) -> None:
     sz_engine.how_entity_by_entity_id(0)
 
 
-# def test_initialize(sz_engine: SzEngine) -> None:
-#     """Test SzEngine.initialize()."""
-#     sz_engine.initialize("", "")
-
-
 def test_preprocess_record(sz_engine: SzEngine) -> None:
     """Test SzEngine.preprocess_record()."""
     sz_engine.preprocess_record("")
@@ -188,6 +178,21 @@ def test_why_records(sz_engine: SzEngine) -> None:
 def test_why_search(sz_engine: SzEngine) -> None:
     """Test SzEngine.why_search()."""
     sz_engine.why_search("", 0)
+
+
+# -----------------------------------------------------------------------------
+# Unique testcases
+# -----------------------------------------------------------------------------
+
+
+# def test_initialize(sz_engine: SzEngine) -> None:
+#     """Test SzEngine.initialize()."""
+#     sz_engine.initialize("", "")
+
+
+# def test_destroy(sz_engine: SzEngine) -> None:
+#     """Test SzEngine.destroy()."""
+#     sz_engine.destroy()
 
 
 # -----------------------------------------------------------------------------
