@@ -20,13 +20,13 @@ def test_create_config_from_config_id(sz_configmanager: SzConfigManager) -> None
     sz_configmanager.create_config_from_config_id(0)
 
 
-def test_create_config_from_config_string(sz_configmanager: SzConfigManager) -> None:
-    """Test SzConfigManager.create_config_from_config_string()."""
+def test_create_config_from_string(sz_configmanager: SzConfigManager) -> None:
+    """Test SzConfigManager.create_config_from_string()."""
     sz_configmanager.create_config_from_string("")
 
 
-def test_create_config_from_config_template(sz_configmanager: SzConfigManager) -> None:
-    """Test SzConfigManager.create_config_from_config_string()."""
+def test_create_config_from_template(sz_configmanager: SzConfigManager) -> None:
+    """Test SzConfigManager.create_config_from_template()."""
     sz_configmanager.create_config_from_template()
 
 
@@ -41,17 +41,17 @@ def test_get_default_config_id(sz_configmanager: SzConfigManager) -> None:
 
 
 def test_help_1(sz_configmanager: SzConfigManager) -> None:
-    """Test SzConfigManager().help()."""
+    """Test SzConfigManager.help()."""
     sz_configmanager.help()
 
 
 def test_help_2(sz_configmanager: SzConfigManager) -> None:
-    """Test SzConfigManager().help(...)."""
+    """Test SzConfigManager.help(...)."""
     sz_configmanager.help("register_config")
 
 
 def test_register_config(sz_configmanager: SzConfigManager) -> None:
-    """Test SzConfigManager.add_config()."""
+    """Test SzConfigManager.register_config()."""
     sz_configmanager.register_config("", "")
 
 
@@ -71,7 +71,7 @@ def test_set_default_config_id(sz_configmanager: SzConfigManager) -> None:
 
 
 # -----------------------------------------------------------------------------
-# SzConfigManager fixtures
+# Fixtures
 # -----------------------------------------------------------------------------
 
 
