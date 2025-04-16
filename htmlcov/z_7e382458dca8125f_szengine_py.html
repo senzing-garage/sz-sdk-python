@@ -54,8 +54,8 @@
             </div>
         </aside>
         <h2>
-            <span class="text">71 statements &nbsp;</span>
-            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">71<span class="text"> run</span></button>
+            <span class="text">73 statements &nbsp;</span>
+            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">73<span class="text"> run</span></button>
             <button type="button" class="mis show_mis button_toggle_mis" value="mis" data-shortcut="m" title="Toggle lines missing">0<span class="text"> missing</span></button>
             <button type="button" class="exc show_exc button_toggle_exc" value="exc" data-shortcut="x" title="Toggle lines excluded">0<span class="text"> excluded</span></button>
         </h2>
@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="z_7e382458dca8125f_szengineflags_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.6.4">coverage.py v7.6.4</a>,
-            created at 2025-04-16 13:29 +0000
+            created at 2025-04-16 17:31 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -1014,21 +1014,57 @@
     <p class="pln"><span class="n"><a id="t932" href="#t932">932</a></span><span class="t"><span class="str">                    :language: json</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t933" href="#t933">933</a></span><span class="t"><span class="str">        """</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t934" href="#t934">934</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t935" href="#t935">935</a></span><span class="t">    <span class="com"># -------------------------------------------------------------------------</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t936" href="#t936">936</a></span><span class="t">    <span class="com"># Convenience methods</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t937" href="#t937">937</a></span><span class="t">    <span class="com"># -------------------------------------------------------------------------</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t938" href="#t938">938</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t939" href="#t939">939</a></span><span class="t">    <span class="key">def</span> <span class="nam">help</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">method_name</span><span class="op">:</span> <span class="nam">str</span> <span class="op">=</span> <span class="str">""</span><span class="op">)</span> <span class="op">-></span> <span class="nam">str</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t940" href="#t940">940</a></span><span class="t">        <span class="str">"""</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t941" href="#t941">941</a></span><span class="t"><span class="str">        Return the help for a particular message.</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t942" href="#t942">942</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t943" href="#t943">943</a></span><span class="t"><span class="str">        Args:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t944" href="#t944">944</a></span><span class="t"><span class="str">            method_name (str): The name of the method. (e.g. "init"). If empty, a list of methods and descriptions is returned.</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t945" href="#t945">945</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t946" href="#t946">946</a></span><span class="t"><span class="str">        Returns:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t947" href="#t947">947</a></span><span class="t"><span class="str">            str: The Help information about the requested method</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t948" href="#t948">948</a></span><span class="t"><span class="str">        """</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t949" href="#t949">949</a></span><span class="t">        <span class="key">return</span> <span class="nam">construct_help</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">method_name</span><span class="op">=</span><span class="nam">method_name</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t935" href="#t935">935</a></span><span class="t">    <span class="op">@</span><span class="nam">abstractmethod</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t936" href="#t936">936</a></span><span class="t">    <span class="key">def</span> <span class="nam">why_search</span><span class="op">(</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t937" href="#t937">937</a></span><span class="t">        <span class="nam">self</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t938" href="#t938">938</a></span><span class="t">        <span class="nam">attributes</span><span class="op">:</span> <span class="nam">str</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t939" href="#t939">939</a></span><span class="t">        <span class="nam">entity_id</span><span class="op">:</span> <span class="nam">int</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t940" href="#t940">940</a></span><span class="t">        <span class="nam">flags</span><span class="op">:</span> <span class="nam">int</span> <span class="op">=</span> <span class="nam">SzEngineFlags</span><span class="op">.</span><span class="nam">SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t941" href="#t941">941</a></span><span class="t">        <span class="nam">search_profile</span><span class="op">:</span> <span class="nam">str</span> <span class="op">=</span> <span class="str">""</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t942" href="#t942">942</a></span><span class="t">    <span class="op">)</span> <span class="op">-></span> <span class="nam">str</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t943" href="#t943">943</a></span><span class="t">        <span class="str">"""</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t944" href="#t944">944</a></span><span class="t"><span class="str">        The `why_search` method retrieves entity data based on a specific entity Id and a</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t945" href="#t945">945</a></span><span class="t"><span class="str">        user-specified set of entity attributes.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t946" href="#t946">946</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t947" href="#t947">947</a></span><span class="t"><span class="str">        Args:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t948" href="#t948">948</a></span><span class="t"><span class="str">            attributes (str): A JSON document with the attribute data to search for.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t949" href="#t949">949</a></span><span class="t"><span class="str">            entity_id (int): The identifier of the entity to retrieve.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t950" href="#t950">950</a></span><span class="t"><span class="str">            flags (int, optional): _description_. Defaults to SzEngineFlags.SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t951" href="#t951">951</a></span><span class="t"><span class="str">            search_profile (str): The name of a configured search profile. Defaults to SEARCH.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t952" href="#t952">952</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t953" href="#t953">953</a></span><span class="t"><span class="str">        Returns:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t954" href="#t954">954</a></span><span class="t"><span class="str">            str: A JSON document.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t955" href="#t955">955</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t956" href="#t956">956</a></span><span class="t"><span class="str">        Raises:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t957" href="#t957">957</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t958" href="#t958">958</a></span><span class="t"><span class="str">        .. collapse:: Example:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t959" href="#t959">959</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t960" href="#t960">960</a></span><span class="t"><span class="str">            .. literalinclude:: ../../examples/szengine/why_search.py</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t961" href="#t961">961</a></span><span class="t"><span class="str">                :linenos:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t962" href="#t962">962</a></span><span class="t"><span class="str">                :language: python</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t963" href="#t963">963</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t964" href="#t964">964</a></span><span class="t"><span class="str">            **Output:**</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t965" href="#t965">965</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t966" href="#t966">966</a></span><span class="t"><span class="str">            .. literalinclude:: ../../examples/szengine/why_search.txt</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t967" href="#t967">967</a></span><span class="t"><span class="str">                :linenos:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t968" href="#t968">968</a></span><span class="t"><span class="str">                :language: json</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t969" href="#t969">969</a></span><span class="t"><span class="str">        """</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t970" href="#t970">970</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t971" href="#t971">971</a></span><span class="t">    <span class="com"># -------------------------------------------------------------------------</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t972" href="#t972">972</a></span><span class="t">    <span class="com"># Convenience methods</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t973" href="#t973">973</a></span><span class="t">    <span class="com"># -------------------------------------------------------------------------</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t974" href="#t974">974</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t975" href="#t975">975</a></span><span class="t">    <span class="key">def</span> <span class="nam">help</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">method_name</span><span class="op">:</span> <span class="nam">str</span> <span class="op">=</span> <span class="str">""</span><span class="op">)</span> <span class="op">-></span> <span class="nam">str</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t976" href="#t976">976</a></span><span class="t">        <span class="str">"""</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t977" href="#t977">977</a></span><span class="t"><span class="str">        Return the help for a particular message.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t978" href="#t978">978</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t979" href="#t979">979</a></span><span class="t"><span class="str">        Args:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t980" href="#t980">980</a></span><span class="t"><span class="str">            method_name (str): The name of the method. (e.g. "init"). If empty, a list of methods and descriptions is returned.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t981" href="#t981">981</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t982" href="#t982">982</a></span><span class="t"><span class="str">        Returns:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t983" href="#t983">983</a></span><span class="t"><span class="str">            str: The Help information about the requested method</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t984" href="#t984">984</a></span><span class="t"><span class="str">        """</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t985" href="#t985">985</a></span><span class="t">        <span class="key">return</span> <span class="nam">construct_help</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">method_name</span><span class="op">=</span><span class="nam">method_name</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
 </main>
 <footer>
     <div class="content">
@@ -1038,7 +1074,7 @@
             <a class="nav" href="z_7e382458dca8125f_szengineflags_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.6.4">coverage.py v7.6.4</a>,
-            created at 2025-04-16 13:29 +0000
+            created at 2025-04-16 17:31 +0000
         </p>
     </div>
 </footer>
