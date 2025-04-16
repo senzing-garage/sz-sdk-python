@@ -4,7 +4,6 @@
 TODO: szconfig_test.py
 """
 
-
 import pytest
 
 from senzing import SzConfig
@@ -36,17 +35,17 @@ def test_get_data_sources(sz_config: SzConfig) -> None:
 
 
 def test_help_1(sz_config: SzConfig) -> None:
-    """Test SzConfig().help()."""
+    """Test SzConfig.help()."""
     sz_config.help()
 
 
 def test_help_2(sz_config: SzConfig) -> None:
-    """Test SzConfig().help(...)."""
+    """Test SzConfig.help(...)."""
     sz_config.help("add_data_source")
 
 
 # -----------------------------------------------------------------------------
-# szConfig fixtures
+# Fixtures
 # -----------------------------------------------------------------------------
 
 

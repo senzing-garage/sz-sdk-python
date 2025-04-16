@@ -932,6 +932,42 @@ class SzEngine(ABC):
                     :language: json
         """
 
+    @abstractmethod
+    def why_search(
+        self,
+        attributes: str,
+        entity_id: int,
+        flags: int = SzEngineFlags.SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS,
+        search_profile: str = "",
+    ) -> str:
+        """
+        The `why_search` method retrieves entity data based on a specific entity Id and a
+        user-specified set of entity attributes.
+
+        Args:
+            attributes (str): A JSON document with the attribute data to search for.
+            entity_id (int): The identifier of the entity to retrieve.
+            flags (int, optional): _description_. Defaults to SzEngineFlags.SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS.
+            search_profile (str): The name of a configured search profile. Defaults to SEARCH.
+
+        Returns:
+            str: A JSON document.
+
+        Raises:
+
+        .. collapse:: Example:
+
+            .. literalinclude:: ../../examples/szengine/why_search.py
+                :linenos:
+                :language: python
+
+            **Output:**
+
+            .. literalinclude:: ../../examples/szengine/why_search.txt
+                :linenos:
+                :language: json
+        """
+
     # -------------------------------------------------------------------------
     # Convenience methods
     # -------------------------------------------------------------------------
