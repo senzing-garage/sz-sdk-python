@@ -7,7 +7,6 @@ szabstractfactory.py is the abstract class for all implementations of SzAbstract
 
 from abc import ABC, abstractmethod
 
-from .szconfig import SzConfig
 from .szconfigmanager import SzConfigManager
 from .szdiagnostic import SzDiagnostic
 from .szengine import SzEngine
@@ -36,31 +35,6 @@ class SzAbstractFactory(ABC):
     # -------------------------------------------------------------------------
     # Interface definition
     # -------------------------------------------------------------------------
-
-    @abstractmethod
-    def create_config(self) -> SzConfig:
-        """
-        The `create_config` method creates a new implementation of an `SzConfig` object.
-
-        Args:
-
-        Returns:
-            SzConfig: A new implementation.
-
-        Raises:
-
-        .. collapse:: Example:
-
-            .. literalinclude:: ../../examples/szabstractfactory/create_config.py
-                :linenos:
-                :language: python
-
-            **Output:**
-
-            .. literalinclude:: ../../examples/szabstractfactory/create_config.txt
-                :linenos:
-                :language: json
-        """
 
     @abstractmethod
     def create_configmanager(self) -> SzConfigManager:
