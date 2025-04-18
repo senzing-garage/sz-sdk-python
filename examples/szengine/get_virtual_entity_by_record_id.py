@@ -8,7 +8,7 @@ try:
         ("CUSTOMERS", "1001"),
         ("CUSTOMERS", "1002"),
     ]
-    RESULT = sz_engine.get_virtual_entity_by_record_id(record_list, flags)
-    print(f"\n{RESULT}\n")
+    result = sz_engine.get_virtual_entity_by_record_id(record_list, flags)
+    print(f"\n{result}\n")
 except SzError as err:
     print(f"\nERROR: {err}\n")

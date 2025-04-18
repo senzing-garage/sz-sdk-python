@@ -256,15 +256,18 @@ class SzEngine(ABC):
                 :language: json
         """
 
-    # NOTE Included but not to be documented or examples, early adaptor feature, needs manual additions to config
+    # pylint: disable=empty-docstring
+    # NOTE Not to be documented or examples, early adaptor feature, needs manual additions to config
     @abstractmethod
     def find_interesting_entities_by_entity_id(self, entity_id: int, flags: int = 0) -> str:
-        """TODO: Document find_interesting_entities_by_entity_id()"""
+        """"""
 
-    # NOTE Included but not to be documented or examples, early adaptor feature, needs manual additions to config
+    # NOTE Not to be documented or examples, early adaptor feature, needs manual additions to config
     @abstractmethod
     def find_interesting_entities_by_record_id(self, data_source_code: str, record_id: str, flags: int = 0) -> str:
-        """TODO: Document find_interesting_entities_by_record_id()"""
+        """"""
+
+    # pylint: enable=empty-docstring
 
     @abstractmethod
     def find_network_by_entity_id(

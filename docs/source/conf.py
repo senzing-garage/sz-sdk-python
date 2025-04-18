@@ -51,3 +51,14 @@ exclude_patterns = ["*.py"]
 html_theme = "sphinx_rtd_theme"
 # autodoc_inherit_docstrings = False  # don't include docstrings from the parent class
 # autodoc_typehints = "description"   # Show types only in descriptions, not in signatures
+
+# Methods that are not to be documented. Intended to be internal use or experimental
+doc_excludes = ("find_interesting_entities_by_entity_id", "find_interesting_entities_by_record_id", "get_feature")
+
+
+def autodoc_skip_member(app, what, name, obj, skip, options):
+    return True if name in doc_excludes else None
+
+
+def setup(app):
+    app.connect("autodoc-skip-member", autodoc_skip_member)
