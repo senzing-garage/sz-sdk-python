@@ -11,7 +11,7 @@ try:
     MAX_DEGREES = 2
     required_data_sources: List[str] = []
     START_ENTITY_ID = 1
-    RESULT = sz_engine.find_path_by_entity_id(
+    result = sz_engine.find_path_by_entity_id(
         START_ENTITY_ID,
         END_ENTITY_ID,
         MAX_DEGREES,
@@ -19,6 +19,6 @@ try:
         required_data_sources,
         flags,
     )
-    print(f"\n{RESULT}\n")
+    print(f"\n{result}\n")
 except SzError as err:
     print(f"\nERROR: {err}\n")

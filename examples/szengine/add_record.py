@@ -24,7 +24,7 @@ try:
         }
     )
     RECORD_ID = "1"
-    RESULT = sz_engine.add_record(DATA_SOURCE_CODE, RECORD_ID, record_definition, flags)
-    print(f"\n{RESULT}\n")
+    result = sz_engine.add_record(DATA_SOURCE_CODE, RECORD_ID, record_definition, flags)
+    print(f"\n{result}\n")
 except SzError as err:
     print(f"\nERROR: {err}\n")

@@ -9,7 +9,7 @@ try:
     ENTITY_ID = 1
     flags = SzEngineFlags.SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS
     SEARCH_PROFILE = "SEARCH"
-    RESULT = sz_engine.why_search(attributes, ENTITY_ID, flags, SEARCH_PROFILE)
-    print(f"\n{RESULT}\n")
+    result = sz_engine.why_search(attributes, ENTITY_ID, flags, SEARCH_PROFILE)
+    print(f"\n{result}\n")
 except SzError as err:
     print(f"\nERROR: {err}\n")

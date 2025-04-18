@@ -79,20 +79,10 @@ class SzDiagnostic(ABC):
                 :language: json
         """
 
-    # NOTE This is included but not to be documented
+    # NOTE This is experimental and for internal diagnostics, not to be documented
     @abstractmethod
-    def get_feature(self, feature_id: int) -> str:
-        """
-        **Warning:**
-        The `get_feature` method is an experimental method that returns diagnostic information of a feature.
-        Not recommended for use.
-
-        Args:
-            feature_id (int): The identifier of the feature to describe.
-
-        Returns:
-            str: A string containing a JSON document
-        """
+    def get_feature(self, feature_id: int) -> str:  # pylint: disable=empty-docstring
+        """"""
 
     @abstractmethod
     def purge_repository(self) -> None:

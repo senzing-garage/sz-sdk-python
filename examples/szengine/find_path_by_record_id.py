@@ -13,7 +13,7 @@ try:
     required_data_sources: List[str] = []
     START_DATA_SOURCE_CODE = "CUSTOMERS"
     START_RECORD_ID = "1001"
-    RESULT = sz_engine.find_path_by_record_id(
+    result = sz_engine.find_path_by_record_id(
         START_DATA_SOURCE_CODE,
         START_RECORD_ID,
         END_DATA_SOURCE_CODE,
@@ -23,6 +23,6 @@ try:
         required_data_sources,
         flags,
     )
-    print(f"\n{RESULT}\n")
+    print(f"\n{result}\n")
 except SzError as err:
     print(f"\nERROR: {err}\n")

@@ -22,7 +22,7 @@ try:
             "AMOUNT": "100",
         }
     )
-    RESULT = sz_engine.preprocess_record(record_definition, flags)
-    print(f"\n{RESULT}\n")
+    result = sz_engine.preprocess_record(record_definition, flags)
+    print(f"\n{result}\n")
 except SzError as err:
     print(f"\nERROR: {err}\n")
