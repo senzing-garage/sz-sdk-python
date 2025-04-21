@@ -2,17 +2,18 @@ from senzing import SzEngineFlags, SzError
 
 from . import sz_engine
 
+data_source_code_1 = "CUSTOMERS"
+data_source_code_2 = "CUSTOMERS"
+flags = SzEngineFlags.SZ_WHY_ENTITIES_DEFAULT_FLAGS
+record_id_1 = "1001"
+record_id_2 = "1002"
+
 try:
-    DATA_SOURCE_CODE_1 = "CUSTOMERS"
-    DATA_SOURCE_CODE_2 = "CUSTOMERS"
-    flags = SzEngineFlags.SZ_WHY_ENTITIES_DEFAULT_FLAGS
-    RECORD_ID_1 = "1001"
-    RECORD_ID_2 = "1002"
     result = sz_engine.why_records(
-        DATA_SOURCE_CODE_1,
-        RECORD_ID_1,
-        DATA_SOURCE_CODE_2,
-        RECORD_ID_2,
+        data_source_code_1,
+        record_id_1,
+        data_source_code_2,
+        record_id_2,
         flags,
     )
     print(f"\n{result}\n")

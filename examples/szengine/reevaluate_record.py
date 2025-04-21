@@ -2,11 +2,12 @@ from senzing import SzEngineFlags, SzError
 
 from . import sz_engine
 
+data_source_code = "CUSTOMERS"
+flags = SzEngineFlags.SZ_WITH_INFO
+record_id = "1001"
+
 try:
-    DATA_SOURCE_CODE = "CUSTOMERS"
-    flags = SzEngineFlags.SZ_WITH_INFO
-    RECORD_ID = "1001"
-    result = sz_engine.reevaluate_record(DATA_SOURCE_CODE, RECORD_ID, flags)
+    result = sz_engine.reevaluate_record(data_source_code, record_id, flags)
     print(f"\n{result}\n")
 except SzError as err:
     print(f"\nERROR: {err}\n")

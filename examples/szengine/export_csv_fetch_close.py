@@ -2,17 +2,18 @@ from senzing import SzEngineFlags, SzError
 
 from . import sz_engine
 
+csv_column_list = (
+    "RESOLVED_ENTITY_ID,RELATED_ENTITY_ID,RESOLVED_ENTITY_NAME,MATCH_LEVEL,MATCH_KEY,DATA_SOURCE,RECORD_ID"
+)
+flags = SzEngineFlags.SZ_EXPORT_DEFAULT_FLAGS
+
 try:
-    CSV_COLUMN_LIST = (
-        "RESOLVED_ENTITY_ID,RELATED_ENTITY_ID,RESOLVED_ENTITY_NAME,MATCH_LEVEL,MATCH_KEY,DATA_SOURCE,RECORD_ID"
-    )
-    flags = SzEngineFlags.SZ_EXPORT_DEFAULT_FLAGS
-    EXPORT_HANDLE = sz_engine.export_csv_entity_report(CSV_COLUMN_LIST, flags)
+    export_handle = sz_engine.export_csv_entity_report(csv_column_list, flags)
     while True:
-        FRAGMENT = sz_engine.fetch_next(EXPORT_HANDLE)
-        if not FRAGMENT:
+        fragment = sz_engine.fetch_next(export_handle)
+        if not fragment:
             break
-        print(FRAGMENT, end="")
-    sz_engine.close_export(EXPORT_HANDLE)
+        print(fragment, end="")
+    sz_engine.close_export(export_handle)
 except SzError as err:
     print(f"\nERROR: {err}\n")
