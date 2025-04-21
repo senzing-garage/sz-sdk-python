@@ -5,7 +5,7 @@ from senzing import SzError
 from . import sz_configmanager
 
 try:
-    CONFIG_DEFINITION = json.dumps({})
-    sz_config = sz_configmanager.create_config_from_string(CONFIG_DEFINITION)
+    config_definition = json.dumps({})
+    sz_config = sz_configmanager.create_config_from_string(config_definition)
 except SzError as err:
     print(f"\nERROR: {err}\n")

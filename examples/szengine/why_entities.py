@@ -2,13 +2,14 @@ from senzing import SzEngineFlags, SzError
 
 from . import sz_engine
 
+entity_id_1 = 1
+entity_id_2 = 4
+flags = SzEngineFlags.SZ_WHY_ENTITIES_DEFAULT_FLAGS
+
 try:
-    ENTITY_ID_1 = 1
-    ENTITY_ID_2 = 4
-    flags = SzEngineFlags.SZ_WHY_ENTITIES_DEFAULT_FLAGS
     result = sz_engine.why_entities(
-        ENTITY_ID_1,
-        ENTITY_ID_2,
+        entity_id_1,
+        entity_id_2,
         flags,
     )
     print(f"\n{result}\n")
