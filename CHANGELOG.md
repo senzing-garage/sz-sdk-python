@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.2.9] - 2025-04-24
+
+### Changed in 0.2.9
+
+- Update szerror.py
+
 ## [0.2.8] - 2025-04-21
 
 ### Changed in 0.2.8
