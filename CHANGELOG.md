@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.2.10] - 2025-04-30
+
+### Changed in 0.2.10
+
+- Added SZ_WHY_SEARCH_DEFAULT_FLAGS to szengineflags.py
+- Changed default why_search() flag to SZ_WHY_SEARCH_DEFAULT_FLAGS
+
 ## [0.2.9] - 2025-04-24
 
 ### Changed in 0.2.9

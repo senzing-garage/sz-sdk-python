@@ -241,6 +241,10 @@ class SzEngineFlags(IntFlag):
         | SZ_INCLUDE_FEATURE_SCORES
     )
 
+    SZ_WHY_SEARCH_DEFAULT_FLAGS = (
+        SZ_INCLUDE_FEATURE_SCORES | SZ_SEARCH_INCLUDE_REQUEST_DETAILS | SZ_SEARCH_INCLUDE_STATS
+    )
+
     # The recommended default flag values for how-analysis on entities.
     SZ_HOW_ENTITY_DEFAULT_FLAGS = SZ_INCLUDE_FEATURE_SCORES
 
