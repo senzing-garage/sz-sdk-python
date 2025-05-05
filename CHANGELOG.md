@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.2.11] - 2025-05-05
+
+### Changed in 0.2.11
+
+- Fixed incorrect flag defaults in szengine.py
+- Fixed incorrect flag defaults in szengine.py in doc strings
+- Spelling corrections
+
 ## [0.2.10] - 2025-04-30
 
 ### Changed in 0.2.10
