@@ -64,8 +64,8 @@
             <a id="indexLink" class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
             <a id="nextFileLink" class="nav" href="z_7e382458dca8125f_szengineflags_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.6.4">coverage.py v7.6.4</a>,
-            created at 2025-05-01 17:52 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.8.0">coverage.py v7.8.0</a>,
+            created at 2025-05-05 22:02 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -371,7 +371,7 @@
     <p class="pln"><span class="n"><a id="t289" href="#t289">289</a></span><span class="t"><span class="str">            max_degrees (int): The maximum number of degrees in paths between search entities.</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t290" href="#t290">290</a></span><span class="t"><span class="str">            build_out_degrees (int): The number of degrees of relationships to show around each search entity.</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t291" href="#t291">291</a></span><span class="t"><span class="str">            build_out_max_entities (int): The maximum number of entities to return in the discovered network.</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t292" href="#t292">292</a></span><span class="t"><span class="str">            flags (int, optional): The maximum number of entities to return in the discovered network. Defaults to SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t292" href="#t292">292</a></span><span class="t"><span class="str">            flags (int, optional): The maximum number of entities to return in the discovered network. Defaults to SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS.</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t293" href="#t293">293</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t294" href="#t294">294</a></span><span class="t"><span class="str">        Returns:</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t295" href="#t295">295</a></span><span class="t"><span class="str">            str: A JSON document.</span>&nbsp;</span><span class="r"></span></p>
@@ -411,7 +411,7 @@
     <p class="pln"><span class="n"><a id="t329" href="#t329">329</a></span><span class="t"><span class="str">            max_degrees (int): The maximum number of degrees in paths between search entities.</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t330" href="#t330">330</a></span><span class="t"><span class="str">            build_out_degrees (int): The number of degrees of relationships to show around each search entity.</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t331" href="#t331">331</a></span><span class="t"><span class="str">            build_out_max_entities (int): The maximum number of entities to return in the discovered network.</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t332" href="#t332">332</a></span><span class="t"><span class="str">            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t332" href="#t332">332</a></span><span class="t"><span class="str">            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS.</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t333" href="#t333">333</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t334" href="#t334">334</a></span><span class="t"><span class="str">        Returns:</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t335" href="#t335">335</a></span><span class="t"><span class="str">            str: A JSON document.</span>&nbsp;</span><span class="r"></span></p>
@@ -704,7 +704,7 @@
     <p class="pln"><span class="n"><a id="t622" href="#t622">622</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t623" href="#t623">623</a></span><span class="t"><span class="str">        Args:</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t624" href="#t624">624</a></span><span class="t"><span class="str">            record_keys (list(tuple(str, str))): The data source codes and record IDs identifying records to create the virtual entity from.</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t625" href="#t625">625</a></span><span class="t"><span class="str">            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_HOW_ENTITY_DEFAULT_FLAGS.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t625" href="#t625">625</a></span><span class="t"><span class="str">            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_VIRTUAL_ENTITY_DEFAULT_FLAGS.</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t626" href="#t626">626</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t627" href="#t627">627</a></span><span class="t"><span class="str">        Returns:</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t628" href="#t628">628</a></span><span class="t"><span class="str">            str:  A JSON document.</span>&nbsp;</span><span class="r"></span></p>
@@ -768,7 +768,7 @@
     <p class="pln"><span class="n"><a id="t686" href="#t686">686</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t687" href="#t687">687</a></span><span class="t"><span class="str">        Args:</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t688" href="#t688">688</a></span><span class="t"><span class="str">            record_definition (str): A JSON document containing the record to be tested.</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t689" href="#t689">689</a></span><span class="t"><span class="str">            flags (int, optional): Flags used to control information returned. Defaults to 0.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t689" href="#t689">689</a></span><span class="t"><span class="str">            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_RECORD_DEFAULT_FLAGS.</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t690" href="#t690">690</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t691" href="#t691">691</a></span><span class="t"><span class="str">        Returns:</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t692" href="#t692">692</a></span><span class="t"><span class="str">            str: A JSON document containing metadata as specified by the flags.</span>&nbsp;</span><span class="r"></span></p>
@@ -927,7 +927,7 @@
     <p class="pln"><span class="n"><a id="t845" href="#t845">845</a></span><span class="t"><span class="str">        Args:</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t846" href="#t846">846</a></span><span class="t"><span class="str">            entity_id_1 (int): The entity ID for the starting entity of the search path.</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t847" href="#t847">847</a></span><span class="t"><span class="str">            entity_id_2 (int): The entity ID for the ending entity of the search path.</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t848" href="#t848">848</a></span><span class="t"><span class="str">            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_WHY_ENTITY_DEFAULT_FLAGS.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t848" href="#t848">848</a></span><span class="t"><span class="str">            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_WHY_ENTITIES_DEFAULT_FLAGS.</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t849" href="#t849">849</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t850" href="#t850">850</a></span><span class="t"><span class="str">        Returns:</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t851" href="#t851">851</a></span><span class="t"><span class="str">            str: A JSON document.</span>&nbsp;</span><span class="r"></span></p>
@@ -952,7 +952,7 @@
     <p class="pln"><span class="n"><a id="t870" href="#t870">870</a></span><span class="t">        <span class="nam">self</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t871" href="#t871">871</a></span><span class="t">        <span class="nam">data_source_code</span><span class="op">:</span> <span class="nam">str</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t872" href="#t872">872</a></span><span class="t">        <span class="nam">record_id</span><span class="op">:</span> <span class="nam">str</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t873" href="#t873">873</a></span><span class="t">        <span class="nam">flags</span><span class="op">:</span> <span class="nam">int</span> <span class="op">=</span> <span class="nam">SzEngineFlags</span><span class="op">.</span><span class="nam">SZ_WHY_RECORDS_DEFAULT_FLAGS</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t873" href="#t873">873</a></span><span class="t">        <span class="nam">flags</span><span class="op">:</span> <span class="nam">int</span> <span class="op">=</span> <span class="nam">SzEngineFlags</span><span class="op">.</span><span class="nam">SZ_WHY_RECORD_IN_ENTITY_DEFAULT_FLAGS</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t874" href="#t874">874</a></span><span class="t">    <span class="op">)</span> <span class="op">-></span> <span class="nam">str</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t875" href="#t875">875</a></span><span class="t">        <span class="str">"""</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t876" href="#t876">876</a></span><span class="t"><span class="str">        The `why_record_in_entity` method determines why a record is included in an entity.</span>&nbsp;</span><span class="r"></span></p>
@@ -960,7 +960,7 @@
     <p class="pln"><span class="n"><a id="t878" href="#t878">878</a></span><span class="t"><span class="str">        Args:</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t879" href="#t879">879</a></span><span class="t"><span class="str">            data_source_code (str): Identifies the provenance of the data.</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t880" href="#t880">880</a></span><span class="t"><span class="str">            record_id (str): The unique identifier within the records of the same data source.</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t881" href="#t881">881</a></span><span class="t"><span class="str">            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_WHY_ENTITY_DEFAULT_FLAGS.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t881" href="#t881">881</a></span><span class="t"><span class="str">            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_WHY_RECORD_IN_ENTITY_DEFAULT_FLAGS.</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t882" href="#t882">882</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t883" href="#t883">883</a></span><span class="t"><span class="str">        Returns:</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t884" href="#t884">884</a></span><span class="t"><span class="str">            str: A JSON document.</span>&nbsp;</span><span class="r"></span></p>
@@ -1076,8 +1076,8 @@
             <a class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
             <a class="nav" href="z_7e382458dca8125f_szengineflags_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
-            <a class="nav" href="https://coverage.readthedocs.io/en/7.6.4">coverage.py v7.6.4</a>,
-            created at 2025-05-01 17:52 +0000
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.8.0">coverage.py v7.8.0</a>,
+            created at 2025-05-05 22:02 +0000
         </p>
     </div>
 </footer>
