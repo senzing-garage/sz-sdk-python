@@ -30,61 +30,6 @@ class SzEngineFlags(IntFlag):
     def _members_dict(cls) -> Dict[str, int]:
         return {member.name: member.value for member in cls if member.name and not member.name.startswith("_")}
 
-    @classmethod
-    def flags_by_name(cls: type[TSzEngineFlags]) -> Dict[str, int]:
-        """
-        The `flags_by_name` method returns the name of all engine flags and corresponding integer values.
-
-        Args:
-
-
-        Returns:
-            dict[str, int]: Dictionary keyed on the flag names.
-
-        Raises:
-
-        .. collapse:: Examples:
-
-            .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/misc/engine_flags_by_name.py
-                :linenos:
-                :language: python
-
-            **Output:**
-
-            .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/misc/engine_flags_by_name.txt
-                :linenos:
-                :language: json
-        """
-        return dict(sorted(cls._members_dict().items()))
-
-    @classmethod
-    def flags_by_value(cls) -> Dict[int, str]:
-        """
-        The `flags_by_value` method returns the value of all engine flags and corresponding flag names.
-
-        Args:
-
-
-        Returns:
-            dict[int, str]: Dictionary keyed on the flag integer values.
-
-        Raises:
-
-        .. collapse:: Examples:
-
-            .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/misc/engine_flags_by_value.py
-                :linenos:
-                :language: python
-
-            **Output:**
-
-            .. rli:: https://raw.githubusercontent.com/senzing-garage/sz-sdk-python-core/refs/heads/main/examples/misc/engine_flags_by_value.txt
-                :linenos:
-                :language: json
-        """
-        flags = {value: name for name, value in cls._members_dict().items()}
-        return dict(sorted(flags.items()))
-
     # Flags for including special data.
 
     SZ_INCLUDE_FEATURE_SCORES = 1 << 26
@@ -133,7 +78,7 @@ class SzEngineFlags(IntFlag):
     SZ_ENTITY_INCLUDE_RECORD_MATCHING_INFO = 1 << 15
     SZ_ENTITY_INCLUDE_RECORD_JSON_DATA = 1 << 16
     SZ_ENTITY_INCLUDE_RECORD_UNMAPPED_DATA = 1 << 31
-    SZ_ENTITY_INCLUDE_RECORD_FEATURE_IDS = 1 << 18
+    SZ_ENTITY_INCLUDE_RECORD_FEATURES = 1 << 18
     SZ_ENTITY_INCLUDE_RECORD_FEATURE_DETAILS = 1 << 35
     SZ_ENTITY_INCLUDE_RECORD_FEATURE_STATS = 1 << 36
     SZ_ENTITY_INCLUDE_RELATED_ENTITY_NAME = 1 << 19

@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.2.12] - 2025-05-08
+
+### Changed in 0.2.12
+
+- SZ_ENTITY_INCLUDE_RECORD_FEATURE_IDS back to SZ_ENTITY_INCLUDE_RECORD_FEATURES
+
+### Removed in 0.2.12
+
+- flags_by_name class method in szengineflags
+- flags_by_value class method in szengineflags
+- Associated tests and examples for the above
+
+
 ## [0.2.11] - 2025-05-05
 
 ### Changed in 0.2.11
