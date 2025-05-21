@@ -5,7 +5,7 @@ from senzing import SzEngineFlags, SzError
 from . import sz_engine
 
 avoid_entity_ids: List[int] = []
-end_entity_id = 4
+end_entity_id = 400215
 flags = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS
 max_degrees = 2
 required_data_sources: List[str] = []

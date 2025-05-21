@@ -4,6 +4,7 @@ from senzing import SzEngineFlags, SzError
 
 from . import sz_engine
 
+# TODO - Change when new default is in V4
 flags = SzEngineFlags.SZ_RECORD_DEFAULT_FLAGS
 record_definition = json.dumps(
     {

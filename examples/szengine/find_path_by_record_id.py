@@ -5,8 +5,8 @@ from senzing import SzEngineFlags, SzError
 from . import sz_engine
 
 avoid_record_keys: List[Tuple[str, str]] = []
-end_data_source_code = "CUSTOMERS"
-end_record_id = "1009"
+end_data_source_code = "WATCHLIST"
+end_record_id = "1007"
 flags = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS
 max_degrees = 2
 required_data_sources: List[str] = []
