@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.2.13] - 2025-05-21
+
+### Added in 0.2.13
+
+- New tests for szconfig
+
+### Changed in 0.2.13
+
+- Examples cleanup
+
 ## [0.2.12] - 2025-05-08
 
 ### Changed in 0.2.12
