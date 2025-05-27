@@ -7,6 +7,67 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.2.13] - 2025-05-21
+
+### Added in 0.2.13
+
+- New tests for szconfig
+
+### Changed in 0.2.13
+
+- Examples cleanup
+
+## [0.2.12] - 2025-05-08
+
+### Changed in 0.2.12
+
+- SZ_ENTITY_INCLUDE_RECORD_FEATURE_IDS back to SZ_ENTITY_INCLUDE_RECORD_FEATURES
+
+### Removed in 0.2.12
+
+- flags_by_name class method in szengineflags
+- flags_by_value class method in szengineflags
+- Associated tests and examples for the above
+
+
+## [0.2.11] - 2025-05-05
+
+### Changed in 0.2.11
+
+- Fixed incorrect flag defaults in szengine.py
+- Fixed incorrect flag defaults in szengine.py in doc strings
+- Spelling corrections
+
+## [0.2.10] - 2025-04-30
+
+### Changed in 0.2.10
+
+- Added SZ_WHY_SEARCH_DEFAULT_FLAGS to szengineflags.py
+- Changed default why_search() flag to SZ_WHY_SEARCH_DEFAULT_FLAGS
+
+## [0.2.9] - 2025-04-24
+
+### Changed in 0.2.9
+
+- Update szerror.py
+
+## [0.2.8] - 2025-04-21
+
+### Changed in 0.2.8
+
+- Simplify and clean up examples
+
+## [0.2.7] - 2025-04-18
+
+### Changed in 0.2.7
+
+- Case on example variables
+
+### Removed in 0.2.7
+
+- Documentation on early adaptor methods
+- Empty example files for early adaptor methods
+
 ## [0.2.6] - 2025-04-16
 
 ### Added in 0.2.6

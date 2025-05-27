@@ -4,12 +4,12 @@ from senzing import SzEngineFlags, SzError
 
 from . import sz_engine
 
+attributes = json.dumps({"NAME_FULL": "BOB SMITH", "EMAIL_ADDRESS": "bsmith@work.com"})
+entity_id = 1
+flags = SzEngineFlags.SZ_WHY_SEARCH_DEFAULT_FLAGS
+
 try:
-    attributes = json.dumps({"NAME_FULL": "BOB SMITH", "EMAIL_ADDRESS": "bsmith@work.com"})
-    ENTITY_ID = 1
-    flags = SzEngineFlags.SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS
-    SEARCH_PROFILE = "SEARCH"
-    RESULT = sz_engine.why_search(attributes, ENTITY_ID, flags, SEARCH_PROFILE)
-    print(f"\n{RESULT}\n")
+    result = sz_engine.why_search(attributes, entity_id, flags)
+    print(f"\n{result}\n")
 except SzError as err:
     print(f"\nERROR: {err}\n")

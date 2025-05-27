@@ -256,15 +256,18 @@ class SzEngine(ABC):
                 :language: json
         """
 
-    # NOTE Included but not to be documented or examples, early adaptor feature, needs manual additions to config
+    # pylint: disable=empty-docstring
+    # NOTE Not to be documented or examples, early adaptor feature, needs manual additions to config
     @abstractmethod
     def find_interesting_entities_by_entity_id(self, entity_id: int, flags: int = 0) -> str:
-        """TODO: Document find_interesting_entities_by_entity_id()"""
+        """"""
 
-    # NOTE Included but not to be documented or examples, early adaptor feature, needs manual additions to config
+    # NOTE Not to be documented or examples, early adaptor feature, needs manual additions to config
     @abstractmethod
     def find_interesting_entities_by_record_id(self, data_source_code: str, record_id: str, flags: int = 0) -> str:
-        """TODO: Document find_interesting_entities_by_record_id()"""
+        """"""
+
+    # pylint: enable=empty-docstring
 
     @abstractmethod
     def find_network_by_entity_id(
@@ -286,7 +289,7 @@ class SzEngine(ABC):
             max_degrees (int): The maximum number of degrees in paths between search entities.
             build_out_degrees (int): The number of degrees of relationships to show around each search entity.
             build_out_max_entities (int): The maximum number of entities to return in the discovered network.
-            flags (int, optional): The maximum number of entities to return in the discovered network. Defaults to SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS.
+            flags (int, optional): The maximum number of entities to return in the discovered network. Defaults to SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS.
 
         Returns:
             str: A JSON document.
@@ -326,7 +329,7 @@ class SzEngine(ABC):
             max_degrees (int): The maximum number of degrees in paths between search entities.
             build_out_degrees (int): The number of degrees of relationships to show around each search entity.
             build_out_max_entities (int): The maximum number of entities to return in the discovered network.
-            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS.
+            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS.
 
         Returns:
             str: A JSON document.
@@ -619,7 +622,7 @@ class SzEngine(ABC):
 
         Args:
             record_keys (list(tuple(str, str))): The data source codes and record IDs identifying records to create the virtual entity from.
-            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_HOW_ENTITY_DEFAULT_FLAGS.
+            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_VIRTUAL_ENTITY_DEFAULT_FLAGS.
 
         Returns:
             str:  A JSON document.
@@ -683,7 +686,7 @@ class SzEngine(ABC):
 
         Args:
             record_definition (str): A JSON document containing the record to be tested.
-            flags (int, optional): Flags used to control information returned. Defaults to 0.
+            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_RECORD_DEFAULT_FLAGS.
 
         Returns:
             str: A JSON document containing metadata as specified by the flags.
@@ -842,7 +845,7 @@ class SzEngine(ABC):
         Args:
             entity_id_1 (int): The entity ID for the starting entity of the search path.
             entity_id_2 (int): The entity ID for the ending entity of the search path.
-            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_WHY_ENTITY_DEFAULT_FLAGS.
+            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_WHY_ENTITIES_DEFAULT_FLAGS.
 
         Returns:
             str: A JSON document.
@@ -867,7 +870,7 @@ class SzEngine(ABC):
         self,
         data_source_code: str,
         record_id: str,
-        flags: int = SzEngineFlags.SZ_WHY_RECORDS_DEFAULT_FLAGS,
+        flags: int = SzEngineFlags.SZ_WHY_RECORD_IN_ENTITY_DEFAULT_FLAGS,
     ) -> str:
         """
         The `why_record_in_entity` method determines why a record is included in an entity.
@@ -875,7 +878,7 @@ class SzEngine(ABC):
         Args:
             data_source_code (str): Identifies the provenance of the data.
             record_id (str): The unique identifier within the records of the same data source.
-            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_WHY_ENTITY_DEFAULT_FLAGS.
+            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_WHY_RECORD_IN_ENTITY_DEFAULT_FLAGS.
 
         Returns:
             str: A JSON document.
@@ -937,7 +940,7 @@ class SzEngine(ABC):
         self,
         attributes: str,
         entity_id: int,
-        flags: int = SzEngineFlags.SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS,
+        flags: int = SzEngineFlags.SZ_WHY_SEARCH_DEFAULT_FLAGS,
         search_profile: str = "",
     ) -> str:
         """
@@ -947,7 +950,7 @@ class SzEngine(ABC):
         Args:
             attributes (str): A JSON document with the attribute data to search for.
             entity_id (int): The identifier of the entity to retrieve.
-            flags (int, optional): _description_. Defaults to SzEngineFlags.SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS.
+            flags (int, optional): _description_. Defaults to SzEngineFlags.SZ_WHY_SEARCH_DEFAULT_FLAGS.
             search_profile (str): The name of a configured search profile. Defaults to SEARCH.
 
         Returns:
