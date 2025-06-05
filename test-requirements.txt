@@ -1,1 +1,0 @@
-senzing-core==0.3.12
