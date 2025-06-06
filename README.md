@@ -17,7 +17,7 @@ the recommendation is not to use it yet.
 ## Synopsis
 
 The Senzing `sz-sdk-python` package contains the abstract base class from which
-implmentations of the Senzing Python SDK are derived.
+implementations of the Senzing Python SDK are derived.
 
 [![Python 3.11 Badge]][Python 3.11]
 [![PEP8 Badge]][PEP8]

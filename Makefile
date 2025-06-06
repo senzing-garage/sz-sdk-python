@@ -187,11 +187,25 @@ bandit:
 	@$(activate-venv); bandit -c pyproject.toml $(shell git ls-files '*.py' ':!:docs/source/*')
 
 
+.PHONY: bearer
+bearer:
+	$(info ${\n})
+	$(info --- bearer ---------------------------------------------------------------------)
+	@bearer scan --config-file .github/linters/bearer.yml .
+
+
 .PHONY: black
 black:
 	$(info ${\n})
 	$(info --- black ----------------------------------------------------------------------)
 	@$(activate-venv); black $(shell git ls-files '*.py' ':!:docs/source/*')
+
+
+.PHONY: cspell
+cspell:
+	$(info ${\n})
+	$(info --- cspell ---------------------------------------------------------------------)
+	@cspell lint --dot .
 
 
 .PHONY: flake8
