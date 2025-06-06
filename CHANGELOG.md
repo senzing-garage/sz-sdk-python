@@ -29,7 +29,6 @@ and this project adheres to [Semantic Versioning].
 - flags_by_value class method in szengineflags
 - Associated tests and examples for the above
 
-
 ## [0.2.11] - 2025-05-05
 
 ### Changed in 0.2.11
@@ -150,7 +149,7 @@ and this project adheres to [Semantic Versioning].
 
 ### Changed in 0.1.10
 
-- Synchronized ezengineflags with latest V4 stage build
+- Synchronized szengineflags with latest V4 stage build
 
 ## [0.1.9] - 2024-10-31
 
@@ -193,7 +192,7 @@ and this project adheres to [Semantic Versioning].
 
 ### Added in 0.1.4
 
-- `sz_enzine.preprocess_record()`
+- `sz_engine.preprocess_record()`
 - Engine flags:
   - `SZ_ENTITY_INCLUDE_RECORD_FEATURE_DETAILS`
   - `SZ_ENTITY_INCLUDE_RECORD_FEATURE_STATS`
