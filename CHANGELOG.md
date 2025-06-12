@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.2.15] - 2025-06-12
+
+### Fixed in 0.2.15
+
+- Example for preprocess_record had incorrect flag
+
 ## [0.2.14] - 2025-06-12
 
 ### Added in 0.2.14
