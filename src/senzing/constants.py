@@ -4,12 +4,10 @@ szconstants.py has convenience constant declarations.
 
 # Metadata
 
-# TODO
 __all__ = [
     "SZ_INITIALIZE_WITH_DEFAULT_CONFIGURATION",
     "SZ_NO_ATTRIBUTES",
     "SZ_NO_AVOIDANCES",
-    "SZ_NO_FLAGS",
     "SZ_NO_INFO",
     "SZ_NO_LOGGING",
     "SZ_NO_REQUIRED_DATASOURCES",
@@ -25,7 +23,6 @@ __updated__ = "2023-10-30"
 # Constant helper values useful for flags
 # -----------------------------------------------------------------------------
 
-SZ_NO_FLAGS = 0
 SZ_WITHOUT_INFO = 0
 
 # -----------------------------------------------------------------------------
