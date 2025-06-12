@@ -34,14 +34,13 @@ class SzEngine(ABC):
     # Interface definition
     # -------------------------------------------------------------------------
 
-    # TODO Modify tests from "{}" to ""
     @abstractmethod
     def add_record(
         self,
         data_source_code: str,
         record_id: str,
         record_definition: str,
-        flags: int = 0,
+        flags: int = SzEngineFlags.SZ_ADD_RECORD_DEFAULT_FLAGS,
     ) -> str:
         """
         The `add_record` method adds a record into the Senzing repository.
@@ -51,7 +50,7 @@ class SzEngine(ABC):
             data_source_code (str): Identifies the provenance of the data.
             record_id (str): The unique identifier within the records of the same data source.
             record_definition (str): A JSON document containing the record to be added to the Senzing repository.
-            flags (int, optional): Flags used to control information returned. Defaults to 0.
+            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_ADD_RECORD_DEFAULT_FLAGS.
 
         Returns:
             str: If flags are set to return the WITH_INFO response a JSON document containing the details, otherwise an empty string.
@@ -124,7 +123,7 @@ class SzEngine(ABC):
         self,
         data_source_code: str,
         record_id: str,
-        flags: int = 0,
+        flags: int = SzEngineFlags.SZ_DELETE_RECORD_DEFAULT_FLAGS,
     ) -> str:
         """
         The `delete_record` method deletes a record from the Senzing repository.
@@ -133,7 +132,7 @@ class SzEngine(ABC):
         Args:
             data_source_code (str): Identifies the provenance of the data.
             record_id (str): The unique identifier within the records of the same data source.
-            flags (int, optional): Flags used to control information returned. Defaults to 0.
+            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_DELETE_RECORD_DEFAULT_FLAGS.
 
         Returns:
             str: If flags are set to return the WITH_INFO response a JSON document containing the details, otherwise an empty string.
@@ -257,14 +256,21 @@ class SzEngine(ABC):
         """
 
     # pylint: disable=empty-docstring
-    # NOTE Not to be documented or examples, early adaptor feature, needs manual additions to config
+    # NOTE - Not to be documented or examples, early adaptor feature, needs manual additions to config
     @abstractmethod
-    def find_interesting_entities_by_entity_id(self, entity_id: int, flags: int = 0) -> str:
+    def find_interesting_entities_by_entity_id(
+        self, entity_id: int, flags: int = SzEngineFlags.SZ_FIND_INTERESTING_ENTITIES_DEFAULT_FLAGS
+    ) -> str:
         """"""
 
-    # NOTE Not to be documented or examples, early adaptor feature, needs manual additions to config
+    # NOTE - Not to be documented or examples, early adaptor feature, needs manual additions to config
     @abstractmethod
-    def find_interesting_entities_by_record_id(self, data_source_code: str, record_id: str, flags: int = 0) -> str:
+    def find_interesting_entities_by_record_id(
+        self,
+        data_source_code: str,
+        record_id: str,
+        flags: int = SzEngineFlags.SZ_FIND_INTERESTING_ENTITIES_DEFAULT_FLAGS,
+    ) -> str:
         """"""
 
     # pylint: enable=empty-docstring
@@ -679,14 +685,14 @@ class SzEngine(ABC):
     def preprocess_record(
         self,
         record_definition: str,
-        flags: int = SzEngineFlags.SZ_RECORD_DEFAULT_FLAGS,
+        flags: int = SzEngineFlags.SZ_PREPROCESS_RECORD_DEFAULT_FLAGS,
     ) -> str:
         """
         The `preprocess_record` method tests adding a record into the Senzing datastore.
 
         Args:
             record_definition (str): A JSON document containing the record to be tested.
-            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_RECORD_DEFAULT_FLAGS.
+            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_PREPROCESS_RECORD_DEFAULT_FLAGS.
 
         Returns:
             str: A JSON document containing metadata as specified by the flags.
@@ -748,13 +754,13 @@ class SzEngine(ABC):
         """
 
     @abstractmethod
-    def reevaluate_entity(self, entity_id: int, flags: int = 0) -> str:
+    def reevaluate_entity(self, entity_id: int, flags: int = SzEngineFlags.SZ_REEVALUATE_ENTITY_DEFAULT_FLAGS) -> str:
         """
         The `reevaluate_entity` method reevaluates the specified entity.
 
         Args:
             entity_id (int): The unique identifier of an entity.
-            flags (int, optional): Flags used to control information returned. Defaults to 0.
+            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_REEVALUATE_ENTITY_DEFAULT_FLAGS.
 
         Raises:
 
@@ -772,14 +778,16 @@ class SzEngine(ABC):
         """
 
     @abstractmethod
-    def reevaluate_record(self, data_source_code: str, record_id: str, flags: int = 0) -> str:
+    def reevaluate_record(
+        self, data_source_code: str, record_id: str, flags: int = SzEngineFlags.SZ_REEVALUATE_RECORD_DEFAULT_FLAGS
+    ) -> str:
         """
         The `reevaluate_record` method reevaluates a specific record.
 
         Args:
             data_source_code (str): Identifies the provenance of the data.
             record_id (str): The unique identifier within the records of the same data source.
-            flags (int, optional):  Flags used to control information returned. Defaults to 0.
+            flags (int, optional):  Flags used to control information returned. Defaults to SzEngineFlags.SZ_REEVALUATE_RECORD_DEFAULT_FLAGS.
 
         Returns:
             str: If flags are set to return the WITH_INFO response a JSON document containing the details, otherwise an empty string.
@@ -915,7 +923,7 @@ class SzEngine(ABC):
             record_id_1 (str): The unique identifier within the records of the same data source.
             data_source_code_2 (str): Identifies the provenance of the data.
             record_id_2 (str): The unique identifier within the records of the same data source.
-            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_WHY_ENTITY_DEFAULT_FLAGS.
+            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_WHY_RECORDS_DEFAULT_FLAGS.
 
         Returns:
             str: A JSON document.

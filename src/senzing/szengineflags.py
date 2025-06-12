@@ -30,6 +30,10 @@ class SzEngineFlags(IntFlag):
     def _members_dict(cls) -> Dict[str, int]:
         return {member.name: member.value for member in cls if member.name and not member.name.startswith("_")}
 
+    # Constant for specifying no flags.
+
+    SZ_NO_FLAGS = 0
+
     # Flags for including special data.
 
     SZ_INCLUDE_FEATURE_SCORES = 1 << 26
@@ -76,6 +80,7 @@ class SzEngineFlags(IntFlag):
     SZ_ENTITY_INCLUDE_RECORD_TYPES = 1 << 28
     SZ_ENTITY_INCLUDE_RECORD_DATA = 1 << 14
     SZ_ENTITY_INCLUDE_RECORD_MATCHING_INFO = 1 << 15
+    SZ_ENTITY_INCLUDE_RECORD_DATES = 1 << 39
     SZ_ENTITY_INCLUDE_RECORD_JSON_DATA = 1 << 16
     SZ_ENTITY_INCLUDE_RECORD_UNMAPPED_DATA = 1 << 31
     SZ_ENTITY_INCLUDE_RECORD_FEATURES = 1 << 18
@@ -101,14 +106,6 @@ class SzEngineFlags(IntFlag):
     # Flags for including search result feature scores.
 
     SZ_SEARCH_INCLUDE_STATS = 1 << 27
-    SZ_SEARCH_INCLUDE_ALL_CANDIDATES = 1 << 32
-    SZ_SEARCH_INCLUDE_REQUEST = 1 << 37
-    SZ_SEARCH_INCLUDE_REQUEST_DETAILS = 1 << 38
-
-    # Flag for returning (or not) with info responses.
-
-    SZ_WITH_INFO = 1 << 62
-    _SZ_WITHOUT_INFO = 0  # __SZ_WITHOUT_INFO isn't in the C API, will be used for future methods.
 
     # Flags for searching for entities.
 
@@ -122,6 +119,9 @@ class SzEngineFlags(IntFlag):
         | SZ_SEARCH_INCLUDE_POSSIBLY_RELATED
         | SZ_SEARCH_INCLUDE_NAME_ONLY
     )
+    SZ_SEARCH_INCLUDE_ALL_CANDIDATES = 1 << 32
+    SZ_SEARCH_INCLUDE_REQUEST = 1 << 37
+    SZ_SEARCH_INCLUDE_REQUEST_DETAILS = 1 << 38
 
     # Recommended settings for various API functions.
 
@@ -166,11 +166,8 @@ class SzEngineFlags(IntFlag):
 
     # The recommended default flag values for why-analysis on entities.
     SZ_WHY_ENTITIES_DEFAULT_FLAGS = SZ_INCLUDE_FEATURE_SCORES
-
     SZ_WHY_RECORDS_DEFAULT_FLAGS = SZ_INCLUDE_FEATURE_SCORES
-
     SZ_WHY_RECORD_IN_ENTITY_DEFAULT_FLAGS = SZ_INCLUDE_FEATURE_SCORES
-
     SZ_WHY_SEARCH_DEFAULT_FLAGS = (
         SZ_INCLUDE_FEATURE_SCORES | SZ_SEARCH_INCLUDE_REQUEST_DETAILS | SZ_SEARCH_INCLUDE_STATS
     )
@@ -180,6 +177,22 @@ class SzEngineFlags(IntFlag):
 
     # The recommended default flag values for virtual-entity-analysis on entities.
     SZ_VIRTUAL_ENTITY_DEFAULT_FLAGS = SZ_ENTITY_CORE_FLAGS
+
+    # The recommended default flag values for adding records.
+    SZ_ADD_RECORD_DEFAULT_FLAGS = SZ_NO_FLAGS
+
+    # The recommended default flag values for deleting records.
+    SZ_DELETE_RECORD_DEFAULT_FLAGS = SZ_NO_FLAGS
+
+    # The recommended default flag values for preprocessing.
+    SZ_PREPROCESS_RECORD_DEFAULT_FLAGS = SZ_ENTITY_INCLUDE_RECORD_FEATURE_DETAILS
+
+    # The recommended default flag values for reevaluating entities.
+    SZ_REEVALUATE_RECORD_DEFAULT_FLAGS = SZ_NO_FLAGS
+    SZ_REEVALUATE_ENTITY_DEFAULT_FLAGS = SZ_REEVALUATE_RECORD_DEFAULT_FLAGS
+
+    # The recommended default flag values for finding interesting entities.
+    SZ_FIND_INTERESTING_ENTITIES_DEFAULT_FLAGS = SZ_NO_FLAGS
 
     # The recommended settings for searching by attributes.
 
@@ -212,5 +225,10 @@ class SzEngineFlags(IntFlag):
         SZ_SEARCH_INCLUDE_RESOLVED | SZ_SEARCH_INCLUDE_POSSIBLY_SAME | SZ_SEARCH_INCLUDE_STATS
     )
 
-    # Rhe recommended default flag values for search-by-attributes.
+    # The recommended default flag values for search-by-attributes.
     SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS = SZ_SEARCH_BY_ATTRIBUTES_ALL
+
+    # Flag for returning (or not) with info responses.
+
+    SZ_WITH_INFO = 1 << 62
+    _SZ_WITHOUT_INFO = 0  # _SZ_WITHOUT_INFO isn't in the C API, will be used for future methods.

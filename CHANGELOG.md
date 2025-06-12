@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.2.14] - 2025-06-12
+
+### Added in 0.2.14
+
+- New flags in szengineflags.py
+
+### Changed in 0.2.14
+
+- Use new flags as flag defaults in method signatures instead of an integer in szengine.py
+
+### Removed in 0.2.14
+
+- SZ_NO_FLAGS from constants.py, now in szengineflags.py
+
 ## [0.2.13] - 2025-05-21
 
 ### Added in 0.2.13
