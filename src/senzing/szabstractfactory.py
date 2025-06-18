@@ -141,7 +141,7 @@ class SzAbstractFactory(ABC):
         """
         The `reinitialize` method reinitializes the Senzing objects using a specific configuration
         identifier. A list of available configuration identifiers can be retrieved using
-        `szconfigmanager.get_configs`.
+        `szconfigmanager.get_config_registry`.
 
         Args:
             config_id (int): The configuration ID used for the initialization
