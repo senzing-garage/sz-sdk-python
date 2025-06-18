@@ -72,7 +72,7 @@ class SzConfigManagerMock(SzConfigManager):
     def create_config_from_template(self) -> SzConfig:
         return SzConfigMock()
 
-    def get_configs(self) -> str:
+    def get_config_registry(self) -> str:
         return ""
 
     def get_default_config_id(self) -> int:

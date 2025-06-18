@@ -118,9 +118,9 @@ class SzConfigManager(ABC):
         """
 
     @abstractmethod
-    def get_configs(self) -> str:
+    def get_config_registry(self) -> str:
         """
-        The `get_configs` method retrieves a list of Senzing configurations from the Senzing database.
+        The `get_config_registry` method retrieves a list of Senzing configurations from the Senzing database.
 
         Returns:
             str: A JSON document containing Senzing configurations.
@@ -130,13 +130,13 @@ class SzConfigManager(ABC):
 
         .. collapse:: Example:
 
-            .. literalinclude:: ../../examples/szconfigmanager/get_configs.py
+            .. literalinclude:: ../../examples/szconfigmanager/get_config_registry.py
                 :linenos:
                 :language: python
 
             **Output:**
 
-            .. literalinclude:: ../../examples/szconfigmanager/get_configs.txt
+            .. literalinclude:: ../../examples/szconfigmanager/get_config_registry.txt
                 :linenos:
                 :language: json
         """

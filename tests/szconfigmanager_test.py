@@ -30,9 +30,9 @@ def test_create_config_from_template(sz_configmanager: SzConfigManager) -> None:
     sz_configmanager.create_config_from_template()
 
 
-def test_get_configs(sz_configmanager: SzConfigManager) -> None:
-    """Test SzConfigManager.get_configs()."""
-    sz_configmanager.get_configs()
+def test_get_config_registry(sz_configmanager: SzConfigManager) -> None:
+    """Test SzConfigManager.get_config_registry()."""
+    sz_configmanager.get_config_registry()
 
 
 def test_get_default_config_id(sz_configmanager: SzConfigManager) -> None:
