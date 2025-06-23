@@ -34,7 +34,7 @@ class SzProduct(ABC):
     @abstractmethod
     def get_license(self) -> str:
         """
-        The `get_license` method retrieves information about the currently used license.
+        The `get_license` method gets the product license details.
 
         Returns:
             str: A JSON document containing Senzing license metadata.
@@ -55,8 +55,7 @@ class SzProduct(ABC):
     @abstractmethod
     def get_version(self) -> str:
         """
-        The `get_version` method returns the version of Senzing.
-
+        The `get_version` method gets the product version details.
         Returns:
             str: A JSON document containing metadata about the Senzing Engine version being used.
 
@@ -79,7 +78,7 @@ class SzProduct(ABC):
 
     def help(self, method_name: str = "") -> str:
         """
-        Return the help for a particular message.
+        The `help` method returns help for a particular message.
 
         Args:
             method_name (str): The name of the method. (e.g. "init"). If empty, a list of methods and descriptions is returned.

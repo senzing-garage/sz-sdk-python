@@ -35,7 +35,7 @@ class SzConfig(ABC):
     @abstractmethod
     def add_data_source(self, data_source_code: str) -> str:
         """
-        The `add_data_source` method adds a data source to an existing in-memory configuration.
+        The `add_data_source` method adds a new data source to this instance.
 
         Args:
             data_source_code (str): Name of data source code to add.
@@ -62,7 +62,7 @@ class SzConfig(ABC):
     @abstractmethod
     def delete_data_source(self, data_source_code: str) -> str:
         """
-        The `delete_data_source` method removes a data source from an existing in-memory configuration.
+        The `delete_data_source` method deletes a data source from this instance.
 
         Args:
             data_source_code (str): Name of data source code to delete.
@@ -86,7 +86,7 @@ class SzConfig(ABC):
     @abstractmethod
     def export(self) -> str:
         """
-        The `export` method creates a JSON string representation of the Senzing SzConfig object.
+        The `export` method retrieves the configuration definition for this instance.
 
         Args:
 
@@ -112,8 +112,7 @@ class SzConfig(ABC):
     @abstractmethod
     def get_data_sources(self) -> str:
         """
-        The `get_data_sources` method returns a JSON document of data sources
-        contained in an in-memory configuration.
+        The `get_data_sources` method gets the data sources for this instance.
 
         Args:
 
@@ -142,7 +141,7 @@ class SzConfig(ABC):
 
     def help(self, method_name: str = "") -> str:
         """
-        Return the help for a particular message.
+        The `help` method returns help for a particular message.
 
         Args:
             method_name (str): The name of the method. (e.g. "init"). If empty, a list of methods and descriptions is returned.
