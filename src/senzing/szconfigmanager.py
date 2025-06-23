@@ -36,8 +36,7 @@ class SzConfigManager(ABC):
     @abstractmethod
     def create_config_from_config_id(self, config_id: int) -> SzConfig:
         """
-        The `create_config_from_config_id` method creates an in-memory Senzing configuration
-        from a specific Senzing configuration stored in the Senzing database.
+        The `create_config_from_config_id` method creates a new SzConfig instance for a configuration ID.
 
         Args:
             config_id (int): The configuration identifier of the desired Senzing configuration to retrieve.
@@ -64,8 +63,7 @@ class SzConfigManager(ABC):
     @abstractmethod
     def create_config_from_string(self, config_definition: str) -> SzConfig:
         """
-        The `create_config_from_string` method creates an in-memory Senzing configuration
-        from the given Senzing configuration JSON document.
+        The `create_config_from_string` method creates a new SzConfig instance from a configuration definition.
 
         Args:
             config_definition (str): The Senzing configuration JSON document.
@@ -92,8 +90,10 @@ class SzConfigManager(ABC):
     @abstractmethod
     def create_config_from_template(self) -> SzConfig:
         """
-        The `create_config_from_template` method creates an in-memory Senzing configuration
-        from the template Senzing configuration JSON document located at PIPELINE.RESOURCEPATH/templates/g2config.json
+        The `create_config_from_template` method Creates a new SzConfig instance
+        from the template configuration definition.
+
+        The template configuration is located at PIPELINE.RESOURCEPATH/templates/g2config.json
 
         Args:
             config_definition (str): The Senzing configuration JSON document.
@@ -120,7 +120,7 @@ class SzConfigManager(ABC):
     @abstractmethod
     def get_config_registry(self) -> str:
         """
-        The `get_config_registry` method retrieves a list of Senzing configurations from the Senzing database.
+        The `get_config_registry` method gets the configuration registry.
 
         Returns:
             str: A JSON document containing Senzing configurations.
@@ -144,7 +144,7 @@ class SzConfigManager(ABC):
     @abstractmethod
     def get_default_config_id(self) -> int:
         """
-        The `get_default_config_id` method retrieves from the Senzing database the configuration identifier of the default Senzing configuration.
+        The `get_default_config_id` method gets the default configuration for the repository.
 
         Returns:
             int:  A configuration identifier which identifies the current configuration in use.
@@ -168,7 +168,7 @@ class SzConfigManager(ABC):
     @abstractmethod
     def register_config(self, config_definition: str, config_comment: str) -> int:
         """
-        The `register_config` method adds a Senzing configuration JSON document to the Senzing database.
+        The `register_config` method registers a configuration definition with the repository.
 
         Args:
             config_definition (str): The Senzing configuration JSON document.
@@ -196,7 +196,9 @@ class SzConfigManager(ABC):
     @abstractmethod
     def replace_default_config_id(self, current_default_config_id: int, new_default_config_id: int) -> None:
         """
-        The `replace_default_config_id` method replaces the old configuration identifier with a new configuration identifier in the Senzing database.
+        The `replace_default_config_id` method replaces the existing default configuration ID with a new
+        configuration ID.
+
         It is like a "compare-and-swap" instruction to serialize concurrent editing of configuration.
         If `current_default_config_id` is no longer the "current configuration identifier", the operation will fail.
         To simply set the default configuration ID, use `set_default_config_id`.
@@ -218,7 +220,9 @@ class SzConfigManager(ABC):
     @abstractmethod
     def set_default_config(self, config_definition: str, config_comment: str) -> int:
         """
-        The `set_default_config` method replaces the current default Senzing configuration in the Senzing database.
+        The `set_default_config` method registers a configuration with the repository and sets its ID as the default
+        for the repository.
+
         To serialize modifying of the configuration identifier, see `replace_default_config_id`.
 
         Args:
@@ -244,7 +248,8 @@ class SzConfigManager(ABC):
     @abstractmethod
     def set_default_config_id(self, config_id: int) -> None:
         """
-        The `set_default_config_id` method replaces and sets a new configuration identifier in the Senzing database.
+        The `set_default_config_id` method Sets the default configuration ID.
+
         To serialize modifying of the configuration identifier, see `replace_default_config_id`.
 
         Args:
@@ -266,7 +271,7 @@ class SzConfigManager(ABC):
 
     def help(self, method_name: str = "") -> str:
         """
-        Return the help for a particular message.
+        The `help` method returns help for a particular message.
 
         Args:
             method_name (str): The name of the method. (e.g. "init"). If empty, a list of methods and descriptions is returned.

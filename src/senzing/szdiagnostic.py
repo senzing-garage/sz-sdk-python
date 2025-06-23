@@ -32,7 +32,7 @@ class SzDiagnostic(ABC):
     @abstractmethod
     def check_datastore_performance(self, seconds_to_run: int) -> str:
         """
-        The `check_datastore_performance` method performs inserts to determine rate of insertion.
+        The `check_datastore_performance` method conducts a rudimentary datastore test to gauge I/O performance.
 
         Args:
             seconds_to_run (int): Duration of the test in seconds.
@@ -60,7 +60,7 @@ class SzDiagnostic(ABC):
     @abstractmethod
     def get_datastore_info(self) -> str:
         """
-        The `get_datastore_info` method returns a JSON document with details of the datastore
+        The `get_datastore_info` method returns overview information about the datastore.
         currently in use by Senzing.
 
         Raises:
@@ -82,13 +82,13 @@ class SzDiagnostic(ABC):
     # NOTE This is experimental and for internal diagnostics, not to be documented
     @abstractmethod
     def get_feature(self, feature_id: int) -> str:  # pylint: disable=empty-docstring
-        """"""
+        """Experimental/internal for Senzing support use only."""
 
     @abstractmethod
     def purge_repository(self) -> None:
         """
         **Warning:**
-        The `purge_repository` method removes every record in the Senzing repository.
+        The `purge_repository` method purges all entity data in the entire repository.
 
         Before calling `purge_repository` all other instances of the Senzing API
         MUST be destroyed or shutdown.
@@ -108,7 +108,7 @@ class SzDiagnostic(ABC):
 
     def help(self, method_name: str = "") -> str:
         """
-        Return the help for a particular message.
+        The `help` method returns help for a particular message.
 
         Args:
             method_name (str): The name of the method. (e.g. "init"). If empty, a list of methods and descriptions is returned.
