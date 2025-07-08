@@ -33,9 +33,61 @@ class SzConfig(ABC):
     # -------------------------------------------------------------------------
 
     @abstractmethod
+    def export(self) -> str:
+        """
+        The `export` method retrieves the definition for this configuration.
+
+        Args:
+
+        Returns:
+            str: A string containing a JSON Document representation of the Senzing SzConfig object.
+
+        Raises:
+            TypeError: Incorrect datatype of input parameter.
+
+        .. collapse:: Example:
+
+            .. literalinclude:: ../../examples/szconfig/export.py
+                :linenos:
+                :language: python
+
+            **Output:**
+
+            .. literalinclude:: ../../examples/szconfig/export.txt
+                :linenos:
+                :language: json
+        """
+
+    @abstractmethod
+    def get_data_source_registry(self) -> str:
+        """
+        The `get_data_source_registry` method gets the data source registry for this configuration.
+
+        Args:
+
+        Returns:
+            str: A string containing a JSON document listing all of the data sources.
+
+        Raises:
+            TypeError: Incorrect datatype of input parameter.
+
+        .. collapse:: Example:
+
+            .. literalinclude:: ../../examples/szconfig/get_data_source_registry.py
+                :linenos:
+                :language: python
+
+            **Output:**
+
+            .. literalinclude:: ../../examples/szconfig/get_data_source_registry.txt
+                :linenos:
+                :language: json
+        """
+
+    @abstractmethod
     def register_data_source(self, data_source_code: str) -> str:
         """
-        The `register_data_source` method adds a new data source to this instance.
+        The `register_data_source` method adds a data source to this configuration.
 
         Args:
             data_source_code (str): Name of data source code to add.
@@ -62,7 +114,7 @@ class SzConfig(ABC):
     @abstractmethod
     def unregister_data_source(self, data_source_code: str) -> str:
         """
-        The `unregister_data_source` method deletes a data source from this instance.
+        The `unregister_data_source` method removes a data source from this configuration.
 
         Args:
             data_source_code (str): Name of data source code to delete.
@@ -79,58 +131,6 @@ class SzConfig(ABC):
             **Output:**
 
             .. literalinclude:: ../../examples/szconfig/unregister_data_source.txt
-                :linenos:
-                :language: json
-        """
-
-    @abstractmethod
-    def export(self) -> str:
-        """
-        The `export` method retrieves the configuration definition for this instance.
-
-        Args:
-
-        Returns:
-            str: A string containing a JSON Document representation of the Senzing SzConfig object.
-
-        Raises:
-            TypeError: Incorrect datatype of input parameter.
-
-        .. collapse:: Example:
-
-            .. literalinclude:: ../../examples/szconfig/export.py
-                :linenos:
-                :language: python
-
-            **Output:**
-
-            .. literalinclude:: ../../examples/szconfig/export.txt
-                :linenos:
-                :language: json
-        """
-
-    @abstractmethod
-    def get_data_source_registry(self) -> str:
-        """
-        The `get_data_source_registry` method gets the data sources for this instance.
-
-        Args:
-
-        Returns:
-            str: A string containing a JSON document listing all of the data sources.
-
-        Raises:
-            TypeError: Incorrect datatype of input parameter.
-
-        .. collapse:: Example:
-
-            .. literalinclude:: ../../examples/szconfig/get_data_source_registry.py
-                :linenos:
-                :language: python
-
-            **Output:**
-
-            .. literalinclude:: ../../examples/szconfig/get_data_source_registry.txt
                 :linenos:
                 :language: json
         """

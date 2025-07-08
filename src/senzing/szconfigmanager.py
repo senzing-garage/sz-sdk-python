@@ -90,8 +90,8 @@ class SzConfigManager(ABC):
     @abstractmethod
     def create_config_from_template(self) -> SzConfig:
         """
-        The `create_config_from_template` method Creates a new SzConfig instance
-        from the template configuration definition.
+        The `create_config_from_template` method creates a new SzConfig instance from the template
+        configuration definition.
 
         The template configuration is located at PIPELINE.RESOURCEPATH/templates/g2config.json
 
@@ -144,7 +144,7 @@ class SzConfigManager(ABC):
     @abstractmethod
     def get_default_config_id(self) -> int:
         """
-        The `get_default_config_id` method gets the default configuration for the repository.
+        The `get_default_config_id` method gets the default configuration ID for the repository.
 
         Returns:
             int:  A configuration identifier which identifies the current configuration in use.
@@ -168,7 +168,7 @@ class SzConfigManager(ABC):
     @abstractmethod
     def register_config(self, config_definition: str, config_comment: str) -> int:
         """
-        The `register_config` method registers a configuration definition with the repository.
+        The `register_config` method registers a configuration definition in the repository.
 
         Args:
             config_definition (str): The Senzing configuration JSON document.
@@ -196,8 +196,8 @@ class SzConfigManager(ABC):
     @abstractmethod
     def replace_default_config_id(self, current_default_config_id: int, new_default_config_id: int) -> None:
         """
-        The `replace_default_config_id` method replaces the existing default configuration ID with a new
-        configuration ID.
+        The `replace_default_config_id` method replaces the existing default configuration ID with
+        a new configuration ID.
 
         It is like a "compare-and-swap" instruction to serialize concurrent editing of configuration.
         If `current_default_config_id` is no longer the "current configuration identifier", the operation will fail.
@@ -220,7 +220,7 @@ class SzConfigManager(ABC):
     @abstractmethod
     def set_default_config(self, config_definition: str, config_comment: str) -> int:
         """
-        The `set_default_config` method registers a configuration with the repository and sets its ID as the default
+        The `set_default_config` method registers a configuration in the repository and sets its ID as the default
         for the repository.
 
         To serialize modifying of the configuration identifier, see `replace_default_config_id`.
@@ -248,7 +248,7 @@ class SzConfigManager(ABC):
     @abstractmethod
     def set_default_config_id(self, config_id: int) -> None:
         """
-        The `set_default_config_id` method Sets the default configuration ID.
+        The `set_default_config_id` method sets the default configuration ID.
 
         To serialize modifying of the configuration identifier, see `replace_default_config_id`.
 
