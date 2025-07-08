@@ -2,10 +2,8 @@ from senzing import SzError
 
 from . import sz_diagnostic
 
-seconds_to_run = 3
-
 try:
-    result = sz_diagnostic.check_datastore_performance(seconds_to_run)
+    result = sz_diagnostic.get_repository_info()
     print(f"\n{result}\n")
 except SzError as err:
     print(f"\nERROR: {err}\n")

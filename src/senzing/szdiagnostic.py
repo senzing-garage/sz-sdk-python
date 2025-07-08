@@ -30,9 +30,9 @@ class SzDiagnostic(ABC):
     # -------------------------------------------------------------------------
 
     @abstractmethod
-    def check_datastore_performance(self, seconds_to_run: int) -> str:
+    def check_repository_performance(self, seconds_to_run: int) -> str:
         """
-        The `check_datastore_performance` method conducts a rudimentary datastore test to gauge I/O performance.
+        The `check_repository_performance` method conducts a rudimentary datastore test to gauge I/O performance.
 
         Args:
             seconds_to_run (int): Duration of the test in seconds.
@@ -46,21 +46,21 @@ class SzDiagnostic(ABC):
 
         .. collapse:: Example:
 
-            .. literalinclude:: ../../examples/szdiagnostic/check_datastore_performance.py
+            .. literalinclude:: ../../examples/szdiagnostic/check_repository_performance.py
                 :linenos:
                 :language: python
 
             **Output:**
 
-            .. literalinclude:: ../../examples/szdiagnostic/check_datastore_performance.txt
+            .. literalinclude:: ../../examples/szdiagnostic/check_repository_performance.txt
                 :linenos:
                 :language: json
         """
 
     @abstractmethod
-    def get_datastore_info(self) -> str:
+    def get_repository_info(self) -> str:
         """
-        The `get_datastore_info` method returns overview information about the datastore.
+        The `get_repository_info` method returns overview information about the datastore.
         currently in use by Senzing.
 
         Raises:
@@ -68,13 +68,13 @@ class SzDiagnostic(ABC):
 
         .. collapse:: Example:
 
-            .. literalinclude:: ../../examples/szdiagnostic/get_datastore_info.py
+            .. literalinclude:: ../../examples/szdiagnostic/get_repository_info.py
                 :linenos:
                 :language: python
 
             **Output:**
 
-            .. literalinclude:: ../../examples/szdiagnostic/get_datastore_info.txt
+            .. literalinclude:: ../../examples/szdiagnostic/get_repository_info.txt
                 :linenos:
                 :language: json
         """

@@ -72,11 +72,11 @@ class SzEngine(ABC):
         """
 
     @abstractmethod
-    def close_export(self, export_handle: int) -> None:
+    def close_export_report(self, export_handle: int) -> None:
         """
-        The `close_export` method closes an export handle of a previous export operation.
+        The `close_export_report` method closes an export handle of a previous export operation.
 
-        It is part of the `export_json_entity_report`, `fetch_next`, `close_export`
+        It is part of the `export_json_entity_report`, `fetch_next`, `close_export_report`
         lifecycle of a list of sized entities.
 
         Args:
@@ -166,7 +166,7 @@ class SzEngine(ABC):
         **Warning:** `export_csv_entity_report` is not recommended for large systems as it does not scale.
         It is recommended larger systems implement real-time replication to a data warehouse.
 
-        It is part of the `export_csv_entity_report`, `fetch_next`, `close_export`
+        It is part of the `export_csv_entity_report`, `fetch_next`, `close_export_report`
         lifecycle of a list of entities to export.
 
         Available CSV columns: RESOLVED_ENTITY_ID, RESOLVED_ENTITY_NAME, RELATED_ENTITY_ID, MATCH_LEVEL,
@@ -207,7 +207,7 @@ class SzEngine(ABC):
         **Warning:** `export_json_entity_report` is not recommended for large systems as it does not scale.
         It is recommended larger systems implement real-time replication to a data warehouse.
 
-        It is part of the `export_json_entity_report`, `fetch_next`, `close_export`
+        It is part of the `export_json_entity_report`, `fetch_next`, `close_export_report`
         lifecycle of a list of entities to export.
 
         Args:
@@ -237,7 +237,7 @@ class SzEngine(ABC):
         The `fetch_next` method fetches the next line of entity data from an open export operation.
 
         Successive calls of `fetch_next` will export successive rows of entity data until there is no more.
-        It is part of the `export_json_entity_report` or `export_json_entity_report`, `fetch_next`, `close_export`
+        It is part of the `export_json_entity_report` or `export_json_entity_report`, `fetch_next`, `close_export_report`
         lifecycle of a list of exported entities.
 
         Args:
@@ -710,17 +710,17 @@ class SzEngine(ABC):
         """
 
     @abstractmethod
-    def preprocess_record(
+    def get_record_preview(
         self,
         record_definition: str,
-        flags: int = SzEngineFlags.SZ_PREPROCESS_RECORD_DEFAULT_FLAGS,
+        flags: int = SzEngineFlags.SZ_RECORD_PREVIEW_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `preprocess_record` method describes the features resulting from the hypothetical load of a record.
+        The `get_record_preview` method describes the features resulting from the hypothetical load of a record.
 
         Args:
             record_definition (str): A JSON document containing the record to be tested.
-            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_PREPROCESS_RECORD_DEFAULT_FLAGS.
+            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_RECORD_PREVIEW_DEFAULT_FLAGS.
 
         Returns:
             str: A JSON document containing metadata as specified by the flags.
@@ -729,13 +729,13 @@ class SzEngine(ABC):
 
         .. collapse:: Example:
 
-            .. literalinclude:: ../../examples/szengine/preprocess_record.py
+            .. literalinclude:: ../../examples/szengine/get_record_preview.py
                 :linenos:
                 :language: python
 
             **Output:**
 
-            .. literalinclude:: ../../examples/szengine/preprocess_record.txt
+            .. literalinclude:: ../../examples/szengine/get_record_preview.txt
                 :linenos:
                 :language: json
         """

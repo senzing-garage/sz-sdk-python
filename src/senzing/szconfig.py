@@ -33,9 +33,9 @@ class SzConfig(ABC):
     # -------------------------------------------------------------------------
 
     @abstractmethod
-    def add_data_source(self, data_source_code: str) -> str:
+    def register_data_source(self, data_source_code: str) -> str:
         """
-        The `add_data_source` method adds a new data source to this instance.
+        The `register_data_source` method adds a new data source to this instance.
 
         Args:
             data_source_code (str): Name of data source code to add.
@@ -48,21 +48,21 @@ class SzConfig(ABC):
 
         .. collapse:: Example:
 
-            .. literalinclude:: ../../examples/szconfig/add_data_source.py
+            .. literalinclude:: ../../examples/szconfig/register_data_source.py
                 :linenos:
                 :language: python
 
             **Output:**
 
-            .. literalinclude:: ../../examples/szconfig/add_data_source.txt
+            .. literalinclude:: ../../examples/szconfig/register_data_source.txt
                 :linenos:
                 :language: json
         """
 
     @abstractmethod
-    def delete_data_source(self, data_source_code: str) -> str:
+    def unregister_data_source(self, data_source_code: str) -> str:
         """
-        The `delete_data_source` method deletes a data source from this instance.
+        The `unregister_data_source` method deletes a data source from this instance.
 
         Args:
             data_source_code (str): Name of data source code to delete.
@@ -72,13 +72,13 @@ class SzConfig(ABC):
 
         .. collapse:: Example:
 
-            .. literalinclude:: ../../examples/szconfig/delete_data_source.py
+            .. literalinclude:: ../../examples/szconfig/unregister_data_source.py
                 :linenos:
                 :language: python
 
             **Output:**
 
-            .. literalinclude:: ../../examples/szconfig/delete_data_source.txt
+            .. literalinclude:: ../../examples/szconfig/unregister_data_source.txt
                 :linenos:
                 :language: json
         """
@@ -110,9 +110,9 @@ class SzConfig(ABC):
         """
 
     @abstractmethod
-    def get_data_sources(self) -> str:
+    def get_data_source_registry(self) -> str:
         """
-        The `get_data_sources` method gets the data sources for this instance.
+        The `get_data_source_registry` method gets the data sources for this instance.
 
         Args:
 
@@ -124,13 +124,13 @@ class SzConfig(ABC):
 
         .. collapse:: Example:
 
-            .. literalinclude:: ../../examples/szconfig/get_data_sources.py
+            .. literalinclude:: ../../examples/szconfig/get_data_source_registry.py
                 :linenos:
                 :language: python
 
             **Output:**
 
-            .. literalinclude:: ../../examples/szconfig/get_data_sources.txt
+            .. literalinclude:: ../../examples/szconfig/get_data_source_registry.txt
                 :linenos:
                 :language: json
         """

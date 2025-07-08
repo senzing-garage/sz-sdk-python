@@ -185,7 +185,7 @@ class SzEngineFlags(IntFlag):
     SZ_DELETE_RECORD_DEFAULT_FLAGS = SZ_NO_FLAGS
 
     # The recommended default flag values for preprocessing.
-    SZ_PREPROCESS_RECORD_DEFAULT_FLAGS = SZ_ENTITY_INCLUDE_RECORD_FEATURE_DETAILS
+    SZ_RECORD_PREVIEW_DEFAULT_FLAGS = SZ_ENTITY_INCLUDE_RECORD_FEATURE_DETAILS
 
     # The recommended default flag values for reevaluating entities.
     SZ_REEVALUATE_RECORD_DEFAULT_FLAGS = SZ_NO_FLAGS
