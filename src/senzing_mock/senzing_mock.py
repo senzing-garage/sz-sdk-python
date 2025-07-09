@@ -30,13 +30,13 @@ class SzConfigMock(SzConfig):
     # SzConfig methods
     # -------------------------------------------------------------------------
 
-    def add_data_source(
+    def register_data_source(
         self,
         data_source_code: str,
     ) -> str:
         return ""
 
-    def delete_data_source(
+    def unregister_data_source(
         self,
         data_source_code: str,
     ) -> str:
@@ -45,7 +45,7 @@ class SzConfigMock(SzConfig):
     def export(self) -> str:
         return ""
 
-    def get_data_sources(self) -> str:
+    def get_data_source_registry(self) -> str:
         return ""
 
 
@@ -111,10 +111,10 @@ class SzDiagnosticMock(SzDiagnostic):
     # SzDiagnostic methods
     # -------------------------------------------------------------------------
 
-    def check_datastore_performance(self, seconds_to_run: int) -> str:
+    def check_repository_performance(self, seconds_to_run: int) -> str:
         return ""
 
-    def get_datastore_info(self) -> str:
+    def get_repository_info(self) -> str:
         return ""
 
     def get_feature(self, feature_id: int) -> str:
@@ -147,7 +147,7 @@ class SzEngineMock(SzEngine):
     ) -> str:
         return ""
 
-    def close_export(self, export_handle: int) -> None:
+    def close_export_report(self, export_handle: int) -> None:
         """None"""
 
     def count_redo_records(self) -> int:
@@ -270,7 +270,7 @@ class SzEngineMock(SzEngine):
     ) -> str:
         return ""
 
-    def preprocess_record(
+    def get_record_preview(
         self,
         record_definition: str,
         flags: int = 0,

@@ -2,11 +2,10 @@ from senzing import SzError
 
 from . import sz_configmanager
 
-data_source_code = "NAME_OF_DATASOURCE"
+data_source_code = "TEST"
 
 try:
     sz_config = sz_configmanager.create_config_from_template()
-    result = sz_config.add_data_source(data_source_code)
-    print(f"\n{result}\n")
+    _ = sz_config.unregister_data_source(data_source_code)
 except SzError as err:
     print(f"\nERROR: {err}\n")

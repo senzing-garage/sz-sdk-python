@@ -14,14 +14,14 @@ from senzing_mock import SzDiagnosticMock
 # -----------------------------------------------------------------------------
 
 
-def test_check_datastore_performance(sz_diagnostic: SzDiagnostic) -> None:
-    """Test SzDiagnostic.check_datastore_performance()."""
-    sz_diagnostic.check_datastore_performance(0)
+def test_check_repository_performance(sz_diagnostic: SzDiagnostic) -> None:
+    """Test SzDiagnostic.check_repository_performance()."""
+    sz_diagnostic.check_repository_performance(0)
 
 
-def test_get_datastore_info(sz_diagnostic: SzDiagnostic) -> None:
-    """Test SzDiagnostic.get_datastore_info()."""
-    sz_diagnostic.get_datastore_info()
+def test_get_repository_info(sz_diagnostic: SzDiagnostic) -> None:
+    """Test SzDiagnostic.get_repository_info()."""
+    sz_diagnostic.get_repository_info()
 
 
 def test_get_feature(sz_diagnostic: SzDiagnostic) -> None:
@@ -36,7 +36,7 @@ def test_help_1(sz_diagnostic: SzDiagnostic) -> None:
 
 def test_help_2(sz_diagnostic: SzDiagnostic) -> None:
     """Test SzDiagnostic.help(...)."""
-    sz_diagnostic.help("check_datastore_performance")
+    sz_diagnostic.help("check_repository_performance")
 
 
 # -----------------------------------------------------------------------------

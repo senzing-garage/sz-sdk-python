@@ -43,7 +43,7 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_ADD_RECORD_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `add_record` method loads a record into the repository.
+        The `add_record` method loads a record into the repository and performs entity resolution.
 
         Can be called as many times as desired and from multiple threads at the same time.
 
@@ -72,11 +72,11 @@ class SzEngine(ABC):
         """
 
     @abstractmethod
-    def close_export(self, export_handle: int) -> None:
+    def close_export_report(self, export_handle: int) -> None:
         """
-        The `close_export` method closes an export handle of a previous export operation.
+        The `close_export_report` method closes an export report.
 
-        It is part of the `export_json_entity_report`, `fetch_next`, `close_export`
+        It is part of the `export_json_entity_report`, `fetch_next`, `close_export_report`
         lifecycle of a list of sized entities.
 
         Args:
@@ -128,7 +128,7 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_DELETE_RECORD_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `delete_record` method deletes a record from the repository.
+        The `delete_record` method deletes a record from the repository and performs entity resolution.
 
         Can be called as many times as desired and from multiple threads at the same time.
 
@@ -161,12 +161,12 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_EXPORT_DEFAULT_FLAGS,
     ) -> int:
         """
-        The `export_csv_entity_report` method initiates an export of entity data in CSV format.
+        The `export_csv_entity_report` method initiates an export report of entity data in CSV format.
 
         **Warning:** `export_csv_entity_report` is not recommended for large systems as it does not scale.
         It is recommended larger systems implement real-time replication to a data warehouse.
 
-        It is part of the `export_csv_entity_report`, `fetch_next`, `close_export`
+        It is part of the `export_csv_entity_report`, `fetch_next`, `close_export_report`
         lifecycle of a list of entities to export.
 
         Available CSV columns: RESOLVED_ENTITY_ID, RESOLVED_ENTITY_NAME, RELATED_ENTITY_ID, MATCH_LEVEL,
@@ -202,12 +202,12 @@ class SzEngine(ABC):
     @abstractmethod
     def export_json_entity_report(self, flags: int = SzEngineFlags.SZ_EXPORT_DEFAULT_FLAGS) -> int:
         """
-        The `export_json_entity_report` method initiates an export of entity data in JSON format.
+        The `export_json_entity_report` method initiates an export report of entity data in JSON Lines format.
 
         **Warning:** `export_json_entity_report` is not recommended for large systems as it does not scale.
         It is recommended larger systems implement real-time replication to a data warehouse.
 
-        It is part of the `export_json_entity_report`, `fetch_next`, `close_export`
+        It is part of the `export_json_entity_report`, `fetch_next`, `close_export_report`
         lifecycle of a list of entities to export.
 
         Args:
@@ -234,10 +234,10 @@ class SzEngine(ABC):
     @abstractmethod
     def fetch_next(self, export_handle: int) -> str:
         """
-        The `fetch_next` method fetches the next line of entity data from an open export operation.
+        The `fetch_next` method fetches the next line of entity data from an open export report.
 
         Successive calls of `fetch_next` will export successive rows of entity data until there is no more.
-        It is part of the `export_json_entity_report` or `export_json_entity_report`, `fetch_next`, `close_export`
+        It is part of the `export_json_entity_report` or `export_json_entity_report`, `fetch_next`, `close_export_report`
         lifecycle of a list of exported entities.
 
         Args:
@@ -299,8 +299,7 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `find_network_by_entity_id` method Discovers a network of entity relationships among entities
-        based on entity IDs.
+        The `find_network_by_entity_id` method retrieves a network of relationships among entities based on entity IDs.
 
         This includes the requested entities, paths between them, and relations to other nearby entities.
         Returns a JSON document that identifies the path between the each set of search entities (if the path exists),
@@ -341,8 +340,7 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `find_network_by_record_id` method discovers a network of entity relationships among entities
-        based on record IDs.
+        The `find_network_by_record_id` method retrieves a network of relationships among entities based on record IDs.
 
         This includes the requested entities, paths between them, and relations to other nearby entities.
         Returns a JSON document that identifies the path between the each set of search entities (if the path exists),
@@ -384,7 +382,7 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `find_path_by_entity_id` method searches for an entity relationship path between two entities based
+        The `find_path_by_entity_id` method searches for the shortest relationship path between two entities based
         on entity IDs.
 
         It finds the most efficient relationship between two entities path based on the parameters
@@ -431,8 +429,8 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `find_path_by_record_id` method searches for an entity relationship path between two entities
-        based on record IDs.
+        The `find_path_by_record_id` method searches for the shortest relationship path between two entities based
+        on record IDs.
 
         It finds the most efficient relationship between
         two entities path based on the parameters by RECORD_ID values
@@ -564,7 +562,7 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_RECORD_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `get_record` method gets the record definition for a record.
+        The `get_record` method retrieves information about a record.
 
         Can be called as many times as desired and from multiple threads at the same time.
 
@@ -592,9 +590,40 @@ class SzEngine(ABC):
         """
 
     @abstractmethod
+    def get_record_preview(
+        self,
+        record_definition: str,
+        flags: int = SzEngineFlags.SZ_RECORD_PREVIEW_DEFAULT_FLAGS,
+    ) -> str:
+        """
+        The `get_record_preview` method describes the features resulting from the hypothetical load of a record.
+
+        Args:
+            record_definition (str): A JSON document containing the record to be tested.
+            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_RECORD_PREVIEW_DEFAULT_FLAGS.
+
+        Returns:
+            str: A JSON document containing metadata as specified by the flags.
+
+        Raises:
+
+        .. collapse:: Example:
+
+            .. literalinclude:: ../../examples/szengine/get_record_preview.py
+                :linenos:
+                :language: python
+
+            **Output:**
+
+            .. literalinclude:: ../../examples/szengine/get_record_preview.txt
+                :linenos:
+                :language: json
+        """
+
+    @abstractmethod
     def get_redo_record(self) -> str:
         """
-        The `get_redo_record` method retrieves a pending redo record from the reevaluation queue.
+        The `get_redo_record` method retrieves and removes a pending redo record.
 
         The `process_redo_record` method is called to process the redo record retrieved by `get_redo_record`.
 
@@ -619,7 +648,8 @@ class SzEngine(ABC):
     @abstractmethod
     def get_stats(self) -> str:
         """
-        The `get_stats` method gets the internal engine workload statistics for the current process.
+        The `get_stats` method gets and resets the internal engine workload statistics for the current
+        operating system process.
 
         These statistics will automatically reset after retrieval.
 
@@ -648,8 +678,8 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_VIRTUAL_ENTITY_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `get_virtual_entity_by_record_id` method describes what an entity would look like
-        for a given set of records.
+        The `get_virtual_entity_by_record_id` method describes how an entity would look if composed of a given
+        set of records.
 
         The virtual entity is composed of only those records and their features.
         Entity resolution is not performed.
@@ -683,7 +713,7 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_HOW_ENTITY_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `how_entity_by_entity_id` method describes how an entity was constructed from its constituent records.
+        The `how_entity_by_entity_id` method explains how an entity was constructed from its records.
 
         In most cases, *how* provides more detailed information than *why* as the resolution is detailed step-by-step.
 
@@ -710,40 +740,9 @@ class SzEngine(ABC):
         """
 
     @abstractmethod
-    def preprocess_record(
-        self,
-        record_definition: str,
-        flags: int = SzEngineFlags.SZ_PREPROCESS_RECORD_DEFAULT_FLAGS,
-    ) -> str:
-        """
-        The `preprocess_record` method describes the features resulting from the hypothetical load of a record.
-
-        Args:
-            record_definition (str): A JSON document containing the record to be tested.
-            flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_PREPROCESS_RECORD_DEFAULT_FLAGS.
-
-        Returns:
-            str: A JSON document containing metadata as specified by the flags.
-
-        Raises:
-
-        .. collapse:: Example:
-
-            .. literalinclude:: ../../examples/szengine/preprocess_record.py
-                :linenos:
-                :language: python
-
-            **Output:**
-
-            .. literalinclude:: ../../examples/szengine/preprocess_record.txt
-                :linenos:
-                :language: json
-        """
-
-    @abstractmethod
     def prime_engine(self) -> None:
         """
-        The `prime_engine` method pre-loads engine resources to reduce latency of initial entity resolution processing.
+        The `prime_engine` method pre-loads engine resources.
 
         If this call is not made, these resources are initialized the
         first time they are needed and can cause unusually long processing times the first time
@@ -761,7 +760,7 @@ class SzEngine(ABC):
     @abstractmethod
     def process_redo_record(self, redo_record: str, flags: int = 0) -> str:
         """
-        The `process_redo_record` method loads a record into the repository.
+        The `process_redo_record` method processes the provided redo record.
 
         Args:
             redo_record (str): A redo record retrieved from get_redo_record.
@@ -785,7 +784,7 @@ class SzEngine(ABC):
     @abstractmethod
     def reevaluate_entity(self, entity_id: int, flags: int = SzEngineFlags.SZ_REEVALUATE_ENTITY_DEFAULT_FLAGS) -> str:
         """
-        The `reevaluate_entity` method reevaluates the specified entity.
+        The `reevaluate_entity` method reevaluates an entity by entity ID.
 
         Args:
             entity_id (int): The unique identifier of an entity.
@@ -811,7 +810,7 @@ class SzEngine(ABC):
         self, data_source_code: str, record_id: str, flags: int = SzEngineFlags.SZ_REEVALUATE_RECORD_DEFAULT_FLAGS
     ) -> str:
         """
-        The `reevaluate_record` method reevaluates a specific record.
+        The `reevaluate_record` method reevaluates an entity by record ID.
 
         Args:
             data_source_code (str): Identifies the provenance of the data.
@@ -910,7 +909,7 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_WHY_RECORD_IN_ENTITY_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `why_record_in_entity` method describes why a record is in its respective entity.
+        The `why_record_in_entity` method describes the ways a record relates to the rest of its respective entity.
 
         Args:
             data_source_code (str): Identifies the provenance of the data.
@@ -981,7 +980,7 @@ class SzEngine(ABC):
         search_profile: str = "",
     ) -> str:
         """
-        The `why_search` method describes why an entity did not match or relate to a set of search attributes.
+        The `why_search` method describes the ways a set of search attributes relate to an entity.
 
         Args:
             attributes (str): A JSON document with the attribute data to search for.

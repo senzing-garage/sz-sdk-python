@@ -30,9 +30,9 @@ class SzDiagnostic(ABC):
     # -------------------------------------------------------------------------
 
     @abstractmethod
-    def check_datastore_performance(self, seconds_to_run: int) -> str:
+    def check_repository_performance(self, seconds_to_run: int) -> str:
         """
-        The `check_datastore_performance` method conducts a rudimentary datastore test to gauge I/O performance.
+        The `check_repository_performance` method conducts a rudimentary repository test to gauge I/O performance.
 
         Args:
             seconds_to_run (int): Duration of the test in seconds.
@@ -46,35 +46,13 @@ class SzDiagnostic(ABC):
 
         .. collapse:: Example:
 
-            .. literalinclude:: ../../examples/szdiagnostic/check_datastore_performance.py
+            .. literalinclude:: ../../examples/szdiagnostic/check_repository_performance.py
                 :linenos:
                 :language: python
 
             **Output:**
 
-            .. literalinclude:: ../../examples/szdiagnostic/check_datastore_performance.txt
-                :linenos:
-                :language: json
-        """
-
-    @abstractmethod
-    def get_datastore_info(self) -> str:
-        """
-        The `get_datastore_info` method returns overview information about the datastore.
-        currently in use by Senzing.
-
-        Raises:
-            szexception.SzError:
-
-        .. collapse:: Example:
-
-            .. literalinclude:: ../../examples/szdiagnostic/get_datastore_info.py
-                :linenos:
-                :language: python
-
-            **Output:**
-
-            .. literalinclude:: ../../examples/szdiagnostic/get_datastore_info.txt
+            .. literalinclude:: ../../examples/szdiagnostic/check_repository_performance.txt
                 :linenos:
                 :language: json
         """
@@ -85,10 +63,31 @@ class SzDiagnostic(ABC):
         """Experimental/internal for Senzing support use only."""
 
     @abstractmethod
+    def get_repository_info(self) -> str:
+        """
+        The `get_repository_info` method returns overview information about the repository.
+
+        Raises:
+            szexception.SzError:
+
+        .. collapse:: Example:
+
+            .. literalinclude:: ../../examples/szdiagnostic/get_repository_info.py
+                :linenos:
+                :language: python
+
+            **Output:**
+
+            .. literalinclude:: ../../examples/szdiagnostic/get_repository_info.txt
+                :linenos:
+                :language: json
+        """
+
+    @abstractmethod
     def purge_repository(self) -> None:
         """
         **Warning:**
-        The `purge_repository` method purges all entity data in the entire repository.
+        The `purge_repository` method purges all data in the repository, except the configuration.
 
         Before calling `purge_repository` all other instances of the Senzing API
         MUST be destroyed or shutdown.

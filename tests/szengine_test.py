@@ -20,9 +20,9 @@ def test_add_record(sz_engine: SzEngine) -> None:
     sz_engine.add_record("", "", "")
 
 
-def test_close_export(sz_engine: SzEngine) -> None:
-    """Test SzEngine.close_export()."""
-    sz_engine.close_export(0)
+def test_close_export_report(sz_engine: SzEngine) -> None:
+    """Test SzEngine.close_export_report()."""
+    sz_engine.close_export_report(0)
 
 
 def test_count_redo_records(sz_engine: SzEngine) -> None:
@@ -130,9 +130,9 @@ def test_how_entity_by_entity_id(sz_engine: SzEngine) -> None:
     sz_engine.how_entity_by_entity_id(0)
 
 
-def test_preprocess_record(sz_engine: SzEngine) -> None:
-    """Test SzEngine.preprocess_record()."""
-    sz_engine.preprocess_record("")
+def test_get_record_preview(sz_engine: SzEngine) -> None:
+    """Test SzEngine.get_record_preview()."""
+    sz_engine.get_record_preview("")
 
 
 def test_prime_engine(sz_engine: SzEngine) -> None:
