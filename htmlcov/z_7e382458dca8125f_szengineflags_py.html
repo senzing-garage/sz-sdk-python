@@ -54,8 +54,8 @@
             </div>
         </aside>
         <h2>
-            <span class="text">85 statements &nbsp;</span>
-            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">84<span class="text"> run</span></button>
+            <span class="text">86 statements &nbsp;</span>
+            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">85<span class="text"> run</span></button>
             <button type="button" class="mis show_mis button_toggle_mis" value="mis" data-shortcut="m" title="Toggle lines missing">1<span class="text"> missing</span></button>
             <button type="button" class="exc show_exc button_toggle_exc" value="exc" data-shortcut="x" title="Toggle lines excluded">0<span class="text"> excluded</span></button>
         </h2>
@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="z_7e382458dca8125f_szerror_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.9.2">coverage.py v7.9.2</a>,
-            created at 2025-07-14 07:43 +0000
+            created at 2025-07-14 19:18 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -269,51 +269,54 @@
     <p class="pln"><span class="n"><a id="t187" href="#t187">187</a></span><span class="t">    <span class="com"># The recommended default flag values for preprocessing.</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t188" href="#t188">188</a></span><span class="t">    <span class="nam">SZ_RECORD_PREVIEW_DEFAULT_FLAGS</span> <span class="op">=</span> <span class="nam">SZ_ENTITY_INCLUDE_RECORD_FEATURE_DETAILS</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t189" href="#t189">189</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t190" href="#t190">190</a></span><span class="t">    <span class="com"># The recommended default flag values for reevaluating entities.</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t191" href="#t191">191</a></span><span class="t">    <span class="nam">SZ_REEVALUATE_RECORD_DEFAULT_FLAGS</span> <span class="op">=</span> <span class="nam">SZ_NO_FLAGS</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t192" href="#t192">192</a></span><span class="t">    <span class="nam">SZ_REEVALUATE_ENTITY_DEFAULT_FLAGS</span> <span class="op">=</span> <span class="nam">SZ_REEVALUATE_RECORD_DEFAULT_FLAGS</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t193" href="#t193">193</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t194" href="#t194">194</a></span><span class="t">    <span class="com"># The recommended default flag values for finding interesting entities.</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t195" href="#t195">195</a></span><span class="t">    <span class="nam">SZ_FIND_INTERESTING_ENTITIES_DEFAULT_FLAGS</span> <span class="op">=</span> <span class="nam">SZ_NO_FLAGS</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t190" href="#t190">190</a></span><span class="t">    <span class="com"># The recommended default flag values for redoing records.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t191" href="#t191">191</a></span><span class="t">    <span class="nam">SZ_REDO_DEFAULT_FLAGS</span> <span class="op">=</span> <span class="nam">SZ_NO_FLAGS</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t192" href="#t192">192</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t193" href="#t193">193</a></span><span class="t">    <span class="com"># The recommended default flag values for reevaluating entities.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t194" href="#t194">194</a></span><span class="t">    <span class="nam">SZ_REEVALUATE_RECORD_DEFAULT_FLAGS</span> <span class="op">=</span> <span class="nam">SZ_NO_FLAGS</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t195" href="#t195">195</a></span><span class="t">    <span class="nam">SZ_REEVALUATE_ENTITY_DEFAULT_FLAGS</span> <span class="op">=</span> <span class="nam">SZ_REEVALUATE_RECORD_DEFAULT_FLAGS</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t196" href="#t196">196</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t197" href="#t197">197</a></span><span class="t">    <span class="com"># The recommended settings for searching by attributes.</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t198" href="#t198">198</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t199" href="#t199">199</a></span><span class="t">    <span class="com"># The recommended flag values for searching by attributes, returning all matching entities.</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t200" href="#t200">200</a></span><span class="t">    <span class="nam">SZ_SEARCH_BY_ATTRIBUTES_ALL</span> <span class="op">=</span> <span class="op">(</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t201" href="#t201">201</a></span><span class="t">        <span class="nam">SZ_SEARCH_INCLUDE_ALL_ENTITIES</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t202" href="#t202">202</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_ENTITY_INCLUDE_REPRESENTATIVE_FEATURES</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t203" href="#t203">203</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_ENTITY_INCLUDE_ENTITY_NAME</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t204" href="#t204">204</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_ENTITY_INCLUDE_RECORD_SUMMARY</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t205" href="#t205">205</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_INCLUDE_FEATURE_SCORES</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t206" href="#t206">206</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_SEARCH_INCLUDE_STATS</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t207" href="#t207">207</a></span><span class="t">    <span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t208" href="#t208">208</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t209" href="#t209">209</a></span><span class="t">    <span class="com"># The recommended flag values for searching by attributes, returning only strongly matching entities.</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t210" href="#t210">210</a></span><span class="t">    <span class="nam">SZ_SEARCH_BY_ATTRIBUTES_STRONG</span> <span class="op">=</span> <span class="op">(</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t211" href="#t211">211</a></span><span class="t">        <span class="nam">SZ_SEARCH_INCLUDE_RESOLVED</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t212" href="#t212">212</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_SEARCH_INCLUDE_POSSIBLY_SAME</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t213" href="#t213">213</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_ENTITY_INCLUDE_REPRESENTATIVE_FEATURES</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t214" href="#t214">214</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_ENTITY_INCLUDE_ENTITY_NAME</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t215" href="#t215">215</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_ENTITY_INCLUDE_RECORD_SUMMARY</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t216" href="#t216">216</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_INCLUDE_FEATURE_SCORES</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t217" href="#t217">217</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_SEARCH_INCLUDE_STATS</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t218" href="#t218">218</a></span><span class="t">    <span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t219" href="#t219">219</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t220" href="#t220">220</a></span><span class="t">    <span class="com"># Return minimal data with all matches.</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t221" href="#t221">221</a></span><span class="t">    <span class="nam">SZ_SEARCH_BY_ATTRIBUTES_MINIMAL_ALL</span> <span class="op">=</span> <span class="nam">SZ_SEARCH_INCLUDE_ALL_ENTITIES</span> <span class="op">|</span> <span class="nam">SZ_SEARCH_INCLUDE_STATS</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t197" href="#t197">197</a></span><span class="t">    <span class="com"># The recommended default flag values for finding interesting entities.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t198" href="#t198">198</a></span><span class="t">    <span class="nam">SZ_FIND_INTERESTING_ENTITIES_DEFAULT_FLAGS</span> <span class="op">=</span> <span class="nam">SZ_NO_FLAGS</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t199" href="#t199">199</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t200" href="#t200">200</a></span><span class="t">    <span class="com"># The recommended settings for searching by attributes.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t201" href="#t201">201</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t202" href="#t202">202</a></span><span class="t">    <span class="com"># The recommended flag values for searching by attributes, returning all matching entities.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t203" href="#t203">203</a></span><span class="t">    <span class="nam">SZ_SEARCH_BY_ATTRIBUTES_ALL</span> <span class="op">=</span> <span class="op">(</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t204" href="#t204">204</a></span><span class="t">        <span class="nam">SZ_SEARCH_INCLUDE_ALL_ENTITIES</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t205" href="#t205">205</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_ENTITY_INCLUDE_REPRESENTATIVE_FEATURES</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t206" href="#t206">206</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_ENTITY_INCLUDE_ENTITY_NAME</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t207" href="#t207">207</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_ENTITY_INCLUDE_RECORD_SUMMARY</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t208" href="#t208">208</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_INCLUDE_FEATURE_SCORES</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t209" href="#t209">209</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_SEARCH_INCLUDE_STATS</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t210" href="#t210">210</a></span><span class="t">    <span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t211" href="#t211">211</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t212" href="#t212">212</a></span><span class="t">    <span class="com"># The recommended flag values for searching by attributes, returning only strongly matching entities.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t213" href="#t213">213</a></span><span class="t">    <span class="nam">SZ_SEARCH_BY_ATTRIBUTES_STRONG</span> <span class="op">=</span> <span class="op">(</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t214" href="#t214">214</a></span><span class="t">        <span class="nam">SZ_SEARCH_INCLUDE_RESOLVED</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t215" href="#t215">215</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_SEARCH_INCLUDE_POSSIBLY_SAME</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t216" href="#t216">216</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_ENTITY_INCLUDE_REPRESENTATIVE_FEATURES</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t217" href="#t217">217</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_ENTITY_INCLUDE_ENTITY_NAME</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t218" href="#t218">218</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_ENTITY_INCLUDE_RECORD_SUMMARY</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t219" href="#t219">219</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_INCLUDE_FEATURE_SCORES</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t220" href="#t220">220</a></span><span class="t">        <span class="op">|</span> <span class="nam">SZ_SEARCH_INCLUDE_STATS</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t221" href="#t221">221</a></span><span class="t">    <span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t222" href="#t222">222</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t223" href="#t223">223</a></span><span class="t">    <span class="com"># Return minimal data with only the strongest matches.</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t224" href="#t224">224</a></span><span class="t">    <span class="nam">SZ_SEARCH_BY_ATTRIBUTES_MINIMAL_STRONG</span> <span class="op">=</span> <span class="op">(</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t225" href="#t225">225</a></span><span class="t">        <span class="nam">SZ_SEARCH_INCLUDE_RESOLVED</span> <span class="op">|</span> <span class="nam">SZ_SEARCH_INCLUDE_POSSIBLY_SAME</span> <span class="op">|</span> <span class="nam">SZ_SEARCH_INCLUDE_STATS</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t226" href="#t226">226</a></span><span class="t">    <span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t227" href="#t227">227</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t228" href="#t228">228</a></span><span class="t">    <span class="com"># The recommended default flag values for search-by-attributes.</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t229" href="#t229">229</a></span><span class="t">    <span class="nam">SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS</span> <span class="op">=</span> <span class="nam">SZ_SEARCH_BY_ATTRIBUTES_ALL</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t223" href="#t223">223</a></span><span class="t">    <span class="com"># Return minimal data with all matches.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t224" href="#t224">224</a></span><span class="t">    <span class="nam">SZ_SEARCH_BY_ATTRIBUTES_MINIMAL_ALL</span> <span class="op">=</span> <span class="nam">SZ_SEARCH_INCLUDE_ALL_ENTITIES</span> <span class="op">|</span> <span class="nam">SZ_SEARCH_INCLUDE_STATS</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t225" href="#t225">225</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t226" href="#t226">226</a></span><span class="t">    <span class="com"># Return minimal data with only the strongest matches.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t227" href="#t227">227</a></span><span class="t">    <span class="nam">SZ_SEARCH_BY_ATTRIBUTES_MINIMAL_STRONG</span> <span class="op">=</span> <span class="op">(</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t228" href="#t228">228</a></span><span class="t">        <span class="nam">SZ_SEARCH_INCLUDE_RESOLVED</span> <span class="op">|</span> <span class="nam">SZ_SEARCH_INCLUDE_POSSIBLY_SAME</span> <span class="op">|</span> <span class="nam">SZ_SEARCH_INCLUDE_STATS</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t229" href="#t229">229</a></span><span class="t">    <span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t230" href="#t230">230</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t231" href="#t231">231</a></span><span class="t">    <span class="com"># Flag for returning (or not) with info responses.</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t232" href="#t232">232</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t233" href="#t233">233</a></span><span class="t">    <span class="nam">SZ_WITH_INFO</span> <span class="op">=</span> <span class="num">1</span> <span class="op">&lt;&lt;</span> <span class="num">62</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t234" href="#t234">234</a></span><span class="t">    <span class="nam">_SZ_WITHOUT_INFO</span> <span class="op">=</span> <span class="num">0</span>  <span class="com"># _SZ_WITHOUT_INFO isn't in the C API, will be used for future methods.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t231" href="#t231">231</a></span><span class="t">    <span class="com"># The recommended default flag values for search-by-attributes.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t232" href="#t232">232</a></span><span class="t">    <span class="nam">SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS</span> <span class="op">=</span> <span class="nam">SZ_SEARCH_BY_ATTRIBUTES_ALL</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t233" href="#t233">233</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t234" href="#t234">234</a></span><span class="t">    <span class="com"># Flag for returning (or not) with info responses.</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t235" href="#t235">235</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t236" href="#t236">236</a></span><span class="t">    <span class="nam">SZ_WITH_INFO</span> <span class="op">=</span> <span class="num">1</span> <span class="op">&lt;&lt;</span> <span class="num">62</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t237" href="#t237">237</a></span><span class="t">    <span class="nam">_SZ_WITHOUT_INFO</span> <span class="op">=</span> <span class="num">0</span>  <span class="com"># _SZ_WITHOUT_INFO isn't in the C API, will be used for future methods.</span>&nbsp;</span><span class="r"></span></p>
 </main>
 <footer>
     <div class="content">
@@ -323,7 +326,7 @@
             <a class="nav" href="z_7e382458dca8125f_szerror_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.9.2">coverage.py v7.9.2</a>,
-            created at 2025-07-14 07:43 +0000
+            created at 2025-07-14 19:18 +0000
         </p>
     </div>
 </footer>
