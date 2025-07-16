@@ -142,8 +142,6 @@ class SzAbstractFactory(ABC):
         The `destroy` method destroys the AbstractFactory and all objects created by the
         AbstractFactory.
 
-
-
         Raises:
             TypeError: Incorrect datatype of input parameter.
             szexception.SzError: config_id does not exist.
