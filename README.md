@@ -6,7 +6,7 @@
 |-------------------------------------- | -------: | -------: | ------: | --------: |
 | src/senzing/\_\_init\_\_.py           |       10 |        0 |    100% |           |
 | src/senzing/constants.py              |       13 |        0 |    100% |           |
-| src/senzing/szabstractfactory.py      |       23 |        0 |    100% |           |
+| src/senzing/szabstractfactory.py      |       25 |        0 |    100% |           |
 | src/senzing/szconfig.py               |       17 |        0 |    100% |           |
 | src/senzing/szconfigmanager.py        |       28 |        0 |    100% |           |
 | src/senzing/szdiagnostic.py           |       17 |        0 |    100% |           |
@@ -16,13 +16,13 @@
 | src/senzing/szhelpers.py              |       24 |        0 |    100% |           |
 | src/senzing/szproduct.py              |       13 |        0 |    100% |           |
 | src/senzing\_mock/\_\_init\_\_.py     |        2 |        0 |    100% |           |
-| src/senzing\_mock/senzing\_mock.py    |      123 |        0 |    100% |           |
+| src/senzing\_mock/senzing\_mock.py    |      125 |        0 |    100% |           |
 | src/senzing\_truthset/\_\_init\_\_.py |        5 |        5 |      0% |       1-6 |
 | src/senzing\_truthset/customers.py    |        2 |        2 |      0% |       3-5 |
 | src/senzing\_truthset/datasources.py  |        2 |        2 |      0% |       3-5 |
 | src/senzing\_truthset/references.py   |        2 |        2 |      0% |       3-5 |
 | src/senzing\_truthset/watchlist.py    |        2 |        2 |      0% |       3-5 |
-|                             **TOTAL** |  **464** |   **14** | **97%** |           |
+|                             **TOTAL** |  **468** |   **14** | **97%** |           |
 
 
 ## Setup coverage badge
