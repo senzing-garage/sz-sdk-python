@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.2.19] - 2025-07-16
+
+### Added in 0.2.19
+
+- Added `SzAbstractFactory.Destroy()`
+
 ## [0.2.18] - 2025-07-14
 
 ### Added in 0.2.18
