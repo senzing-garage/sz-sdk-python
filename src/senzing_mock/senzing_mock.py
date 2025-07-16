@@ -389,6 +389,9 @@ class SzAbstractFactoryMock(SzAbstractFactory):
         _ = kwargs
         return SzProductMock()
 
+    def destroy(self, **kwargs: Any) -> None:
+        _ = kwargs
+
     def reinitialize(self, config_id: int, **kwargs: Any) -> None:
         _ = kwargs
 

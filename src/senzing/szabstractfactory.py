@@ -137,6 +137,23 @@ class SzAbstractFactory(ABC):
         """
 
     @abstractmethod
+    def destroy(self) -> None:
+        """
+        The `destroy` method destroys the AbstractFactory and all objects created by the
+        AbstractFactory.
+
+        Raises:
+            TypeError: Incorrect datatype of input parameter.
+            szexception.SzError: config_id does not exist.
+
+        .. collapse:: Example:
+
+            .. literalinclude:: ../../examples/szabstractfactory/destroy.py
+                :linenos:
+                :language: python
+        """
+
+    @abstractmethod
     def reinitialize(self, config_id: int) -> None:
         """
         The `reinitialize` method reinitializes the Senzing objects using a specific configuration

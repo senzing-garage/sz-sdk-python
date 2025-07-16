@@ -59,6 +59,11 @@ def test_reinitialize(sz_abstractfactory: SzAbstractFactory) -> None:
     sz_abstractfactory.reinitialize(0)
 
 
+def test_destroy(sz_abstractfactory: SzAbstractFactory) -> None:
+    """Test SzAbstractFactory.test_destroy()."""
+    sz_abstractfactory.destroy()
+
+
 # -----------------------------------------------------------------------------
 # Fixtures
 # -----------------------------------------------------------------------------
