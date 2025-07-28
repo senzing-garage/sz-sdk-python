@@ -2,6 +2,14 @@
 
 """
 szabstractfactory.py is the abstract class for all implementations of SzAbstractFactory.
+
+Implementations:
+
+- `SzAbstractFactoryCore`_
+- `SzAbstractFactoryGrpc`_
+
+.. _SzAbstractFactoryCore: https://garage.senzing.com/sz-sdk-python-core/senzing_core.html
+.. _SzAbstractFactoryGrpc: https://garage.senzing.com/sz-sdk-python-grpc/senzing_grpc.html
 """
 
 

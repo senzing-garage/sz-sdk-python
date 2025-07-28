@@ -27,6 +27,11 @@ Senzing objects are created using an `Abstract Factory Pattern`_.
      - SzProduct
      - `sz_product = sz_abstract_factory.create_product()`
 
+Implementations:
+
+- `SzAbstractFactoryCore`_
+- `SzAbstractFactoryGrpc`_
+
 In the examples, the creation of the Senzing Abstract Factory has been abstracted to
 
 .. literalinclude:: ../../examples/docs/import_sz_abstract_factory.txt
@@ -116,3 +121,5 @@ constants
 .. _GitHub: https://github.com/senzing-garage/sz-sdk-python/tree/main/examples
 .. _senzing-core: https://garage.senzing.com/sz-sdk-python-core
 .. _senzing: https://github.com/senzing-garage/sz-sdk-python
+.. _SzAbstractFactoryCore: https://garage.senzing.com/sz-sdk-python-core/senzing_core.html
+.. _SzAbstractFactoryGrpc: https://garage.senzing.com/sz-sdk-python-grpc/senzing_grpc.html
