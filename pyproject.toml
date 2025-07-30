@@ -22,17 +22,21 @@ max-line-length = 120
 profile = "black"
 src_paths = ["examples", "src", "tests"]
 
+[tool.mypy]
+disable_error_code = ["no-untyped-call"]
+
 [[tool.mypy.overrides]]
 module = "senzing.szengineflags.*"
 ignore_missing_imports = "true"
 warn_unused_ignores = "false"
 
 [[tool.mypy.overrides]]
-module = "examples.*"
-
-[[tool.mypy.overrides]]
 module = "pytest_schema.*"
 ignore_missing_imports = "true"
+
+[[tool.mypy.overrides]]
+module = ["grpc", "senzing_grpc", "insecure_channel"]
+follow_untyped_imports = true
 
 [tool.pylint]
 load-plugins = [
