@@ -7,12 +7,12 @@ from senzing_grpc import SzAbstractFactoryGrpc
 from senzing import SzAbstractFactory, SzEngineFlags, SzError
 
 
-def perform_senzing_search(sz_abstract_factory: SzAbstractFactory, attributes: str) -> str:
+def perform_senzing_search(search_abstract_factory: SzAbstractFactory, search_attributes: str) -> str:
     """Example Senzing search using Abstract Base Class SzAbstractFactory."""
-    sz_engine = sz_abstract_factory.create_engine()
+    sz_engine = search_abstract_factory.create_engine()
     flags = SzEngineFlags.SZ_SEARCH_BY_ATTRIBUTES_DEFAULT_FLAGS
     search_profile = ""
-    return sz_engine.search_by_attributes(attributes, flags, search_profile)
+    return sz_engine.search_by_attributes(search_attributes, flags, search_profile)
 
 
 # Example using SzAbstractFactoryCore implementation class.
