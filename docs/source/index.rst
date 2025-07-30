@@ -24,6 +24,20 @@ Example:
       :linenos:
       :language: python
 
+The `senzing` Python package also includes constants and errors used across different Senzing Python
+implementation classes.
+
+As an abstract class, the `senzing` Python package is not used to create instances of
+Senzing Abstract Factory, Senzing engine, etc.
+Concrete classes, such as `senzing-core`_, are used in the creation of objects.
+Example:
+
+.. literalinclude:: ../../examples/docs/using_abstract_factory_core.py
+      :linenos:
+      :language: python
+
+
+
 Senzing has additional Software Development Kits (SDKs)
 for Java, Go, and C#.
 Information for these SDKs can be found at `docs.senzing.com`_.
