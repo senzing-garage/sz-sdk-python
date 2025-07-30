@@ -25,18 +25,15 @@ Example:
       :language: python
 
 The `senzing` Python package also includes constants and errors used across different Senzing Python
-implementation classes.
+implementation packages.
 
-As an abstract class, the `senzing` Python package is not used to create instances of
-Senzing Abstract Factory, Senzing engine, etc.
-Concrete classes, such as `senzing-core`_, are used in the creation of objects.
+As an abstract base class (`abc`_), the `senzing` Python package is **not** used to create instances of Senzing objects.
+Concrete Python packages, such as `senzing-core`_ and `senzing-grpc`_, are used in the creation of objects.
 Example:
 
-.. literalinclude:: ../../examples/docs/using_abstract_factory_core.py
+.. literalinclude:: ../../examples/docs/using_abstract_factory_implementations.py
       :linenos:
       :language: python
-
-
 
 Senzing has additional Software Development Kits (SDKs)
 for Java, Go, and C#.
@@ -59,6 +56,7 @@ References
 #. `senzing-core`_
 #. `senzing-grpc`_
 
+.. _abc: https://docs.python.org/library/abc.html
 .. _docs.senzing.com: https://www.senzing.com/docs
 .. _GitHub: https://github.com/senzing-garage/sz-sdk-python/tree/main/examples
 .. _Pypi: https://pypi.org/project/senzing/
