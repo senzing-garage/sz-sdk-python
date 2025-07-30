@@ -24,10 +24,10 @@ Example:
       :linenos:
       :language: python
 
-The `senzing` Python package also includes constants and errors used across different Senzing Python
+The `senzing`_ Python package also includes constants and errors used across different Senzing Python
 implementation packages.
 
-As an abstract base class (`abc`_), the `senzing` Python package is **not** used to create instances of Senzing objects.
+As an abstract base class (`abc`_), the `senzing`_ Python package is **not** used to create instances of Senzing objects.
 Concrete Python packages, such as `senzing-core`_ and `senzing-grpc`_, are used in the creation of objects.
 Example:
 
