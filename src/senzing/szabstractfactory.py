@@ -24,9 +24,9 @@ from .szproduct import SzProduct
 # Metadata
 
 __all__ = ["SzAbstractFactory"]
-__version__ = "0.0.1"  # See https://www.python.org/dev/peps/pep-0396/
-__date__ = "2024-09-23"
-__updated__ = "2025-01-28"
+__version__ = "1.0.0"
+__date__ = "2025-08-05"
+__updated__ = "2025-08-05"
 
 
 # -----------------------------------------------------------------------------
