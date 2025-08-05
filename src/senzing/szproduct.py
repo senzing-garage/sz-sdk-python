@@ -12,7 +12,7 @@ from .szhelpers import construct_help
 # Metadata
 
 __all__ = ["SzProduct"]
-__version__ = "1.0.0"
+__version__ = "4.0.0"
 __date__ = "2025-08-05"
 __updated__ = "2025-08-05"
 
