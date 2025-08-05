@@ -58,6 +58,7 @@ class SzProduct(ABC):
     def get_version(self) -> str:
         """
         The `get_version` method gets the product version details.
+
         Returns:
             str: A JSON document containing metadata about the Senzing Engine version being used.
 

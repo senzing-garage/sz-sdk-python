@@ -32,7 +32,8 @@ class SzDiagnostic(ABC):
     @abstractmethod
     def check_repository_performance(self, seconds_to_run: int) -> str:
         """
-        The `check_repository_performance` method conducts a rudimentary repository test to gauge I/O and network performance.
+        The `check_repository_performance` method conducts a rudimentary repository test to gauge I/O
+        and network performance.
 
         Typically, this is only run when troubleshooting performance.
 

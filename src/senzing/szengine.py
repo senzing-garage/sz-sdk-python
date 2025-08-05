@@ -238,11 +238,14 @@ class SzEngine(ABC):
 
         Used in conjunction with export_json_entity_report(), export_csv_entity_report(), and close_entity_report().
 
-        If the export handle was obtained from export_csv_entity_report(), this returns the CSV header on the first call and exported entity data in CSV format on subsequent calls.
+        If the export handle was obtained from export_csv_entity_report(),
+        this returns the CSV header on the first call and exported entity data in CSV format on subsequent calls.
 
-        If the export handle was obtained from export_json_entity_report(), this returns exported entity data as a JSON object.
+        If the export handle was obtained from export_json_entity_report(),
+        this returns exported entity data as a JSON object.
 
-        When "null" is returned, the export report is complete and the caller should invoke close_entity_report() to free resources.
+        When "null" is returned, the export report is complete
+        and the caller should invoke close_entity_report() to free resources.
 
         Args:
             export_handle (int): A handle created by `export_json_entity_report()` or `export_json_entity_report()`.
@@ -303,7 +306,8 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `find_network_by_entity_id` method retrieves a network of relationships among entities, specified by entity IDs.
+        The `find_network_by_entity_id` method retrieves a network of relationships among entities,
+        specified by entity IDs.
 
         Warning: Entity networks may be very large due to the volume of inter-related data in the repository.
         The parameters of this method can be used to limit the information returned.
@@ -343,7 +347,8 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `find_network_by_record_id` method retrieves a network of relationships among entities, specified by record IDs.
+        The `find_network_by_record_id` method retrieves a network of relationships among entities,
+        specified by record IDs.
 
         Warning: Entity networks may be very large due to the volume of inter-related data in the repository.
         The parameters of this method can be used to limit the information returned.
@@ -384,8 +389,8 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `find_path_by_entity_id` method searches for the shortest relationship path between two entities based
-        on entity IDs.
+        The `find_path_by_entity_id` method searches for the shortest relationship path between two entities,
+        specified by entity IDs.
 
         The returned path is the shortest path among the paths that satisfy the parameters.
 
@@ -428,8 +433,8 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `find_path_by_record_id` method searches for the shortest relationship path between two entities based
-        on record IDs.
+        The `find_path_by_record_id` method searches for the shortest relationship path between two entities,
+        specified by record IDs.
 
         The returned path is the shortest path among the paths that satisfy the parameters.
 
