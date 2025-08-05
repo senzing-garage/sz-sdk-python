@@ -34,6 +34,10 @@ class SzDiagnostic(ABC):
         """
         The `check_repository_performance` method conducts a rudimentary repository test to gauge I/O performance.
 
+        Typically, this is only run when requested by Senzing support.
+
+        This is a non-destructive test.
+
         Args:
             seconds_to_run (int): Duration of the test in seconds.
 
@@ -89,8 +93,11 @@ class SzDiagnostic(ABC):
         **Warning:**
         The `purge_repository` method purges all data in the repository, except the configuration.
 
-        Before calling `purge_repository` all other instances of the Senzing API
-        MUST be destroyed or shutdown.
+        WARNING: This method is destructive, it will delete all loaded records and entity resolution decisions.
+
+        Senzing does not provide a means to restore the data.
+
+        The only means of recovery would be restoring from a database backup.
 
         Raises:
 

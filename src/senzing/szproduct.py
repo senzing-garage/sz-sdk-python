@@ -34,7 +34,7 @@ class SzProduct(ABC):
     @abstractmethod
     def get_license(self) -> str:
         """
-        The `get_license` method gets the product license details.
+        The `get_license` method gets the details and entitlements of the applied product license.
 
         Returns:
             str: A JSON document containing Senzing license metadata.
