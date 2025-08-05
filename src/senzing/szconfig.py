@@ -124,8 +124,8 @@ class SzConfig(ABC):
 
         Is idempotent.
 
-        Warning: If records in the repository refer to the unregistered datasource, the configuration
-        cannot be used as the active configuration.
+        Warning: If records in the repository refer to the unregistered datasource,
+        the configuration cannot be used as the active configuration.
 
         Args:
             data_source_code (str): Name of data source code to delete.

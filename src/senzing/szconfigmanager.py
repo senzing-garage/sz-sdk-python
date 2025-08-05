@@ -212,7 +212,7 @@ class SzConfigManager(ABC):
 
         The change is prevented if the current default configuration ID value is not as expected.
 
-        Use this in place of setDefaultConfigID to handle race conditions.
+        Use this in place of setDefaultConfigID() to handle race conditions.
 
         Args:
             current_default_config_id (int): The configuration identifier to replace.
@@ -234,7 +234,7 @@ class SzConfigManager(ABC):
         The `set_default_config` method registers a configuration in the repository and sets its ID as the default
         for the repository.
 
-        Convenience method for registerConfig followed by setDefaultConfigId.
+        Convenience method for registerConfig() followed by setDefaultConfigId().
 
         Args:
             config_definition (str): The Senzing configuration JSON document.
@@ -263,7 +263,7 @@ class SzConfigManager(ABC):
 
         Usually this method is sufficient for setting the default configuration ID.
         However in concurrent environments that could encounter race conditions,
-        consider using replaceDefaultConfigId instead.
+        consider using replaceDefaultConfigId() instead.
 
         Args:
             config_id (int): The configuration identifier of the Senzing Engine configuration to use as the default.

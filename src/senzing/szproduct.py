@@ -36,6 +36,8 @@ class SzProduct(ABC):
         """
         The `get_license` method gets the details and entitlements of the applied product license.
 
+        The details do not include the license key.
+
         Returns:
             str: A JSON document containing Senzing license metadata.
 
