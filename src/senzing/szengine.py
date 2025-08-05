@@ -175,7 +175,7 @@ class SzEngine(ABC):
 
         Subsequent fetch_next() calls return exported entity data in CSV format.
 
-        Use with large repositories is not advised. For more information visit [Add link to article]
+        Use with large repositories is not advised.
 
         Args:
             csv_column_list (str): A comma-separated list of column names for the CSV export.
@@ -208,7 +208,7 @@ class SzEngine(ABC):
 
         Each fetch_next() call returns exported entity data as a JSON object.
 
-        Use with large repositories is not advised. For more information visit [Add link to article]
+        Use with large repositories is not advised.
 
         Args:
             flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_EXPORT_DEFAULT_FLAGS.
