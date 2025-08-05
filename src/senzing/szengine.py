@@ -470,6 +470,8 @@ class SzEngine(ABC):
         """
         The `get_active_config_id` method gets the currently active configuration ID.
 
+        May not be the default configuration ID.
+
         Returns:
             int: The identifier of the active Senzing Engine configuration.
 
@@ -562,7 +564,8 @@ class SzEngine(ABC):
         """
         The `get_record` method retrieves information about a record.
 
-        Can be called as many times as desired and from multiple threads at the same time.
+        The information contains the original record data that was loaded and may contain other information based
+        on the flags parameter.
 
         Args:
             data_source_code (str): Identifies the provenance of the data.
@@ -596,6 +599,8 @@ class SzEngine(ABC):
         """
         The `get_record_preview` method describes the features resulting from the hypothetical load of a record.
 
+        Used to obtain the features for a record that has not been loaded.
+
         Args:
             record_definition (str): A JSON document containing the record to be tested.
             flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_RECORD_PREVIEW_DEFAULT_FLAGS.
@@ -623,7 +628,15 @@ class SzEngine(ABC):
         """
         The `get_redo_record` method retrieves and removes a pending redo record.
 
-        The `process_redo_record` method is called to process the redo record retrieved by `get_redo_record`.
+        An "empty" may be returned.
+
+        Use processRedoRecord() to process the result of this function.
+
+        Once a redo record is retrieved, it is no longer tracked by Senzing.
+
+        The redo record may be stored externally for later processing.
+
+        See also countRedoRecords(), processRedoRecord()
 
         Returns:
             str: A JSON document.
@@ -649,7 +662,9 @@ class SzEngine(ABC):
         The `get_stats` method gets and resets the internal engine workload statistics for the current
         operating system process.
 
-        These statistics will automatically reset after retrieval.
+        The output is helpful when interacting with Senzing support.
+
+        Best practice to periodically log the results.
 
         Returns:
             str:  A JSON document.
@@ -679,8 +694,7 @@ class SzEngine(ABC):
         The `get_virtual_entity_by_record_id` method describes how an entity would look if composed of a given
         set of records.
 
-        The virtual entity is composed of only those records and their features.
-        Entity resolution is not performed.
+        The resultant virtual entity has no relationships to actual entities.
 
         Args:
             record_keys (list(tuple(str, str))): The data source codes and record IDs identifying records to create the virtual entity from.
@@ -713,8 +727,6 @@ class SzEngine(ABC):
         """
         The `how_entity_by_entity_id` method explains how an entity was constructed from its records.
 
-        In most cases, *how* provides more detailed information than *why* as the resolution is detailed step-by-step.
-
         Args:
             entity_id (int): The unique identifier of an entity.
             flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_HOW_ENTITY_DEFAULT_FLAGS.
@@ -742,9 +754,8 @@ class SzEngine(ABC):
         """
         The `prime_engine` method pre-loads engine resources.
 
-        If this call is not made, these resources are initialized the
-        first time they are needed and can cause unusually long processing times the first time
-        a function is called that requires these resources.
+        Explicitly calling this method ensures the performance cost is incurred at a predictable time rather than
+        unexpectedly with the first call requiring the resource.
 
         Raises:
 
@@ -759,6 +770,14 @@ class SzEngine(ABC):
     def process_redo_record(self, redo_record: str, flags: int = 0) -> str:
         """
         The `process_redo_record` method processes the provided redo record.
+
+        Calling processRedoRecord() has the potential to create more redo records in certain situations.
+
+        Specify the SzWithInfo flag to determine any outcomes from this operation.
+
+        This operation performs entity resolution.
+
+        See also getRedoRecord()
 
         Args:
             redo_record (str): A redo record retrieved from get_redo_record.
@@ -783,6 +802,12 @@ class SzEngine(ABC):
     def reevaluate_entity(self, entity_id: int, flags: int = SzEngineFlags.SZ_REEVALUATE_ENTITY_DEFAULT_FLAGS) -> str:
         """
         The `reevaluate_entity` method reevaluates an entity by entity ID.
+
+        If the entity is not found, then no changes are made.
+
+        Specify the SzWithInfo flag to determine any outcomes from this operation.
+
+        This operation performs entity resolution.
 
         Args:
             entity_id (int): The unique identifier of an entity.
@@ -809,6 +834,12 @@ class SzEngine(ABC):
     ) -> str:
         """
         The `reevaluate_record` method reevaluates an entity by record ID.
+
+        If the record is not found, then no changes are made.
+
+        Specify the SzWithInfo flag to determine any outcomes from this operation.
+
+        This operation performs entity resolution.
 
         Args:
             data_source_code (str): Identifies the provenance of the data.
