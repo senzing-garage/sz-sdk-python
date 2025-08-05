@@ -244,7 +244,7 @@ class SzEngine(ABC):
         If the export handle was obtained from export_json_entity_report(),
         this returns exported entity data as a JSON object.
 
-        When "null" is returned, the export report is complete
+        When None is returned, the export report is complete
         and the caller should invoke close_entity_report() to free resources.
 
         Args:
