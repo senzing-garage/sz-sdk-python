@@ -248,7 +248,7 @@ class SzEngine(ABC):
         and the caller should invoke close_entity_report() to free resources.
 
         Args:
-            export_handle (int): A handle created by `export_json_entity_report()` or `export_json_entity_report()`.
+            export_handle (int): A handle created by `export_json_entity_report` or `export_json_entity_report`.
 
         Returns:
             str: TODO:
