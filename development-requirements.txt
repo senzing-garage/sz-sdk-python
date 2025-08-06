@@ -16,5 +16,5 @@ pytest==8.4.1
 senzing-core==0.4.1
 senzing-grpc==0.5.11
 twine==6.1.0
-virtualenv==20.33.0
+virtualenv==20.33.1
 wheel==0.45.1
