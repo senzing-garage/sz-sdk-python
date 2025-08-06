@@ -11,9 +11,9 @@ from .szhelpers import construct_help
 # Metadata
 
 __all__ = ["SzDiagnostic"]
-__version__ = "0.0.1"  # See https://www.python.org/dev/peps/pep-0396/
-__date__ = "2023-10-30"
-__updated__ = "2025-01-28"
+__version__ = "4.0.0"
+__date__ = "2025-08-05"
+__updated__ = "2025-08-05"
 
 # -----------------------------------------------------------------------------
 # SzDiagnostic
@@ -32,7 +32,12 @@ class SzDiagnostic(ABC):
     @abstractmethod
     def check_repository_performance(self, seconds_to_run: int) -> str:
         """
-        The `check_repository_performance` method conducts a rudimentary repository test to gauge I/O performance.
+        The `check_repository_performance` method conducts a rudimentary repository test to gauge I/O
+        and network performance.
+
+        Typically, this is only run when troubleshooting performance.
+
+        This is a non-destructive test.
 
         Args:
             seconds_to_run (int): Duration of the test in seconds.
@@ -89,8 +94,11 @@ class SzDiagnostic(ABC):
         **Warning:**
         The `purge_repository` method purges all data in the repository, except the configuration.
 
-        Before calling `purge_repository` all other instances of the Senzing API
-        MUST be destroyed or shutdown.
+        WARNING: This method is destructive, it will delete all loaded records and entity resolution decisions.
+
+        Senzing does not provide a means to restore the data.
+
+        The only means of recovery would be restoring from a database backup.
 
         Raises:
 

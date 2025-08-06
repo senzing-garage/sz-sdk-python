@@ -15,9 +15,9 @@ from .szhelpers import construct_help
 # Metadata
 
 __all__ = ["SzEngine"]
-__version__ = "0.0.1"  # See https://www.python.org/dev/peps/pep-0396/
-__date__ = "2023-10-30"
-__updated__ = "2025-01-28"
+__version__ = "4.0.0"
+__date__ = "2025-08-05"
+__updated__ = "2025-08-05"
 
 
 # -------------------------------------------------------------------------
@@ -45,7 +45,12 @@ class SzEngine(ABC):
         """
         The `add_record` method loads a record into the repository and performs entity resolution.
 
-        Can be called as many times as desired and from multiple threads at the same time.
+        If a record already exists with the same data source code and record ID, it will be replaced.
+
+        If the record definition contains DATA_SOURCE and RECORD_ID JSON keys,
+        the values must match the dataSourceCode and recordID parameters.
+
+        The data source code must be registered in the active configuration.
 
         Args:
             data_source_code (str): Identifies the provenance of the data.
@@ -76,8 +81,7 @@ class SzEngine(ABC):
         """
         The `close_export_report` method closes an export report.
 
-        It is part of the `export_json_entity_report`, `fetch_next`, `close_export_report`
-        lifecycle of a list of sized entities.
+        Used in conjunction with export_json_entity_report(), export_csv_entity_report(), and fetch_next().
 
         Args:
             export_handle (int): A handle created by `export_json_entity_report` or `export_csv_entity_report`.
@@ -130,7 +134,9 @@ class SzEngine(ABC):
         """
         The `delete_record` method deletes a record from the repository and performs entity resolution.
 
-        Can be called as many times as desired and from multiple threads at the same time.
+        The data source code must be registered in the active configuration.
+
+        Is idempotent.
 
         Args:
             data_source_code (str): Identifies the provenance of the data.
@@ -163,19 +169,13 @@ class SzEngine(ABC):
         """
         The `export_csv_entity_report` method initiates an export report of entity data in CSV format.
 
-        **Warning:** `export_csv_entity_report` is not recommended for large systems as it does not scale.
-        It is recommended larger systems implement real-time replication to a data warehouse.
+        Used in conjunction with fetch_next() and close_entity_report().
 
-        It is part of the `export_csv_entity_report`, `fetch_next`, `close_export_report`
-        lifecycle of a list of entities to export.
+        The first fetch_next() call, after calling this method, returns the CSV header.
 
-        Available CSV columns: RESOLVED_ENTITY_ID, RESOLVED_ENTITY_NAME, RELATED_ENTITY_ID, MATCH_LEVEL,
-                               MATCH_LEVEL_CODE, MATCH_KEY, MATCH_KEY_DETAILS,I S_DISCLOSED, IS_AMBIGUOUS,
-                               DATA_SOURCE, RECORD_ID, JSON_DATA, FIRST_SEEN_DT, LAST_SEEN_DT, UNMAPPED_DATA,
-                               ERRULE_CODE, RELATED_ENTITY_NAME
+        Subsequent fetch_next() calls return exported entity data in CSV format.
 
-        Suggested CSV columns: RESOLVED_ENTITY_ID, RELATED_ENTITY_ID, RESOLVED_ENTITY_NAME, MATCH_LEVEL,
-                               MATCH_KEY, DATA_SOURCE, RECORD_ID
+        Use with large repositories is not advised.
 
         Args:
             csv_column_list (str): A comma-separated list of column names for the CSV export.
@@ -204,11 +204,11 @@ class SzEngine(ABC):
         """
         The `export_json_entity_report` method initiates an export report of entity data in JSON Lines format.
 
-        **Warning:** `export_json_entity_report` is not recommended for large systems as it does not scale.
-        It is recommended larger systems implement real-time replication to a data warehouse.
+        Used in conjunction with fetch_next() and close_entity_report().
 
-        It is part of the `export_json_entity_report`, `fetch_next`, `close_export_report`
-        lifecycle of a list of entities to export.
+        Each fetch_next() call returns exported entity data as a JSON object.
+
+        Use with large repositories is not advised.
 
         Args:
             flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_EXPORT_DEFAULT_FLAGS.
@@ -236,9 +236,16 @@ class SzEngine(ABC):
         """
         The `fetch_next` method fetches the next line of entity data from an open export report.
 
-        Successive calls of `fetch_next` will export successive rows of entity data until there is no more.
-        It is part of the `export_json_entity_report` or `export_json_entity_report`, `fetch_next`, `close_export_report`
-        lifecycle of a list of exported entities.
+        Used in conjunction with export_json_entity_report(), export_csv_entity_report(), and close_entity_report().
+
+        If the export handle was obtained from export_csv_entity_report(),
+        this returns the CSV header on the first call and exported entity data in CSV format on subsequent calls.
+
+        If the export handle was obtained from export_json_entity_report(),
+        this returns exported entity data as a JSON object.
+
+        When None is returned, the export report is complete
+        and the caller should invoke close_entity_report() to free resources.
 
         Args:
             export_handle (int): A handle created by `export_json_entity_report` or `export_json_entity_report`.
@@ -299,11 +306,11 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `find_network_by_entity_id` method retrieves a network of relationships among entities based on entity IDs.
+        The `find_network_by_entity_id` method retrieves a network of relationships among entities,
+        specified by entity IDs.
 
-        This includes the requested entities, paths between them, and relations to other nearby entities.
-        Returns a JSON document that identifies the path between the each set of search entities (if the path exists),
-        and the information for the entities in the path.
+        Warning: Entity networks may be very large due to the volume of inter-related data in the repository.
+        The parameters of this method can be used to limit the information returned.
 
         Args:
             entity_ids (list(int)): The entity IDs to find the network between.
@@ -340,11 +347,11 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_FIND_NETWORK_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `find_network_by_record_id` method retrieves a network of relationships among entities based on record IDs.
+        The `find_network_by_record_id` method retrieves a network of relationships among entities,
+        specified by record IDs.
 
-        This includes the requested entities, paths between them, and relations to other nearby entities.
-        Returns a JSON document that identifies the path between the each set of search entities (if the path exists),
-        and the information for the entities in the path.
+        Warning: Entity networks may be very large due to the volume of inter-related data in the repository.
+        The parameters of this method can be used to limit the information returned.
 
         Args:
             record_keys (list(tuple(str, str))): The data source codes and record IDs to find the network between.
@@ -382,13 +389,10 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `find_path_by_entity_id` method searches for the shortest relationship path between two entities based
-        on entity IDs.
+        The `find_path_by_entity_id` method searches for the shortest relationship path between two entities,
+        specified by entity IDs.
 
-        It finds the most efficient relationship between two entities path based on the parameters
-        and returns a JSON document with an ENTITY_PATHS section that details the path between the entities.
-        The ENTITIES sections details information on the entities. Paths are found using known relationships with other entities.
-        Paths are found using known relationships with other entities.
+        The returned path is the shortest path among the paths that satisfy the parameters.
 
         Args:
             start_entity_id (int): The entity ID for the starting entity of the search path.
@@ -429,15 +433,10 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_FIND_PATH_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `find_path_by_record_id` method searches for the shortest relationship path between two entities based
-        on record IDs.
+        The `find_path_by_record_id` method searches for the shortest relationship path between two entities,
+        specified by record IDs.
 
-        It finds the most efficient relationship between
-        two entities path based on the parameters by RECORD_ID values
-        and returns a JSON document with an ENTITY_PATHS section that details the path between the entities.
-        The ENTITIES sections details information on the entities.
-        Paths are found using known relationships with other entities.
-        The entities are identified by starting and ending records.
+        The returned path is the shortest path among the paths that satisfy the parameters.
 
         Args:
             start_data_source_code (str): Identifies the provenance of the record for the starting entity of the search path.
@@ -472,6 +471,8 @@ class SzEngine(ABC):
         """
         The `get_active_config_id` method gets the currently active configuration ID.
 
+        May not be the default configuration ID.
+
         Returns:
             int: The identifier of the active Senzing Engine configuration.
 
@@ -497,7 +498,7 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_ENTITY_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `get_entity_by_entity_id` method retrieves information about an entity based on entity ID.
+        The `get_entity_by_entity_id` method retrieves information about an entity, specified by entity ID.
 
         Args:
             entity_id (int): The unique identifier of an entity.
@@ -529,7 +530,7 @@ class SzEngine(ABC):
         flags: int = SzEngineFlags.SZ_ENTITY_DEFAULT_FLAGS,
     ) -> str:
         """
-        The `get_entity_by_record_id` method retrieves information about an entity based on record ID.
+        The `get_entity_by_record_id` method retrieves information about an entity, specified by record ID.
 
         Args:
             data_source_code (str): Identifies the provenance of the data.
@@ -564,7 +565,8 @@ class SzEngine(ABC):
         """
         The `get_record` method retrieves information about a record.
 
-        Can be called as many times as desired and from multiple threads at the same time.
+        The information contains the original record data that was loaded and may contain other information depending
+        on the flags parameter.
 
         Args:
             data_source_code (str): Identifies the provenance of the data.
@@ -598,6 +600,8 @@ class SzEngine(ABC):
         """
         The `get_record_preview` method describes the features resulting from the hypothetical load of a record.
 
+        Used to preview the features for a record that has not been loaded.
+
         Args:
             record_definition (str): A JSON document containing the record to be tested.
             flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_RECORD_PREVIEW_DEFAULT_FLAGS.
@@ -625,7 +629,15 @@ class SzEngine(ABC):
         """
         The `get_redo_record` method retrieves and removes a pending redo record.
 
-        The `process_redo_record` method is called to process the redo record retrieved by `get_redo_record`.
+        An empty value will be returned if there are no pending redo records.
+
+        Use processRedoRecord() to process the result of this function.
+
+        Once a redo record is retrieved, it is no longer tracked by Senzing.
+
+        The redo record may be stored externally for later processing.
+
+        See also countRedoRecords(), processRedoRecord()
 
         Returns:
             str: A JSON document.
@@ -651,7 +663,9 @@ class SzEngine(ABC):
         The `get_stats` method gets and resets the internal engine workload statistics for the current
         operating system process.
 
-        These statistics will automatically reset after retrieval.
+        The output is helpful when interacting with Senzing support.
+
+        Best practice to periodically log the results.
 
         Returns:
             str:  A JSON document.
@@ -681,8 +695,7 @@ class SzEngine(ABC):
         The `get_virtual_entity_by_record_id` method describes how an entity would look if composed of a given
         set of records.
 
-        The virtual entity is composed of only those records and their features.
-        Entity resolution is not performed.
+        Virtual entities do not have relationships.
 
         Args:
             record_keys (list(tuple(str, str))): The data source codes and record IDs identifying records to create the virtual entity from.
@@ -715,8 +728,6 @@ class SzEngine(ABC):
         """
         The `how_entity_by_entity_id` method explains how an entity was constructed from its records.
 
-        In most cases, *how* provides more detailed information than *why* as the resolution is detailed step-by-step.
-
         Args:
             entity_id (int): The unique identifier of an entity.
             flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_HOW_ENTITY_DEFAULT_FLAGS.
@@ -744,9 +755,8 @@ class SzEngine(ABC):
         """
         The `prime_engine` method pre-loads engine resources.
 
-        If this call is not made, these resources are initialized the
-        first time they are needed and can cause unusually long processing times the first time
-        a function is called that requires these resources.
+        Explicitly calling this method ensures the performance cost is incurred at a predictable time rather than
+        unexpectedly with the first call requiring the resources.
 
         Raises:
 
@@ -761,6 +771,12 @@ class SzEngine(ABC):
     def process_redo_record(self, redo_record: str, flags: int = 0) -> str:
         """
         The `process_redo_record` method processes the provided redo record.
+
+        This operation performs entity resolution.
+
+        Calling processRedoRecord() has the potential to create more redo records in certain situations.
+
+        See also getRedoRecord(), countRedoRecords()
 
         Args:
             redo_record (str): A redo record retrieved from get_redo_record.
@@ -785,6 +801,10 @@ class SzEngine(ABC):
     def reevaluate_entity(self, entity_id: int, flags: int = SzEngineFlags.SZ_REEVALUATE_ENTITY_DEFAULT_FLAGS) -> str:
         """
         The `reevaluate_entity` method reevaluates an entity by entity ID.
+
+        This operation performs entity resolution.
+
+        If the entity is not found, then no changes are made.
 
         Args:
             entity_id (int): The unique identifier of an entity.
@@ -811,6 +831,10 @@ class SzEngine(ABC):
     ) -> str:
         """
         The `reevaluate_record` method reevaluates an entity by record ID.
+
+        This operation performs entity resolution.
+
+        If the record is not found, then no changes are made.
 
         Args:
             data_source_code (str): Identifies the provenance of the data.
@@ -844,6 +868,8 @@ class SzEngine(ABC):
     ) -> str:
         """
         The `search_by_attributes` method searches for entities that match or relate to the provided attributes.
+
+        The default search profile is SEARCH.  Alternatively, INGEST may be used.
 
         Args:
             attributes (str): A JSON document with the attribute data to search for.
@@ -981,6 +1007,8 @@ class SzEngine(ABC):
     ) -> str:
         """
         The `why_search` method describes the ways a set of search attributes relate to an entity.
+
+        The default search profile is SEARCH.  Alternatively, INGEST may be used.
 
         Args:
             attributes (str): A JSON document with the attribute data to search for.

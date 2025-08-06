@@ -13,9 +13,9 @@ from .szhelpers import construct_help
 # Metadata
 
 __all__ = ["SzConfig"]
-__version__ = "0.0.1"  # See https://www.python.org/dev/peps/pep-0396/
-__date__ = "2023-10-30"
-__updated__ = "2025-01-28"
+__version__ = "4.0.0"
+__date__ = "2025-08-05"
+__updated__ = "2025-08-05"
 
 # -----------------------------------------------------------------------------
 # SzConfig
@@ -89,6 +89,9 @@ class SzConfig(ABC):
         """
         The `register_data_source` method adds a data source to this configuration.
 
+        Because SzConfig is an in-memory representation, the repository is not changed
+        unless the configuration is exported and then registered via ConfigManager.
+
         Args:
             data_source_code (str): Name of data source code to add.
 
@@ -115,6 +118,14 @@ class SzConfig(ABC):
     def unregister_data_source(self, data_source_code: str) -> str:
         """
         The `unregister_data_source` method removes a data source from this configuration.
+
+        Because SzConfig is an in-memory representation, the repository is not changed unless
+        the configuration is exported and then registered via ConfigManager.
+
+        Is idempotent.
+
+        Warning: If records in the repository refer to the unregistered datasource,
+        the configuration cannot be used as the active configuration.
 
         Args:
             data_source_code (str): Name of data source code to delete.

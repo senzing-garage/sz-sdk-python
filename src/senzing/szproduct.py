@@ -12,9 +12,9 @@ from .szhelpers import construct_help
 # Metadata
 
 __all__ = ["SzProduct"]
-__version__ = "0.0.1"  # See https://www.python.org/dev/peps/pep-0396/
-__date__ = "2023-10-30"
-__updated__ = "2025-01-28"
+__version__ = "4.0.0"
+__date__ = "2025-08-05"
+__updated__ = "2025-08-05"
 
 # -----------------------------------------------------------------------------
 # SzProduct
@@ -34,7 +34,9 @@ class SzProduct(ABC):
     @abstractmethod
     def get_license(self) -> str:
         """
-        The `get_license` method gets the product license details.
+        The `get_license` method gets the details and entitlements of the applied product license.
+
+        The details do not include the license key.
 
         Returns:
             str: A JSON document containing Senzing license metadata.
@@ -56,6 +58,7 @@ class SzProduct(ABC):
     def get_version(self) -> str:
         """
         The `get_version` method gets the product version details.
+
         Returns:
             str: A JSON document containing metadata about the Senzing Engine version being used.
 

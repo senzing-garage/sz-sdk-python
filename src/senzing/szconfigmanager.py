@@ -14,9 +14,9 @@ from .szhelpers import construct_help
 # Metadata
 
 __all__ = ["SzConfigManager"]
-__version__ = "0.0.1"  # See https://www.python.org/dev/peps/pep-0396/
-__date__ = "2023-10-30"
-__updated__ = "2023-11-08"
+__version__ = "4.0.0"
+__date__ = "2025-08-05"
+__updated__ = "2025-08-05"
 
 # -----------------------------------------------------------------------------
 # SzConfigManager
@@ -93,8 +93,6 @@ class SzConfigManager(ABC):
         The `create_config_from_template` method creates a new SzConfig instance from the template
         configuration definition.
 
-        The template configuration is located at PIPELINE.RESOURCEPATH/templates/g2config.json
-
         Args:
             config_definition (str): The Senzing configuration JSON document.
 
@@ -122,6 +120,11 @@ class SzConfigManager(ABC):
         """
         The `get_config_registry` method gets the configuration registry.
 
+        The registry contains the original timestamp, original comment, and configuration ID
+        of all configurations ever registered with the repository.
+
+        Registered configurations cannot be unregistered.
+
         Returns:
             str: A JSON document containing Senzing configurations.
 
@@ -146,8 +149,12 @@ class SzConfigManager(ABC):
         """
         The `get_default_config_id` method gets the default configuration ID for the repository.
 
+        Unless an explicit configuration ID is specified at initialization, the default configuration ID is used.
+
+        This may not be the same as the active configuration ID.
+
         Returns:
-            int:  A configuration identifier which identifies the current configuration in use.
+            int:  The current default configuration ID or zero if the default configuration has not been set.
 
         Raises:
             TypeError: Incorrect datatype of input parameter.
@@ -169,6 +176,10 @@ class SzConfigManager(ABC):
     def register_config(self, config_definition: str, config_comment: str) -> int:
         """
         The `register_config` method registers a configuration definition in the repository.
+
+        Registered configurations do not become immediately active nor do they become the default.
+
+        Registered configurations cannot be unregistered.
 
         Args:
             config_definition (str): The Senzing configuration JSON document.
@@ -199,9 +210,9 @@ class SzConfigManager(ABC):
         The `replace_default_config_id` method replaces the existing default configuration ID with
         a new configuration ID.
 
-        It is like a "compare-and-swap" instruction to serialize concurrent editing of configuration.
-        If `current_default_config_id` is no longer the "current configuration identifier", the operation will fail.
-        To simply set the default configuration ID, use `set_default_config_id`.
+        The change is prevented if the current default configuration ID value is not as expected.
+
+        Use this in place of set_default_config_id() to handle race conditions.
 
         Args:
             current_default_config_id (int): The configuration identifier to replace.
@@ -223,7 +234,7 @@ class SzConfigManager(ABC):
         The `set_default_config` method registers a configuration in the repository and sets its ID as the default
         for the repository.
 
-        To serialize modifying of the configuration identifier, see `replace_default_config_id`.
+        Convenience method for register_config() followed by set_default_config_id().
 
         Args:
             config_definition (str): The Senzing configuration JSON document.
@@ -250,7 +261,9 @@ class SzConfigManager(ABC):
         """
         The `set_default_config_id` method sets the default configuration ID.
 
-        To serialize modifying of the configuration identifier, see `replace_default_config_id`.
+        Usually this method is sufficient for setting the default configuration ID.
+        However in concurrent environments that could encounter race conditions,
+        consider using replace_default_config_id() instead.
 
         Args:
             config_id (int): The configuration identifier of the Senzing Engine configuration to use as the default.
