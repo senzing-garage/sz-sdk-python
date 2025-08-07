@@ -1,7 +1,5 @@
-#! /usr/bin/env python3
-
 """
-TODO: szproduct_test.py
+szproduct_test.py
 """
 
 import pytest

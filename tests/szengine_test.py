@@ -1,9 +1,6 @@
-#! /usr/bin/env python3
-
 """
-TODO: szengine_test.py
+szengine_test.py
 """
-
 
 import pytest
 

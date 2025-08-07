@@ -1,5 +1,3 @@
-#! /usr/bin/env python3
-
 """
 szproduct.py is the abstract class for all implementations of SzProduct.
 """
@@ -12,9 +10,9 @@ from .szhelpers import construct_help
 # Metadata
 
 __all__ = ["SzProduct"]
-__version__ = "4.0.0"
+__version__ = "4.0.1"
 __date__ = "2025-08-05"
-__updated__ = "2025-08-05"
+__updated__ = "2025-08-07"
 
 # -----------------------------------------------------------------------------
 # SzProduct

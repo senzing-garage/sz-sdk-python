@@ -1,7 +1,5 @@
-#! /usr/bin/env python3
-
 """
-TODO: szabstractfactory_Mock.py
+szabstractfactory_Mock.py
 """
 
 from typing import Any, Dict, List, Optional, Tuple, Union

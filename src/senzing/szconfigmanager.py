@@ -1,5 +1,3 @@
-#! /usr/bin/env python3
-
 """
 szconfigmanager.py is the abstract class for all implementations of SzConfigManager.
 """
@@ -14,9 +12,9 @@ from .szhelpers import construct_help
 # Metadata
 
 __all__ = ["SzConfigManager"]
-__version__ = "4.0.0"
+__version__ = "4.0.1"
 __date__ = "2025-08-05"
-__updated__ = "2025-08-05"
+__updated__ = "2025-08-07"
 
 # -----------------------------------------------------------------------------
 # SzConfigManager
