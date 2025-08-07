@@ -1,5 +1,3 @@
-#! /usr/bin/env python3
-
 """
 szengineflags.py has constants that are used when calling Senzing functions.
 """
@@ -13,9 +11,9 @@ TSzEngineFlags = TypeVar("TSzEngineFlags", bound="SzEngineFlags")  # pylint: dis
 # Metadata
 
 __all__ = ["SzEngineFlags"]
-__version__ = "4.0.0"
+__version__ = "4.0.1"
 __date__ = "2025-08-05"
-__updated__ = "2025-08-05"
+__updated__ = "2025-08-07"
 
 
 # -----------------------------------------------------------------------------

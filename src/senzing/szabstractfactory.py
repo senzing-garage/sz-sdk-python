@@ -1,5 +1,3 @@
-#! /usr/bin/env python3
-
 """
 szabstractfactory.py is the abstract class for all implementations of SzAbstractFactory.
 
@@ -12,7 +10,6 @@ Implementations:
 .. _SzAbstractFactoryGrpc: https://garage.senzing.com/sz-sdk-python-grpc/senzing_grpc.html
 """
 
-
 from abc import ABC, abstractmethod
 
 from .szconfigmanager import SzConfigManager
@@ -24,9 +21,9 @@ from .szproduct import SzProduct
 # Metadata
 
 __all__ = ["SzAbstractFactory"]
-__version__ = "4.0.0"
+__version__ = "4.0.1"
 __date__ = "2025-08-05"
-__updated__ = "2025-08-05"
+__updated__ = "2025-08-07"
 
 
 # -----------------------------------------------------------------------------

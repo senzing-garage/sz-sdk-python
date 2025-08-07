@@ -1,7 +1,5 @@
-#! /usr/bin/env python3
-
 """
-TODO: szconfig_test.py
+szconfig_test.py
 """
 
 import pytest

@@ -1,5 +1,3 @@
-#! /usr/bin/env python3
-
 """
 szdiagnostic.py is the abstract class for all implementations of SzDiagnostic.
 """
@@ -11,9 +9,9 @@ from .szhelpers import construct_help
 # Metadata
 
 __all__ = ["SzDiagnostic"]
-__version__ = "4.0.0"
+__version__ = "4.0.1"
 __date__ = "2025-08-05"
-__updated__ = "2025-08-05"
+__updated__ = "2025-08-07"
 
 # -----------------------------------------------------------------------------
 # SzDiagnostic

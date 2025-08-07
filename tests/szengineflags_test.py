@@ -1,9 +1,6 @@
-#! /usr/bin/env python3
-
 """
-TODO: szengineflags_test.py
+szengineflags_test.py
 """
-
 
 # -----------------------------------------------------------------------------
 # Test cases
