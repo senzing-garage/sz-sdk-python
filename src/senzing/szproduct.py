@@ -2,7 +2,6 @@
 szproduct.py is the abstract class for all implementations of SzProduct.
 """
 
-# TODO: Determine specific SzError, Errors for "Raises:" documentation.
 from abc import ABC, abstractmethod
 
 from .szhelpers import construct_help
@@ -10,9 +9,7 @@ from .szhelpers import construct_help
 # Metadata
 
 __all__ = ["SzProduct"]
-__version__ = "4.0.1"
-__date__ = "2025-08-05"
-__updated__ = "2025-08-07"
+__updated__ = "2025-08-11"
 
 # -----------------------------------------------------------------------------
 # SzProduct
@@ -39,6 +36,9 @@ class SzProduct(ABC):
         Returns:
             str: A JSON document containing Senzing license metadata.
 
+        Raises:
+            SzError
+
         .. collapse:: Example:
 
             .. literalinclude:: ../../examples/szproduct/get_license.py
@@ -59,6 +59,9 @@ class SzProduct(ABC):
 
         Returns:
             str: A JSON document containing metadata about the Senzing Engine version being used.
+
+        Raises:
+            SzError
 
         .. collapse:: Example:
 

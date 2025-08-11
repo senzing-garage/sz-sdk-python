@@ -13,9 +13,7 @@ from .szhelpers import construct_help
 # Metadata
 
 __all__ = ["SzEngine"]
-__version__ = "4.0.1"
-__date__ = "2025-08-05"
-__updated__ = "2025-08-07"
+__updated__ = "2025-08-11"
 
 
 # -------------------------------------------------------------------------
@@ -60,6 +58,7 @@ class SzEngine(ABC):
             str: If flags are set to return the WITH_INFO response a JSON document containing the details, otherwise an empty string.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -85,6 +84,7 @@ class SzEngine(ABC):
             export_handle (int): A handle created by `export_json_entity_report` or `export_csv_entity_report`.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -108,6 +108,7 @@ class SzEngine(ABC):
             int: The number of redo records in Senzing's redo queue.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -145,6 +146,7 @@ class SzEngine(ABC):
             str: If flags are set to return the WITH_INFO response a JSON document containing the details, otherwise an empty string.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -183,6 +185,7 @@ class SzEngine(ABC):
             int: A handle that identifies the document to be scrolled through using `fetch_next`.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -215,6 +218,7 @@ class SzEngine(ABC):
             int: A handle that identifies the document to be scrolled through using `fetch_next`.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -249,9 +253,10 @@ class SzEngine(ABC):
             export_handle (int): A handle created by `export_json_entity_report` or `export_json_entity_report`.
 
         Returns:
-            str: TODO:
+            str: Entity data for an export report.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -321,6 +326,7 @@ class SzEngine(ABC):
             str: A JSON document.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -362,6 +368,7 @@ class SzEngine(ABC):
             str: A JSON document.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -404,6 +411,7 @@ class SzEngine(ABC):
             str: A JSON document with an ENTITY_PATHS section that details the path between the entities.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -450,6 +458,7 @@ class SzEngine(ABC):
             str: A JSON document.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -475,6 +484,7 @@ class SzEngine(ABC):
             int: The identifier of the active Senzing Engine configuration.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -506,6 +516,7 @@ class SzEngine(ABC):
             str: A JSON document.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -539,6 +550,7 @@ class SzEngine(ABC):
             str: A JSON document.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -575,6 +587,7 @@ class SzEngine(ABC):
             str: A JSON document of a single record.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -608,6 +621,7 @@ class SzEngine(ABC):
             str: A JSON document containing metadata as specified by the flags.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -641,6 +655,7 @@ class SzEngine(ABC):
             str: A JSON document.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -669,6 +684,7 @@ class SzEngine(ABC):
             str:  A JSON document.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -703,6 +719,7 @@ class SzEngine(ABC):
             str:  A JSON document.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -734,6 +751,7 @@ class SzEngine(ABC):
             str: A JSON document.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -757,6 +775,7 @@ class SzEngine(ABC):
         unexpectedly with the first call requiring the resources.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -781,6 +800,7 @@ class SzEngine(ABC):
             flags (int, optional): Flags used to control information returned. Defaults to 0.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -809,6 +829,7 @@ class SzEngine(ABC):
             flags (int, optional): Flags used to control information returned. Defaults to SzEngineFlags.SZ_REEVALUATE_ENTITY_DEFAULT_FLAGS.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -843,6 +864,7 @@ class SzEngine(ABC):
             str: If flags are set to return the WITH_INFO response a JSON document containing the details, otherwise an empty string.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -878,6 +900,7 @@ class SzEngine(ABC):
             str: A JSON document.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -911,6 +934,7 @@ class SzEngine(ABC):
             str: A JSON document.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -944,6 +968,7 @@ class SzEngine(ABC):
             str: A JSON document.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -981,6 +1006,7 @@ class SzEngine(ABC):
             str: A JSON document.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -1018,6 +1044,7 @@ class SzEngine(ABC):
             str: A JSON document.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 

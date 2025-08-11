@@ -9,9 +9,7 @@ from .szhelpers import construct_help
 # Metadata
 
 __all__ = ["SzDiagnostic"]
-__version__ = "4.0.1"
-__date__ = "2025-08-05"
-__updated__ = "2025-08-07"
+__updated__ = "2025-08-11"
 
 # -----------------------------------------------------------------------------
 # SzDiagnostic
@@ -44,8 +42,7 @@ class SzDiagnostic(ABC):
             str: A string containing a JSON document.
 
         Raises:
-            TypeError: Incorrect datatype of input parameter.
-            szexception.SzError:
+            SzError
 
         .. collapse:: Example:
 
@@ -71,7 +68,7 @@ class SzDiagnostic(ABC):
         The `get_repository_info` method returns overview information about the repository.
 
         Raises:
-            szexception.SzError:
+            SzError
 
         .. collapse:: Example:
 
@@ -99,6 +96,7 @@ class SzDiagnostic(ABC):
         The only means of recovery would be restoring from a database backup.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 

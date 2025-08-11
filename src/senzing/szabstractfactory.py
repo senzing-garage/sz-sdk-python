@@ -21,9 +21,7 @@ from .szproduct import SzProduct
 # Metadata
 
 __all__ = ["SzAbstractFactory"]
-__version__ = "4.0.1"
-__date__ = "2025-08-05"
-__updated__ = "2025-08-07"
+__updated__ = "2025-08-11"
 
 
 # -----------------------------------------------------------------------------
@@ -52,6 +50,7 @@ class SzAbstractFactory(ABC):
             SzConfigManager: A new implementation.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -77,6 +76,7 @@ class SzAbstractFactory(ABC):
             SzDiagnostic: A new implementation.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -102,6 +102,7 @@ class SzAbstractFactory(ABC):
             SzEngine: A new implementation.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -127,6 +128,7 @@ class SzAbstractFactory(ABC):
             SzProduct: A new implementation.
 
         Raises:
+            SzError
 
         .. collapse:: Example:
 
@@ -148,8 +150,7 @@ class SzAbstractFactory(ABC):
         AbstractFactory.
 
         Raises:
-            TypeError: Incorrect datatype of input parameter.
-            szexception.SzError: config_id does not exist.
+            SzError
 
         .. collapse:: Example:
 
@@ -169,8 +170,7 @@ class SzAbstractFactory(ABC):
             config_id (int): The configuration ID used for the initialization
 
         Raises:
-            TypeError: Incorrect datatype of input parameter.
-            szexception.SzError: config_id does not exist.
+            SzError
 
         .. collapse:: Example:
 

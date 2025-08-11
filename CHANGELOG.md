@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [4.0.2] - 2025-08-11
+
+### Changed in 4.0.2
+
+- Documentation updates
+- Removed `typing-extensions` dependency
+
 ## [4.0.1] - 2025-08-07
 
 ### Added in 4.0.1

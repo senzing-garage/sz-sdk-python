@@ -2,8 +2,6 @@
 szconfigmanager.py is the abstract class for all implementations of SzConfigManager.
 """
 
-# TODO: Determine specific SzErrors, Errors for "Raises:" documentation.
-
 from abc import ABC, abstractmethod
 
 from .szconfig import SzConfig
@@ -12,9 +10,7 @@ from .szhelpers import construct_help
 # Metadata
 
 __all__ = ["SzConfigManager"]
-__version__ = "4.0.1"
-__date__ = "2025-08-05"
-__updated__ = "2025-08-07"
+__updated__ = "2025-08-11"
 
 # -----------------------------------------------------------------------------
 # SzConfigManager
@@ -43,7 +39,7 @@ class SzConfigManager(ABC):
             SzConfig: Represents an in-memory Senzing configuration that can be modified.
 
         Raises:
-            TypeError: Incorrect datatype of input parameter.
+            SzError
 
         .. collapse:: Example:
 
@@ -70,7 +66,7 @@ class SzConfigManager(ABC):
             SzConfig: Represents an in-memory Senzing configuration that can be modified.
 
         Raises:
-            TypeError: Incorrect datatype of input parameter.
+            SzError
 
         .. collapse:: Example:
 
@@ -98,7 +94,7 @@ class SzConfigManager(ABC):
             SzConfig: Represents an in-memory Senzing configuration that can be modified.
 
         Raises:
-            TypeError: Incorrect datatype of input parameter.
+            SzError
 
         .. collapse:: Example:
 
@@ -127,7 +123,7 @@ class SzConfigManager(ABC):
             str: A JSON document containing Senzing configurations.
 
         Raises:
-            TypeError: Incorrect datatype of input parameter.
+            SzError
 
         .. collapse:: Example:
 
@@ -155,7 +151,7 @@ class SzConfigManager(ABC):
             int:  The current default configuration ID or zero if the default configuration has not been set.
 
         Raises:
-            TypeError: Incorrect datatype of input parameter.
+            SzError
 
         .. collapse:: Example:
 
@@ -187,7 +183,7 @@ class SzConfigManager(ABC):
             int: A configuration identifier.
 
         Raises:
-            TypeError: Incorrect datatype of input parameter.
+            SzError
 
         .. collapse:: Example:
 
@@ -217,7 +213,7 @@ class SzConfigManager(ABC):
             new_default_config_id (int): The configuration identifier to use as the default.
 
         Raises:
-            TypeError: Incorrect datatype of input parameter.
+            SzError
 
         .. collapse:: Example:
 
@@ -239,7 +235,7 @@ class SzConfigManager(ABC):
             config_comment (str):  free-form string of comments describing the configuration document.
 
         Raises:
-            TypeError: Incorrect datatype of input parameter.
+            SzError
 
         .. collapse:: Example:
 
@@ -267,7 +263,7 @@ class SzConfigManager(ABC):
             config_id (int): The configuration identifier of the Senzing Engine configuration to use as the default.
 
         Raises:
-            TypeError: Incorrect datatype of input parameter.
+            SzError
 
         .. collapse:: Example:
 
