@@ -27,9 +27,7 @@ __all__ = [
     "SzUnknownDataSourceError",
     "SzUnrecoverableError",
 ]
-__version__ = "4.0.1"
-__date__ = "2025-08-05"
-__updated__ = "2025-08-07"
+__updated__ = "2025-08-11"
 
 
 # -----------------------------------------------------------------------------
@@ -149,7 +147,6 @@ class SzUnhandledError(SzUnrecoverableError):
 
 # -----------------------------------------------------------------------------
 # Determine Exception based on Senzing reason code.
-# Reference: https://senzing.zendesk.com/hc/en-us/articles/360026678133-Engine-Error-codes
 # -----------------------------------------------------------------------------
 
 # fmt: off

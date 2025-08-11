@@ -15,9 +15,7 @@ __all__ = [
     "SZ_VERBOSE_LOGGING",
     "SZ_WITHOUT_INFO",
 ]
-__version__ = "4.0.0"
-__date__ = "2025-08-05"
-__updated__ = "2025-08-05"
+__updated__ = "2025-08-11"
 
 # -----------------------------------------------------------------------------
 # Constant helper values useful for flags

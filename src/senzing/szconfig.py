@@ -2,8 +2,6 @@
 szconfig.py is the abstract class for all implementations of SzConfig.
 """
 
-# TODO: Determine specific SzErrors, Errors for "Raises:" documentation.
-
 from abc import ABC, abstractmethod
 
 from .szhelpers import construct_help
@@ -11,9 +9,7 @@ from .szhelpers import construct_help
 # Metadata
 
 __all__ = ["SzConfig"]
-__version__ = "4.0.1"
-__date__ = "2025-08-05"
-__updated__ = "2025-08-07"
+__updated__ = "2025-08-11"
 
 # -----------------------------------------------------------------------------
 # SzConfig
@@ -41,7 +37,7 @@ class SzConfig(ABC):
             str: A string containing a JSON Document representation of the Senzing SzConfig object.
 
         Raises:
-            TypeError: Incorrect datatype of input parameter.
+            SzError
 
         .. collapse:: Example:
 
@@ -67,7 +63,7 @@ class SzConfig(ABC):
             str: A string containing a JSON document listing all of the data sources.
 
         Raises:
-            TypeError: Incorrect datatype of input parameter.
+            SzError
 
         .. collapse:: Example:
 
@@ -97,7 +93,7 @@ class SzConfig(ABC):
             str: A string containing a JSON document listing the newly created data source.
 
         Raises:
-            TypeError: Incorrect datatype of input parameter.
+            SzError
 
         .. collapse:: Example:
 
@@ -129,7 +125,7 @@ class SzConfig(ABC):
             data_source_code (str): Name of data source code to delete.
 
         Raises:
-            TypeError: Incorrect datatype of input parameter.
+            SzError
 
         .. collapse:: Example:
 
