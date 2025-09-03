@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning].
 
 ### Added in 4.0.1
 
-- Additional errors in szerror.py 
+- Additional errors in szerror.py
 
 ## [4.0.0] - 2025-08-05
 
