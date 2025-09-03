@@ -29,7 +29,7 @@ clean-osarch-specific:
 .PHONY: coverage-osarch-specific
 coverage-osarch-specific: export SENZING_LOG_LEVEL=TRACE
 coverage-osarch-specific:
-	@$(activate-venv); pytest --cov=src --cov-report=xml  $(shell git ls-files '*.py')
+	@$(activate-venv); pytest --cov=src --cov-report=xml $(shell git ls-files '*.py')
 	@$(activate-venv); coverage html
 	@xdg-open $(MAKEFILE_DIRECTORY)/htmlcov/index.html 1>/dev/null 2>&1
 
@@ -45,7 +45,7 @@ dependencies-for-documentation-osarch-specific:
 .PHONY: documentation-osarch-specific
 documentation-osarch-specific:
 	@$(activate-venv); cd docs; rm -rf build; make html
-	@xdg-open file://$(MAKEFILE_DIRECTORY)/docs/build/html/index.html  1>/dev/null 2>&1
+	@xdg-open file://$(MAKEFILE_DIRECTORY)/docs/build/html/index.html 1>/dev/null 2>&1
 
 
 .PHONY: hello-world-osarch-specific
