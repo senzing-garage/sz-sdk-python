@@ -104,6 +104,9 @@ class SzEngine(ABC):
         """
         The `count_redo_records` method gets the number of redo records pending processing.
 
+        WARNING: When there is a large number of redo records, this is an expensive call.
+        Hint: If processing redo records, use result of `get_redo_record` to manage looping.
+
         Returns:
             int: The number of redo records in Senzing's redo queue.
 
