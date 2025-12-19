@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+### Changed in Unreleased
+
+- Removed support for Python 3.9
+- Added support for Python 3.13
+
 ## [4.0.4] - 2025-10-02
 
 ### Changed in 4.0.4
