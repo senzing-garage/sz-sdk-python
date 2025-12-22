@@ -75,7 +75,7 @@ lint = [
   "isort==7.0.0",
   "mypy==1.19.0",
   "pylint-per-file-ignores==3.1.0",
-  "pylint==4.0.0",
+  "pylint==4.0.4",
 ]
 test = [
   "coverage==7.10.7",
