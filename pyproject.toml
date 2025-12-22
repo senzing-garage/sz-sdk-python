@@ -1,6 +1,6 @@
 [project]
 name = "senzing"
-version = "4.0.4"
+version = "4.1.0"
 description = "Python SDK method definitions"
 authors = [{ name = "senzing", email = "support@senzing.com" }]
 readme = "README.md"

@@ -19,7 +19,7 @@ the recommendation is not to use it yet.
 The Senzing `sz-sdk-python` package contains the abstract base class from which
 implementations of the Senzing Python SDK are derived.
 
-[![Python 3.11 Badge]][Python 3.11]
+[![Python 3.13 Badge]][Python 3.13]
 [![PEP8 Badge]][PEP8]
 [![PyPI version Badge]][PyPi version]
 [![Downloads Badge]][Downloads]
@@ -53,8 +53,8 @@ implementations of the Senzing Python SDK are derived.
 [PEP8]: https://www.python.org/dev/peps/pep-0008/
 [PyPI version Badge]: https://badge.fury.io/py/senzing.svg
 [PyPi version]: https://badge.fury.io/py/senzing
-[Python 3.11 Badge]: https://img.shields.io/badge/python-3.11-blue.svg
-[Python 3.11]: https://www.python.org/downloads/release/python-3110/
+[Python 3.13 Badge]: https://img.shields.io/badge/python-3.13-blue.svg
+[Python 3.13]: https://www.python.org/downloads/release/python-3130/
 [Senzing Garage]: https://github.com/senzing-garage
 [Senzing Quick Start guides]: https://docs.senzing.com/quickstart/
 [Senzing]: https://senzing.com/
