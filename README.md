@@ -35,8 +35,6 @@ implementations of the Senzing Python SDK are derived.
 1. [Development]
 1. [Errors]
 1. [Examples]
-1. Related artifacts:
-    1. [DockerHub]
 1. [sz-sdk-python package reference]
 
 [Coverage badge]: https://img.shields.io/badge/dynamic/json?color=brightgreen&label=coverage&query=%24.message&url=https%3A%2F%2Fraw.githubusercontent.com%2Fsenzing-garage%2Fsz-sdk-python%2Fpython-coverage-comment-action-data%2Fendpoint.json
