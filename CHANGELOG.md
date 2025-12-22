@@ -9,8 +9,15 @@ and this project adheres to [Semantic Versioning].
 
 ### Changed in Unreleased
 
-- Removed support for Python 3.9
-- Added support for Python 3.13
+## [4.1.0] - 2025-12-22
+
+### Added in 4.1.0
+
+- Support for Python 3.13
+
+### Removed in 4.1.0
+
+- Support for Python 3.9
 
 ## [4.0.4] - 2025-10-02
 
