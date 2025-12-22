@@ -40,7 +40,6 @@ implementations of the Senzing Python SDK are derived.
 [Coverage badge]: https://img.shields.io/badge/dynamic/json?color=brightgreen&label=coverage&query=%24.message&url=https%3A%2F%2Fraw.githubusercontent.com%2Fsenzing-garage%2Fsz-sdk-python%2Fpython-coverage-comment-action-data%2Fendpoint.json
 [Coverage]: https://htmlpreview.github.io/?https://github.com/senzing-garage/sz-sdk-python/blob/python-coverage-comment-action-data/htmlcov/index.html
 [Development]: docs/development.md
-[DockerHub]: https://hub.docker.com/r/senzing/sz-sdk-python
 [Downloads Badge]: https://static.pepy.tech/badge/senzing
 [Downloads]: https://pepy.tech/project/senzing
 [Errors]: docs/errors.md
