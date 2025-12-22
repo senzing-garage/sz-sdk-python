@@ -96,6 +96,7 @@ The SDK defines abstract base classes that implementations must fulfill:
 ### Error Hierarchy
 
 `src/senzing/szerror.py` contains the exception hierarchy (auto-generated):
+
 - `SzError` - Base exception
 - `SzBadInputError` - User input errors (SzNotFoundError, SzUnknownDataSourceError)
 - `SzRetryableError` - Transient errors that can be retried
