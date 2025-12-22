@@ -2,10 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog], [markdownlint],
-and this project adheres to [Semantic Versioning].
+The changelog format is based on [Keep a Changelog] and [CommonMark].
+This project adheres to [Semantic Versioning].
 
 ## [Unreleased]
+
+### Changed in Unreleased
+
+## [4.1.0] - 2025-12-22
+
+### Added in 4.1.0
+
+- Support for Python 3.13
+
+### Removed in 4.1.0
+
+- Support for Python 3.9
 
 ## [4.0.4] - 2025-10-02
 
@@ -344,6 +356,6 @@ and this project adheres to [Semantic Versioning].
 
 - Initial work
 
-[Keep a Changelog]: https://keepachangelog.com/en/1.0.0/
-[markdownlint]: https://dlaa.me/markdownlint/
-[Semantic Versioning]: https://semver.org/spec/v2.0.0.html
+[CommonMark]: https://commonmark.org/
+[Keep a Changelog]: https://keepachangelog.com/
+[Semantic Versioning]: https://semver.org/

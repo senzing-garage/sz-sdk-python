@@ -8,7 +8,7 @@ Although this GitHub repository may help you understand an approach to using Sen
 it's not considered to be "production ready" and is not considered to be part of the Senzing product.
 Heck, it may not even be appropriate for your application of Senzing!
 
-## :warning: WARNING: sz-sdk-python is still in development :warning: _
+## :warning: WARNING: sz-sdk-python is still in development :warning: \_
 
 At the moment, this is "work-in-progress" with Semantic Versions of `0.n.x`.
 Although it can be reviewed and commented on,
@@ -19,7 +19,7 @@ the recommendation is not to use it yet.
 The Senzing `sz-sdk-python` package contains the abstract base class from which
 implementations of the Senzing Python SDK are derived.
 
-[![Python 3.11 Badge]][Python 3.11]
+[![Python 3.13 Badge]][Python 3.13]
 [![PEP8 Badge]][PEP8]
 [![PyPI version Badge]][PyPi version]
 [![Downloads Badge]][Downloads]
@@ -35,14 +35,11 @@ implementations of the Senzing Python SDK are derived.
 1. [Development]
 1. [Errors]
 1. [Examples]
-1. Related artifacts:
-    1. [DockerHub]
 1. [sz-sdk-python package reference]
 
 [Coverage badge]: https://img.shields.io/badge/dynamic/json?color=brightgreen&label=coverage&query=%24.message&url=https%3A%2F%2Fraw.githubusercontent.com%2Fsenzing-garage%2Fsz-sdk-python%2Fpython-coverage-comment-action-data%2Fendpoint.json
 [Coverage]: https://htmlpreview.github.io/?https://github.com/senzing-garage/sz-sdk-python/blob/python-coverage-comment-action-data/htmlcov/index.html
 [Development]: docs/development.md
-[DockerHub]: https://hub.docker.com/r/senzing/sz-sdk-python
 [Downloads Badge]: https://static.pepy.tech/badge/senzing
 [Downloads]: https://pepy.tech/project/senzing
 [Errors]: docs/errors.md
@@ -53,8 +50,8 @@ implementations of the Senzing Python SDK are derived.
 [PEP8]: https://www.python.org/dev/peps/pep-0008/
 [PyPI version Badge]: https://badge.fury.io/py/senzing.svg
 [PyPi version]: https://badge.fury.io/py/senzing
-[Python 3.11 Badge]: https://img.shields.io/badge/python-3.11-blue.svg
-[Python 3.11]: https://www.python.org/downloads/release/python-3110/
+[Python 3.13 Badge]: https://img.shields.io/badge/python-3.13-blue.svg
+[Python 3.13]: https://www.python.org/downloads/release/python-3130/
 [Senzing Garage]: https://github.com/senzing-garage
 [Senzing Quick Start guides]: https://docs.senzing.com/quickstart/
 [Senzing]: https://senzing.com/
