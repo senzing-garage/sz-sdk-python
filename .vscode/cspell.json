@@ -147,6 +147,7 @@
     "szconfigmanager",
     "SZCONFIGMGR",
     "szconstants",
+    "SZCORE",
     "szdiagnostic",
     "szengine",
     "szengineflags",
