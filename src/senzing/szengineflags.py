@@ -34,6 +34,7 @@ class SzEngineFlags(IntFlag):
 
     SZ_INCLUDE_FEATURE_SCORES = 1 << 26
     SZ_INCLUDE_MATCH_KEY_DETAILS = 1 << 34
+    SZ_INCLUDE_FEATURE_HASHES = 1 << 41
 
     # Flags for exporting entity data.
 
