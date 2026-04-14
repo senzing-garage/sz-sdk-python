@@ -9,6 +9,8 @@ This project adheres to [Semantic Versioning].
 
 ### Changed in Unreleased
 
+-
+
 ## [4.1.1] - 2026-04-14
 
 ### Added in 4.1.1
