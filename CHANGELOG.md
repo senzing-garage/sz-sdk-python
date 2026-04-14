@@ -9,6 +9,14 @@ This project adheres to [Semantic Versioning].
 
 ### Changed in Unreleased
 
+-
+
+## [4.1.1] - 2026-04-14
+
+### Added in 4.1.1
+
+- Updated szerror.py and szengineflags.py
+
 ## [4.1.0] - 2025-12-22
 
 ### Added in 4.1.0
