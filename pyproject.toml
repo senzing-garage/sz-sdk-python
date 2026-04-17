@@ -38,7 +38,7 @@ all = [
 development = [
   "build==1.4.2",
   "coverage==7.13.5",
-  "cryptography==46.0.5",
+  "cryptography==46.0.6",
   "orjson==3.11.7",
   "psutil==7.2.2",
   "pytest-cov==7.1.0",
@@ -49,7 +49,7 @@ development = [
   "wheel==0.46.3",
 ]
 documentation = [
-  "autodocsumm==0.2.14; python_version > '3.11'",
+  "autodocsumm==0.2.15; python_version > '3.11'",
   "myst_parser==4.0.1; python_version > '3.11'",
   "sphinx-autodoc-typehints==3.5.1; python_version > '3.11'",
   "sphinx-gallery==0.20.0; python_version > '3.11'",
