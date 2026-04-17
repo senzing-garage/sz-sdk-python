@@ -49,7 +49,7 @@ development = [
   "wheel==0.46.3",
 ]
 documentation = [
-  "autodocsumm==0.2.14; python_version > '3.11'",
+  "autodocsumm==0.2.15; python_version > '3.11'",
   "myst_parser==4.0.1; python_version > '3.11'",
   "sphinx-autodoc-typehints==3.5.1; python_version > '3.11'",
   "sphinx-gallery==0.20.0; python_version > '3.11'",
