@@ -38,12 +38,12 @@ all = [
 development = [
   "build==1.4.2",
   "coverage==7.13.5",
-  "cryptography==46.0.6",
+  "cryptography==46.0.7",
   "orjson==3.11.8",
   "psutil==7.2.2",
   "pytest-cov==7.1.0",
   "pytest-schema==0.1.2",
-  "pytest==9.0.2",
+  "pytest==9.0.3",
   "twine==6.2.0",
   "virtualenv==21.2.0",
   "wheel==0.46.3",
@@ -79,7 +79,7 @@ lint = [
 ]
 test = [
   "coverage==7.13.5",
-  "pytest==9.0.2",
+  "pytest==9.0.3",
   "senzing-core==1.0.3",
   "senzing-grpc==0.5.13",
 ]
