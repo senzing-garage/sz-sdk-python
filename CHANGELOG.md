@@ -11,6 +11,12 @@ This project adheres to [Semantic Versioning].
 
 -
 
+## [4.1.2] - 2026-05-07
+
+### Changed in 4.1.2
+
+- Updated szerror.py
+
 ## [4.1.1] - 2026-04-14
 
 ### Added in 4.1.1
