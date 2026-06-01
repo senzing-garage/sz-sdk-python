@@ -37,7 +37,7 @@ all = [
 ]
 development = [
   "build==1.5.0",
-  "coverage==7.13.5",
+  "coverage==7.14.0",
   "cryptography==48.0.0",
   "orjson==3.11.9",
   "psutil==7.2.2",
@@ -78,7 +78,7 @@ lint = [
   "pylint==4.0.5",
 ]
 test = [
-  "coverage==7.13.5",
+  "coverage==7.14.0",
   "pytest==9.0.3",
   "senzing-core==1.0.3",
   "senzing-grpc==0.5.13",
