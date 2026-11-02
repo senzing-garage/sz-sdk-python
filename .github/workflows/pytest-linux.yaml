@@ -33,7 +33,8 @@ jobs:
     needs: sdk-versions
     permissions:
       contents: read
-    runs-on: ${{ matrix.os }}
+    # ubuntu-latest (26.04) hangs installing the Senzing SDK; matrix.os is kept so required check names stay unchanged.
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
